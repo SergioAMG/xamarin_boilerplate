@@ -16,4 +16,10 @@
     <Folder Include="Controls\" />
     <Folder Include="Effects\" />
   </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Views\Popups\LoadingPopup.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
 </Project>

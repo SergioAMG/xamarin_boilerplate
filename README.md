@@ -41,6 +41,7 @@ At the same time, enables the passing of parameters and actions creating a more 
 
 ##### Navigation Service
 Purpose: To provide a better navigation system based on viewmodels and registered pages. (Supports parameters and actions)
++ Features
 	+ Configure (page key, page type)
 	+ SetRootPage (page key, viewmodel)
 	+ GoBackAsync()
@@ -59,8 +60,11 @@ Purpose: To provide a better navigation system based on viewmodels and registere
 	+ GetPage(page key, parameter, action)
 	+ ViewModelByKey (page key)
 	+ DisplayAlertController(values) (causes a crash in iOS 12+)
+	
 ##### Base View Model
 Purpose: To share common behaviors across multiple viewmodels.
+
++ Features
 	+ Title
 	+ Subtitle
 	+ Navigation Service
@@ -68,22 +72,28 @@ Purpose: To share common behaviors across multiple viewmodels.
 	+ IsTitleCentered
 	+ CallBackAction
 	+ OnPropertyChanged
+
 ##### Command Extended
 Purpose: To prevent users to double-tap a button in a screen.
++ Features
 	+ CommandManager
 	+ CanExecute()
 	+ ExecuteTaskCommand()
 	+ ExecuteAction()
 	+ ExecuteSelectedItemCommand()
+
 ##### Base Content Page
 Purpose: To extend content page adding support for extra properties, commands and events on Android.
+ + Features
     + EnableHardwareBackButtonOverride
     + EnableLogicalBackButtonOverride
 	+ HardwareBackButtonCommand
 	+ LogicalBackButtonCommand
 	+ HasNavigationBar
+
 ##### Loading Popup
 Purpose: To show the users a visual indication that the app is doing some work in the background.
++ Features
     * Customizable UI
     * ShowLoadingIndicator()
 	* HideLoadingIndicator()

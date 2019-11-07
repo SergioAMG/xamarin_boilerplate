@@ -1,4 +1,4 @@
-![](https://git.epam.com/sergio_martinez/xamarinboilerplate/blob/dev/epam_logotype.PNG)
+![](https://git.epam.com/sergio_martinez/xamarinboilerplate/raw/dev/epam_logotype.PNG)
 
 **Xamarin Boilerplate**
 =============

@@ -1,3 +1,5 @@
+![](https://git.epam.com/sergio_martinez/xamarinboilerplate/blob/dev/epam_logotype.PNG)
+
 **Xamarin Boilerplate**
 =============
 ### Last updated: 07 November 2019 v 0.0.1

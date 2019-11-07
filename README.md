@@ -21,7 +21,12 @@ Source Code  | Repository  | Branch
 
 ### General Boileplate Content & Description
 
-#### a) List of External Libraries:
+#### b) About:
+This boilerplate contains the basic structure for a custom navigation system that replaces the existing Xamarin navigation approach. 
+This new method enables the developers to navigate between pages from the corresponding viewmodels.
+At the same time, enables the passing of parameters and actions creating a more robust way of organizing the navigation paradigm in future apps.
+
+#### b) List of External Libraries:
 | Library  | Target  | Version |  Purpose |
 | ------------ | ------------ | ------------ | ------------ |
 |  AutoFac  | All Projects  | v 4.9.4  |  Injection of Containers |
@@ -31,7 +36,7 @@ Source Code  | Repository  | Branch
 | Xamarin Essentials  |  All Projects |  v 1.3.1 | Provide Device Access Tools  |
 | Xamarin Forms  | All Projects  |  v 4.3.0.947036 |  Provide support for Mobility Framework  |
 
-#### b) List of Features in Release:
+#### c) List of Features in Release:
 
 ##### Navigation Service
 	+ Purpose: *To provide a better navigation system based on viewmodels and registered pages. (Supports parameters and actions)*

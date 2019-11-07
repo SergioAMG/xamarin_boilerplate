@@ -9,6 +9,7 @@ using Xamarin.Forms;
 using XamarinBoilerplate.Interfaces;
 using XamarinBoilerplate.ViewModels;
 using XamarinBoilerplate.Views;
+using XamarinBoilerplate.Views.Popups;
 
 namespace XamarinBoilerplate.Services
 {
@@ -353,7 +354,7 @@ namespace XamarinBoilerplate.Services
 
         public async Task ShowLoadingIndicator()
         {
-            //await OpenPopUp(new LoadingPopUp());
+            await OpenPopUp(new LoadingPopup());
         }
 
         public async Task HideLoadingIndicator()

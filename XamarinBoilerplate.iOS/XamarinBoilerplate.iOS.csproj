@@ -60,8 +60,11 @@
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Effects\ImageTintEffect.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
+    <Compile Include="Renderers\ExtendedButtonRenderer.cs" />
+    <Compile Include="Renderers\ExtendedLabelRenderer.cs" />
     <None Include="Entitlements.plist" />
     <None Include="Info.plist" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -135,5 +138,32 @@
       <Project>{9449A792-6E42-4FBC-8B2F-C64063CA9DAF}</Project>
       <Name>XamarinBoilerplate</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\baseline_lens_black_18%401x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\baseline_lens_black_18%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\baseline_lens_black_18%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\baseline_panorama_fish_eye_black_18%401x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\baseline_panorama_fish_eye_black_18%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\baseline_panorama_fish_eye_black_18%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\techsupport.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\presentation.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\checklist.jpg" />
   </ItemGroup>
 </Project>

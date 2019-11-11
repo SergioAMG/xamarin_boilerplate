@@ -6,6 +6,21 @@
              mc:Ignorable="d"
              x:Class="XamarinBoilerplate.App">
     <Application.Resources>
+        <ResourceDictionary>
+            <Color x:Key="White">#FFFFFF</Color>
+            <Color x:Key="Black">#000000</Color>
+            <Color x:Key="Blue">#007CFF</Color>
+            <Color x:Key="Gray">#737373</Color>
+            <Color x:Key="PageBackgroundColor">#FFFFFF</Color>
 
+            <Style x:Key="WizzardStepTitleLabel" TargetType="Label">
+                <Setter Property="FontSize" Value="25" />
+                <Setter Property="TextColor" Value="{DynamicResource Blue}" />
+            </Style>
+            <Style x:Key="WizzardStepTextLabel" TargetType="Label">
+                <Setter Property="FontSize" Value="16" />
+                <Setter Property="TextColor" Value="{DynamicResource Gray}" />
+            </Style>
+        </ResourceDictionary>
     </Application.Resources>
 </Application>

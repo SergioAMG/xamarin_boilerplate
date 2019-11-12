@@ -1,8 +1,9 @@
-﻿using System.Threading.Tasks;
+﻿using Xamarin.Forms;
+using System.Threading.Tasks;
 using System.Windows.Input;
-using XamarinBoilerplate.Enums;
 using XamarinBoilerplate.Utils;
 using XamarinBoilerplate.Views.Wizzard;
+using XamarinBoilerplate.Enums;
 
 namespace XamarinBoilerplate.ViewModels.Wizzard
 {
@@ -12,11 +13,11 @@ namespace XamarinBoilerplate.ViewModels.Wizzard
         public ICommand _nextTutorialCommand;
         public ICommand _lastTutorialCommand;
 
-        public bool IsScrollViewEnabled
+        public StackOrientation MainContainerOrientation
         {
             get
             {
-                return DeviceManager.Orientation == Devices.Landscape.ToString();
+                return DeviceManager.Orientation == Devices.Landscape.ToString() ? StackOrientation.Horizontal : StackOrientation.Vertical;
             }
         }
 
@@ -61,8 +62,7 @@ namespace XamarinBoilerplate.ViewModels.Wizzard
 
         public void RefreshOrientation()
         {
-            OnPropertyChanged(nameof(IsScrollViewEnabled));
+            OnPropertyChanged(nameof(MainContainerOrientation));
         }
-
     }
 }

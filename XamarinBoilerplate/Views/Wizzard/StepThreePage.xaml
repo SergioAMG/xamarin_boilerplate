@@ -21,13 +21,16 @@
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="100*" />
                 </Grid.ColumnDefinitions>
-                <ScrollView IsEnabled="{Binding IsScrollViewEnabled}">
-                    <StackLayout VerticalOptions="Center" Grid.Row="0" Grid.Column="0" Padding="30,0" Spacing="0">
-                        <Image VerticalOptions="Center" HorizontalOptions="Center" HeightRequest="400" WidthRequest="400" Aspect="AspectFill" Source="checklist.jpg"/>
+                <StackLayout VerticalOptions="Center" Grid.Row="0" Grid.Column="0" Padding="30,0" Spacing="0" Orientation="{Binding MainContainerOrientation}">
+                    <Image VerticalOptions="Center" HorizontalOptions="Center" HeightRequest="335" WidthRequest="335" Aspect="AspectFill" Source="checklist.jpg"/>
+                    <StackLayout Orientation="Vertical" VerticalOptions="Center">
                         <Label Text="Aenean hendrerit" VerticalTextAlignment="Center" VerticalOptions="Center" HorizontalTextAlignment="Start" Style="{DynamicResource WizzardStepTitleLabel}" TextDecorations="Underline" Margin="0,0,0,10" />
                         <controls:ExtendedLabel JustifyText="True" Style="{DynamicResource WizzardStepTextLabel}" Text="Duis ut ultrices neque, sed dignissim nulla. Donec est ipsum, elementum a dolor vel, ornare aliquet urna. In elementum massa et sodales imperdiet. Ut at nisl sed purus commodo placerat congue sed quam." VerticalTextAlignment="Center" VerticalOptions="Center" />
                     </StackLayout>
-                </ScrollView>
+                    <StackLayout.GestureRecognizers>
+                        <SwipeGestureRecognizer Direction="Right" Command="{Binding BackTutorialCommand}" />
+                    </StackLayout.GestureRecognizers>
+                </StackLayout>
                 <!-- TODO: Add support for IOS 11 -->
                 <Grid ColumnSpacing="0" RowSpacing="0" HorizontalOptions="FillAndExpand" VerticalOptions="EndAndExpand" Grid.Row="1" Grid.Column="0" Padding="30,0">
                     <Grid.ColumnDefinitions>

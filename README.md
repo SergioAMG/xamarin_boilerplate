@@ -184,5 +184,6 @@ Purpose: The goal of unit testing is to segregate each part of the program and t
 #### d) Overall Status of App with latest Release:
 **Date 11/11/2019**
 **Relase v 0.0.2**
+
 The application now contains a basic Wizzard sample with images and text in order to present initial information about how to use the app. Several customizations have been done in order to create a unified cross-platform experience. Still in process of importing all functionality created for the IFT demo prototype and create the configuration required for supporting IOS 11 device.
 Now the application is supporting landscape and portrait mode in both platforms iOS & Android. Also, Unit Testing project has been added to the main Solution enabling the developers to test different units of the system in order to test different features and implementation.

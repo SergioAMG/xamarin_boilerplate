@@ -39,6 +39,11 @@ At the same time, enables the passing of parameters and actions creating a more 
 | Xamarin Android Support Core Utils  | Android  | v 28.0.0.3  |  Support Library |
 | Xamarin Essentials  |  All Projects |  v 1.3.1 | Provide Device Access Tools  |
 | Xamarin Forms  | All Projects  |  v 4.3.0.947036 |  Provide support for Mobility Framework  |
+| NUnit Framework  | Unit Testing  |  v 3.12.0.0 |  Enable Unit Testing in the project  |
+| NUnit TestAdapter  | Unit Testing  |  v 3.15.1 |  Enable Unit Testing in Visual Studio 2017+  |
+| Shouldly  | Unit Testing  |  v 3.0.2 |  Enable Assertions inside the Unit Testing project  |
+| MSTest.TestAdapter  | Unit Testing  |  v 1.3.2 |  Enable Unit Testing in Visual Studio  |
+| MSTest.TestFramework  | Unit Testing  |  v 1.3.2 |  Enable Unit Testing in Visual Studio  |
 
 #### c) List of Features per Release:
 

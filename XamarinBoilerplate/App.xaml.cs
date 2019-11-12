@@ -2,6 +2,9 @@
 using Xamarin.Forms;
 using XamarinBoilerplate.Interfaces;
 using XamarinBoilerplate.Services;
+using XamarinBoilerplate.Utils;
+using XamarinBoilerplate.ViewModels.Wizzard;
+using XamarinBoilerplate.Views.Wizzard;
 
 namespace XamarinBoilerplate
 {
@@ -14,12 +17,26 @@ namespace XamarinBoilerplate
         public App()
         {
             InitializeComponent();
-            SetScreenDimensions();
             RegisterPages();
+            IdentifyDevice();
+            LaunchApp();
+        }
+
+        public void LaunchApp()
+        {
+            NavigationService.SetRootPage(nameof(StepOnePage), new StepOneViewModel());
         }
 
         private void RegisterPages()
         {
+            NavigationService.Configure(nameof(StepOnePage), typeof(StepOnePage));
+            NavigationService.Configure(nameof(StepTwoPage), typeof(StepTwoPage));
+            NavigationService.Configure(nameof(StepThreePage), typeof(StepThreePage));
+
+            NavigationService.BindViewModel<StepOneViewModel, StepOnePage>();
+            NavigationService.BindViewModel<StepTwoViewModel, StepTwoPage>();
+            NavigationService.BindViewModel<StepThreeViewModel, StepThreePage>();
+
             /*
             NavigationService.Configure(nameof(NoPermissionsPage), typeof(NoPermissionsPage));
             NavigationService.Configure(nameof(DashboardPage), typeof(DashboardPage));
@@ -28,7 +45,6 @@ namespace XamarinBoilerplate
             NavigationService.Configure(nameof(DataSimulatorPage), typeof(DataSimulatorPage));
             NavigationService.Configure(nameof(ContactPage), typeof(ContactPage));
             NavigationService.Configure(nameof(CoverageMapPage), typeof(CoverageMapPage));
-            NavigationService.Configure(nameof(StepOnePage), typeof(StepOnePage));
             NavigationService.Configure(nameof(StepTwoPage), typeof(StepTwoPage));
             NavigationService.Configure(nameof(StepThreePage), typeof(StepThreePage));
             NavigationService.Configure(nameof(LiveChatPage), typeof(LiveChatPage));
@@ -43,7 +59,6 @@ namespace XamarinBoilerplate
             NavigationService.BindViewModel<DataSimulatorViewModel, DataSimulatorPage>();
             NavigationService.BindViewModel<ContactViewModel, ContactPage>();
             NavigationService.BindViewModel<CoverageMapViewModel, CoverageMapPage>();
-            NavigationService.BindViewModel<StepOneViewModel, StepOnePage>();
             NavigationService.BindViewModel<StepTwoViewModel, StepTwoPage>();
             NavigationService.BindViewModel<StepThreeViewModel, StepThreePage>();
             NavigationService.BindViewModel<LiveChatViewModel, LiveChatPage>();
@@ -54,10 +69,14 @@ namespace XamarinBoilerplate
             */
         }
 
-        public void SetScreenDimensions()
+        public void IdentifyDevice()
         {
-            ScreenWidth = DeviceDisplay.MainDisplayInfo.Width;
-            ScreenHeight = DeviceDisplay.MainDisplayInfo.Height;
+            DeviceManager.Platform = DeviceInfo.Platform.ToString();
+            DeviceManager.Manufacturer = DeviceInfo.Manufacturer;
+            DeviceManager.Version = DeviceInfo.VersionString;
+            DeviceManager.Idiom = DeviceInfo.Idiom.ToString();
+            DeviceManager.Device = DeviceInfo.Model;
+            DeviceManager.Orientation = DeviceDisplay.MainDisplayInfo.Orientation.ToString();
         }
 
         protected override void OnStart()

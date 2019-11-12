@@ -4,6 +4,8 @@
     {
         iOS,
         Android,
-        Tablet
+        Tablet,
+        Landscape,
+        Portrait
     }
 }

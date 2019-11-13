@@ -36,12 +36,12 @@ namespace XamarinBoilerplate.ViewModels.Wizzard
             }
         }
 
-        private async Task ExecuteBackTutorialCommandAsync()
+        public async Task ExecuteBackTutorialCommandAsync()
         {
             await NavigationService.GoBackAsync();
         }
 
-        private async Task ExecuteNextTutorialCommandAsync()
+        public async Task ExecuteNextTutorialCommandAsync()
         {
             await NavigationService.NavigateAsync(nameof(StepThreePage), null, true);
         }

@@ -45,18 +45,18 @@ namespace XamarinBoilerplate.ViewModels.Wizzard
             }
         }
 
-        private async Task ExecuteBackTutorialCommandAsync()
+        public async Task ExecuteBackTutorialCommandAsync()
         {
             await NavigationService.GoBackAsync();
         }
 
-        private async Task ExecuteDoneTutorialCommandAsync()
+        public async Task ExecuteDoneTutorialCommandAsync()
         {
             // TODO: Implement Go to Dashboard by setting RootPage
             // await NavigationService.SetRootPage(Pagename, ViewModel);
         }
 
-        private async Task ExecuteStartTutorialCommandAsync()
+        public async Task ExecuteStartTutorialCommandAsync()
         {
             await NavigationService.NavigateAsync(nameof(StepOnePage), null, true);
         }

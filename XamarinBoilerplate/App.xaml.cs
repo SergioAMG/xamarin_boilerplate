@@ -18,7 +18,10 @@ namespace XamarinBoilerplate
         {
             InitializeComponent();
             RegisterPages();
-            IdentifyDevice();
+            if (!UnitTestingManager.IsRunningFromNUnit)
+            {
+                IdentifyDevice();
+            }
             LaunchApp();
         }
 

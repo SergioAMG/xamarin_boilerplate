@@ -2,7 +2,7 @@
 
 **Xamarin Boilerplate**
 =============
-### Last updated: 07 November 2019 v 0.0.1
+### Last updated: 13 November 2019 v 0.0.3
 
 #### Authors, Log and Info:
 
@@ -14,6 +14,7 @@ Version  | Author  | Action | Date
 ------------- | -------------| -------------| -------------
 v 0.0.1| EPAM Systems | File Creation | 07/11/2019
 v 0.0.2| EPAM Systems | File Modification | 11/11/2019
+v 0.0.3| EPAM Systems | File Modification | 13/11/2019
 
 Source Code  | Repository  | Branch
 ------------- | -------------| -------------
@@ -44,6 +45,12 @@ At the same time, enables the passing of parameters and actions creating a more 
 | Shouldly  | Unit Testing  |  v 3.0.2 |  Enable Assertions inside the Unit Testing project  |
 | MSTest.TestAdapter  | Unit Testing  |  v 1.3.2 |  Enable Unit Testing in Visual Studio  |
 | MSTest.TestFramework  | Unit Testing  |  v 1.3.2 |  Enable Unit Testing in Visual Studio  |
+| NSubstitute  | Unit Testing  |  v 4.2.1 |  Sustitute for .NET Mocking Libraries  |
+| NUnit  | Unit Testing  |  v 3.12.0 |  Unit Testing Framework  |
+| Castle.Core  | Unit Testing  |  v 4.4.0 |  Dynamic Proxy and Dictionary Adapter  |
+| Xamarin.Forms.Mocks  | Unit Testing  |  v 3.5.0.2 |  Library for Runing XamarinForms in Unit Testing  |
+| System.Numerics.Vectors  | Unit Testing  |  v 4.5.0 |  Hardware-accelerated Numeric Types  |
+| System.Threading.Tasks.Extensions  | Unit Testing  |  v 4.3.0 |  Asynchronous Support  |
 
 #### c) List of Features per Release:
 
@@ -179,16 +186,30 @@ Purpose: To provide UI support in both orientation paradigms making the app to a
 	+ StepTwoPage (Landscpae & Portrait support)
 	+ StepThreePage (Landscpae & Portrait support)
 
-##### Unit Testing Project added to main Solution (v 0.0.2)
+##### Unit Testing Project added to Main Solution (v 0.0.2)
 Purpose: The goal of unit testing is to segregate each part of the program and test that the individual parts are working correctly. It isolates the smallest piece of testable software from the remainder of the code and determines whether it behaves exactly as you expect.
 + Features
     + StepOnePageViewModelTests
 	+ StepTwoPageViewModelTests
 	+ StepThreePageViewModelTests
 
+##### Unit Testing Manager (v 0.0.3)
+Purpose: The goal of unit testing manager is to indicate if the code is being ran by the app or the Unit Testing project.
++ Features
+    + IsRunningFromNUnit
+
+##### Unit Testing - Base View Model Test (v 0.0.3)
+Purpose: To provide a centralized way to commonly start and finish a test case.
++ Features
+    + MobileApp - Init() / Support for Xamarin Forms in Unit Testing
+	+ App Navigation can now be tested inside Test Cases
+	+ Initialize()
+	+ Cleanup()
+
 #### d) Overall Status of App with latest Release:
-**Date 11/11/2019**
-**Relase v 0.0.2**
+**Date 13/11/2019**
+**Relase v 0.0.3**
 
 The application now contains a basic Wizzard sample with images and text in order to present initial information about how to use the app. Several customizations have been done in order to create a unified cross-platform experience. Still in process of importing all functionality created for the IFT demo prototype and create the configuration required for supporting IOS 11 device.
 Now the application is supporting landscape and portrait mode in both platforms iOS & Android. Also, Unit Testing project has been added to the main Solution enabling the developers to test different units of the system in order to test different features and implementation.
+Proper Unit Testing has been added to the solution and now it is testing against the previously created view models (3).

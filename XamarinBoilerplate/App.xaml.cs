@@ -1,7 +1,11 @@
-﻿using Xamarin.Essentials;
+﻿using System.Globalization;
+using Xamarin.Essentials;
 using Xamarin.Forms;
 using XamarinBoilerplate.Interfaces;
 using XamarinBoilerplate.Services;
+using XamarinBoilerplate.Utils;
+using XamarinBoilerplate.ViewModels.Wizzard;
+using XamarinBoilerplate.Views.Wizzard;
 
 namespace XamarinBoilerplate
 {
@@ -14,50 +18,46 @@ namespace XamarinBoilerplate
         public App()
         {
             InitializeComponent();
-            SetScreenDimensions();
+            //SetLocalization();
             RegisterPages();
+            if (!UnitTestingManager.IsRunningFromNUnit)
+            {
+                IdentifyDevice();
+            }
+            LaunchApp();
+        }
+
+        public void LaunchApp()
+        {
+            NavigationService.SetRootPage(nameof(StepOnePage), new StepOneViewModel());
         }
 
         private void RegisterPages()
         {
-            /*
-            NavigationService.Configure(nameof(NoPermissionsPage), typeof(NoPermissionsPage));
-            NavigationService.Configure(nameof(DashboardPage), typeof(DashboardPage));
-            NavigationService.Configure(nameof(HomePage), typeof(HomePage));
-            NavigationService.Configure(nameof(MenuPage), typeof(MenuPage));
-            NavigationService.Configure(nameof(DataSimulatorPage), typeof(DataSimulatorPage));
-            NavigationService.Configure(nameof(ContactPage), typeof(ContactPage));
-            NavigationService.Configure(nameof(CoverageMapPage), typeof(CoverageMapPage));
             NavigationService.Configure(nameof(StepOnePage), typeof(StepOnePage));
             NavigationService.Configure(nameof(StepTwoPage), typeof(StepTwoPage));
             NavigationService.Configure(nameof(StepThreePage), typeof(StepThreePage));
-            NavigationService.Configure(nameof(LiveChatPage), typeof(LiveChatPage));
-            NavigationService.Configure(nameof(NewsReaderPage), typeof(NewsReaderPage));
-            NavigationService.Configure(nameof(CustomTabbedPage), typeof(CustomTabbedPage));
-            NavigationService.Configure(nameof(SearchPage), typeof(SearchPage));
-            NavigationService.Configure(nameof(LoginPage), typeof(LoginPage));
 
-            NavigationService.BindViewModel<NoPermissionsViewModel, NoPermissionsPage>();
-            NavigationService.BindViewModel<HomeViewModel, HomePage>();
-            NavigationService.BindViewModel<MenuViewModel, MenuPage>();
-            NavigationService.BindViewModel<DataSimulatorViewModel, DataSimulatorPage>();
-            NavigationService.BindViewModel<ContactViewModel, ContactPage>();
-            NavigationService.BindViewModel<CoverageMapViewModel, CoverageMapPage>();
             NavigationService.BindViewModel<StepOneViewModel, StepOnePage>();
             NavigationService.BindViewModel<StepTwoViewModel, StepTwoPage>();
             NavigationService.BindViewModel<StepThreeViewModel, StepThreePage>();
-            NavigationService.BindViewModel<LiveChatViewModel, LiveChatPage>();
-            NavigationService.BindViewModel<NewsReaderViewModel, NewsReaderPage>();
-            NavigationService.BindViewModel<CustomTabbedViewModel, CustomTabbedPage>();
-            NavigationService.BindViewModel<SearchViewModel, SearchPage>();
-            NavigationService.BindViewModel<LoginViewModel, LoginPage>();
-            */
         }
 
-        public void SetScreenDimensions()
+        public void IdentifyDevice()
         {
-            ScreenWidth = DeviceDisplay.MainDisplayInfo.Width;
-            ScreenHeight = DeviceDisplay.MainDisplayInfo.Height;
+            DeviceManager.Platform = DeviceInfo.Platform.ToString();
+            DeviceManager.Manufacturer = DeviceInfo.Manufacturer;
+            DeviceManager.Version = DeviceInfo.VersionString;
+            DeviceManager.Idiom = DeviceInfo.Idiom.ToString();
+            DeviceManager.Device = DeviceInfo.Model;
+            DeviceManager.Orientation = DeviceDisplay.MainDisplayInfo.Orientation.ToString();
+        }
+
+        public void SetLocalization()
+        {
+            //CultureInfo.CurrentCulture = new CultureInfo("en-US", false);
+            CultureInfo.CurrentCulture = new CultureInfo("es-MX", false);
+            Localization.AppResources.Culture = CultureInfo.CurrentCulture;
         }
 
         protected override void OnStart()

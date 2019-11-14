@@ -2,7 +2,7 @@
 
 **Xamarin Boilerplate**
 =============
-### Last updated: 13 November 2019 v 0.0.3
+### Last updated: 14 November 2019 v 0.0.4
 
 #### Authors, Log and Info:
 
@@ -15,6 +15,7 @@ Version  | Author  | Action | Date
 v 0.0.1| EPAM Systems | File Creation | 07/11/2019
 v 0.0.2| EPAM Systems | File Modification | 11/11/2019
 v 0.0.3| EPAM Systems | File Modification | 13/11/2019
+v 0.0.4| EPAM Systems | File Modification | 14/11/2019
 
 Source Code  | Repository  | Branch
 ------------- | -------------| -------------
@@ -206,10 +207,16 @@ Purpose: To provide a centralized way to commonly start and finish a test case.
 	+ Initialize()
 	+ Cleanup()
 
+##### Localization (v 0.0.4)
+Purpose: To provide support for multi languages by the use of Localization objects.
++ Features
+    + es-MX
+	+ en-US (default)
+
 #### d) Overall Status of App with latest Release:
-**Date 13/11/2019**
-**Relase v 0.0.3**
+**Date 14/11/2019**
+**Relase v 0.0.4**
 
 The application now contains a basic Wizzard sample with images and text in order to present initial information about how to use the app. Several customizations have been done in order to create a unified cross-platform experience. Still in process of importing all functionality created for the IFT demo prototype and create the configuration required for supporting IOS 11 device.
 Now the application is supporting landscape and portrait mode in both platforms iOS & Android. Also, Unit Testing project has been added to the main Solution enabling the developers to test different units of the system in order to test different features and implementation.
-Proper Unit Testing has been added to the solution and now it is testing against the previously created view models (3).
+Proper Unit Testing has been added to the solution and now it is testing against the previously created view models (3).Localization has been added to the solution, nos supporting two languages: es-MX & en-US.

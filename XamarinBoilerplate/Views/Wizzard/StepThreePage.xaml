@@ -10,7 +10,8 @@
         HasNavigationBar="False"
         BackgroundColor="{DynamicResource PageBackgroundColor}"
         xmlns:controls="clr-namespace:XamarinBoilerplate.Controls"
-        xmlns:effects="clr-namespace:XamarinBoilerplate.Effects">
+        xmlns:effects="clr-namespace:XamarinBoilerplate.Effects"
+        xmlns:utils="clr-namespace:XamarinBoilerplate.Utils">
     <ContentPage.Content>
         <StackLayout HorizontalOptions="FillAndExpand" Spacing="0">
             <Grid ColumnSpacing="0" RowSpacing="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
@@ -24,8 +25,8 @@
                 <StackLayout VerticalOptions="Center" Grid.Row="0" Grid.Column="0" Padding="30,0" Spacing="0" Orientation="{Binding MainContainerOrientation}">
                     <Image VerticalOptions="Center" HorizontalOptions="Center" HeightRequest="335" WidthRequest="335" Aspect="AspectFill" Source="checklist.jpg"/>
                     <StackLayout Orientation="Vertical" VerticalOptions="Center">
-                        <Label Text="Aenean hendrerit" VerticalTextAlignment="Center" VerticalOptions="Center" HorizontalTextAlignment="Start" Style="{DynamicResource WizzardStepTitleLabel}" TextDecorations="Underline" Margin="0,0,0,10" />
-                        <controls:ExtendedLabel JustifyText="True" Style="{DynamicResource WizzardStepTextLabel}" Text="Duis ut ultrices neque, sed dignissim nulla. Donec est ipsum, elementum a dolor vel, ornare aliquet urna. In elementum massa et sodales imperdiet. Ut at nisl sed purus commodo placerat congue sed quam." VerticalTextAlignment="Center" VerticalOptions="Center" />
+                        <Label Text="{utils:Localized WizzardStep3Title}" VerticalTextAlignment="Center" VerticalOptions="Center" HorizontalTextAlignment="Start" Style="{DynamicResource WizzardStepTitleLabel}" TextDecorations="Underline" Margin="0,0,0,10" />
+                        <controls:ExtendedLabel JustifyText="True" Style="{DynamicResource WizzardStepTextLabel}" Text="{utils:Localized WizzardStep3Text}" VerticalTextAlignment="Center" VerticalOptions="Center" />
                     </StackLayout>
                     <StackLayout.GestureRecognizers>
                         <SwipeGestureRecognizer Direction="Right" Command="{Binding BackTutorialCommand}" />
@@ -38,13 +39,13 @@
                         <ColumnDefinition Width="*" />
                         <ColumnDefinition Width="Auto" />
                     </Grid.ColumnDefinitions>
-                    <controls:ExtendedButton HorizontalTextAlignment="Start" Text="Back" TextColor="{DynamicResource Blue}" BackgroundColor="Transparent" BorderColor="Transparent" HorizontalOptions="Start" Grid.Row="0" Grid.Column="0" Command="{Binding BackTutorialCommand}" />
+                    <controls:ExtendedButton HorizontalTextAlignment="Start" Text="{utils:Localized Back}" TextColor="{DynamicResource Blue}" BackgroundColor="Transparent" BorderColor="Transparent" HorizontalOptions="Start" Grid.Row="0" Grid.Column="0" Command="{Binding BackTutorialCommand}" />
                     <StackLayout Orientation="Horizontal" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Spacing="15" Grid.Row="0" Grid.Column="1">
                         <ImageButton effects:TintEffect.TintColor="{DynamicResource Blue}" Source="baseline_panorama_fish_eye_black_18" BackgroundColor="Transparent" Command="{Binding StartTutorialCommand}" />
                         <ImageButton effects:TintEffect.TintColor="{DynamicResource Blue}" Source="baseline_panorama_fish_eye_black_18" BackgroundColor="Transparent" Command="{Binding BackTutorialCommand}" />
                         <ImageButton effects:TintEffect.TintColor="{DynamicResource Blue}" Source="baseline_lens_black_18.png" BackgroundColor="Transparent" />
                     </StackLayout>
-                    <controls:ExtendedButton HorizontalTextAlignment="End" Text="Done" TextColor="{DynamicResource Blue}" BackgroundColor="Transparent" BorderColor="Transparent" HorizontalOptions="End" Grid.Row="0" Grid.Column="2" Command="{Binding DoneTutorialCommand}" />
+                    <controls:ExtendedButton HorizontalTextAlignment="End" Text="{utils:Localized Done}" TextColor="{DynamicResource Blue}" BackgroundColor="Transparent" BorderColor="Transparent" HorizontalOptions="End" Grid.Row="0" Grid.Column="2" Command="{Binding DoneTutorialCommand}" />
                 </Grid>
             </Grid>
         </StackLayout>

@@ -83,9 +83,9 @@
                 <Label VerticalTextAlignment="End">
                     <Label.FormattedText>
                         <FormattedString>
-                            <Span Text="&lt; " TextColor="{DynamicResource EPAMBlue}" FontAttributes="Bold" />
+                            <Span Text="&lt;" TextColor="{DynamicResource EPAMBlue}" FontAttributes="Bold" />
                             <Span Text="EPAM" TextColor="{DynamicResource Black}" FontAttributes="Bold" />
-                            <Span Text=" &gt;" TextColor="{DynamicResource EPAMBlue}" FontAttributes="Bold" />
+                            <Span Text="&gt;" TextColor="{DynamicResource EPAMBlue}" FontAttributes="Bold" />
                             <Span Text="Systems Mexico 2020" />
                         </FormattedString>
                     </Label.FormattedText>

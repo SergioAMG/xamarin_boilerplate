@@ -193,6 +193,30 @@ namespace XamarinBoilerplate.Services
             return;
         }
 
+        public bool IsDrawerOpen()
+        {
+            var navigationStack = CurrentNavigationPage.Navigation;
+            if (navigationStack.NavigationStack.Count > 0)
+            {
+                foreach (var page in navigationStack.NavigationStack)
+                {
+                    if (page is NavigationPage)
+                    {
+                        if ((page as NavigationPage).CurrentPage is MasterDetailPage)
+                        {
+                            return ((page as NavigationPage).CurrentPage as MasterDetailPage).IsPresented;
+                        }
+                    }
+                    else if (page is MasterDetailPage)
+                    {
+                        return (page as MasterDetailPage).IsPresented;
+                    }
+                }
+                return false;
+            }
+            return false;
+        }
+
         public async Task NavigateAsync(string pageKey, bool animated = true)
         {
             await NavigateAsync(pageKey, null, animated);

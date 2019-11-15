@@ -117,6 +117,10 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AppVersion" xml:space="preserve">
+    <value>App Build Version:</value>
+    <comment>App Version Tag</comment>
+  </data>
   <data name="Back" xml:space="preserve">
     <value>Back</value>
     <comment>Button Text</comment>
@@ -125,9 +129,37 @@
     <value>Done</value>
     <comment>Button Text</comment>
   </data>
+  <data name="Home" xml:space="preserve">
+    <value>Home</value>
+    <comment>Home Title</comment>
+  </data>
+  <data name="Menu" xml:space="preserve">
+    <value>Menu</value>
+    <comment>Menu Title</comment>
+  </data>
+  <data name="MenuAbout" xml:space="preserve">
+    <value>About this App</value>
+    <comment>Menu Item</comment>
+  </data>
+  <data name="MenuContact" xml:space="preserve">
+    <value>Contact</value>
+    <comment>Menu Item</comment>
+  </data>
+  <data name="MenuHelp" xml:space="preserve">
+    <value>Live Help</value>
+    <comment>Menu Item</comment>
+  </data>
+  <data name="MenuSearch" xml:space="preserve">
+    <value>Search</value>
+    <comment>Menu Item</comment>
+  </data>
   <data name="Next" xml:space="preserve">
     <value>Next</value>
     <comment>Button Text</comment>
+  </data>
+  <data name="NotAvailable" xml:space="preserve">
+    <value>Not Available</value>
+    <comment>Not Available Text</comment>
   </data>
   <data name="Skip" xml:space="preserve">
     <value>Skip</value>

@@ -4,7 +4,9 @@ using Xamarin.Forms;
 using XamarinBoilerplate.Interfaces;
 using XamarinBoilerplate.Services;
 using XamarinBoilerplate.Utils;
+using XamarinBoilerplate.ViewModels;
 using XamarinBoilerplate.ViewModels.Wizzard;
+using XamarinBoilerplate.Views;
 using XamarinBoilerplate.Views.Wizzard;
 
 namespace XamarinBoilerplate
@@ -23,13 +25,21 @@ namespace XamarinBoilerplate
             if (!UnitTestingManager.IsRunningFromNUnit)
             {
                 IdentifyDevice();
+                LaunchApp();
             }
-            LaunchApp();
         }
 
         public void LaunchApp()
         {
-            NavigationService.SetRootPage(nameof(StepOnePage), new StepOneViewModel());
+            bool isWizzardCompleted = Preferences.Get(Constants.WizzardComplete, false);
+            if (isWizzardCompleted)
+            {
+                NavigationService.SetRootPage(nameof(DashboardPage), new DashboardViewModel());
+            }
+            else
+            {
+                NavigationService.SetRootPage(nameof(StepOnePage), new StepOneViewModel());
+            }
         }
 
         private void RegisterPages()
@@ -37,10 +47,16 @@ namespace XamarinBoilerplate
             NavigationService.Configure(nameof(StepOnePage), typeof(StepOnePage));
             NavigationService.Configure(nameof(StepTwoPage), typeof(StepTwoPage));
             NavigationService.Configure(nameof(StepThreePage), typeof(StepThreePage));
+            NavigationService.Configure(nameof(DashboardPage), typeof(DashboardPage));
+            NavigationService.Configure(nameof(MenuPage), typeof(MenuPage));
+            NavigationService.Configure(nameof(HomePage), typeof(HomePage));
 
             NavigationService.BindViewModel<StepOneViewModel, StepOnePage>();
             NavigationService.BindViewModel<StepTwoViewModel, StepTwoPage>();
             NavigationService.BindViewModel<StepThreeViewModel, StepThreePage>();
+            NavigationService.BindViewModel<MenuViewModel, MenuPage>();
+            NavigationService.BindViewModel<DashboardViewModel, DashboardPage>();
+            NavigationService.BindViewModel<HomeViewModel, HomePage>();
         }
 
         public void IdentifyDevice()
@@ -55,8 +71,8 @@ namespace XamarinBoilerplate
 
         public void SetLocalization()
         {
-            //CultureInfo.CurrentCulture = new CultureInfo("en-US", false);
-            CultureInfo.CurrentCulture = new CultureInfo("es-MX", false);
+            CultureInfo.CurrentCulture = new CultureInfo("en-US", false);
+            //CultureInfo.CurrentCulture = new CultureInfo("es-MX", false);
             Localization.AppResources.Culture = CultureInfo.CurrentCulture;
         }
 

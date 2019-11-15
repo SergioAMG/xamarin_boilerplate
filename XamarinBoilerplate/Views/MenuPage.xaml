@@ -86,7 +86,7 @@
                             <Span Text="&lt; " TextColor="{DynamicResource EPAMBlue}" FontAttributes="Bold" />
                             <Span Text="EPAM" TextColor="{DynamicResource Black}" FontAttributes="Bold" />
                             <Span Text="&gt; " TextColor="{DynamicResource EPAMBlue}" FontAttributes="Bold" />
-                            <Span Text="Systems Mexico 2019-2020" />
+                            <Span Text="Systems Mexico 2020" />
                         </FormattedString>
                     </Label.FormattedText>
                 </Label>

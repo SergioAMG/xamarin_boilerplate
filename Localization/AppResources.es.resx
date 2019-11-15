@@ -121,40 +121,4 @@
     <value>Atras</value>
     <comment>Button Text</comment>
   </data>
-  <data name="Done" xml:space="preserve">
-    <value>Terminar</value>
-    <comment>Button Text</comment>
-  </data>
-  <data name="Next" xml:space="preserve">
-    <value>Siguiente</value>
-    <comment>Button Text</comment>
-  </data>
-  <data name="Skip" xml:space="preserve">
-    <value>Saltar</value>
-    <comment>Button Text</comment>
-  </data>
-  <data name="WizzardStep1Text" xml:space="preserve">
-    <value>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque hendrerit sem tristique metus suscipit malesuada id et diam. Pellentesque volutpat tortor a orci rutrum, sed pharetra ex eleifend.</value>
-    <comment>Wizzard Step Text</comment>
-  </data>
-  <data name="WizzardStep1Title" xml:space="preserve">
-    <value>Paso Numero 1</value>
-    <comment>Wizzard Step Title</comment>
-  </data>
-  <data name="WizzardStep2Text" xml:space="preserve">
-    <value>Nullam posuere nulla ac condimentum volutpat. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Sed a massa nec metus vulputate dignissim a vitae nulla.</value>
-    <comment>Wizzard Step Text</comment>
-  </data>
-  <data name="WizzardStep2Title" xml:space="preserve">
-    <value>Paso Numero 2</value>
-    <comment>Wizzard Step Title</comment>
-  </data>
-  <data name="WizzardStep3Text" xml:space="preserve">
-    <value>Duis ut ultrices neque, sed dignissim nulla. Donec est ipsum, elementum a dolor vel, ornare aliquet urna. In elementum massa et sodales imperdiet. Ut at nisl sed purus commodo placerat congue sed quam.</value>
-    <comment>Wizzard Step Text</comment>
-  </data>
-  <data name="WizzardStep3Title" xml:space="preserve">
-    <value>Paso Numero 3</value>
-    <comment>Wizzard Step Title</comment>
-  </data>
 </root>

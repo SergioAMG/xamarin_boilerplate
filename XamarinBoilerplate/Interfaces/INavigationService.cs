@@ -21,6 +21,7 @@ namespace XamarinBoilerplate.Interfaces
         Task GoBackAsync();
         Task OpenDrawer();
         Task CloseDrawer();
+        bool IsDrawerOpen();
         Task ShowLoadingIndicator();
         Task HideLoadingIndicator();
         Task OpenPopUp(PopupPage pageKey);

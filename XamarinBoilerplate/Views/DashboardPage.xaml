@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<MasterDetailPage
+        xmlns="http://xamarin.com/schemas/2014/forms"
+        xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+        xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        x:Class="XamarinBoilerplate.Views.DashboardPage"
+        xmlns:views="clr-namespace:XamarinBoilerplate.Views"
+        xmlns:utils="clr-namespace:XamarinBoilerplate.Utils">
+    <MasterDetailPage.Master>
+        <NavigationPage Title="{utils:Localized Home}">
+            <x:Arguments>
+                <views:MenuPage />
+            </x:Arguments>
+        </NavigationPage>
+    </MasterDetailPage.Master>
+    <MasterDetailPage.Detail>
+        <NavigationPage>
+            <x:Arguments>
+                <views:HomePage Title="{utils:Localized Home}" />
+            </x:Arguments>
+            <!-- TODO: Use when having Android tabs at top and nav bar is required.
+            <NavigationPage.ToolbarItems>
+                <ToolbarItem Icon="baseline_close_black_24" Priority="0" Order="Primary"
+                         Command="{Binding PrintDealerReportsCommand}" />
+                <ToolbarItem Icon="baseline_close_black_24" Priority="1" Order="Primary"
+                         Command="{Binding PrintDealerReportsCommand}" />
+                <ToolbarItem Text ="XX" Priority="5" Order="Secondary"
+                         Command="{Binding PrintDealerReportsCommand}" />
+                <ToolbarItem Text ="xxx" Priority="2" Order="Secondary"
+                         Command="{Binding PrintDealerReportsCommand}" />
+                <ToolbarItem Text ="xxx" Priority="3" Order="Secondary"
+                         Command="{Binding PrintDealerReportsCommand}" />
+            </NavigationPage.ToolbarItems>  -->
+        </NavigationPage>
+    </MasterDetailPage.Detail>
+</MasterDetailPage>

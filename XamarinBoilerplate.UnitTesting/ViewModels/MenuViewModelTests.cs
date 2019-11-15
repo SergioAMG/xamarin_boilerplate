@@ -3,6 +3,8 @@ using XamarinBoilerplate.ViewModels;
 using Shouldly;
 using System.Threading.Tasks;
 using XamarinBoilerplate.Views;
+using Xamarin.Forms;
+using XamarinBoilerplate.Views.Wizzard;
 
 namespace XamarinBoilerplate.UnitTesting.ViewModels
 {
@@ -50,7 +52,7 @@ namespace XamarinBoilerplate.UnitTesting.ViewModels
             }).GetAwaiter().GetResult();
 
             //assert
-            viewModel.NavigationService.IsDrawerOpen().ShouldBeFalse();
+            NUnit.Framework.Assert.IsFalse(viewModel.NavigationService.IsDrawerOpen());
         }
 
         [TestMethod]
@@ -71,20 +73,22 @@ namespace XamarinBoilerplate.UnitTesting.ViewModels
         }
 
         [TestMethod]
-        [Ignore]
         public void ShouldGoToWizzardStep1CommandSendUserToWizzardStep1Page()
         {
             //arrange
             viewModel = new MenuViewModel();
             viewModel.NavigationService.SetRootPage(nameof(DashboardPage), new DashboardViewModel());
-
+            
             //act
             Task.Run(async () =>
             {
                 await viewModel.ExecuteGoToWizzardStep1CommandAsync();
             }).GetAwaiter().GetResult();
+            Page currentPage = viewModel.NavigationService.CurrentPage;
+            Page targetPage = new StepOnePage();
 
             //assert
+            NUnit.Framework.Assert.AreEqual(currentPage.GetType(), targetPage.GetType());
         }
 
         [TestMethod]

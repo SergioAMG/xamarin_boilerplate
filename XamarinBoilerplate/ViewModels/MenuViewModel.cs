@@ -2,6 +2,7 @@
 using System.Windows.Input;
 using Xamarin.Essentials;
 using XamarinBoilerplate.Utils;
+using XamarinBoilerplate.Views.Wizzard;
 
 namespace XamarinBoilerplate.ViewModels
 {
@@ -72,8 +73,7 @@ namespace XamarinBoilerplate.ViewModels
         public async Task ExecuteGoToWizzardStep1CommandAsync()
         {
             await NavigationService.CloseDrawer();
-            // TODO: Add navigation to target page
-            //await NavigationService.NavigateAsync(nameof(StepOnePage));
+            await NavigationService.NavigateAsync(nameof(StepOnePage));
         }
 
         public async Task ExecuteGoToSearchCommandAsync()

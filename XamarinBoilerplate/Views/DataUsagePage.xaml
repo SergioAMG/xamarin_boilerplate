@@ -1,17 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <base:BaseContentPage
-        xmlns:base="clr-namespace:XamarinBoilerplate.Views"
+        xmlns:base="clr-namespace:XamarinBoilerplate.Views" 
         xmlns="http://xamarin.com/schemas/2014/forms"
         xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
         xmlns:d="http://xamarin.com/schemas/2014/forms/design"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        x:Class="XamarinBoilerplate.Views.HomePage"
+        x:Class="XamarinBoilerplate.Views.DataUsagePage"
         xmlns:utils="clr-namespace:XamarinBoilerplate.Utils"
-        Title="{utils:Localized Home}">
+        Title="{utils:Localized DataUsage}">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to the HomePage !"
+            <Label Text="Welcome to DataUsagePage !"
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand" />
         </StackLayout>

@@ -50,6 +50,9 @@ namespace XamarinBoilerplate
             NavigationService.Configure(nameof(DashboardPage), typeof(DashboardPage));
             NavigationService.Configure(nameof(MenuPage), typeof(MenuPage));
             NavigationService.Configure(nameof(HomePage), typeof(HomePage));
+            NavigationService.Configure(nameof(MapPage), typeof(MapPage));
+            NavigationService.Configure(nameof(DataUsagePage), typeof(DataUsagePage));
+            NavigationService.Configure(nameof(CustomTabbedPage), typeof(CustomTabbedPage));
 
             NavigationService.BindViewModel<StepOneViewModel, StepOnePage>();
             NavigationService.BindViewModel<StepTwoViewModel, StepTwoPage>();
@@ -57,6 +60,9 @@ namespace XamarinBoilerplate
             NavigationService.BindViewModel<MenuViewModel, MenuPage>();
             NavigationService.BindViewModel<DashboardViewModel, DashboardPage>();
             NavigationService.BindViewModel<HomeViewModel, HomePage>();
+            NavigationService.BindViewModel<MapViewModel, MapPage>();
+            NavigationService.BindViewModel<DataUsageViewModel, DataUsagePage>();
+            NavigationService.BindViewModel<CustomTabbedViewModel, CustomTabbedPage>();
         }
 
         public void IdentifyDevice()

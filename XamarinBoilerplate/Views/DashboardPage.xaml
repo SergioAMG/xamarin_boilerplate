@@ -18,7 +18,7 @@
     <MasterDetailPage.Detail>
         <NavigationPage>
             <x:Arguments>
-                <views:HomePage Title="{utils:Localized Home}" />
+                <views:CustomTabbedPage Title="{utils:Localized Home}" />
             </x:Arguments>
             <!-- TODO: Use when having Android tabs at top and nav bar is required.
             <NavigationPage.ToolbarItems>

@@ -115,12 +115,18 @@ namespace XamarinBoilerplate.Services
             {
                 lock (_sync)
                 {
-                    if (CurrentNavigationPage?.CurrentPage == null)
+                    try
+                    {
+                        if (CurrentNavigationPage?.CurrentPage == null)
+                        {
+                            return null;
+                        }
+                        return (BaseContentPage)CurrentNavigationPage.CurrentPage;
+                    }
+                    catch (Exception)
                     {
                         return null;
                     }
-
-                    return (BaseContentPage)CurrentNavigationPage.CurrentPage;
                 }
             }
         }

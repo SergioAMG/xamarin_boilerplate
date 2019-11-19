@@ -5731,19 +5731,19 @@ namespace XamarinBoilerplate.Droid
 			public const int baseline_lens_black_18 = 2131165280;
 			
 			// aapt resource value: 0x7F070061
-			public const int baseline_menu_black_24 = 2131165281;
+			public const int baseline_map_black_24 = 2131165281;
 			
 			// aapt resource value: 0x7F070062
-			public const int baseline_more_vert_black_24 = 2131165282;
+			public const int baseline_menu_black_24 = 2131165282;
 			
 			// aapt resource value: 0x7F070063
-			public const int baseline_panorama_fish_eye_black_18 = 2131165283;
+			public const int baseline_more_vert_black_24 = 2131165283;
 			
 			// aapt resource value: 0x7F070064
-			public const int baseline_storage_black_24 = 2131165284;
+			public const int baseline_panorama_fish_eye_black_18 = 2131165284;
 			
 			// aapt resource value: 0x7F070065
-			public const int baseline_wifi_tethering_black_24 = 2131165285;
+			public const int baseline_storage_black_24 = 2131165285;
 			
 			// aapt resource value: 0x7F070066
 			public const int baseline_zoom_in_black_24 = 2131165286;

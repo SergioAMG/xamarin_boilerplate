@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XamarinBoilerplate.UnitTest
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Localization", "Localization\Localization.csproj", "{55B8A1B1-8546-4301-849F-7E8218DA676A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XamarinBoilerplate.UITesting", "XamarinBoilerplate.UITesting\XamarinBoilerplate.UITesting.csproj", "{C2C03C02-95CD-4DBD-85F0-9FE648C4BF93}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -101,6 +103,18 @@ Global
 		{55B8A1B1-8546-4301-849F-7E8218DA676A}.Release|iPhone.Build.0 = Release|Any CPU
 		{55B8A1B1-8546-4301-849F-7E8218DA676A}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
 		{55B8A1B1-8546-4301-849F-7E8218DA676A}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
+		{C2C03C02-95CD-4DBD-85F0-9FE648C4BF93}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C2C03C02-95CD-4DBD-85F0-9FE648C4BF93}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C2C03C02-95CD-4DBD-85F0-9FE648C4BF93}.Debug|iPhone.ActiveCfg = Debug|Any CPU
+		{C2C03C02-95CD-4DBD-85F0-9FE648C4BF93}.Debug|iPhone.Build.0 = Debug|Any CPU
+		{C2C03C02-95CD-4DBD-85F0-9FE648C4BF93}.Debug|iPhoneSimulator.ActiveCfg = Debug|Any CPU
+		{C2C03C02-95CD-4DBD-85F0-9FE648C4BF93}.Debug|iPhoneSimulator.Build.0 = Debug|Any CPU
+		{C2C03C02-95CD-4DBD-85F0-9FE648C4BF93}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C2C03C02-95CD-4DBD-85F0-9FE648C4BF93}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C2C03C02-95CD-4DBD-85F0-9FE648C4BF93}.Release|iPhone.ActiveCfg = Release|Any CPU
+		{C2C03C02-95CD-4DBD-85F0-9FE648C4BF93}.Release|iPhone.Build.0 = Release|Any CPU
+		{C2C03C02-95CD-4DBD-85F0-9FE648C4BF93}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
+		{C2C03C02-95CD-4DBD-85F0-9FE648C4BF93}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

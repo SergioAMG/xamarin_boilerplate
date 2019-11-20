@@ -2,6 +2,7 @@
 using System.Windows.Input;
 using Xamarin.Essentials;
 using XamarinBoilerplate.Utils;
+using XamarinBoilerplate.Views;
 using XamarinBoilerplate.Views.Wizzard;
 
 namespace XamarinBoilerplate.ViewModels
@@ -66,8 +67,7 @@ namespace XamarinBoilerplate.ViewModels
         public async Task ExecuteGoToContactAsync()
         {
             await NavigationService.CloseDrawer();
-            // TODO: Add navigation to target page
-            //await NavigationService.NavigateAsync(nameof(ContactPage));
+            NavigationService.NavigateDetails(nameof(ContactPage));
         }
 
         public async Task ExecuteGoToWizzardStep1CommandAsync()

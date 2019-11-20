@@ -79,6 +79,15 @@ namespace Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Contact.
+        /// </summary>
+        public static string ContactTitle {
+            get {
+                return ResourceManager.GetString("ContactTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Usage.
         /// </summary>
         public static string DataUsage {
@@ -124,7 +133,7 @@ namespace Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to About this App.
+        ///   Looks up a localized string similar to About this App (Tutorial).
         /// </summary>
         public static string MenuAbout {
             get {

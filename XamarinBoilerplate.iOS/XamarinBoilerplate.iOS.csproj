@@ -61,10 +61,12 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Effects\ImageTintEffect.cs" />
+    <Compile Include="Effects\NoScrollListViewEffect.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
     <Compile Include="Renderers\ExtendedButtonRenderer.cs" />
     <Compile Include="Renderers\ExtendedLabelRenderer.cs" />
+    <Compile Include="Renderers\ExtendedViewCellRenderer.cs" />
     <None Include="Entitlements.plist" />
     <None Include="Info.plist" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<pages:PopupPage
+        xmlns="http://xamarin.com/schemas/2014/forms"
+        xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+        xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        x:Class="XamarinBoilerplate.Views.Popups.UIAlertControllerPopup"
+        xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+        xmlns:animations="clr-namespace:Rg.Plugins.Popup.Animations;assembly=Rg.Plugins.Popup"
+        xmlns:effects="clr-namespace:XamarinBoilerplate.Effects"
+        xmlns:controls="clr-namespace:XamarinBoilerplate.Controls"
+        CloseWhenBackgroundIsClicked="True">
+    <pages:PopupPage.Animation>
+        <animations:ScaleAnimation x:Name="AnimationEffect" />
+    </pages:PopupPage.Animation>
+    <StackLayout Orientation="Vertical" VerticalOptions="{Binding VerticalAlignmentOfAlert}" HorizontalOptions="{Binding HorizontalAlignmentOfAlert}" Spacing="10" Padding="10">
+        <StackLayout Orientation="Vertical" Spacing="0" Padding="0">
+            <Frame BackgroundColor="#FFFEFF" Padding="0,10" CornerRadius="15" HasShadow="True">
+                <ListView HasUnevenRows="True" ItemsSource="{Binding Options}" SeparatorVisibility="Default" ItemSelected="ItemSelected" SelectedItem="{Binding SelectedOption}" WidthRequest="{Binding ListViewWidth}"
+                          HeightRequest="{Binding ListViewHeight}" BackgroundColor="Transparent" VerticalOptions="Start" Margin="-15,0,0,0" VerticalScrollBarVisibility="Never" SeparatorColor="#C2C0C0" >
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <controls:ExtendedViewCell>
+                                <StackLayout HeightRequest="35" VerticalOptions="Center" Padding="20,18,0,0" HorizontalOptions="CenterAndExpand">
+                                    <Label Text="{Binding .}" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" TextColor="#306EB4" FontSize="18" VerticalOptions="Center" HorizontalOptions="CenterAndExpand" />
+                                </StackLayout>
+                            </controls:ExtendedViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                    <ListView.Effects>
+                        <effects:NoScrollListViewEffect />
+                    </ListView.Effects>
+                </ListView>
+            </Frame>
+        </StackLayout>
+        <StackLayout Orientation="Vertical" Spacing="0" IsVisible="{Binding IsCancelVisible}">
+            <Frame BackgroundColor="#FFFEFF" Padding="20" CornerRadius="15" HasShadow="True">
+                <Label Text="Cancelar" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" TextColor="#1275DE" FontSize="18">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding ClosePopupCommand}" />
+                    </Label.GestureRecognizers>
+                </Label>
+            </Frame>
+        </StackLayout>
+    </StackLayout>
+</pages:PopupPage>

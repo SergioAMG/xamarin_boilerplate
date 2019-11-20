@@ -125,6 +125,10 @@
     <value>Back</value>
     <comment>Button Text</comment>
   </data>
+  <data name="ContactTitle" xml:space="preserve">
+    <value>Contact</value>
+    <comment>Contact Page Title</comment>
+  </data>
   <data name="DataUsage" xml:space="preserve">
     <value>Usage</value>
     <comment>Data Usage Text</comment>
@@ -146,7 +150,7 @@
     <comment>Menu Title</comment>
   </data>
   <data name="MenuAbout" xml:space="preserve">
-    <value>About this App</value>
+    <value>About this App (Tutorial)</value>
     <comment>Menu Item</comment>
   </data>
   <data name="MenuContact" xml:space="preserve">

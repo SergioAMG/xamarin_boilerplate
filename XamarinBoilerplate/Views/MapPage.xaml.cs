@@ -9,5 +9,10 @@ namespace XamarinBoilerplate.Views
         {
             InitializeComponent();
         }
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            var tmp = Navigation.NavigationStack;
+        }
     }
 }

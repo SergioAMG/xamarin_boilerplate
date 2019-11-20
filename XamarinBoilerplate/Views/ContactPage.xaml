@@ -6,17 +6,17 @@
         xmlns:d="http://xamarin.com/schemas/2014/forms/design"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        x:Class="XamarinBoilerplate.Views.MapPage"
+        x:Class="XamarinBoilerplate.Views.ContactPage"
+        xmlns:common="clr-namespace:XamarinBoilerplate.Views.Common"
         xmlns:utils="clr-namespace:XamarinBoilerplate.Utils"
-        Title="{utils:Localized Map}"
         HasNavigationBar="False"
-        xmlns:common="clr-namespace:XamarinBoilerplate.Views.Common">
+        Title="Contact">
     <ContentPage.Content>
         <StackLayout Spacing="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Orientation="Vertical">
             <common:ActionBar BackButtonTintColor="{DynamicResource ActionBarIconsColor}" BackgroundColor="{DynamicResource ActionBarBackground}"
-                              ShowIcon="False" Title="{utils:Localized Map}" HideBackButton="False" TitleLabelStyle="{DynamicResource ActionBarTextLabelStyle}"
-                              IsMaster="True" CenterBartitle="{Binding IsTitleCentered}" IsModal="False" BackButtonCommand="{Binding OpenDrawerCommand}" />
-            <Label Text="Welcome to MapPage !" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" VerticalTextAlignment="Center" />
+                              ShowIcon="False" Title="{utils:Localized ContactTitle}" HideBackButton="False" TitleLabelStyle="{DynamicResource ActionBarTextLabelStyle}"
+                              IsMaster="False" CenterBartitle="{Binding IsTitleCentered}" IsModal="False" Buttons="{Binding Buttons}" BackButtonCommand="{Binding BackFromDetailsCommand}" />
+            <Label Text="Welcome to Contact !" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" VerticalTextAlignment="Center" />
         </StackLayout>
     </ContentPage.Content>
 </base:BaseContentPage>

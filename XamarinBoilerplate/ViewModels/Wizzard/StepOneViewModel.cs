@@ -4,6 +4,7 @@ using System.Windows.Input;
 using XamarinBoilerplate.Utils;
 using XamarinBoilerplate.Views.Wizzard;
 using XamarinBoilerplate.Enums;
+using XamarinBoilerplate.Views;
 
 namespace XamarinBoilerplate.ViewModels.Wizzard
 {
@@ -47,7 +48,7 @@ namespace XamarinBoilerplate.ViewModels.Wizzard
 
         public async Task ExecuteSkipTutorialCommandAsync()
         {
-            // TODO: Implement Go to Dashboard by setting RootPage
+            NavigationService.SetRootPage(nameof(DashboardPage), new DashboardViewModel());
         }
 
         public async Task ExecuteNextTutorialCommandAsync()

@@ -125,6 +125,10 @@
     <value>Back</value>
     <comment>Button Text</comment>
   </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Cancel</value>
+    <comment>Cancel Text</comment>
+  </data>
   <data name="ContactTitle" xml:space="preserve">
     <value>Contact</value>
     <comment>Contact Page Title</comment>
@@ -176,6 +180,34 @@
   <data name="Skip" xml:space="preserve">
     <value>Skip</value>
     <comment>Button Text</comment>
+  </data>
+  <data name="ToolbarItemDecreaseTextSize" xml:space="preserve">
+    <value>Decrease text size</value>
+    <comment>Toolbar Item Navigation Text</comment>
+  </data>
+  <data name="ToolbarItemEmailContact" xml:space="preserve">
+    <value>Contact by email</value>
+    <comment>Toolbar Item Navigation Text</comment>
+  </data>
+  <data name="ToolbarItemIncreaseTextSize" xml:space="preserve">
+    <value>Increase text size</value>
+    <comment>Toolbar Item Navigation Text</comment>
+  </data>
+  <data name="ToolbarItemOrderByDate" xml:space="preserve">
+    <value>Order by date</value>
+    <comment>Toolbar Item Navigation Text</comment>
+  </data>
+  <data name="ToolbarItemOrderByPopularity" xml:space="preserve">
+    <value>Order by popularity</value>
+    <comment>Toolbar Item Navigation Text</comment>
+  </data>
+  <data name="ToolbarItemPhoneContact" xml:space="preserve">
+    <value>Contact by phone</value>
+    <comment>Toolbar Item Navigation Text</comment>
+  </data>
+  <data name="ToolbarItemWhatsAppContact" xml:space="preserve">
+    <value>Contact by whats app</value>
+    <comment>Toolbar Item Navigation Text</comment>
   </data>
   <data name="WizzardStep1Text" xml:space="preserve">
     <value>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque hendrerit sem tristique metus suscipit malesuada id et diam. Pellentesque volutpat tortor a orci rutrum, sed pharetra ex eleifend.</value>

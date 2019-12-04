@@ -79,6 +79,15 @@ namespace Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Cancel.
+        /// </summary>
+        public static string Cancel {
+            get {
+                return ResourceManager.GetString("Cancel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Contact.
         /// </summary>
         public static string ContactTitle {
@@ -192,6 +201,69 @@ namespace Localization {
         public static string Skip {
             get {
                 return ResourceManager.GetString("Skip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Decrease text size.
+        /// </summary>
+        public static string ToolbarItemDecreaseTextSize {
+            get {
+                return ResourceManager.GetString("ToolbarItemDecreaseTextSize", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Contact by email.
+        /// </summary>
+        public static string ToolbarItemEmailContact {
+            get {
+                return ResourceManager.GetString("ToolbarItemEmailContact", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Increase text size.
+        /// </summary>
+        public static string ToolbarItemIncreaseTextSize {
+            get {
+                return ResourceManager.GetString("ToolbarItemIncreaseTextSize", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Order by date.
+        /// </summary>
+        public static string ToolbarItemOrderByDate {
+            get {
+                return ResourceManager.GetString("ToolbarItemOrderByDate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Order by popularity.
+        /// </summary>
+        public static string ToolbarItemOrderByPopularity {
+            get {
+                return ResourceManager.GetString("ToolbarItemOrderByPopularity", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Contact by phone.
+        /// </summary>
+        public static string ToolbarItemPhoneContact {
+            get {
+                return ResourceManager.GetString("ToolbarItemPhoneContact", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Contact by whats app.
+        /// </summary>
+        public static string ToolbarItemWhatsAppContact {
+            get {
+                return ResourceManager.GetString("ToolbarItemWhatsAppContact", resourceCulture);
             }
         }
         

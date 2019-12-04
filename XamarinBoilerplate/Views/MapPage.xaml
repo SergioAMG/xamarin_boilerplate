@@ -10,7 +10,8 @@
         xmlns:utils="clr-namespace:XamarinBoilerplate.Utils"
         Title="{utils:Localized Map}"
         HasNavigationBar="False"
-        xmlns:common="clr-namespace:XamarinBoilerplate.Views.Common">
+        xmlns:common="clr-namespace:XamarinBoilerplate.Views.Common"
+        BackgroundColor="{DynamicResource PageBackgroundColor}">
     <ContentPage.Content>
         <StackLayout Spacing="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Orientation="Vertical">
             <common:ActionBar BackButtonTintColor="{DynamicResource ActionBarIconsColor}" BackgroundColor="{DynamicResource ActionBarBackground}"

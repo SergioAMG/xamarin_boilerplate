@@ -10,12 +10,13 @@
         xmlns:utils="clr-namespace:XamarinBoilerplate.Utils"
         Title="{utils:Localized Home}"
         HasNavigationBar="False"
-        xmlns:common="clr-namespace:XamarinBoilerplate.Views.Common">
+        xmlns:common="clr-namespace:XamarinBoilerplate.Views.Common"
+        BackgroundColor="{DynamicResource PageBackgroundColor}">
     <ContentPage.Content>
         <StackLayout Spacing="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Orientation="Vertical">
             <common:ActionBar BackButtonTintColor="{DynamicResource ActionBarIconsColor}" BackgroundColor="{DynamicResource ActionBarBackground}"
                               ShowIcon="False" Title="{utils:Localized Home}" HideBackButton="False" TitleLabelStyle="{DynamicResource ActionBarTextLabelStyle}"
-                              IsMaster="True" CenterBartitle="{Binding IsTitleCentered}" IsModal="False" BackButtonCommand="{Binding OpenDrawerCommand}" />
+                              IsMaster="True" CenterBartitle="{Binding IsTitleCentered}" IsModal="False" BackButtonCommand="{Binding OpenDrawerCommand}" Buttons="{Binding Buttons}" />
             <Label Text="Welcome to HomePage !" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" VerticalTextAlignment="Center" />
         </StackLayout>
     </ContentPage.Content>

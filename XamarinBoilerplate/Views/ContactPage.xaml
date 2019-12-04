@@ -10,7 +10,8 @@
         xmlns:common="clr-namespace:XamarinBoilerplate.Views.Common"
         xmlns:utils="clr-namespace:XamarinBoilerplate.Utils"
         HasNavigationBar="False"
-        Title="Contact">
+        Title="Contact"
+        BackgroundColor="{DynamicResource PageBackgroundColor}">
     <ContentPage.Content>
         <StackLayout Spacing="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Orientation="Vertical">
             <common:ActionBar BackButtonTintColor="{DynamicResource ActionBarIconsColor}" BackgroundColor="{DynamicResource ActionBarBackground}"

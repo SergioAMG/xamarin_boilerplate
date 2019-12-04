@@ -13,6 +13,7 @@ namespace XamarinBoilerplate.ViewModels
 {
     public class ContactViewModel : BaseViewModel
     {
+        private int _selectedTabIndex;
         private ICommand _viewMoreOptionsCommand;
         private ICommand _backFromDetailsCommand;
         private ObservableCollection<ImageButton> _buttons;
@@ -70,6 +71,23 @@ namespace XamarinBoilerplate.ViewModels
                 }
             }
         }
+
+        public int SelectedTabIndex
+        {
+            get
+            {
+                return _selectedTabIndex;
+            }
+            set
+            {
+                if (_selectedTabIndex != value)
+                {
+                    _selectedTabIndex = value;
+                    OnPropertyChanged((nameof(SelectedTabIndex)));
+                }
+            }
+        }
+
         public ICommand ViewMoreOptionsCommand
         {
             get
@@ -87,6 +105,11 @@ namespace XamarinBoilerplate.ViewModels
             }
         }
 
+        public void Init(int selectedTabIndex)
+        {
+            SelectedTabIndex = selectedTabIndex;
+        }
+
         private async Task ExecuteViewMoreOptionsCommandAsync()
         {
             ObservableCollection<string> options = new ObservableCollection<string>();
@@ -97,9 +120,9 @@ namespace XamarinBoilerplate.ViewModels
             await NavigationService.OpenPopUp(new Views.Popups.UIAlertControllerPopup(options, HandleUserSelection));
         }
 
-        private async void HandleUserSelection(string userSelection)
+        private void HandleUserSelection(string userSelection)
         {
-            await NavigationService.GoBackAsync();
+            NavigationService.NavigateDetails(nameof(CustomTabbedPage), SelectedTabIndex);
         }
 
         public void CreateOptionsMenu()
@@ -108,9 +131,9 @@ namespace XamarinBoilerplate.ViewModels
 
             ImageButton helpButton = new ImageButton()
             {
-                Source = "baseline_close_black_24",
+                Source = "baseline_help_outline_black_24",
                 BackgroundColor = Color.Transparent,
-                Margin = new Thickness(0,0,20,0),
+                Margin = new Thickness(0, 0, 18, 0),
                 Command = BackFromDetailsCommand
             };
             TintEffect.SetTintColor(helpButton, (Color)Application.Current.Resources["ActionBarIconsColor"]);
@@ -125,9 +148,9 @@ namespace XamarinBoilerplate.ViewModels
             };
             TintEffect.SetTintColor(optionsMenu, (Color)Application.Current.Resources["ActionBarIconsColor"]);
 
-            ExtendedLabel optionA = new ExtendedLabel() { Text = "Contacto Telefónico", TapPressCommand = BackFromDetailsCommand };
-            ExtendedLabel optionB = new ExtendedLabel() { Text = "Email Corporativos", TapPressCommand = BackFromDetailsCommand };
-            ExtendedLabel optionC = new ExtendedLabel() { Text = "Whats App", TapPressCommand = BackFromDetailsCommand };
+            ExtendedLabel optionA = new ExtendedLabel() { Text = Localization.AppResources.ToolbarItemPhoneContact, TapPressCommand = BackFromDetailsCommand };
+            ExtendedLabel optionB = new ExtendedLabel() { Text = Localization.AppResources.ToolbarItemEmailContact, TapPressCommand = BackFromDetailsCommand };
+            ExtendedLabel optionC = new ExtendedLabel() { Text = Localization.AppResources.ToolbarItemWhatsAppContact, TapPressCommand = BackFromDetailsCommand };
 
             optionsMenu.Options.Clear();
             optionsMenu.Options.Add(optionA);
@@ -160,7 +183,7 @@ namespace XamarinBoilerplate.ViewModels
 
         private async Task ExecuteBackFromDetailsCommandAsync()
         {
-            NavigationService.NavigateDetails(nameof(CustomTabbedPage));
+            NavigationService.NavigateDetails(nameof(CustomTabbedPage), SelectedTabIndex);
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using Xamarin.Forms.Xaml;
+using XamarinBoilerplate.ViewModels;
 
 namespace XamarinBoilerplate.Views
 {
@@ -8,6 +9,12 @@ namespace XamarinBoilerplate.Views
         public ContactPage()
         {
             InitializeComponent();
+        }
+
+        public ContactPage(int selectedTabIndex)
+        {
+            InitializeComponent();
+            (BindingContext as ContactViewModel).Init(selectedTabIndex);
         }
     }
 }

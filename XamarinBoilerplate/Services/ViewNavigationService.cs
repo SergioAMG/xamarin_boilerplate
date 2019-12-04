@@ -372,6 +372,45 @@ namespace XamarinBoilerplate.Services
             }
         }
 
+        public int GetCurrentSelectedTabIndexOverMasterDetailPage()
+        {
+            int index = 0;
+            try
+            {
+                var navigationStack = CurrentNavigationPage.Navigation;
+                if (navigationStack.NavigationStack.Count > 0)
+                {
+                    foreach (var page in navigationStack.NavigationStack)
+                    {
+                        var masterDetailPage = (MasterDetailPage)page;
+                        if ((masterDetailPage.Detail as NavigationPage) == null)
+                        {
+                            var customTabbedPage = (masterDetailPage.Detail as CustomTabbedPage);
+                            var selectedTabIndex = customTabbedPage.Children.IndexOf((customTabbedPage as CustomTabbedPage).CurrentPage);
+                            index = selectedTabIndex;
+                        }
+                        else
+                        {
+                            var customTabbedPage = (masterDetailPage.Detail as NavigationPage).CurrentPage;
+                            var selectedTabIndex = (customTabbedPage as CustomTabbedPage).Children.IndexOf((customTabbedPage as CustomTabbedPage).CurrentPage);
+                            index = selectedTabIndex;
+                        }
+                    }
+                    return index;
+                }
+                else
+                {
+                    return 0;
+                }
+            }
+            catch (Exception ex)
+            {
+                // TODO: Implement better error handling for exceptions
+                System.Diagnostics.Debug.WriteLine("Error found at: " + ex.InnerException.ToString());
+                return 0;
+            }
+        }
+
         public async Task OpenPopUp(PopupPage page)
         {
             await CurrentNavigationPage.Navigation.PushPopupAsync(page, true);

@@ -1,6 +1,7 @@
 ﻿using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Essentials;
+using Xamarin.Forms;
 using XamarinBoilerplate.Utils;
 using XamarinBoilerplate.Views;
 using XamarinBoilerplate.Views.Wizzard;
@@ -20,7 +21,7 @@ namespace XamarinBoilerplate.ViewModels
         {
             get
             {
-                return Localization.AppResources.AppVersion + " " + ( (!UnitTestingManager.IsRunningFromNUnit) ? VersionTracking.CurrentVersion : Localization.AppResources.NotAvailable);
+                return Localization.AppResources.AppVersion + " " + ((!UnitTestingManager.IsRunningFromNUnit) ? VersionTracking.CurrentVersion : Localization.AppResources.NotAvailable);
             }
         }
 
@@ -66,13 +67,15 @@ namespace XamarinBoilerplate.ViewModels
 
         public async Task ExecuteGoToContactAsync()
         {
+            var selectedTabIndex = NavigationService.GetCurrentSelectedTabIndexOverMasterDetailPage();
+            NavigationService.NavigateDetails(nameof(ContactPage), selectedTabIndex);
             await NavigationService.CloseDrawer();
-            NavigationService.NavigateDetails(nameof(ContactPage));
         }
 
         public async Task ExecuteGoToWizzardStep1CommandAsync()
         {
             await NavigationService.CloseDrawer();
+            var selectedTabIndex = NavigationService.GetCurrentSelectedTabIndexOverMasterDetailPage();
             await NavigationService.NavigateAsync(nameof(StepOnePage));
         }
 

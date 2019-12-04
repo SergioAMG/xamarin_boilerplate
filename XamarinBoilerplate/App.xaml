@@ -15,7 +15,8 @@
             <Color x:Key="PageBackgroundColor">#FFFFFF</Color>
             <Color x:Key="ActionBarIconsColor">#FFFFFF</Color>
             <Color x:Key="ActionBarBackground">#007CFF</Color>
-            
+            <Color x:Key="FooterGray">#F7F7F7</Color>
+
             <Style x:Key="WizzardStepTitleLabel" TargetType="Label">
                 <Setter Property="FontSize" Value="25" />
                 <Setter Property="TextColor" Value="{DynamicResource Blue}" />
@@ -29,6 +30,10 @@
                 <Setter Property="FontAttributes" Value="None" />
                 <Setter Property="TextDecorations" Value="None" />
                 <Setter Property="TextColor" Value="{DynamicResource White}" />
+            </Style>
+            <Style ApplyToDerivedTypes="true" TargetType="NavigationPage">
+                <Setter Property="BarBackgroundColor" Value="{DynamicResource Blue}" />
+                <Setter Property="BarTextColor" Value="{DynamicResource White}" />
             </Style>
         </ResourceDictionary>
     </Application.Resources>

@@ -10,6 +10,7 @@
         xmlns:animations="clr-namespace:Rg.Plugins.Popup.Animations;assembly=Rg.Plugins.Popup"
         xmlns:effects="clr-namespace:XamarinBoilerplate.Effects"
         xmlns:controls="clr-namespace:XamarinBoilerplate.Controls"
+        xmlns:utils="clr-namespace:XamarinBoilerplate.Utils"
         CloseWhenBackgroundIsClicked="True">
     <pages:PopupPage.Animation>
         <animations:ScaleAnimation x:Name="AnimationEffect" />
@@ -36,7 +37,7 @@
         </StackLayout>
         <StackLayout Orientation="Vertical" Spacing="0" IsVisible="{Binding IsCancelVisible}">
             <Frame BackgroundColor="#FFFEFF" Padding="20" CornerRadius="15" HasShadow="True">
-                <Label Text="Cancelar" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" TextColor="#1275DE" FontSize="18">
+                <Label Text="{utils:Localized Cancel}" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" TextColor="#1275DE" FontSize="18">
                     <Label.GestureRecognizers>
                         <TapGestureRecognizer Command="{Binding ClosePopupCommand}" />
                     </Label.GestureRecognizers>

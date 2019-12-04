@@ -60,6 +60,7 @@
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="DependencyServices\ToastDependencyService.cs" />
     <Compile Include="Effects\ImageTintEffect.cs" />
     <Compile Include="Effects\NoScrollListViewEffect.cs" />
     <Compile Include="Main.cs" />

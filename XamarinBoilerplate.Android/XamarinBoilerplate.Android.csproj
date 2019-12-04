@@ -71,6 +71,7 @@
     <PackageReference Include="Xamarin.Essentials" Version="1.3.1" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DependencyServices\ToastDependencyService.cs" />
     <Compile Include="Effects\ImageTintEffect.cs" />
     <Compile Include="Effects\NoScrollListViewEffect.cs" />
     <Compile Include="MainActivity.cs" />

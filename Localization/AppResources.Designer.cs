@@ -88,6 +88,15 @@ namespace Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The following toolbar item has been tapped.
+        /// </summary>
+        public static string CommonToolbarItemTapped {
+            get {
+                return ResourceManager.GetString("CommonToolbarItemTapped", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Contact.
         /// </summary>
         public static string ContactTitle {
@@ -111,6 +120,24 @@ namespace Localization {
         public static string Done {
             get {
                 return ResourceManager.GetString("Done", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The Favorites button was tapped.
+        /// </summary>
+        public static string FavoritesButtonPressed {
+            get {
+                return ResourceManager.GetString("FavoritesButtonPressed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The Help button was tapped.
+        /// </summary>
+        public static string HelpButtonPressed {
+            get {
+                return ResourceManager.GetString("HelpButtonPressed", resourceCulture);
             }
         }
         
@@ -201,6 +228,15 @@ namespace Localization {
         public static string Skip {
             get {
                 return ResourceManager.GetString("Skip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The Sync button was tapped.
+        /// </summary>
+        public static string SyncButtonPressed {
+            get {
+                return ResourceManager.GetString("SyncButtonPressed", resourceCulture);
             }
         }
         

@@ -6,6 +6,7 @@ using Xamarin.Forms;
 using XamarinBoilerplate.Controls;
 using XamarinBoilerplate.Effects;
 using XamarinBoilerplate.Enums;
+using XamarinBoilerplate.Interfaces;
 using XamarinBoilerplate.Utils;
 using XamarinBoilerplate.Views;
 
@@ -14,10 +15,12 @@ namespace XamarinBoilerplate.ViewModels
     public class HomeViewModel : BaseViewModel
     {
         private ICommand _openDrawerCommand;
+        private ICommand _viewMoreOptionsCommand;
+        private ICommand _syncCommand;
+        private ICommand _favoritesCommand;
+        private ICommand _commonToolbarItemTapCommand;
         private ObservableCollection<ImageButton> _buttons;
         private ObservableCollection<ExtendedLabel> _subMenu;
-        private ICommand _viewMoreOptionsCommand;
-        private ICommand _backFromDetailsCommand;
 
         public HomeViewModel()
         {
@@ -80,20 +83,36 @@ namespace XamarinBoilerplate.ViewModels
 
             }
         }
-        public ICommand BackFromDetailsCommand
-        {
-            get
-            {
-                return _backFromDetailsCommand ?? (_backFromDetailsCommand = new CommandExtended(ExecuteBackFromDetailsCommandAsync));
-
-            }
-        }
 
         public ICommand OpenDrawerCommand
         {
             get
             {
                 return _openDrawerCommand ?? (_openDrawerCommand = new CommandExtended(ExecuteOpenDrawerCommandAsync));
+            }
+        }
+
+        public ICommand SyncCommand
+        {
+            get
+            {
+                return _syncCommand ?? (_syncCommand = new CommandExtended(ExecuteSyncCommandAsync));
+            }
+        }
+
+        public ICommand FavoritesCommand
+        {
+            get
+            {
+                return _favoritesCommand ?? (_favoritesCommand = new CommandExtended(ExecuteFavoritesCommandAsync));
+            }
+        }
+
+        public ICommand CommonToolbarItemTapCommand
+        {
+            get
+            {
+                return _commonToolbarItemTapCommand ?? (_commonToolbarItemTapCommand = new CommandExtended(ExecuteCommonToolbarItemTapCommanddAsync));
             }
         }
 
@@ -111,7 +130,7 @@ namespace XamarinBoilerplate.ViewModels
                 Source = "baseline_sync_black_24",
                 BackgroundColor = Color.Transparent,
                 Margin = new Thickness(0, 0, 23, 0),
-                Command = BackFromDetailsCommand
+                Command = SyncCommand
             };
             TintEffect.SetTintColor(closeButton, (Color)Application.Current.Resources["ActionBarIconsColor"]);
 
@@ -122,7 +141,7 @@ namespace XamarinBoilerplate.ViewModels
                 Source = "baseline_star_border_black_24",
                 BackgroundColor = Color.Transparent,
                 Margin = new Thickness(0, 0, 18, 0),
-                Command = BackFromDetailsCommand
+                Command = FavoritesCommand
             };
             TintEffect.SetTintColor(closeButtonTwo, (Color)Application.Current.Resources["ActionBarIconsColor"]);
 
@@ -136,10 +155,10 @@ namespace XamarinBoilerplate.ViewModels
             };
             TintEffect.SetTintColor(optionsMenu, (Color)Application.Current.Resources["ActionBarIconsColor"]);
 
-            ExtendedLabel optionA = new ExtendedLabel() { Text = Localization.AppResources.ToolbarItemOrderByDate, TapPressCommand = BackFromDetailsCommand };
-            ExtendedLabel optionB = new ExtendedLabel() { Text = Localization.AppResources.ToolbarItemOrderByPopularity, TapPressCommand = BackFromDetailsCommand };
-            ExtendedLabel optionC = new ExtendedLabel() { Text = Localization.AppResources.ToolbarItemIncreaseTextSize, TapPressCommand = BackFromDetailsCommand };
-            ExtendedLabel optionD = new ExtendedLabel() { Text = Localization.AppResources.ToolbarItemDecreaseTextSize, TapPressCommand = BackFromDetailsCommand };
+            ExtendedLabel optionA = new ExtendedLabel() { Text = Localization.AppResources.ToolbarItemOrderByDate, TapPressCommand = CommonToolbarItemTapCommand, CommandParameter = Localization.AppResources.ToolbarItemOrderByDate };
+            ExtendedLabel optionB = new ExtendedLabel() { Text = Localization.AppResources.ToolbarItemOrderByPopularity, TapPressCommand = CommonToolbarItemTapCommand, CommandParameter = Localization.AppResources.ToolbarItemOrderByPopularity };
+            ExtendedLabel optionC = new ExtendedLabel() { Text = Localization.AppResources.ToolbarItemIncreaseTextSize, TapPressCommand = CommonToolbarItemTapCommand, CommandParameter = Localization.AppResources.ToolbarItemIncreaseTextSize };
+            ExtendedLabel optionD = new ExtendedLabel() { Text = Localization.AppResources.ToolbarItemDecreaseTextSize, TapPressCommand = CommonToolbarItemTapCommand, CommandParameter = Localization.AppResources.ToolbarItemDecreaseTextSize };
 
             optionsMenu.Options.Clear();
             optionsMenu.Options.Add(optionA);
@@ -181,14 +200,27 @@ namespace XamarinBoilerplate.ViewModels
             await NavigationService.OpenPopUp(new Views.Popups.UIAlertControllerPopup(options, HandleUserSelection));
         }
 
-        private void HandleUserSelection(string userSelection)
+        private async void HandleUserSelection(string userSelection)
         {
-
+            await NavigationService.ClosePopUp();
+            DependencyService.Get<IToast>().ShowToastMessage(Localization.AppResources.CommonToolbarItemTapped + " " + userSelection, false);
         }
 
-        private async Task ExecuteBackFromDetailsCommandAsync()
+        private async Task ExecuteCommonToolbarItemTapCommanddAsync(object sender)
         {
-            
+            string itemTapped = (string)sender;
+            DependencyService.Get<IToast>().ShowToastMessage(Localization.AppResources.CommonToolbarItemTapped + " " + itemTapped, false);
         }
+
+        private async Task ExecuteSyncCommandAsync()
+        {
+            DependencyService.Get<IToast>().ShowToastMessage(Localization.AppResources.SyncButtonPressed, true);
+        }
+
+        private async Task ExecuteFavoritesCommandAsync()
+        {
+            DependencyService.Get<IToast>().ShowToastMessage(Localization.AppResources.FavoritesButtonPressed, true);
+        }
+
     }
 }

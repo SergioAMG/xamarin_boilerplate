@@ -6,6 +6,7 @@ using Xamarin.Forms;
 using XamarinBoilerplate.Controls;
 using XamarinBoilerplate.Effects;
 using XamarinBoilerplate.Enums;
+using XamarinBoilerplate.Interfaces;
 using XamarinBoilerplate.Utils;
 using XamarinBoilerplate.Views;
 
@@ -14,8 +15,10 @@ namespace XamarinBoilerplate.ViewModels
     public class ContactViewModel : BaseViewModel
     {
         private int _selectedTabIndex;
+        private ICommand _helpCommand;
         private ICommand _viewMoreOptionsCommand;
         private ICommand _backFromDetailsCommand;
+        private ICommand _commonToolbarItemTapCommand;
         private ObservableCollection<ImageButton> _buttons;
         private ObservableCollection<ExtendedLabel> _subMenu;
 
@@ -105,24 +108,25 @@ namespace XamarinBoilerplate.ViewModels
             }
         }
 
+        public ICommand CommonToolbarItemTapCommand
+        {
+            get
+            {
+                return _commonToolbarItemTapCommand ?? (_commonToolbarItemTapCommand = new CommandExtended(ExecuteCommonToolbarItemTapCommandAsync));
+            }
+        }
+
+        public ICommand HelpCommand
+        {
+            get
+            {
+                return _helpCommand ?? (_helpCommand = new CommandExtended(ExecuteHelpCommandAsync));
+            }
+        }
+
         public void Init(int selectedTabIndex)
         {
             SelectedTabIndex = selectedTabIndex;
-        }
-
-        private async Task ExecuteViewMoreOptionsCommandAsync()
-        {
-            ObservableCollection<string> options = new ObservableCollection<string>();
-            foreach (ExtendedLabel label in SubMenu)
-            {
-                options.Add(label.Text);
-            }
-            await NavigationService.OpenPopUp(new Views.Popups.UIAlertControllerPopup(options, HandleUserSelection));
-        }
-
-        private void HandleUserSelection(string userSelection)
-        {
-            NavigationService.NavigateDetails(nameof(CustomTabbedPage), SelectedTabIndex);
         }
 
         public void CreateOptionsMenu()
@@ -134,7 +138,7 @@ namespace XamarinBoilerplate.ViewModels
                 Source = "baseline_help_outline_black_24",
                 BackgroundColor = Color.Transparent,
                 Margin = new Thickness(0, 0, 18, 0),
-                Command = BackFromDetailsCommand
+                Command = HelpCommand
             };
             TintEffect.SetTintColor(helpButton, (Color)Application.Current.Resources["ActionBarIconsColor"]);
 
@@ -148,9 +152,9 @@ namespace XamarinBoilerplate.ViewModels
             };
             TintEffect.SetTintColor(optionsMenu, (Color)Application.Current.Resources["ActionBarIconsColor"]);
 
-            ExtendedLabel optionA = new ExtendedLabel() { Text = Localization.AppResources.ToolbarItemPhoneContact, TapPressCommand = BackFromDetailsCommand };
-            ExtendedLabel optionB = new ExtendedLabel() { Text = Localization.AppResources.ToolbarItemEmailContact, TapPressCommand = BackFromDetailsCommand };
-            ExtendedLabel optionC = new ExtendedLabel() { Text = Localization.AppResources.ToolbarItemWhatsAppContact, TapPressCommand = BackFromDetailsCommand };
+            ExtendedLabel optionA = new ExtendedLabel() { Text = Localization.AppResources.ToolbarItemPhoneContact, TapPressCommand = CommonToolbarItemTapCommand, CommandParameter = Localization.AppResources.ToolbarItemPhoneContact };
+            ExtendedLabel optionB = new ExtendedLabel() { Text = Localization.AppResources.ToolbarItemEmailContact, TapPressCommand = CommonToolbarItemTapCommand, CommandParameter = Localization.AppResources.ToolbarItemEmailContact };
+            ExtendedLabel optionC = new ExtendedLabel() { Text = Localization.AppResources.ToolbarItemWhatsAppContact, TapPressCommand = CommonToolbarItemTapCommand, CommandParameter = Localization.AppResources.ToolbarItemWhatsAppContact };
 
             optionsMenu.Options.Clear();
             optionsMenu.Options.Add(optionA);
@@ -181,9 +185,36 @@ namespace XamarinBoilerplate.ViewModels
             }
         }
 
+        private async Task ExecuteViewMoreOptionsCommandAsync()
+        {
+            ObservableCollection<string> options = new ObservableCollection<string>();
+            foreach (ExtendedLabel label in SubMenu)
+            {
+                options.Add(label.Text);
+            }
+            await NavigationService.OpenPopUp(new Views.Popups.UIAlertControllerPopup(options, HandleUserSelection));
+        }
+
+        private async void HandleUserSelection(string userSelection)
+        {
+            await NavigationService.ClosePopUp();
+            DependencyService.Get<IToast>().ShowToastMessage(Localization.AppResources.CommonToolbarItemTapped + " " + userSelection, false);
+        }
+
         private async Task ExecuteBackFromDetailsCommandAsync()
         {
             NavigationService.NavigateDetails(nameof(CustomTabbedPage), SelectedTabIndex);
+        }
+
+        private async Task ExecuteCommonToolbarItemTapCommandAsync(object sender)
+        {
+            string itemTapped = (string)sender;
+            DependencyService.Get<IToast>().ShowToastMessage(Localization.AppResources.CommonToolbarItemTapped + " " + itemTapped, false);
+        }
+
+        private async Task ExecuteHelpCommandAsync()
+        {
+            DependencyService.Get<IToast>().ShowToastMessage(Localization.AppResources.HelpButtonPressed, true);
         }
     }
 }

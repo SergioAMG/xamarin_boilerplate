@@ -129,6 +129,10 @@
     <value>Cancel</value>
     <comment>Cancel Text</comment>
   </data>
+  <data name="CommonToolbarItemTapped" xml:space="preserve">
+    <value>The following toolbar item has been tapped</value>
+    <comment>Common Text for Toolbar Item Selection</comment>
+  </data>
   <data name="ContactTitle" xml:space="preserve">
     <value>Contact</value>
     <comment>Contact Page Title</comment>
@@ -140,6 +144,14 @@
   <data name="Done" xml:space="preserve">
     <value>Done</value>
     <comment>Button Text</comment>
+  </data>
+  <data name="FavoritesButtonPressed" xml:space="preserve">
+    <value>The Favorites button was tapped</value>
+    <comment>Button Tapped Alert / Toast</comment>
+  </data>
+  <data name="HelpButtonPressed" xml:space="preserve">
+    <value>The Help button was tapped</value>
+    <comment>Button Tapped Alert / Toast</comment>
   </data>
   <data name="Home" xml:space="preserve">
     <value>Home</value>
@@ -180,6 +192,10 @@
   <data name="Skip" xml:space="preserve">
     <value>Skip</value>
     <comment>Button Text</comment>
+  </data>
+  <data name="SyncButtonPressed" xml:space="preserve">
+    <value>The Sync button was tapped</value>
+    <comment>Button Tapped Alert / Toast</comment>
   </data>
   <data name="ToolbarItemDecreaseTextSize" xml:space="preserve">
     <value>Decrease text size</value>

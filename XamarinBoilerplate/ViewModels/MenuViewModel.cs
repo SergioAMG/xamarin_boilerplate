@@ -10,12 +10,12 @@ namespace XamarinBoilerplate.ViewModels
 {
     public class MenuViewModel : BaseViewModel
     {
+        public string _appVersion;
         private ICommand _goToContactCommand;
         private ICommand _goToWizzardStep1Command;
         private ICommand _goToSearchCommand;
         private ICommand _goToLiveHelpCommand;
         private ICommand _closeCommand;
-        public string _appVersion;
 
         public string AppVersion
         {

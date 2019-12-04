@@ -3,7 +3,7 @@
     android:id="@+id/toolbar"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="#39C1D7"
+    android:background="#007CFF"
     android:theme="@style/ToolbarTheme"
     android:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
 

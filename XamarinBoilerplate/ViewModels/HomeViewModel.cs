@@ -8,12 +8,12 @@ using XamarinBoilerplate.Effects;
 using XamarinBoilerplate.Enums;
 using XamarinBoilerplate.Interfaces;
 using XamarinBoilerplate.Utils;
-using XamarinBoilerplate.Views;
 
 namespace XamarinBoilerplate.ViewModels
 {
     public class HomeViewModel : BaseViewModel
     {
+        private bool _hasSubMenu;
         private ICommand _openDrawerCommand;
         private ICommand _viewMoreOptionsCommand;
         private ICommand _syncCommand;
@@ -40,6 +40,22 @@ namespace XamarinBoilerplate.ViewModels
             get
             {
                 return DeviceInfo.Platform.ToString() == Devices.iOS.ToString();
+            }
+        }
+
+        public bool HasSubMenu
+        {
+            get
+            {
+                return _hasSubMenu;
+            }
+            set
+            {
+                if (_hasSubMenu != value)
+                {
+                    _hasSubMenu = value;
+                    OnPropertyChanged(nameof(HasSubMenu));
+                }
             }
         }
 
@@ -116,11 +132,6 @@ namespace XamarinBoilerplate.ViewModels
             }
         }
 
-        private async Task ExecuteOpenDrawerCommandAsync()
-        {
-            await NavigationService.OpenDrawer();
-        }
-
         public void CreateOptionsMenu()
         {
             Buttons = new ObservableCollection<ImageButton>();
@@ -167,6 +178,8 @@ namespace XamarinBoilerplate.ViewModels
             optionsMenu.Options.Add(optionD);
             SubMenu = optionsMenu.Options;
 
+            HasSubMenu = true;
+
             Buttons.Add(optionsMenu);
             OnPropertyChanged(nameof(Buttons));
 
@@ -190,7 +203,12 @@ namespace XamarinBoilerplate.ViewModels
             }
         }
 
-        private async Task ExecuteViewMoreOptionsCommandAsync()
+        public async Task ExecuteOpenDrawerCommandAsync()
+        {
+            await NavigationService.OpenDrawer();
+        }
+
+        public async Task ExecuteViewMoreOptionsCommandAsync()
         {
             ObservableCollection<string> options = new ObservableCollection<string>();
             foreach (ExtendedLabel label in SubMenu)
@@ -198,12 +216,6 @@ namespace XamarinBoilerplate.ViewModels
                 options.Add(label.Text);
             }
             await NavigationService.OpenPopUp(new Views.Popups.UIAlertControllerPopup(options, HandleUserSelection));
-        }
-
-        private async void HandleUserSelection(string userSelection)
-        {
-            await NavigationService.ClosePopUp();
-            DependencyService.Get<IToast>().ShowToastMessage(Localization.AppResources.CommonToolbarItemTapped + " " + userSelection, false);
         }
 
         private async Task ExecuteCommonToolbarItemTapCommanddAsync(object sender)
@@ -222,5 +234,10 @@ namespace XamarinBoilerplate.ViewModels
             DependencyService.Get<IToast>().ShowToastMessage(Localization.AppResources.FavoritesButtonPressed, true);
         }
 
+        private async void HandleUserSelection(string userSelection)
+        {
+            await NavigationService.ClosePopUp();
+            DependencyService.Get<IToast>().ShowToastMessage(Localization.AppResources.CommonToolbarItemTapped + " " + userSelection, false);
+        }
     }
 }

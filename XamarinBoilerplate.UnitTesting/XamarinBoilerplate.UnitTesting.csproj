@@ -96,6 +96,7 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\BaseViewModelTest.cs" />
+    <Compile Include="ViewModels\ContactViewModelTests.cs" />
     <Compile Include="ViewModels\CustomTabbedViewModelTests.cs" />
     <Compile Include="ViewModels\DataUsageViewModelTests.cs" />
     <Compile Include="ViewModels\HomeViewModelTests.cs" />

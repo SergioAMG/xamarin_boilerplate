@@ -67,7 +67,7 @@ namespace XamarinBoilerplate.ViewModels
 
         public async Task ExecuteGoToContactAsync()
         {
-            var selectedTabIndex = NavigationService.GetCurrentSelectedTabIndexOverMasterDetailPage();
+            var selectedTabIndex = NavigationService.GetCurrentSelectedTabIndexOverMasterDetailPageWithTabbedPage();
             NavigationService.NavigateDetails(nameof(ContactPage), selectedTabIndex);
             await NavigationService.CloseDrawer();
         }
@@ -75,7 +75,7 @@ namespace XamarinBoilerplate.ViewModels
         public async Task ExecuteGoToWizzardStep1CommandAsync()
         {
             await NavigationService.CloseDrawer();
-            var selectedTabIndex = NavigationService.GetCurrentSelectedTabIndexOverMasterDetailPage();
+            var selectedTabIndex = NavigationService.GetCurrentSelectedTabIndexOverMasterDetailPageWithTabbedPage();
             await NavigationService.NavigateAsync(nameof(StepOnePage));
         }
 

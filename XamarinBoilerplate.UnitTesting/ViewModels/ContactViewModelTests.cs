@@ -1,5 +1,4 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System.Collections.ObjectModel;
 using System.Threading.Tasks;
 using XamarinBoilerplate.ViewModels;
 using XamarinBoilerplate.Views;
@@ -7,9 +6,9 @@ using XamarinBoilerplate.Views;
 namespace XamarinBoilerplate.UnitTesting.ViewModels
 {
     [TestClass]
-    public class HomeViewModelTests : BaseViewModelTest
+    public class ContactViewModelTests : BaseViewModelTest
     {
-        private HomeViewModel viewModel;
+        private ContactViewModel viewModel;
 
         [TestInitialize]
         public override void Initialize()
@@ -27,7 +26,7 @@ namespace XamarinBoilerplate.UnitTesting.ViewModels
         public void ShouldViewModelBeInitializedAndAssociated()
         {
             //arrange
-            viewModel = new HomeViewModel();
+            viewModel = new ContactViewModel();
 
             //act
 
@@ -39,7 +38,7 @@ namespace XamarinBoilerplate.UnitTesting.ViewModels
         public void ShouldCreateOptionsMenuCreateToolbarItems()
         {
             //arrange
-            viewModel = new HomeViewModel();
+            viewModel = new ContactViewModel();
 
             //act
             viewModel.CreateOptionsMenu();
@@ -52,7 +51,7 @@ namespace XamarinBoilerplate.UnitTesting.ViewModels
         public void ShouldCreateOptionsMenuCreateAlsoSubMenu()
         {
             //arrange
-            viewModel = new HomeViewModel();
+            viewModel = new ContactViewModel();
 
             //act
             viewModel.CreateOptionsMenu();
@@ -63,20 +62,37 @@ namespace XamarinBoilerplate.UnitTesting.ViewModels
         }
 
         [TestMethod]
-        public void ShouldOpenDrawerCommandOpenTheDrawerMenu()
+        public void ShouldInitMethodUpdateSelectedTabIndex()
         {
             //arrange
-            viewModel = new HomeViewModel();
+            viewModel = new ContactViewModel();
+
+            //act
+            int selectedIndex = 1;
+            viewModel.Init(selectedIndex);
+
+            //asert
+            Assert.AreEqual(viewModel.SelectedTabIndex, selectedIndex);
+        }
+
+        [TestMethod]
+        public void ShouldBackFromDetailsCommandTakeYouBackToSelectedTabActive()
+        {
+            //arrange
+            viewModel = new ContactViewModel();
 
             //act
             viewModel.NavigationService.SetRootPage(nameof(DashboardPage), new DashboardViewModel());
+            viewModel.NavigationService.NavigateAsync(nameof(CustomTabbedPage), null, false);
+            int selectedTab = 1;
+            viewModel.Init(selectedTab);
             Task.Run(async () =>
             {
-                await viewModel.ExecuteOpenDrawerCommandAsync();
+                await viewModel.ExecuteBackFromDetailsCommandAsync();
             }).GetAwaiter().GetResult();
 
             //assert
-            Assert.IsTrue(viewModel.NavigationService.IsDrawerOpen());
+            var currentPage = viewModel.NavigationService.CurrentPage;
         }
     }
 }

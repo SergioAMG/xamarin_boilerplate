@@ -372,7 +372,7 @@ namespace XamarinBoilerplate.Services
             }
         }
 
-        public int GetCurrentSelectedTabIndexOverMasterDetailPage()
+        public int GetCurrentSelectedTabIndexOverMasterDetailPageWithTabbedPage()
         {
             int index = 0;
             try
@@ -408,6 +408,41 @@ namespace XamarinBoilerplate.Services
                 // TODO: Implement better error handling for exceptions
                 System.Diagnostics.Debug.WriteLine("Error found at: " + ex.InnerException.ToString());
                 return 0;
+            }
+        }
+
+        public Page GetCurrentDetailsPage()
+        {
+            try
+            {
+                var navigationStack = CurrentNavigationPage.Navigation;
+                if (navigationStack.NavigationStack.Count > 0)
+                {
+                    foreach (var page in navigationStack.NavigationStack)
+                    {
+                        var masterDetailPage = (MasterDetailPage)page;
+                        if ((masterDetailPage.Detail as NavigationPage) == null)
+                        {
+                            return masterDetailPage.Detail as Page;
+                            
+                        }
+                        else
+                        {
+                            return (masterDetailPage.Detail as NavigationPage).CurrentPage;
+                        }
+                    }
+                    return null;
+                }
+                else
+                {
+                    return null;
+                }
+            }
+            catch (Exception ex)
+            {
+                // TODO: Implement better error handling for exceptions
+                System.Diagnostics.Debug.WriteLine("Error found at: " + ex.InnerException.ToString());
+                return null;
             }
         }
 

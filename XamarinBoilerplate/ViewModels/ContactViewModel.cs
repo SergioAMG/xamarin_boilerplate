@@ -15,6 +15,7 @@ namespace XamarinBoilerplate.ViewModels
     public class ContactViewModel : BaseViewModel
     {
         private int _selectedTabIndex;
+        private bool _hasSubMenu;
         private ICommand _helpCommand;
         private ICommand _viewMoreOptionsCommand;
         private ICommand _backFromDetailsCommand;
@@ -25,6 +26,22 @@ namespace XamarinBoilerplate.ViewModels
         public ContactViewModel()
         {
             CreateOptionsMenu();
+        }
+
+        public int SelectedTabIndex
+        {
+            get
+            {
+                return _selectedTabIndex;
+            }
+            set
+            {
+                if (_selectedTabIndex != value)
+                {
+                    _selectedTabIndex = value;
+                    OnPropertyChanged((nameof(SelectedTabIndex)));
+                }
+            }
         }
 
         public bool IsAndroid
@@ -40,6 +57,22 @@ namespace XamarinBoilerplate.ViewModels
             get
             {
                 return DeviceInfo.Platform.ToString() == Devices.iOS.ToString();
+            }
+        }
+
+        public bool HasSubMenu
+        {
+            get
+            {
+                return _hasSubMenu;
+            }
+            set
+            {
+                if (_hasSubMenu != value)
+                {
+                    _hasSubMenu = value;
+                    OnPropertyChanged(nameof(HasSubMenu));
+                }
             }
         }
 
@@ -75,22 +108,6 @@ namespace XamarinBoilerplate.ViewModels
             }
         }
 
-        public int SelectedTabIndex
-        {
-            get
-            {
-                return _selectedTabIndex;
-            }
-            set
-            {
-                if (_selectedTabIndex != value)
-                {
-                    _selectedTabIndex = value;
-                    OnPropertyChanged((nameof(SelectedTabIndex)));
-                }
-            }
-        }
-
         public ICommand ViewMoreOptionsCommand
         {
             get
@@ -107,7 +124,6 @@ namespace XamarinBoilerplate.ViewModels
 
             }
         }
-
         public ICommand CommonToolbarItemTapCommand
         {
             get
@@ -115,7 +131,6 @@ namespace XamarinBoilerplate.ViewModels
                 return _commonToolbarItemTapCommand ?? (_commonToolbarItemTapCommand = new CommandExtended(ExecuteCommonToolbarItemTapCommandAsync));
             }
         }
-
         public ICommand HelpCommand
         {
             get
@@ -162,6 +177,8 @@ namespace XamarinBoilerplate.ViewModels
             optionsMenu.Options.Add(optionC);
             SubMenu = optionsMenu.Options;
 
+            HasSubMenu = true;
+
             Buttons.Add(optionsMenu);
             OnPropertyChanged(nameof(Buttons));
 
@@ -201,7 +218,7 @@ namespace XamarinBoilerplate.ViewModels
             DependencyService.Get<IToast>().ShowToastMessage(Localization.AppResources.CommonToolbarItemTapped + " " + userSelection, false);
         }
 
-        private async Task ExecuteBackFromDetailsCommandAsync()
+        public async Task ExecuteBackFromDetailsCommandAsync()
         {
             NavigationService.NavigateDetails(nameof(CustomTabbedPage), SelectedTabIndex);
         }

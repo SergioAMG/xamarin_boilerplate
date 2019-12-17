@@ -31,7 +31,7 @@ namespace XamarinBoilerplate.ViewModels
         {
             get
             {
-                return DeviceInfo.Platform.ToString() == Devices.Android.ToString();
+                return DeviceManager.Platform == Devices.Android.ToString();
             }
         }
 
@@ -39,7 +39,7 @@ namespace XamarinBoilerplate.ViewModels
         {
             get
             {
-                return DeviceInfo.Platform.ToString() == Devices.iOS.ToString();
+                return DeviceManager.Platform == Devices.iOS.ToString();
             }
         }
 

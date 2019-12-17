@@ -8,6 +8,7 @@
         public static readonly int UIAlertControllerPopupOptionListItemViewWidth = 15;
         public static readonly double ShortToastDuration = 2.0;
         public static readonly double LongToastDuration = 4.0;
+        public static readonly double LandscapeFactor = 0.25;
         //public static readonly int MaxCharForNewsItemDisplay = 80;
         //public static readonly int MaxCharForNewsItemTitleDisplay = 45;
     }

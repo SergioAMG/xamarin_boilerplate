@@ -286,4 +286,7 @@
   <ItemGroup>
     <BundleResource Include="Resources\baseline_star_border_black_24%403x.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\epam.png" />
+  </ItemGroup>
 </Project>

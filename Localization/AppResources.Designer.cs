@@ -124,6 +124,42 @@ namespace Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Av. de las Américas 1254, Country Club.
+        /// </summary>
+        public static string EpamAddress {
+            get {
+                return ResourceManager.GetString("EpamAddress", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 44610 Guadalajara, Jalisco.
+        /// </summary>
+        public static string EpamAddressLineTwo {
+            get {
+                return ResourceManager.GetString("EpamAddressLineTwo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Epam Systems Mexico.
+        /// </summary>
+        public static string EpamSystems {
+            get {
+                return ResourceManager.GetString("EpamSystems", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to http://www.epam.com.
+        /// </summary>
+        public static string EpamWebSite {
+            get {
+                return ResourceManager.GetString("EpamWebSite", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to The Favorites button was tapped.
         /// </summary>
         public static string FavoritesButtonPressed {
@@ -228,6 +264,15 @@ namespace Localization {
         public static string Skip {
             get {
                 return ResourceManager.GetString("Skip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Submit.
+        /// </summary>
+        public static string Submit {
+            get {
+                return ResourceManager.GetString("Submit", resourceCulture);
             }
         }
         
@@ -354,6 +399,42 @@ namespace Localization {
         public static string WizzardStep3Title {
             get {
                 return ResourceManager.GetString("WizzardStep3Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Your email.
+        /// </summary>
+        public static string YourEmail {
+            get {
+                return ResourceManager.GetString("YourEmail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Your message.
+        /// </summary>
+        public static string YourMessage {
+            get {
+                return ResourceManager.GetString("YourMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Your name.
+        /// </summary>
+        public static string YourName {
+            get {
+                return ResourceManager.GetString("YourName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Your phone.
+        /// </summary>
+        public static string YourPhone {
+            get {
+                return ResourceManager.GetString("YourPhone", resourceCulture);
             }
         }
     }

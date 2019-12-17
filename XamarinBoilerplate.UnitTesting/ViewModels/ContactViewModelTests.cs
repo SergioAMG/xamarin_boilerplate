@@ -1,5 +1,9 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Shouldly;
 using System.Threading.Tasks;
+using Xamarin.Forms;
+using XamarinBoilerplate.Enums;
+using XamarinBoilerplate.Utils;
 using XamarinBoilerplate.ViewModels;
 using XamarinBoilerplate.Views;
 
@@ -93,6 +97,48 @@ namespace XamarinBoilerplate.UnitTesting.ViewModels
 
             //assert
             var currentPage = viewModel.NavigationService.CurrentPage;
+        }
+
+        [TestMethod]
+        public void ShouldRefreshOrientationChangeTheOrientationOfTheMainContainer()
+        {
+            //arrange
+            viewModel = new ContactViewModel();
+
+            //act
+            DeviceManager.Orientation = Devices.Portrait.ToString();
+
+            //assert
+            viewModel.MainContainerOrientation.ShouldBe(StackOrientation.Vertical);
+            DeviceManager.Orientation = Devices.Landscape.ToString();
+            viewModel.SetOrientationValues();
+            viewModel.MainContainerOrientation.ShouldBe(StackOrientation.Horizontal);
+        }
+
+        [TestMethod]
+        public void ShouldMainContainerBeHorizontalWhenDeviceOrientationIsInLandscapeMode()
+        {
+            //arrange
+            viewModel = new ContactViewModel();
+
+            //act
+            DeviceManager.Orientation = Devices.Landscape.ToString();
+
+            //assert
+            viewModel.MainContainerOrientation.ShouldBe(StackOrientation.Horizontal);
+        }
+
+        [TestMethod]
+        public void ShouldMainContainerBeVerticalWhenDeviceOrientationIsInPortraitMode()
+        {
+            //arrange
+            viewModel = new ContactViewModel();
+
+            //act
+            DeviceManager.Orientation = Devices.Portrait.ToString();
+
+            //assert
+            viewModel.MainContainerOrientation.ShouldBe(StackOrientation.Vertical);
         }
     }
 }

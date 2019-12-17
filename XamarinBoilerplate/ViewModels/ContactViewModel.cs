@@ -15,6 +15,7 @@ namespace XamarinBoilerplate.ViewModels
     public class ContactViewModel : BaseViewModel
     {
         private int _selectedTabIndex;
+        private double _detailsViewWidth;
         private bool _hasSubMenu;
         private ICommand _helpCommand;
         private ICommand _viewMoreOptionsCommand;
@@ -26,6 +27,7 @@ namespace XamarinBoilerplate.ViewModels
         public ContactViewModel()
         {
             CreateOptionsMenu();
+            SetOrientationValues();
         }
 
         public int SelectedTabIndex
@@ -48,7 +50,7 @@ namespace XamarinBoilerplate.ViewModels
         {
             get
             {
-                return DeviceInfo.Platform.ToString() == Devices.Android.ToString();
+                return DeviceManager.Platform == Devices.Android.ToString();
             }
         }
 
@@ -56,7 +58,7 @@ namespace XamarinBoilerplate.ViewModels
         {
             get
             {
-                return DeviceInfo.Platform.ToString() == Devices.iOS.ToString();
+                return DeviceManager.Platform == Devices.iOS.ToString();
             }
         }
 
@@ -73,6 +75,30 @@ namespace XamarinBoilerplate.ViewModels
                     _hasSubMenu = value;
                     OnPropertyChanged(nameof(HasSubMenu));
                 }
+            }
+        }
+
+        public double DetailsViewWidth
+        {
+            get
+            {
+                return _detailsViewWidth;
+            }
+            set
+            {
+                if (_detailsViewWidth != value)
+                {
+                    _detailsViewWidth = value;
+                    OnPropertyChanged(nameof(DetailsViewWidth));
+                }
+            }
+        }
+
+        public StackOrientation MainContainerOrientation
+        {
+            get
+            {
+                return DeviceManager.Orientation == Devices.Landscape.ToString() ? StackOrientation.Horizontal : StackOrientation.Vertical;
             }
         }
 
@@ -116,6 +142,7 @@ namespace XamarinBoilerplate.ViewModels
 
             }
         }
+
         public ICommand BackFromDetailsCommand
         {
             get
@@ -124,6 +151,7 @@ namespace XamarinBoilerplate.ViewModels
 
             }
         }
+
         public ICommand CommonToolbarItemTapCommand
         {
             get
@@ -131,6 +159,7 @@ namespace XamarinBoilerplate.ViewModels
                 return _commonToolbarItemTapCommand ?? (_commonToolbarItemTapCommand = new CommandExtended(ExecuteCommonToolbarItemTapCommandAsync));
             }
         }
+
         public ICommand HelpCommand
         {
             get
@@ -200,6 +229,12 @@ namespace XamarinBoilerplate.ViewModels
                 Buttons.Add(optionsMenuIOS);
                 OnPropertyChanged(nameof(Buttons));
             }
+        }
+
+        public void SetOrientationValues()
+        {
+            DetailsViewWidth = (DeviceManager.Orientation == DisplayOrientation.Landscape.ToString()) ? App.ScreenWidth * Constants.LandscapeFactor : App.ScreenWidth;
+            OnPropertyChanged(nameof(MainContainerOrientation));
         }
 
         private async Task ExecuteViewMoreOptionsCommandAsync()

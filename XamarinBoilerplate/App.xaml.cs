@@ -25,6 +25,7 @@ namespace XamarinBoilerplate
             if (!UnitTestingManager.IsRunningFromNUnit)
             {
                 IdentifyDevice();
+                SetScreenDimentions();
                 LaunchApp();
             }
         }
@@ -82,6 +83,12 @@ namespace XamarinBoilerplate
             CultureInfo.CurrentCulture = new CultureInfo("en-US", false);
             //CultureInfo.CurrentCulture = new CultureInfo("es-MX", false);
             Localization.AppResources.Culture = CultureInfo.CurrentCulture;
+        }
+
+        public void SetScreenDimentions()
+        {
+            ScreenWidth = DeviceDisplay.MainDisplayInfo.Width;
+            ScreenHeight = DeviceDisplay.MainDisplayInfo.Height;
         }
 
         protected override void OnStart()

@@ -14,33 +14,36 @@
         BackgroundColor="{DynamicResource PageBackgroundColor}">
     <ContentPage.Content>
         <StackLayout Spacing="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Orientation="Vertical">
-            <!--<common:ActionBar BackButtonTintColor="{DynamicResource ActionBarIconsColor}" BackgroundColor="{DynamicResource ActionBarBackground}"
-                              ShowIcon="False" Title="{utils:Localized ContactTitle}" HideBackButton="False" TitleLabelStyle="{DynamicResource ActionBarTextLabelStyle}"
-                              IsMaster="False" CenterBartitle="{Binding IsTitleCentered}" IsModal="False" Buttons="{Binding Buttons}" BackButtonCommand="{Binding BackFromDetailsCommand}" />-->
-            <StackLayout Spacing="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Orientation="{Binding MainContainerOrientation}" Padding="0,0,20,0">
-                <StackLayout Spacing="0" HorizontalOptions="FillAndExpand" VerticalOptions="Start" Orientation="Vertical" Padding="0">
-                    <Image Source="epam" Aspect="AspectFit" HorizontalOptions="CenterAndExpand" VerticalOptions="StartAndExpand" Margin="0,20,0,10" />
-                    <Label Text="{utils:Localized EpamSystems}" HorizontalOptions="Center" HorizontalTextAlignment="Center" FontSize="16" FontAttributes="Bold" />
-                    <Label Text="{utils:Localized EpamAddress}" HorizontalOptions="Center" HorizontalTextAlignment="Center" FontSize="15" />
-                    <Label Text="{utils:Localized EpamAddressLineTwo}" HorizontalOptions="Center" HorizontalTextAlignment="Center" FontSize="15" />
-                    <Label Text="{utils:Localized EpamWebSite}" HorizontalOptions="Center" HorizontalTextAlignment="Center" FontSize="15" TextColor="{DynamicResource Blue}" />
-                </StackLayout>
-                <StackLayout Spacing="0" HorizontalOptions="FillAndExpand" VerticalOptions="Fill" Orientation="Vertical" Padding="20,20,20,10" WidthRequest="{Binding DetailsViewWidth}">
-                    <Grid>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="86.5*" />
-                            <RowDefinition Height="13.5*" />
-                        </Grid.RowDefinitions>
-                        <StackLayout Spacing="0" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Padding="0" Orientation="Vertical">
+            <common:ActionBar BackButtonTintColor="{DynamicResource ActionBarIconsColor}" BackgroundColor="{DynamicResource ActionBarBackground}"
+                      ShowIcon="False" Title="{utils:Localized ContactTitle}" HideBackButton="False" TitleLabelStyle="{DynamicResource ActionBarTextLabelStyle}"
+                      IsMaster="False" CenterBartitle="{Binding IsTitleCentered}" IsModal="False" Buttons="{Binding Buttons}" BackButtonCommand="{Binding BackFromDetailsCommand}" IsVisible="{Binding IsNavBarVisible}" />
+            <ScrollView VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                <Grid ColumnSpacing="0" RowSpacing="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Padding="20,0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="90*" />
+                        <RowDefinition Height="10*" />
+                    </Grid.RowDefinitions>
+                    <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Grid.Row="0" Grid.Column="0" Spacing="10" Orientation="{Binding MainContainerOrientation}">
+                        <StackLayout Spacing="0" HorizontalOptions="FillAndExpand" VerticalOptions="Start" Orientation="Vertical" Padding="0" WidthRequest="{Binding DetailsViewWidth}" >
+                            <Image Source="epam" Aspect="AspectFit" HorizontalOptions="CenterAndExpand" VerticalOptions="StartAndExpand" Margin="0,10,0,10" />
+                            <Label Text="{utils:Localized EpamSystems}" HorizontalOptions="Center" HorizontalTextAlignment="Center" FontSize="16" FontAttributes="Bold" />
+                            <Label Text="{utils:Localized EpamAddress}" HorizontalOptions="Center" HorizontalTextAlignment="Center" FontSize="15" />
+                            <Label Text="{utils:Localized EpamAddressLineTwo}" HorizontalOptions="Center" HorizontalTextAlignment="Center" FontSize="15" />
+                            <Label Text="{utils:Localized EpamWebSite}" HorizontalOptions="Center" HorizontalTextAlignment="Center" FontSize="15" TextColor="{DynamicResource Blue}" />
+                        </StackLayout>
+                        <StackLayout Spacing="2" HorizontalOptions="FillAndExpand" VerticalOptions="Start" Orientation="Vertical" Padding="0,10,0,0">
                             <Entry Placeholder="{utils:Localized YourName}" HorizontalOptions="FillAndExpand" />
                             <Entry Placeholder="{utils:Localized YourPhone}" HorizontalOptions="FillAndExpand" />
                             <Entry Placeholder="{utils:Localized YourEmail}" HorizontalOptions="FillAndExpand" />
-                            <Editor Placeholder="{utils:Localized YourMessage}" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" />
+                            <Editor Placeholder="{utils:Localized YourMessage}" HorizontalOptions="FillAndExpand" AutoSize="TextChanges" WidthRequest="{Binding DetailsViewWidth}" Focused="EditorFocused" Unfocused="EditorUnfocused" />
+                            <Button Text="{utils:Localized Submit}" BorderWidth="1" IsVisible="{Binding IsLandscapeButtonVisible}" />
                         </StackLayout>
-                        <Button Text="{utils:Localized Submit}" HorizontalOptions="FillAndExpand" VerticalOptions="End" BorderWidth="0" Grid.Row="1" Grid.Column="0" />
-                    </Grid>
-                </StackLayout>
-            </StackLayout>
+                    </StackLayout>
+                    <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand" Grid.Row="1" Grid.Column="0" IsVisible="{Binding IsBottomButtonVisible}">
+                        <Button Text="{utils:Localized Submit}" BorderWidth="1" />
+                    </StackLayout>
+                </Grid>
+            </ScrollView>
         </StackLayout>
     </ContentPage.Content>
 </base:BaseContentPage>

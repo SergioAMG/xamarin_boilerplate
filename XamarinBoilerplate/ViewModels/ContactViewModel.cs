@@ -17,6 +17,7 @@ namespace XamarinBoilerplate.ViewModels
         private int _selectedTabIndex;
         private double _detailsViewWidth;
         private bool _hasSubMenu;
+        private bool _isNavBarVisible;
         private ICommand _helpCommand;
         private ICommand _viewMoreOptionsCommand;
         private ICommand _backFromDetailsCommand;
@@ -28,6 +29,8 @@ namespace XamarinBoilerplate.ViewModels
         {
             CreateOptionsMenu();
             SetOrientationValues();
+            bool isNavBarVisible = true;
+            SetNavBarVisibility(isNavBarVisible);
         }
 
         public int SelectedTabIndex
@@ -59,6 +62,22 @@ namespace XamarinBoilerplate.ViewModels
             get
             {
                 return DeviceManager.Platform == Devices.iOS.ToString();
+            }
+        }
+
+        public bool IsBottomButtonVisible
+        {
+            get
+            {
+                return !DeviceManager.IsLandscape;
+            }
+        }
+
+        public bool IsLandscapeButtonVisible
+        {
+            get
+            {
+                return DeviceManager.IsLandscape;
             }
         }
 
@@ -134,6 +153,22 @@ namespace XamarinBoilerplate.ViewModels
             }
         }
 
+        public bool IsNavBarVisible
+        {
+            get
+            {
+                return _isNavBarVisible;
+            }
+            set
+            {
+                if (_isNavBarVisible != value)
+                {
+                    _isNavBarVisible = value;
+                    OnPropertyChanged(nameof(IsNavBarVisible));
+                }
+            }
+        }
+
         public ICommand ViewMoreOptionsCommand
         {
             get
@@ -171,6 +206,11 @@ namespace XamarinBoilerplate.ViewModels
         public void Init(int selectedTabIndex)
         {
             SelectedTabIndex = selectedTabIndex;
+        }
+
+        public void SetNavBarVisibility(bool visibility)
+        {
+            IsNavBarVisible = visibility;
         }
 
         public void CreateOptionsMenu()
@@ -233,8 +273,10 @@ namespace XamarinBoilerplate.ViewModels
 
         public void SetOrientationValues()
         {
-            DetailsViewWidth = (DeviceManager.Orientation == DisplayOrientation.Landscape.ToString()) ? App.ScreenWidth * Constants.LandscapeFactor : App.ScreenWidth;
+            DetailsViewWidth = (DeviceManager.Orientation == DisplayOrientation.Landscape.ToString()) ? (App.ScreenWidth * Constants.ContactPageDetailsViewWidthFactor) : App.ScreenWidth;
             OnPropertyChanged(nameof(MainContainerOrientation));
+            OnPropertyChanged(nameof(IsBottomButtonVisible));
+            OnPropertyChanged(nameof(IsLandscapeButtonVisible));
         }
 
         private async Task ExecuteViewMoreOptionsCommandAsync()

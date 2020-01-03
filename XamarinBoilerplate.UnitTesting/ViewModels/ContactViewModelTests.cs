@@ -140,5 +140,101 @@ namespace XamarinBoilerplate.UnitTesting.ViewModels
             //assert
             viewModel.MainContainerOrientation.ShouldBe(StackOrientation.Vertical);
         }
+
+        [TestMethod]
+        public void ShouldSetNavBarVisibilityToTrueWhenBindingViewModel()
+        {
+            //arrange
+            viewModel = new ContactViewModel();
+
+            //act
+
+            //assert
+            Assert.IsTrue(viewModel.IsNavBarVisible);
+        }
+
+        [TestMethod]
+        public void ShouldSetOrientationValuesSetDetailsViewWidthForLandscape()
+        {
+            //arrange
+            viewModel = new ContactViewModel();
+
+            //act
+            DeviceManager.Orientation = Devices.Landscape.ToString();
+            viewModel.SetOrientationValues();
+
+            //assert
+            viewModel.DetailsViewWidth.ShouldBe(App.ScreenWidth * Constants.ContactPageDetailsViewWidthFactor);
+        }
+
+        [TestMethod]
+        public void ShouldSetOrientationValuesSetDetailsViewWidthForPortrait()
+        {
+            //arrange
+            viewModel = new ContactViewModel();
+
+            //act
+            DeviceManager.Orientation = Devices.Portrait.ToString();
+            viewModel.SetOrientationValues();
+
+            //assert
+            viewModel.DetailsViewWidth.ShouldBe(App.ScreenWidth);
+        }
+
+        [TestMethod]
+        public void ShouldBottomButtonVisibleWhenInPortraitMode()
+        {
+            //arrange
+            viewModel = new ContactViewModel();
+
+            //act
+            DeviceManager.Orientation = Devices.Portrait.ToString();
+            viewModel.SetOrientationValues();
+
+            //assert
+            viewModel.IsBottomButtonVisible.ShouldBeTrue();
+        }
+
+        [TestMethod]
+        public void ShouldBottomButtonNotVisibleWhenInLandscapeMode()
+        {
+            //arrange
+            viewModel = new ContactViewModel();
+
+            //act
+            DeviceManager.Orientation = Devices.Landscape.ToString();
+            viewModel.SetOrientationValues();
+
+            //assert
+            viewModel.IsBottomButtonVisible.ShouldBeFalse();
+        }
+
+        [TestMethod]
+        public void ShouldLandscapeBottomButtonVisibleWhenInLandscapeMode()
+        {
+            //arrange
+            viewModel = new ContactViewModel();
+
+            //act
+            DeviceManager.Orientation = Devices.Landscape.ToString();
+            viewModel.SetOrientationValues();
+
+            //assert
+            viewModel.IsLandscapeButtonVisible.ShouldBeTrue();
+        }
+
+        [TestMethod]
+        public void ShouldLandscapeBottomButtonNotVisibleWhenInPortraitMode()
+        {
+            //arrange
+            viewModel = new ContactViewModel();
+
+            //act
+            DeviceManager.Orientation = Devices.Portrait.ToString();
+            viewModel.SetOrientationValues();
+
+            //assert
+            viewModel.IsLandscapeButtonVisible.ShouldBeFalse();
+        }
     }
 }

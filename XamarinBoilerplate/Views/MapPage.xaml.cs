@@ -12,7 +12,6 @@ namespace XamarinBoilerplate.Views
         protected override void OnAppearing()
         {
             base.OnAppearing();
-            var tmp = Navigation.NavigationStack;
         }
     }
 }

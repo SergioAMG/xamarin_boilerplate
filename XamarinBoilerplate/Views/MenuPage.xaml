@@ -78,7 +78,7 @@
                     <BoxView Grid.Row="8" Grid.Column="0" Grid.ColumnSpan="2" BackgroundColor="#ECECEC" HeightRequest="1" HorizontalOptions="FillAndExpand" VerticalOptions="Start" />
                 </Grid>
             </ScrollView>
-            <StackLayout VerticalOptions="EndAndExpand" HorizontalOptions="FillAndExpand" Orientation="Vertical" Padding="20,15" BackgroundColor="#F7F7F7">
+            <StackLayout VerticalOptions="EndAndExpand" HorizontalOptions="FillAndExpand" Orientation="Vertical" Padding="20,15" BackgroundColor="{DynamicResource FooterGray}">
                 <Label Text="{Binding AppVersion}" VerticalTextAlignment="End" />
                 <Label VerticalTextAlignment="End">
                     <Label.FormattedText>

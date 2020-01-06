@@ -9,5 +9,9 @@ namespace XamarinBoilerplate.Views
         {
             InitializeComponent();
         }
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+        }
     }
 }

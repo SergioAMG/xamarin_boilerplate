@@ -56,7 +56,6 @@ namespace XamarinBoilerplate.UnitTesting.ViewModels
         }
 
         [TestMethod]
-        [Ignore]
         public void ShouldGoToContactCommandSendUserToContactPage()
         {
             //arrange
@@ -68,8 +67,11 @@ namespace XamarinBoilerplate.UnitTesting.ViewModels
             {
                 await viewModel.ExecuteGoToContactAsync();
             }).GetAwaiter().GetResult();
+            Page currentPage  = viewModel.NavigationService.GetCurrentDetailsPage();
+            Page targetPage = new ContactPage();
 
             //assert
+            NUnit.Framework.Assert.AreEqual(currentPage.GetType(), targetPage.GetType());
         }
 
         [TestMethod]

@@ -121,4 +121,8 @@
     <value>Atras</value>
     <comment>Button Text</comment>
   </data>
+  <data name="Home" xml:space="preserve">
+    <value>Inicio</value>
+    <comment>Home Title</comment>
+  </data>
 </root>

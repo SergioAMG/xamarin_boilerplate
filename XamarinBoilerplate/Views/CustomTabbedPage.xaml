@@ -8,10 +8,9 @@
         x:Class="XamarinBoilerplate.Views.CustomTabbedPage"
         xmlns:views="clr-namespace:XamarinBoilerplate.Views"
         xmlns:utils="clr-namespace:XamarinBoilerplate.Utils"
-        BarBackgroundColor="{DynamicResource White}"
-        BarTextColor="{DynamicResource Black}"
-        UnselectedTabColor="{d:DynamicResource Black}"
-        SelectedTabColor="{DynamicResource Gray}">
+        BarBackgroundColor="{DynamicResource FooterGray}"
+        UnselectedTabColor="{DynamicResource Black}"
+        SelectedTabColor="{DynamicResource Blue}">
     <NavigationPage Title="{utils:Localized Home}" IconImageSource="baseline_home_black_24">
         <x:Arguments>
             <views:HomePage />

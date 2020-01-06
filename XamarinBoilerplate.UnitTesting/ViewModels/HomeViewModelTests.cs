@@ -1,5 +1,8 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.Collections.ObjectModel;
+using System.Threading.Tasks;
 using XamarinBoilerplate.ViewModels;
+using XamarinBoilerplate.Views;
 
 namespace XamarinBoilerplate.UnitTesting.ViewModels
 {
@@ -21,7 +24,7 @@ namespace XamarinBoilerplate.UnitTesting.ViewModels
         }
 
         [TestMethod]
-        public void ShouldViewModelbeInitializedAndAssociated()
+        public void ShouldViewModelBeInitializedAndAssociated()
         {
             //arrange
             viewModel = new HomeViewModel();
@@ -30,6 +33,50 @@ namespace XamarinBoilerplate.UnitTesting.ViewModels
 
             //assert
             Assert.IsNotNull(viewModel);
+        }
+
+        [TestMethod]
+        public void ShouldCreateOptionsMenuCreateToolbarItems()
+        {
+            //arrange
+            viewModel = new HomeViewModel();
+
+            //act
+            viewModel.CreateOptionsMenu();
+
+            //assert
+            Assert.IsNotNull(viewModel.Buttons);
+        }
+
+        [TestMethod]
+        public void ShouldCreateOptionsMenuCreateAlsoSubMenu()
+        {
+            //arrange
+            viewModel = new HomeViewModel();
+
+            //act
+            viewModel.CreateOptionsMenu();
+
+            //assert
+            Assert.IsTrue(viewModel.HasSubMenu);
+            Assert.IsNotNull(viewModel.SubMenu);
+        }
+
+        [TestMethod]
+        public void ShouldOpenDrawerCommandOpenTheDrawerMenu()
+        {
+            //arrange
+            viewModel = new HomeViewModel();
+
+            //act
+            viewModel.NavigationService.SetRootPage(nameof(DashboardPage), new DashboardViewModel());
+            Task.Run(async () =>
+            {
+                await viewModel.ExecuteOpenDrawerCommandAsync();
+            }).GetAwaiter().GetResult();
+
+            //assert
+            Assert.IsTrue(viewModel.NavigationService.IsDrawerOpen());
         }
     }
 }

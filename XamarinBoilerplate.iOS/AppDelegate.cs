@@ -1,9 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-
-using Foundation;
+﻿using Foundation;
 using UIKit;
+using Xamarin.Forms;
+using Xamarin.Forms.Platform.iOS;
 
 namespace XamarinBoilerplate.iOS
 {
@@ -22,9 +20,11 @@ namespace XamarinBoilerplate.iOS
         //
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
+            Rg.Plugins.Popup.Popup.Init();
             global::Xamarin.Forms.Forms.Init();
-            LoadApplication(new App());
+            UINavigationBar.Appearance.TintColor = Color.Black.ToUIColor();
 
+            LoadApplication(new App());
             return base.FinishedLaunching(app, options);
         }
     }

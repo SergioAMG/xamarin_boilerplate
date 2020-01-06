@@ -25,6 +25,7 @@ namespace XamarinBoilerplate
             if (!UnitTestingManager.IsRunningFromNUnit)
             {
                 IdentifyDevice();
+                SetScreenDimentions();
                 LaunchApp();
             }
         }
@@ -53,6 +54,7 @@ namespace XamarinBoilerplate
             NavigationService.Configure(nameof(MapPage), typeof(MapPage));
             NavigationService.Configure(nameof(DataUsagePage), typeof(DataUsagePage));
             NavigationService.Configure(nameof(CustomTabbedPage), typeof(CustomTabbedPage));
+            NavigationService.Configure(nameof(ContactPage), typeof(ContactPage));
 
             NavigationService.BindViewModel<StepOneViewModel, StepOnePage>();
             NavigationService.BindViewModel<StepTwoViewModel, StepTwoPage>();
@@ -63,6 +65,7 @@ namespace XamarinBoilerplate
             NavigationService.BindViewModel<MapViewModel, MapPage>();
             NavigationService.BindViewModel<DataUsageViewModel, DataUsagePage>();
             NavigationService.BindViewModel<CustomTabbedViewModel, CustomTabbedPage>();
+            NavigationService.BindViewModel<ContactViewModel, ContactPage>();
         }
 
         public void IdentifyDevice()
@@ -80,6 +83,12 @@ namespace XamarinBoilerplate
             CultureInfo.CurrentCulture = new CultureInfo("en-US", false);
             //CultureInfo.CurrentCulture = new CultureInfo("es-MX", false);
             Localization.AppResources.Culture = CultureInfo.CurrentCulture;
+        }
+
+        public void SetScreenDimentions()
+        {
+            ScreenWidth = DeviceDisplay.MainDisplayInfo.Width;
+            ScreenHeight = DeviceDisplay.MainDisplayInfo.Height;
         }
 
         protected override void OnStart()

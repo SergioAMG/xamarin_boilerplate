@@ -125,6 +125,18 @@
     <value>Back</value>
     <comment>Button Text</comment>
   </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Cancel</value>
+    <comment>Cancel Text</comment>
+  </data>
+  <data name="CommonToolbarItemTapped" xml:space="preserve">
+    <value>The following toolbar item has been tapped</value>
+    <comment>Common Text for Toolbar Item Selection</comment>
+  </data>
+  <data name="ContactTitle" xml:space="preserve">
+    <value>Contact</value>
+    <comment>Contact Page Title</comment>
+  </data>
   <data name="DataUsage" xml:space="preserve">
     <value>Usage</value>
     <comment>Data Usage Text</comment>
@@ -132,6 +144,30 @@
   <data name="Done" xml:space="preserve">
     <value>Done</value>
     <comment>Button Text</comment>
+  </data>
+  <data name="EpamAddress" xml:space="preserve">
+    <value>Av. de las Américas 1254, Country Club</value>
+    <comment>Epam Address Text</comment>
+  </data>
+  <data name="EpamAddressLineTwo" xml:space="preserve">
+    <value>44610 Guadalajara, Jalisco</value>
+    <comment>Epam Address Line Two Text</comment>
+  </data>
+  <data name="EpamSystems" xml:space="preserve">
+    <value>Epam Systems Mexico</value>
+    <comment>EpamSystems</comment>
+  </data>
+  <data name="EpamWebSite" xml:space="preserve">
+    <value>http://www.epam.com</value>
+    <comment>Epam Web Site URL</comment>
+  </data>
+  <data name="FavoritesButtonPressed" xml:space="preserve">
+    <value>The Favorites button was tapped</value>
+    <comment>Button Tapped Alert / Toast</comment>
+  </data>
+  <data name="HelpButtonPressed" xml:space="preserve">
+    <value>The Help button was tapped</value>
+    <comment>Button Tapped Alert / Toast</comment>
   </data>
   <data name="Home" xml:space="preserve">
     <value>Home</value>
@@ -146,7 +182,7 @@
     <comment>Menu Title</comment>
   </data>
   <data name="MenuAbout" xml:space="preserve">
-    <value>About this App</value>
+    <value>About this App (Tutorial)</value>
     <comment>Menu Item</comment>
   </data>
   <data name="MenuContact" xml:space="preserve">
@@ -173,6 +209,42 @@
     <value>Skip</value>
     <comment>Button Text</comment>
   </data>
+  <data name="Submit" xml:space="preserve">
+    <value>Submit</value>
+    <comment>Submit Button</comment>
+  </data>
+  <data name="SyncButtonPressed" xml:space="preserve">
+    <value>The Sync button was tapped</value>
+    <comment>Button Tapped Alert / Toast</comment>
+  </data>
+  <data name="ToolbarItemDecreaseTextSize" xml:space="preserve">
+    <value>Decrease text size</value>
+    <comment>Toolbar Item Navigation Text</comment>
+  </data>
+  <data name="ToolbarItemEmailContact" xml:space="preserve">
+    <value>Contact by email</value>
+    <comment>Toolbar Item Navigation Text</comment>
+  </data>
+  <data name="ToolbarItemIncreaseTextSize" xml:space="preserve">
+    <value>Increase text size</value>
+    <comment>Toolbar Item Navigation Text</comment>
+  </data>
+  <data name="ToolbarItemOrderByDate" xml:space="preserve">
+    <value>Order by date</value>
+    <comment>Toolbar Item Navigation Text</comment>
+  </data>
+  <data name="ToolbarItemOrderByPopularity" xml:space="preserve">
+    <value>Order by popularity</value>
+    <comment>Toolbar Item Navigation Text</comment>
+  </data>
+  <data name="ToolbarItemPhoneContact" xml:space="preserve">
+    <value>Contact by phone</value>
+    <comment>Toolbar Item Navigation Text</comment>
+  </data>
+  <data name="ToolbarItemWhatsAppContact" xml:space="preserve">
+    <value>Contact by whats app</value>
+    <comment>Toolbar Item Navigation Text</comment>
+  </data>
   <data name="WizzardStep1Text" xml:space="preserve">
     <value>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque hendrerit sem tristique metus suscipit malesuada id et diam. Pellentesque volutpat tortor a orci rutrum, sed pharetra ex eleifend.</value>
     <comment>Wizzard Step Text</comment>
@@ -196,5 +268,21 @@
   <data name="WizzardStep3Title" xml:space="preserve">
     <value>Step Number 3</value>
     <comment>Wizzard Step Title</comment>
+  </data>
+  <data name="YourEmail" xml:space="preserve">
+    <value>Your email</value>
+    <comment>Your Email Placeholder Text</comment>
+  </data>
+  <data name="YourMessage" xml:space="preserve">
+    <value>Your message</value>
+    <comment>Your Message Placeholder Text</comment>
+  </data>
+  <data name="YourName" xml:space="preserve">
+    <value>Your name</value>
+    <comment>Your Name Placeholder Text</comment>
+  </data>
+  <data name="YourPhone" xml:space="preserve">
+    <value>Your phone</value>
+    <comment>Your Phone Placeholder Text</comment>
   </data>
 </root>

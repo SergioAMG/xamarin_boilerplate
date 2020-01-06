@@ -8,12 +8,16 @@
         mc:Ignorable="d"
         x:Class="XamarinBoilerplate.Views.MapPage"
         xmlns:utils="clr-namespace:XamarinBoilerplate.Utils"
-        Title="{utils:Localized Map}">
+        Title="{utils:Localized Map}"
+        HasNavigationBar="False"
+        xmlns:common="clr-namespace:XamarinBoilerplate.Views.Common"
+        BackgroundColor="{DynamicResource PageBackgroundColor}">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to MapPage !"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+        <StackLayout Spacing="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Orientation="Vertical">
+            <common:ActionBar BackButtonTintColor="{DynamicResource ActionBarIconsColor}" BackgroundColor="{DynamicResource ActionBarBackground}"
+                              ShowIcon="False" Title="{utils:Localized Map}" HideBackButton="False" TitleLabelStyle="{DynamicResource ActionBarTextLabelStyle}"
+                              IsMaster="True" CenterBartitle="{Binding IsTitleCentered}" IsModal="False" BackButtonCommand="{Binding OpenDrawerCommand}" />
+            <Label Text="Welcome to MapPage !" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" VerticalTextAlignment="Center" />
         </StackLayout>
     </ContentPage.Content>
 </base:BaseContentPage>

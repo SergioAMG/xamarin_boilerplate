@@ -1,25 +1,27 @@
 ﻿using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Essentials;
+using Xamarin.Forms;
 using XamarinBoilerplate.Utils;
+using XamarinBoilerplate.Views;
 using XamarinBoilerplate.Views.Wizzard;
 
 namespace XamarinBoilerplate.ViewModels
 {
     public class MenuViewModel : BaseViewModel
     {
+        public string _appVersion;
         private ICommand _goToContactCommand;
         private ICommand _goToWizzardStep1Command;
         private ICommand _goToSearchCommand;
         private ICommand _goToLiveHelpCommand;
         private ICommand _closeCommand;
-        public string _appVersion;
 
         public string AppVersion
         {
             get
             {
-                return Localization.AppResources.AppVersion + " " + ( (!UnitTestingManager.IsRunningFromNUnit) ? VersionTracking.CurrentVersion : Localization.AppResources.NotAvailable);
+                return Localization.AppResources.AppVersion + " " + ((!UnitTestingManager.IsRunningFromNUnit) ? VersionTracking.CurrentVersion : Localization.AppResources.NotAvailable);
             }
         }
 
@@ -65,14 +67,15 @@ namespace XamarinBoilerplate.ViewModels
 
         public async Task ExecuteGoToContactAsync()
         {
+            var selectedTabIndex = NavigationService.GetCurrentSelectedTabIndexOverMasterDetailPageWithTabbedPage();
+            NavigationService.NavigateDetails(nameof(ContactPage), selectedTabIndex);
             await NavigationService.CloseDrawer();
-            // TODO: Add navigation to target page
-            //await NavigationService.NavigateAsync(nameof(ContactPage));
         }
 
         public async Task ExecuteGoToWizzardStep1CommandAsync()
         {
             await NavigationService.CloseDrawer();
+            var selectedTabIndex = NavigationService.GetCurrentSelectedTabIndexOverMasterDetailPageWithTabbedPage();
             await NavigationService.NavigateAsync(nameof(StepOnePage));
         }
 

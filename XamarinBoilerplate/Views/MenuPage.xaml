@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<base:BaseContentPage
+        xmlns:base="clr-namespace:XamarinBoilerplate.Views"
+        xmlns="http://xamarin.com/schemas/2014/forms"
+        xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+        xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        x:Class="XamarinBoilerplate.Views.MenuPage"
+        xmlns:utils="clr-namespace:XamarinBoilerplate.Utils"
+        HasNavigationBar="False"
+        BackgroundColor="{DynamicResource White}">
+    <ContentPage.Content>
+        <StackLayout Orientation="Vertical" Spacing="0" Padding="0,15,0,0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            <ImageButton Source="baseline_close_black_24" HorizontalOptions="End" Command="{Binding CloseCommand}" BackgroundColor="Transparent" Margin="0,0,15,0" />
+            <Label Text="{utils:Localized Menu}" HorizontalTextAlignment="Start" FontAttributes="Bold" FontSize="Title" Margin="15,15,0,25" TextColor="{DynamicResource Black}" />
+            <ScrollView>
+                <Grid Padding="0" RowSpacing="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <BoxView Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" BackgroundColor="#ECECEC" HeightRequest="1" HorizontalOptions="FillAndExpand" VerticalOptions="Start" />
+                    <Label Grid.Row="1" Grid.Column="0" Margin="35,-9,0,14" Text="{utils:Localized MenuContact}" TextColor="{DynamicResource Black}" FontAttributes="Bold" FontSize="Body" HorizontalTextAlignment="Start" VerticalTextAlignment="Start">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding GoToContactCommand}" />
+                        </Label.GestureRecognizers>
+                    </Label>
+                    <Image Grid.Row="1" Grid.Column="1" Margin="0,-9,15,14" Source="baseline_chevron_right_black_24" HorizontalOptions="End" VerticalOptions="Start">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding GoToContactCommand}" />
+                        </Image.GestureRecognizers>
+                    </Image>
+                    <BoxView Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" BackgroundColor="#ECECEC" HeightRequest="1" HorizontalOptions="FillAndExpand" VerticalOptions="Start" />
+                    <Label Grid.Row="3" Grid.Column="0" Margin="35,-9,0,14" Text="{utils:Localized MenuAbout}" TextColor="{DynamicResource Black}" FontAttributes="Bold" FontSize="Body" HorizontalTextAlignment="Start" VerticalTextAlignment="Start">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding GoToWizzardStep1Command}" />
+                        </Label.GestureRecognizers>
+                    </Label>
+                    <Image Grid.Row="3" Grid.Column="1" Margin="0,-9,15,14" Source="baseline_chevron_right_black_24" HorizontalOptions="End" VerticalOptions="Start">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding GoToWizzardStep1Command}" />
+                        </Image.GestureRecognizers>
+                    </Image>
+                    <BoxView Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" BackgroundColor="#ECECEC" HeightRequest="1" HorizontalOptions="FillAndExpand" VerticalOptions="Start" />
+                    <Label Grid.Row="5" Grid.Column="0" Margin="35,-9,0,14" Text="{utils:Localized MenuSearch}" TextColor="{DynamicResource Black}" FontAttributes="Bold" FontSize="Body" HorizontalTextAlignment="Start" VerticalTextAlignment="Start">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding GoToSearchCommand}" />
+                        </Label.GestureRecognizers>
+                    </Label>
+                    <Image Grid.Row="5" Grid.Column="1" Margin="0,-9,15,14" Source="baseline_chevron_right_black_24" HorizontalOptions="End" VerticalOptions="Start">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding GoToSearchCommand}" />
+                        </Image.GestureRecognizers>
+                    </Image>
+                    <BoxView Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="2" BackgroundColor="#ECECEC" HeightRequest="1" HorizontalOptions="FillAndExpand" VerticalOptions="Start" />
+                    <Label Grid.Row="7" Grid.Column="0" Margin="35,-9,0,14" Text="{utils:Localized MenuHelp}" TextColor="{DynamicResource Black}" FontAttributes="Bold" FontSize="Body" HorizontalTextAlignment="Start" VerticalTextAlignment="Start">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding GoToLiveHelpCommand}" />
+                        </Label.GestureRecognizers>
+                    </Label>
+                    <Image Grid.Row="7" Grid.Column="1" Margin="0,-9,15,14" Source="baseline_chevron_right_black_24" HorizontalOptions="End" VerticalOptions="Start">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding GoToLiveHelpCommand}" />
+                        </Image.GestureRecognizers>
+                    </Image>
+                    <BoxView Grid.Row="8" Grid.Column="0" Grid.ColumnSpan="2" BackgroundColor="#ECECEC" HeightRequest="1" HorizontalOptions="FillAndExpand" VerticalOptions="Start" />
+                </Grid>
+            </ScrollView>
+            <StackLayout VerticalOptions="EndAndExpand" HorizontalOptions="FillAndExpand" Orientation="Vertical" Padding="20,15" BackgroundColor="{DynamicResource FooterGray}">
+                <Label Text="{Binding AppVersion}" VerticalTextAlignment="End" />
+                <Label VerticalTextAlignment="End">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="&lt;" TextColor="{DynamicResource EPAMBlue}" FontAttributes="Bold" />
+                            <Span Text="EPAM" TextColor="{DynamicResource Black}" FontAttributes="Bold" />
+                            <Span Text="&gt;" TextColor="{DynamicResource EPAMBlue}" FontAttributes="Bold" />
+                            <Span Text=" Systems Mexico 2020" />
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</base:BaseContentPage>

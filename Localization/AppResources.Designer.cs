@@ -61,11 +61,56 @@ namespace Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to App Build Version:.
+        /// </summary>
+        public static string AppVersion {
+            get {
+                return ResourceManager.GetString("AppVersion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Back.
         /// </summary>
         public static string Back {
             get {
                 return ResourceManager.GetString("Back", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cancel.
+        /// </summary>
+        public static string Cancel {
+            get {
+                return ResourceManager.GetString("Cancel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The following toolbar item has been tapped.
+        /// </summary>
+        public static string CommonToolbarItemTapped {
+            get {
+                return ResourceManager.GetString("CommonToolbarItemTapped", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Contact.
+        /// </summary>
+        public static string ContactTitle {
+            get {
+                return ResourceManager.GetString("ContactTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Usage.
+        /// </summary>
+        public static string DataUsage {
+            get {
+                return ResourceManager.GetString("DataUsage", resourceCulture);
             }
         }
         
@@ -79,6 +124,123 @@ namespace Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Av. de las Américas 1254, Country Club.
+        /// </summary>
+        public static string EpamAddress {
+            get {
+                return ResourceManager.GetString("EpamAddress", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 44610 Guadalajara, Jalisco.
+        /// </summary>
+        public static string EpamAddressLineTwo {
+            get {
+                return ResourceManager.GetString("EpamAddressLineTwo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Epam Systems Mexico.
+        /// </summary>
+        public static string EpamSystems {
+            get {
+                return ResourceManager.GetString("EpamSystems", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to http://www.epam.com.
+        /// </summary>
+        public static string EpamWebSite {
+            get {
+                return ResourceManager.GetString("EpamWebSite", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The Favorites button was tapped.
+        /// </summary>
+        public static string FavoritesButtonPressed {
+            get {
+                return ResourceManager.GetString("FavoritesButtonPressed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The Help button was tapped.
+        /// </summary>
+        public static string HelpButtonPressed {
+            get {
+                return ResourceManager.GetString("HelpButtonPressed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Home.
+        /// </summary>
+        public static string Home {
+            get {
+                return ResourceManager.GetString("Home", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Map.
+        /// </summary>
+        public static string Map {
+            get {
+                return ResourceManager.GetString("Map", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Menu.
+        /// </summary>
+        public static string Menu {
+            get {
+                return ResourceManager.GetString("Menu", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to About this App (Tutorial).
+        /// </summary>
+        public static string MenuAbout {
+            get {
+                return ResourceManager.GetString("MenuAbout", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Contact.
+        /// </summary>
+        public static string MenuContact {
+            get {
+                return ResourceManager.GetString("MenuContact", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Live Help.
+        /// </summary>
+        public static string MenuHelp {
+            get {
+                return ResourceManager.GetString("MenuHelp", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Search.
+        /// </summary>
+        public static string MenuSearch {
+            get {
+                return ResourceManager.GetString("MenuSearch", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Next.
         /// </summary>
         public static string Next {
@@ -88,11 +250,101 @@ namespace Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Not Available.
+        /// </summary>
+        public static string NotAvailable {
+            get {
+                return ResourceManager.GetString("NotAvailable", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Skip.
         /// </summary>
         public static string Skip {
             get {
                 return ResourceManager.GetString("Skip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Submit.
+        /// </summary>
+        public static string Submit {
+            get {
+                return ResourceManager.GetString("Submit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The Sync button was tapped.
+        /// </summary>
+        public static string SyncButtonPressed {
+            get {
+                return ResourceManager.GetString("SyncButtonPressed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Decrease text size.
+        /// </summary>
+        public static string ToolbarItemDecreaseTextSize {
+            get {
+                return ResourceManager.GetString("ToolbarItemDecreaseTextSize", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Contact by email.
+        /// </summary>
+        public static string ToolbarItemEmailContact {
+            get {
+                return ResourceManager.GetString("ToolbarItemEmailContact", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Increase text size.
+        /// </summary>
+        public static string ToolbarItemIncreaseTextSize {
+            get {
+                return ResourceManager.GetString("ToolbarItemIncreaseTextSize", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Order by date.
+        /// </summary>
+        public static string ToolbarItemOrderByDate {
+            get {
+                return ResourceManager.GetString("ToolbarItemOrderByDate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Order by popularity.
+        /// </summary>
+        public static string ToolbarItemOrderByPopularity {
+            get {
+                return ResourceManager.GetString("ToolbarItemOrderByPopularity", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Contact by phone.
+        /// </summary>
+        public static string ToolbarItemPhoneContact {
+            get {
+                return ResourceManager.GetString("ToolbarItemPhoneContact", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Contact by whats app.
+        /// </summary>
+        public static string ToolbarItemWhatsAppContact {
+            get {
+                return ResourceManager.GetString("ToolbarItemWhatsAppContact", resourceCulture);
             }
         }
         
@@ -147,6 +399,42 @@ namespace Localization {
         public static string WizzardStep3Title {
             get {
                 return ResourceManager.GetString("WizzardStep3Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Your email.
+        /// </summary>
+        public static string YourEmail {
+            get {
+                return ResourceManager.GetString("YourEmail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Your message.
+        /// </summary>
+        public static string YourMessage {
+            get {
+                return ResourceManager.GetString("YourMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Your name.
+        /// </summary>
+        public static string YourName {
+            get {
+                return ResourceManager.GetString("YourName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Your phone.
+        /// </summary>
+        public static string YourPhone {
+            get {
+                return ResourceManager.GetString("YourPhone", resourceCulture);
             }
         }
     }

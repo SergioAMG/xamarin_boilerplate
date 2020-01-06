@@ -115,12 +115,18 @@ namespace XamarinBoilerplate.Services
             {
                 lock (_sync)
                 {
-                    if (CurrentNavigationPage?.CurrentPage == null)
+                    try
+                    {
+                        if (CurrentNavigationPage?.CurrentPage == null)
+                        {
+                            return null;
+                        }
+                        return (BaseContentPage)CurrentNavigationPage.CurrentPage;
+                    }
+                    catch (Exception)
                     {
                         return null;
                     }
-
-                    return (BaseContentPage)CurrentNavigationPage.CurrentPage;
                 }
             }
         }
@@ -191,6 +197,30 @@ namespace XamarinBoilerplate.Services
                 return;
             }
             return;
+        }
+
+        public bool IsDrawerOpen()
+        {
+            var navigationStack = CurrentNavigationPage.Navigation;
+            if (navigationStack.NavigationStack.Count > 0)
+            {
+                foreach (var page in navigationStack.NavigationStack)
+                {
+                    if (page is NavigationPage)
+                    {
+                        if ((page as NavigationPage).CurrentPage is MasterDetailPage)
+                        {
+                            return ((page as NavigationPage).CurrentPage as MasterDetailPage).IsPresented;
+                        }
+                    }
+                    else if (page is MasterDetailPage)
+                    {
+                        return (page as MasterDetailPage).IsPresented;
+                    }
+                }
+                return false;
+            }
+            return false;
         }
 
         public async Task NavigateAsync(string pageKey, bool animated = true)
@@ -338,6 +368,80 @@ namespace XamarinBoilerplate.Services
             catch (Exception ex)
             {
                 Console.WriteLine(ex);
+                return null;
+            }
+        }
+
+        public int GetCurrentSelectedTabIndexOverMasterDetailPageWithTabbedPage()
+        {
+            int index = 0;
+            try
+            {
+                var navigationStack = CurrentNavigationPage.Navigation;
+                if (navigationStack.NavigationStack.Count > 0)
+                {
+                    foreach (var page in navigationStack.NavigationStack)
+                    {
+                        var masterDetailPage = (MasterDetailPage)page;
+                        if ((masterDetailPage.Detail as NavigationPage) == null)
+                        {
+                            var customTabbedPage = (masterDetailPage.Detail as CustomTabbedPage);
+                            var selectedTabIndex = customTabbedPage.Children.IndexOf((customTabbedPage as CustomTabbedPage).CurrentPage);
+                            index = selectedTabIndex;
+                        }
+                        else
+                        {
+                            var customTabbedPage = (masterDetailPage.Detail as NavigationPage).CurrentPage;
+                            var selectedTabIndex = (customTabbedPage as CustomTabbedPage).Children.IndexOf((customTabbedPage as CustomTabbedPage).CurrentPage);
+                            index = selectedTabIndex;
+                        }
+                    }
+                    return index;
+                }
+                else
+                {
+                    return 0;
+                }
+            }
+            catch (Exception ex)
+            {
+                // TODO: Implement better error handling for exceptions
+                System.Diagnostics.Debug.WriteLine("Error found at: " + ex.InnerException.ToString());
+                return 0;
+            }
+        }
+
+        public Page GetCurrentDetailsPage()
+        {
+            try
+            {
+                var navigationStack = CurrentNavigationPage.Navigation;
+                if (navigationStack.NavigationStack.Count > 0)
+                {
+                    foreach (var page in navigationStack.NavigationStack)
+                    {
+                        var masterDetailPage = (MasterDetailPage)page;
+                        if ((masterDetailPage.Detail as NavigationPage) == null)
+                        {
+                            return masterDetailPage.Detail as Page;
+                            
+                        }
+                        else
+                        {
+                            return (masterDetailPage.Detail as NavigationPage).CurrentPage;
+                        }
+                    }
+                    return null;
+                }
+                else
+                {
+                    return null;
+                }
+            }
+            catch (Exception ex)
+            {
+                // TODO: Implement better error handling for exceptions
+                System.Diagnostics.Debug.WriteLine("Error found at: " + ex.InnerException.ToString());
                 return null;
             }
         }

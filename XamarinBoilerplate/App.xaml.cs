@@ -4,7 +4,9 @@ using Xamarin.Forms;
 using XamarinBoilerplate.Interfaces;
 using XamarinBoilerplate.Services;
 using XamarinBoilerplate.Utils;
+using XamarinBoilerplate.ViewModels;
 using XamarinBoilerplate.ViewModels.Wizzard;
+using XamarinBoilerplate.Views;
 using XamarinBoilerplate.Views.Wizzard;
 
 namespace XamarinBoilerplate
@@ -23,13 +25,22 @@ namespace XamarinBoilerplate
             if (!UnitTestingManager.IsRunningFromNUnit)
             {
                 IdentifyDevice();
+                SetScreenDimentions();
+                LaunchApp();
             }
-            LaunchApp();
         }
 
         public void LaunchApp()
         {
-            NavigationService.SetRootPage(nameof(StepOnePage), new StepOneViewModel());
+            bool isWizzardCompleted = Preferences.Get(Constants.WizzardComplete, false);
+            if (isWizzardCompleted)
+            {
+                NavigationService.SetRootPage(nameof(DashboardPage), new DashboardViewModel());
+            }
+            else
+            {
+                NavigationService.SetRootPage(nameof(StepOnePage), new StepOneViewModel());
+            }
         }
 
         private void RegisterPages()
@@ -37,10 +48,24 @@ namespace XamarinBoilerplate
             NavigationService.Configure(nameof(StepOnePage), typeof(StepOnePage));
             NavigationService.Configure(nameof(StepTwoPage), typeof(StepTwoPage));
             NavigationService.Configure(nameof(StepThreePage), typeof(StepThreePage));
+            NavigationService.Configure(nameof(DashboardPage), typeof(DashboardPage));
+            NavigationService.Configure(nameof(MenuPage), typeof(MenuPage));
+            NavigationService.Configure(nameof(HomePage), typeof(HomePage));
+            NavigationService.Configure(nameof(MapPage), typeof(MapPage));
+            NavigationService.Configure(nameof(DataUsagePage), typeof(DataUsagePage));
+            NavigationService.Configure(nameof(CustomTabbedPage), typeof(CustomTabbedPage));
+            NavigationService.Configure(nameof(ContactPage), typeof(ContactPage));
 
             NavigationService.BindViewModel<StepOneViewModel, StepOnePage>();
             NavigationService.BindViewModel<StepTwoViewModel, StepTwoPage>();
             NavigationService.BindViewModel<StepThreeViewModel, StepThreePage>();
+            NavigationService.BindViewModel<MenuViewModel, MenuPage>();
+            NavigationService.BindViewModel<DashboardViewModel, DashboardPage>();
+            NavigationService.BindViewModel<HomeViewModel, HomePage>();
+            NavigationService.BindViewModel<MapViewModel, MapPage>();
+            NavigationService.BindViewModel<DataUsageViewModel, DataUsagePage>();
+            NavigationService.BindViewModel<CustomTabbedViewModel, CustomTabbedPage>();
+            NavigationService.BindViewModel<ContactViewModel, ContactPage>();
         }
 
         public void IdentifyDevice()
@@ -55,9 +80,15 @@ namespace XamarinBoilerplate
 
         public void SetLocalization()
         {
-            //CultureInfo.CurrentCulture = new CultureInfo("en-US", false);
-            CultureInfo.CurrentCulture = new CultureInfo("es-MX", false);
+            CultureInfo.CurrentCulture = new CultureInfo("en-US", false);
+            //CultureInfo.CurrentCulture = new CultureInfo("es-MX", false);
             Localization.AppResources.Culture = CultureInfo.CurrentCulture;
+        }
+
+        public void SetScreenDimentions()
+        {
+            ScreenWidth = DeviceDisplay.MainDisplayInfo.Width;
+            ScreenHeight = DeviceDisplay.MainDisplayInfo.Height;
         }
 
         protected override void OnStart()

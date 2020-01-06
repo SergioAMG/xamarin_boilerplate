@@ -28,4 +28,18 @@
   <style name="AppCompatDialogStyle" parent="Theme.AppCompat.Light.Dialog">
     <item name="colorAccent">#FF4081</item>
   </style>
+
+  <style name="PopupMenuStyle" parent="Widget.AppCompat.Light.PopupMenu">
+    <item name="android:popupBackground">@drawable/popupMenuBackground</item>
+    <item name="android:dropDownVerticalOffset">-52dp</item>
+    <item name="android:dropDownHorizontalOffset">-170dp</item>
+  </style>
+
+  <style name="ToolbarTheme" parent="@style/ThemeOverlay.AppCompat.ActionBar">
+    <!-- ThemeOverlay.AppCompat.Dark.ActionBar -->
+    <item name="colorControlNormal">#FFFFFF</item>
+    <!-- Custom icons color -->
+    <item name="android:drawableTint">#FFFFFF</item>
+    <!-- Toolbar items color -->
+  </style>
 </resources>

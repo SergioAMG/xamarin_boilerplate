@@ -21,6 +21,7 @@ namespace XamarinBoilerplate.Interfaces
         Task GoBackAsync();
         Task OpenDrawer();
         Task CloseDrawer();
+        bool IsDrawerOpen();
         Task ShowLoadingIndicator();
         Task HideLoadingIndicator();
         Task OpenPopUp(PopupPage pageKey);
@@ -32,6 +33,8 @@ namespace XamarinBoilerplate.Interfaces
         Task NavigateAsync(string pageKey, object parameter = null, bool animated = true);
         Task NavigateAsync(string pageKey, Action<object> actionParameter, object parameter = null, bool animated = true);
         Page GetPage(string pageKey, object parameter = null, Action<object> actionParameter = null);
+        int GetCurrentSelectedTabIndexOverMasterDetailPageWithTabbedPage();
+        Page GetCurrentDetailsPage();
         Type ViewModelByKey(string pageKey);
         // TODO: Work around for known Apple issue as described in the following url:
         // https://stackoverflow.com/questions/55372093/uialertcontrollers-actionsheet-gives-constraint-error-on-ios-12-2-12-3

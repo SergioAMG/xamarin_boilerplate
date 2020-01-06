@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage
+        xmlns="http://xamarin.com/schemas/2014/forms"
+        xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+        xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        x:Class="XamarinBoilerplate.Views.CustomTabbedPage"
+        xmlns:views="clr-namespace:XamarinBoilerplate.Views"
+        xmlns:utils="clr-namespace:XamarinBoilerplate.Utils"
+        BarBackgroundColor="{DynamicResource FooterGray}"
+        UnselectedTabColor="{DynamicResource Black}"
+        SelectedTabColor="{DynamicResource Blue}">
+    <NavigationPage Title="{utils:Localized Home}" IconImageSource="baseline_home_black_24">
+        <x:Arguments>
+            <views:HomePage />
+        </x:Arguments>
+    </NavigationPage>
+    <NavigationPage Title="{utils:Localized Map}" IconImageSource="baseline_map_black_24">
+        <x:Arguments>
+            <views:MapPage />
+        </x:Arguments>
+    </NavigationPage>
+    <NavigationPage Title="{utils:Localized DataUsage}" IconImageSource="baseline_storage_black_24">
+        <x:Arguments>
+            <views:DataUsagePage />
+        </x:Arguments>
+    </NavigationPage>
+</TabbedPage>

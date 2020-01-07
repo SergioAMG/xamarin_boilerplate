@@ -1,4 +1,5 @@
-﻿using System.Collections.ObjectModel;
+﻿using DataManagers.Interfaces;
+using System.Collections.ObjectModel;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Essentials;
@@ -8,23 +9,32 @@ using XamarinBoilerplate.Effects;
 using XamarinBoilerplate.Enums;
 using XamarinBoilerplate.Interfaces;
 using XamarinBoilerplate.Utils;
+using XamarinBoilerplate.ViewModels.DataObjects;
 
 namespace XamarinBoilerplate.ViewModels
 {
     public class HomeViewModel : BaseViewModel
     {
+        private bool _isLoading;
         private bool _hasSubMenu;
         private ICommand _openDrawerCommand;
         private ICommand _viewMoreOptionsCommand;
         private ICommand _syncCommand;
         private ICommand _favoritesCommand;
         private ICommand _commonToolbarItemTapCommand;
+        private NewsViewModel _itemSelected;
         private ObservableCollection<ImageButton> _buttons;
         private ObservableCollection<ExtendedLabel> _subMenu;
+        private ObservableCollection<NewsViewModel> _newsItems;
 
-        public HomeViewModel()
+        public HomeViewModel(IDataService dataManager = null) : base(dataManager)
         {
+            if (dataManager != null)
+            {
+                DataManager = dataManager;
+            }
             CreateOptionsMenu();
+            LoadData();
         }
 
         public bool IsAndroid
@@ -59,6 +69,47 @@ namespace XamarinBoilerplate.ViewModels
             }
         }
 
+        public bool IsLoading
+        {
+            get
+            {
+                return _isLoading;
+            }
+            set
+            {
+                if (_isLoading != value)
+                {
+                    _isLoading = value;
+                    OnPropertyChanged(nameof(IsLoading));
+                }
+            }
+        }
+
+        public double LoadingIndicatorScale
+        {
+            get
+            {
+                return (DeviceInfo.Platform.ToString() == Devices.Android.ToString()) ? 1.5 : 2.0;
+            }
+        }
+
+        public NewsViewModel ItemSelected
+        {
+            get
+            {
+                return _itemSelected;
+            }
+            set
+            {
+                if (value != null)
+                {
+                    _itemSelected = value;
+                    OnPropertyChanged(nameof(ItemSelected));
+                    DependencyService.Get<IToast>().ShowToastMessage(ItemSelected.ItemTitle, true);
+                }
+            }
+        }
+
         public ObservableCollection<ImageButton> Buttons
         {
             get
@@ -87,6 +138,22 @@ namespace XamarinBoilerplate.ViewModels
                 {
                     _subMenu = value;
                     OnPropertyChanged((nameof(SubMenu)));
+                }
+            }
+        }
+
+        public ObservableCollection<NewsViewModel> NewsItems
+        {
+            get
+            {
+                return _newsItems;
+            }
+            set
+            {
+                if (_newsItems != value)
+                {
+                    _newsItems = value;
+                    OnPropertyChanged(nameof(NewsItems));
                 }
             }
         }
@@ -201,6 +268,27 @@ namespace XamarinBoilerplate.ViewModels
                 Buttons.Add(optionsMenuIOS);
                 OnPropertyChanged(nameof(Buttons));
             }
+        }
+
+        public async void LoadData()
+        {
+            IsLoading = true;
+            NewsItems = new ObservableCollection<NewsViewModel>();
+            // TODO: Replace dummy data with real information
+            var news = await DataManager.News.GetNews();
+            // Mappings
+            foreach(var item in news)
+            {
+                NewsViewModel newsViewModel = new NewsViewModel()
+                {
+                    ItemTitle = item.ItemTitle,
+                    Image = item.Image,
+                    Text = item.Text
+                };
+                NewsItems.Add(newsViewModel);
+            }
+            await Task.Delay(4000);
+            IsLoading = false;       
         }
 
         public async Task ExecuteOpenDrawerCommandAsync()

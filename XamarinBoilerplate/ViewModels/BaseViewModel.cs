@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DataManagers.Interfaces;
+using System;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
@@ -7,6 +8,7 @@ using Xamarin.Essentials;
 using Xamarin.Forms;
 using XamarinBoilerplate.Enums;
 using XamarinBoilerplate.Interfaces;
+using XamarinBoilerplate.Services;
 using XamarinBoilerplate.Utils;
 
 namespace XamarinBoilerplate.ViewModels
@@ -17,9 +19,16 @@ namespace XamarinBoilerplate.ViewModels
         private string _subTitle;
         private INavigationService _navigationService;
         private ICommand _goBackCommand;
+        private IDataService _dataManager;
 
         protected BaseViewModel()
         {
+            _navigationService = App.NavigationService;
+        }
+
+        protected BaseViewModel(IDataService dataManager)
+        {
+            _dataManager = dataManager;
             _navigationService = App.NavigationService;
         }
 
@@ -69,6 +78,18 @@ namespace XamarinBoilerplate.ViewModels
             get
             {
                 return _navigationService;
+            }
+        }
+
+        public IDataService DataManager
+        {
+            get
+            {
+                return _dataManager ?? (_dataManager = new DataWrapperService());
+            }
+            set
+            {
+                _dataManager = value;
             }
         }
 

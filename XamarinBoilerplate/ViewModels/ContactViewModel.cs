@@ -1,4 +1,5 @@
-﻿using System.Collections.ObjectModel;
+﻿using DataManagers.Interfaces;
+using System.Collections.ObjectModel;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Essentials;
@@ -25,8 +26,12 @@ namespace XamarinBoilerplate.ViewModels
         private ObservableCollection<ImageButton> _buttons;
         private ObservableCollection<ExtendedLabel> _subMenu;
 
-        public ContactViewModel()
+        public ContactViewModel(IDataService dataManager = null) : base(dataManager)
         {
+            if (dataManager != null)
+            {
+                DataManager = dataManager;
+            }
             CreateOptionsMenu();
             SetOrientationValues();
             bool isNavBarVisible = true;

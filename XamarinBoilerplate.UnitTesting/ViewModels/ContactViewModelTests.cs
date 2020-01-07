@@ -30,7 +30,7 @@ namespace XamarinBoilerplate.UnitTesting.ViewModels
         public void ShouldViewModelBeInitializedAndAssociated()
         {
             //arrange
-            viewModel = new ContactViewModel();
+            viewModel = new ContactViewModel(DataManager);
 
             //act
 
@@ -42,7 +42,7 @@ namespace XamarinBoilerplate.UnitTesting.ViewModels
         public void ShouldCreateOptionsMenuCreateToolbarItems()
         {
             //arrange
-            viewModel = new ContactViewModel();
+            viewModel = new ContactViewModel(DataManager);
 
             //act
             viewModel.CreateOptionsMenu();
@@ -55,7 +55,7 @@ namespace XamarinBoilerplate.UnitTesting.ViewModels
         public void ShouldCreateOptionsMenuCreateAlsoSubMenu()
         {
             //arrange
-            viewModel = new ContactViewModel();
+            viewModel = new ContactViewModel(DataManager);
 
             //act
             viewModel.CreateOptionsMenu();
@@ -69,7 +69,7 @@ namespace XamarinBoilerplate.UnitTesting.ViewModels
         public void ShouldInitMethodUpdateSelectedTabIndex()
         {
             //arrange
-            viewModel = new ContactViewModel();
+            viewModel = new ContactViewModel(DataManager);
 
             //act
             int selectedIndex = 1;
@@ -83,7 +83,7 @@ namespace XamarinBoilerplate.UnitTesting.ViewModels
         public void ShouldBackFromDetailsCommandTakeYouBackToSelectedTabActive()
         {
             //arrange
-            viewModel = new ContactViewModel();
+            viewModel = new ContactViewModel(DataManager);
 
             //act
             viewModel.NavigationService.SetRootPage(nameof(DashboardPage), new DashboardViewModel());
@@ -103,7 +103,7 @@ namespace XamarinBoilerplate.UnitTesting.ViewModels
         public void ShouldRefreshOrientationChangeTheOrientationOfTheMainContainer()
         {
             //arrange
-            viewModel = new ContactViewModel();
+            viewModel = new ContactViewModel(DataManager);
 
             //act
             DeviceManager.Orientation = Devices.Portrait.ToString();
@@ -119,7 +119,7 @@ namespace XamarinBoilerplate.UnitTesting.ViewModels
         public void ShouldMainContainerBeHorizontalWhenDeviceOrientationIsInLandscapeMode()
         {
             //arrange
-            viewModel = new ContactViewModel();
+            viewModel = new ContactViewModel(DataManager);
 
             //act
             DeviceManager.Orientation = Devices.Landscape.ToString();
@@ -132,7 +132,7 @@ namespace XamarinBoilerplate.UnitTesting.ViewModels
         public void ShouldMainContainerBeVerticalWhenDeviceOrientationIsInPortraitMode()
         {
             //arrange
-            viewModel = new ContactViewModel();
+            viewModel = new ContactViewModel(DataManager);
 
             //act
             DeviceManager.Orientation = Devices.Portrait.ToString();
@@ -145,7 +145,7 @@ namespace XamarinBoilerplate.UnitTesting.ViewModels
         public void ShouldSetNavBarVisibilityToTrueWhenBindingViewModel()
         {
             //arrange
-            viewModel = new ContactViewModel();
+            viewModel = new ContactViewModel(DataManager);
 
             //act
 
@@ -157,7 +157,7 @@ namespace XamarinBoilerplate.UnitTesting.ViewModels
         public void ShouldSetOrientationValuesSetDetailsViewWidthForLandscape()
         {
             //arrange
-            viewModel = new ContactViewModel();
+            viewModel = new ContactViewModel(DataManager);
 
             //act
             DeviceManager.Orientation = Devices.Landscape.ToString();
@@ -171,7 +171,7 @@ namespace XamarinBoilerplate.UnitTesting.ViewModels
         public void ShouldSetOrientationValuesSetDetailsViewWidthForPortrait()
         {
             //arrange
-            viewModel = new ContactViewModel();
+            viewModel = new ContactViewModel(DataManager);
 
             //act
             DeviceManager.Orientation = Devices.Portrait.ToString();
@@ -185,7 +185,7 @@ namespace XamarinBoilerplate.UnitTesting.ViewModels
         public void ShouldBottomButtonVisibleWhenInPortraitMode()
         {
             //arrange
-            viewModel = new ContactViewModel();
+            viewModel = new ContactViewModel(DataManager);
 
             //act
             DeviceManager.Orientation = Devices.Portrait.ToString();
@@ -199,7 +199,7 @@ namespace XamarinBoilerplate.UnitTesting.ViewModels
         public void ShouldBottomButtonNotVisibleWhenInLandscapeMode()
         {
             //arrange
-            viewModel = new ContactViewModel();
+            viewModel = new ContactViewModel(DataManager);
 
             //act
             DeviceManager.Orientation = Devices.Landscape.ToString();
@@ -213,7 +213,7 @@ namespace XamarinBoilerplate.UnitTesting.ViewModels
         public void ShouldLandscapeBottomButtonVisibleWhenInLandscapeMode()
         {
             //arrange
-            viewModel = new ContactViewModel();
+            viewModel = new ContactViewModel(DataManager);
 
             //act
             DeviceManager.Orientation = Devices.Landscape.ToString();
@@ -227,7 +227,7 @@ namespace XamarinBoilerplate.UnitTesting.ViewModels
         public void ShouldLandscapeBottomButtonNotVisibleWhenInPortraitMode()
         {
             //arrange
-            viewModel = new ContactViewModel();
+            viewModel = new ContactViewModel(DataManager);
 
             //act
             DeviceManager.Orientation = Devices.Portrait.ToString();

@@ -1,4 +1,5 @@
-﻿using Xamarin.Forms.Xaml;
+﻿using Xamarin.Forms;
+using Xamarin.Forms.Xaml;
 
 namespace XamarinBoilerplate.Views
 {
@@ -8,6 +9,12 @@ namespace XamarinBoilerplate.Views
         public HomePage()
         {
             InitializeComponent();
+        }
+
+        private void ItemSelected(object sender, SelectedItemChangedEventArgs e)
+        {
+            var listView = (Xamarin.Forms.ListView)sender;
+            listView.SelectedItem = null;
         }
     }
 }

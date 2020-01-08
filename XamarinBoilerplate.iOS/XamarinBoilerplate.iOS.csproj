@@ -289,4 +289,22 @@
   <ItemGroup>
     <BundleResource Include="Resources\epam.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\sampleSix.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\sampleFour.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\sampleOne.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\sampleFive.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\sampleTwo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\sampleThree.png" />
+  </ItemGroup>
 </Project>

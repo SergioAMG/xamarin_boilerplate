@@ -205,6 +205,10 @@
     <value>Not Available</value>
     <comment>Not Available Text</comment>
   </data>
+  <data name="ReadMore" xml:space="preserve">
+    <value>Read more ...</value>
+    <comment>Read More Text</comment>
+  </data>
   <data name="Skip" xml:space="preserve">
     <value>Skip</value>
     <comment>Button Text</comment>
@@ -244,6 +248,10 @@
   <data name="ToolbarItemWhatsAppContact" xml:space="preserve">
     <value>Contact by whats app</value>
     <comment>Toolbar Item Navigation Text</comment>
+  </data>
+  <data name="Welcome" xml:space="preserve">
+    <value>Welcome</value>
+    <comment>Welcome Title</comment>
   </data>
   <data name="WizzardStep1Text" xml:space="preserve">
     <value>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque hendrerit sem tristique metus suscipit malesuada id et diam. Pellentesque volutpat tortor a orci rutrum, sed pharetra ex eleifend.</value>

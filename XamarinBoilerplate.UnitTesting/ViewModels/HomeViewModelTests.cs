@@ -1,8 +1,8 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System.Collections.ObjectModel;
 using System.Threading.Tasks;
 using XamarinBoilerplate.ViewModels;
 using XamarinBoilerplate.Views;
+using Shouldly;
 
 namespace XamarinBoilerplate.UnitTesting.ViewModels
 {
@@ -27,7 +27,7 @@ namespace XamarinBoilerplate.UnitTesting.ViewModels
         public void ShouldViewModelBeInitializedAndAssociated()
         {
             //arrange
-            viewModel = new HomeViewModel();
+            viewModel = new HomeViewModel(DataManager);
 
             //act
 
@@ -39,7 +39,7 @@ namespace XamarinBoilerplate.UnitTesting.ViewModels
         public void ShouldCreateOptionsMenuCreateToolbarItems()
         {
             //arrange
-            viewModel = new HomeViewModel();
+            viewModel = new HomeViewModel(DataManager);
 
             //act
             viewModel.CreateOptionsMenu();
@@ -52,7 +52,7 @@ namespace XamarinBoilerplate.UnitTesting.ViewModels
         public void ShouldCreateOptionsMenuCreateAlsoSubMenu()
         {
             //arrange
-            viewModel = new HomeViewModel();
+            viewModel = new HomeViewModel(DataManager);
 
             //act
             viewModel.CreateOptionsMenu();
@@ -66,7 +66,7 @@ namespace XamarinBoilerplate.UnitTesting.ViewModels
         public void ShouldOpenDrawerCommandOpenTheDrawerMenu()
         {
             //arrange
-            viewModel = new HomeViewModel();
+            viewModel = new HomeViewModel(DataManager);
 
             //act
             viewModel.NavigationService.SetRootPage(nameof(DashboardPage), new DashboardViewModel());
@@ -77,6 +77,18 @@ namespace XamarinBoilerplate.UnitTesting.ViewModels
 
             //assert
             Assert.IsTrue(viewModel.NavigationService.IsDrawerOpen());
+        }
+
+        [TestMethod]
+        public void ShouldLoadDataMethodRetrieveNewsList()
+        {
+            //arrange
+            viewModel = new HomeViewModel(DataManager);
+
+            //act
+
+            //assert
+            viewModel.NewsItems.Count.ShouldBeGreaterThan(0);
         }
     }
 }

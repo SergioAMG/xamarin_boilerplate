@@ -9,7 +9,7 @@
         xmlns:views="clr-namespace:XamarinBoilerplate.Views"
         xmlns:utils="clr-namespace:XamarinBoilerplate.Utils">
     <MasterDetailPage.Master>
-        <NavigationPage Title="{utils:Localized Home}" BarTextColor="BlueViolet">
+        <NavigationPage Title="{utils:Localized Home}">
             <x:Arguments>
                 <views:MenuPage />
             </x:Arguments>

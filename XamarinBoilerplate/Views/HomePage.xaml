@@ -11,13 +11,52 @@
         Title="{utils:Localized Home}"
         HasNavigationBar="False"
         xmlns:common="clr-namespace:XamarinBoilerplate.Views.Common"
+        xmlns:controls="clr-namespace:XamarinBoilerplate.Controls"
         BackgroundColor="{DynamicResource PageBackgroundColor}">
     <ContentPage.Content>
         <StackLayout Spacing="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Orientation="Vertical">
             <common:ActionBar BackButtonTintColor="{DynamicResource ActionBarIconsColor}" BackgroundColor="{DynamicResource ActionBarBackground}"
                               ShowIcon="False" Title="{utils:Localized Home}" HideBackButton="False" TitleLabelStyle="{DynamicResource ActionBarTextLabelStyle}"
                               IsMaster="True" CenterBartitle="{Binding IsTitleCentered}" IsModal="False" BackButtonCommand="{Binding OpenDrawerCommand}" Buttons="{Binding Buttons}" />
-            <Label Text="Welcome to HomePage !" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" VerticalTextAlignment="Center" />
+            <AbsoluteLayout>
+                <StackLayout AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All" Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="StartAndExpand" Spacing="0" Padding="17,7,0,0">
+                    <Label Text="{utils:Localized Welcome}" Margin="0,0,0,10" Style="{DynamicResource PageTitleTextLabelStyle}" />
+                    <StackLayout AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Padding="0,0,17,0">
+                        <controls:ExtendedListViewNoRippleEffect HasUnevenRows="True" ItemsSource="{Binding NewsItems}" SeparatorVisibility="None" SelectedItem="{Binding ItemSelected}" ItemSelected="ItemSelected"
+                                  IsPullToRefreshEnabled="False">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <ViewCell>
+                                        <StackLayout Orientation="Vertical" Spacing="2">
+                                            <Label Text="{Binding ItemTitle}" HorizontalTextAlignment="Start" VerticalTextAlignment="Center" FontAttributes="Bold" Margin="0,0,0,5" TextColor="{DynamicResource Black}" />
+                                            <Frame HorizontalOptions="FillAndExpand" CornerRadius="15" Padding="0" IsClippedToBounds="True">
+                                                <Image Source="{Binding Image}" HorizontalOptions="FillAndExpand" Aspect="AspectFill" />
+                                            </Frame>
+                                            <StackLayout Spacing="0" Margin="0,5,0,25">
+                                                <Label LineBreakMode="WordWrap" FontSize="13">
+                                                    <Label.FormattedText>
+                                                        <FormattedString>
+                                                            <Span Text="{Binding TextClipped}" />
+                                                            <Span Text=" " />
+                                                            <Span Text="{utils:Localized ReadMore}" TextColor="{DynamicResource Blue}" />
+                                                        </FormattedString>
+                                                    </Label.FormattedText>
+                                                </Label>
+                                            </StackLayout>
+                                        </StackLayout>
+                                    </ViewCell>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </controls:ExtendedListViewNoRippleEffect>
+                    </StackLayout>
+                </StackLayout>
+                <ActivityIndicator
+                    AbsoluteLayout.LayoutFlags="PositionProportional"
+                    AbsoluteLayout.LayoutBounds="0.5,0.5,-1,-1"
+                    IsRunning="{Binding IsLoading}"
+                    IsVisible="{Binding IsLoading}"
+                    Color="{DynamicResource Blue}" Scale="{Binding LoadingIndicatorScale}" />
+            </AbsoluteLayout>
         </StackLayout>
     </ContentPage.Content>
 </base:BaseContentPage>

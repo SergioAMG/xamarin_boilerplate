@@ -259,6 +259,15 @@ namespace Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Read more ....
+        /// </summary>
+        public static string ReadMore {
+            get {
+                return ResourceManager.GetString("ReadMore", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Skip.
         /// </summary>
         public static string Skip {
@@ -345,6 +354,15 @@ namespace Localization {
         public static string ToolbarItemWhatsAppContact {
             get {
                 return ResourceManager.GetString("ToolbarItemWhatsAppContact", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Welcome.
+        /// </summary>
+        public static string Welcome {
+            get {
+                return ResourceManager.GetString("Welcome", resourceCulture);
             }
         }
         

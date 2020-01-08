@@ -274,8 +274,8 @@ namespace XamarinBoilerplate.ViewModels
         {
             IsLoading = true;
             NewsItems = new ObservableCollection<NewsViewModel>();
-            // TODO: Replace dummy data with real information
             var news = await DataManager.News.GetNews();
+
             // Mappings
             foreach(var item in news)
             {
@@ -287,7 +287,8 @@ namespace XamarinBoilerplate.ViewModels
                 };
                 NewsItems.Add(newsViewModel);
             }
-            await Task.Delay(4000);
+
+            await Task.Delay(3000);
             IsLoading = false;       
         }
 

@@ -11,13 +11,14 @@
         Title="{utils:Localized Map}"
         HasNavigationBar="False"
         xmlns:common="clr-namespace:XamarinBoilerplate.Views.Common"
-        BackgroundColor="{DynamicResource PageBackgroundColor}">
+        BackgroundColor="{DynamicResource PageBackgroundColor}"
+        xmlns:maps="clr-namespace:Xamarin.Forms.GoogleMaps;assembly=Xamarin.Forms.GoogleMaps">
     <ContentPage.Content>
         <StackLayout Spacing="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Orientation="Vertical">
             <common:ActionBar BackButtonTintColor="{DynamicResource ActionBarIconsColor}" BackgroundColor="{DynamicResource ActionBarBackground}"
                               ShowIcon="False" Title="{utils:Localized Map}" HideBackButton="False" TitleLabelStyle="{DynamicResource ActionBarTextLabelStyle}"
-                              IsMaster="True" CenterBartitle="{Binding IsTitleCentered}" IsModal="False" BackButtonCommand="{Binding OpenDrawerCommand}" />
-            <Label Text="Welcome to MapPage !" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" VerticalTextAlignment="Center" />
+                              IsMaster="True" CenterBartitle="{Binding IsTitleCentered}" IsModal="False" BackButtonCommand="{Binding OpenDrawerCommand}" Buttons="{Binding Buttons}" />
+            <maps:Map x:Name="CustomMap" MapType="Street" MyLocationEnabled="False" HasZoomEnabled="True" />
         </StackLayout>
     </ContentPage.Content>
 </base:BaseContentPage>

@@ -22,6 +22,8 @@ namespace XamarinBoilerplate.iOS
         {
             Rg.Plugins.Popup.Popup.Init();
             global::Xamarin.Forms.Forms.Init();
+            Xamarin.FormsGoogleMaps.Init("AIzaSyB_Bo_Ysllj_bQ1zE-2mQb_R2NERVPiVtE");
+
             UINavigationBar.Appearance.TintColor = Color.Black.ToUIColor();
 
             LoadApplication(new App());

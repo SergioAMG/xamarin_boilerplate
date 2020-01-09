@@ -221,6 +221,10 @@
     <value>The Sync button was tapped</value>
     <comment>Button Tapped Alert / Toast</comment>
   </data>
+  <data name="ToolbarItemClearPins" xml:space="preserve">
+    <value>Clear Pins</value>
+    <comment>Toolbar Item Clear Pins Text</comment>
+  </data>
   <data name="ToolbarItemDecreaseTextSize" xml:space="preserve">
     <value>Decrease text size</value>
     <comment>Toolbar Item Navigation Text</comment>
@@ -244,6 +248,18 @@
   <data name="ToolbarItemPhoneContact" xml:space="preserve">
     <value>Contact by phone</value>
     <comment>Toolbar Item Navigation Text</comment>
+  </data>
+  <data name="ToolbarItemResetMap" xml:space="preserve">
+    <value>Reset Map</value>
+    <comment>Toolbat Item Reset Map Text</comment>
+  </data>
+  <data name="ToolbarItemSearchLocation" xml:space="preserve">
+    <value>Search Location</value>
+    <comment>Toolbar Item Search Location Text</comment>
+  </data>
+  <data name="ToolbarItemShowMyLocation" xml:space="preserve">
+    <value>Show My Location</value>
+    <comment>Toolbar Item Show My Location Text</comment>
   </data>
   <data name="ToolbarItemWhatsAppContact" xml:space="preserve">
     <value>Contact by whats app</value>

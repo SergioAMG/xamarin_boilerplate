@@ -295,6 +295,15 @@ namespace Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Clear Pins.
+        /// </summary>
+        public static string ToolbarItemClearPins {
+            get {
+                return ResourceManager.GetString("ToolbarItemClearPins", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Decrease text size.
         /// </summary>
         public static string ToolbarItemDecreaseTextSize {
@@ -345,6 +354,33 @@ namespace Localization {
         public static string ToolbarItemPhoneContact {
             get {
                 return ResourceManager.GetString("ToolbarItemPhoneContact", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Reset Map.
+        /// </summary>
+        public static string ToolbarItemResetMap {
+            get {
+                return ResourceManager.GetString("ToolbarItemResetMap", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Search Location.
+        /// </summary>
+        public static string ToolbarItemSearchLocation {
+            get {
+                return ResourceManager.GetString("ToolbarItemSearchLocation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Show My Location.
+        /// </summary>
+        public static string ToolbarItemShowMyLocation {
+            get {
+                return ResourceManager.GetString("ToolbarItemShowMyLocation", resourceCulture);
             }
         }
         

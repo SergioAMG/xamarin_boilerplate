@@ -195,7 +195,7 @@ namespace XamarinBoilerplate.ViewModels
         {
             get
             {
-                return _commonToolbarItemTapCommand ?? (_commonToolbarItemTapCommand = new CommandExtended(ExecuteCommonToolbarItemTapCommanddAsync));
+                return _commonToolbarItemTapCommand ?? (_commonToolbarItemTapCommand = new CommandExtended(ExecuteCommonToolbarItemTapCommandAsync));
             }
         }
 
@@ -203,27 +203,27 @@ namespace XamarinBoilerplate.ViewModels
         {
             Buttons = new ObservableCollection<ImageButton>();
 
-            ImageButton closeButton = new ImageButton()
+            ImageButton syncButton = new ImageButton()
             {
                 Source = "baseline_sync_black_24",
                 BackgroundColor = Color.Transparent,
                 Margin = new Thickness(0, 0, 23, 0),
                 Command = SyncCommand
             };
-            TintEffect.SetTintColor(closeButton, (Color)Application.Current.Resources["ActionBarIconsColor"]);
+            TintEffect.SetTintColor(syncButton, (Color)Application.Current.Resources["ActionBarIconsColor"]);
 
-            Buttons.Add(closeButton);
+            Buttons.Add(syncButton);
 
-            ImageButton closeButtonTwo = new ImageButton()
+            ImageButton favButton = new ImageButton()
             {
                 Source = "baseline_star_border_black_24",
                 BackgroundColor = Color.Transparent,
                 Margin = new Thickness(0, 0, 18, 0),
                 Command = FavoritesCommand
             };
-            TintEffect.SetTintColor(closeButtonTwo, (Color)Application.Current.Resources["ActionBarIconsColor"]);
+            TintEffect.SetTintColor(favButton, (Color)Application.Current.Resources["ActionBarIconsColor"]);
 
-            Buttons.Add(closeButtonTwo);
+            Buttons.Add(favButton);
 
             ExtendedPopupMenuButton optionsMenu = new ExtendedPopupMenuButton()
             {
@@ -307,7 +307,7 @@ namespace XamarinBoilerplate.ViewModels
             await NavigationService.OpenPopUp(new Views.Popups.UIAlertControllerPopup(options, HandleUserSelection));
         }
 
-        private async Task ExecuteCommonToolbarItemTapCommanddAsync(object sender)
+        private async Task ExecuteCommonToolbarItemTapCommandAsync(object sender)
         {
             string itemTapped = (string)sender;
             DependencyService.Get<IToast>().ShowToastMessage(Localization.AppResources.CommonToolbarItemTapped + " " + itemTapped, false);

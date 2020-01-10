@@ -193,7 +193,7 @@ namespace XamarinBoilerplate.ViewModels
             DependencyService.Get<IToast>().ShowToastMessage(Localization.AppResources.CommonToolbarItemTapped + " " + userSelection, false);
         }
 
-        private async Task ExecuteOpenDrawerCommandAsync()
+        public async Task ExecuteOpenDrawerCommandAsync()
         {
             await NavigationService.OpenDrawer();
         }

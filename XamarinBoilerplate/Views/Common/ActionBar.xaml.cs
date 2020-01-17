@@ -14,7 +14,7 @@ namespace XamarinBoilerplate.Views.Common
         public static readonly BindableProperty TopTitleProperty = BindableProperty.Create(nameof(TopTitle), typeof(string), typeof(ActionBar), string.Empty, propertyChanged: HandleBindingPropertyChangedDelegate);
         public static readonly BindableProperty TitleLabelStyleProperty = BindableProperty.Create(propertyName: nameof(TitleLabelStyle), returnType: typeof(Style), declaringType: typeof(ActionBar), defaultValue: null, defaultBindingMode: BindingMode.TwoWay, propertyChanged: TitleLabelStylePropertyChanged);
         public static readonly BindableProperty IsMasterProperty = BindableProperty.Create(propertyName: nameof(IsMaster), returnType: typeof(bool), declaringType: typeof(ActionBar), defaultValue: false, defaultBindingMode: BindingMode.TwoWay, propertyChanged: IsMasterPropertyChanged);
-        public static readonly BindableProperty ButtonsProperty = BindableProperty.Create(nameof(Buttons), typeof(ObservableCollection<ImageButton>), typeof(ActionBar), defaultValue: new ObservableCollection<ImageButton>(), defaultBindingMode: BindingMode.TwoWay, propertyChanged: ButtonsChanged);
+        public static readonly BindableProperty ActionBarMenuProperty = BindableProperty.Create(nameof(Menu), typeof(ObservableCollection<ImageButton>), typeof(ActionBar), defaultValue: new ObservableCollection<ImageButton>(), defaultBindingMode: BindingMode.TwoWay, propertyChanged: ButtonsChanged);
         public static readonly BindableProperty CenterBartitleProperty = BindableProperty.Create(nameof(CenterBartitle), typeof(bool), typeof(ActionBar), defaultBindingMode: BindingMode.TwoWay, propertyChanged: TextAlignmentChanged);
         public static readonly BindableProperty TitleProperty = BindableProperty.Create(nameof(Title), typeof(string), typeof(ActionBar), string.Empty, propertyChanged: HandleBindingTitlePropertyChangedDelegate);
         public static readonly BindableProperty TopTitleLabelStyleProperty = BindableProperty.Create(propertyName: nameof(TopTitleLabelStyle), returnType: typeof(Style), declaringType: typeof(ActionBar), defaultValue: null, defaultBindingMode: BindingMode.TwoWay, propertyChanged: TopTitleLabelStylePropertyChanged);
@@ -39,15 +39,15 @@ namespace XamarinBoilerplate.Views.Common
             }
         }
 
-        public ObservableCollection<ImageButton> Buttons
+        public ObservableCollection<ImageButton> Menu
         {
             get
             {
-                return (ObservableCollection<ImageButton>)GetValue(ButtonsProperty);
+                return (ObservableCollection<ImageButton>)GetValue(ActionBarMenuProperty);
             }
             set
             {
-                SetValue(ButtonsProperty, value);
+                SetValue(ActionBarMenuProperty, value);
             }
         }
 
@@ -247,7 +247,7 @@ namespace XamarinBoilerplate.Views.Common
         {
             get
             {
-                return Buttons?.Count > 0 ? true : false;
+                return Menu?.Count > 0 ? true : false;
             }
         }
 
@@ -258,13 +258,7 @@ namespace XamarinBoilerplate.Views.Common
 
             var form = (ActionBar)bindable;
             form.options.Children.Clear();
-
             form.options.IsVisible = true;
-
-            ActionBar targetView;
-
-            targetView = (ActionBar)bindable;
-
             form.TitleLabel.HorizontalOptions = LayoutOptions.Center;
             form.TitleLabel.HorizontalTextAlignment = TextAlignment.Center;
 

@@ -44,7 +44,7 @@ namespace XamarinBoilerplate.Views
             {
                 CustomMap.MoveToRegion(
                   MapSpan.FromCenterAndRadius(
-                  new Position(location.Latitude, location.Longitude), Distance.FromMiles(3)));
+                  new Position(location.Latitude, location.Longitude), Distance.FromMiles(0.30)));
                 initialLoadNeeded = false;
             }
         }

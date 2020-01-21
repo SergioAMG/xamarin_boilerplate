@@ -187,6 +187,15 @@ namespace Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Search for: .
+        /// </summary>
+        public static string MapSearchBarSearchText {
+            get {
+                return ResourceManager.GetString("MapSearchBarSearchText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Menu.
         /// </summary>
         public static string Menu {
@@ -255,6 +264,15 @@ namespace Localization {
         public static string ReadMore {
             get {
                 return ResourceManager.GetString("ReadMore", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Search Location.
+        /// </summary>
+        public static string SearchLocationBarText {
+            get {
+                return ResourceManager.GetString("SearchLocationBarText", resourceCulture);
             }
         }
         

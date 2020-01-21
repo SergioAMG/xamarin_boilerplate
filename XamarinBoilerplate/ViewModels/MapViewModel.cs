@@ -3,7 +3,6 @@ using System.Collections.ObjectModel;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
-using XamarinBoilerplate.Controls;
 using XamarinBoilerplate.Interfaces;
 using XamarinBoilerplate.Utils;
 
@@ -14,6 +13,7 @@ namespace XamarinBoilerplate.ViewModels
         private ICommand _openDrawerCommand;
         private ICommand _commonToolbarItemTapCommand;
         private ICommand _viewMoreOptionsCommand;
+        private ICommand _searchLocationCommand;
 
         public MapViewModel(IDataService dataManager = null) : base(dataManager)
         {
@@ -48,6 +48,21 @@ namespace XamarinBoilerplate.ViewModels
             }
         }
 
+        public ICommand SearchLocationCommand
+        {
+            get
+            {
+                return _searchLocationCommand ?? (_searchLocationCommand = new CommandExtended(ExecuteSearchLocationCommandAsync));
+
+            }
+        }
+
+        private async void HandleUserSelection(string userSelection)
+        {
+            await NavigationService.ClosePopUp();
+            DependencyService.Get<IToast>().ShowToastMessage(Localization.AppResources.CommonToolbarItemTapped + " " + userSelection, false);
+        }
+
         public async Task ExecuteOpenDrawerCommandAsync()
         {
             await NavigationService.OpenDrawer();
@@ -71,10 +86,10 @@ namespace XamarinBoilerplate.ViewModels
             await NavigationService.OpenPopUp(new Views.Popups.UIAlertControllerPopup(options, HandleUserSelection));
         }
 
-        private async void HandleUserSelection(string userSelection)
+        private async Task ExecuteSearchLocationCommandAsync(object sender)
         {
-            await NavigationService.ClosePopUp();
-            DependencyService.Get<IToast>().ShowToastMessage(Localization.AppResources.CommonToolbarItemTapped + " " + userSelection, false);
+            string searchTerm = (string)sender;
+            DependencyService.Get<IToast>().ShowToastMessage(Localization.AppResources.MapSearchBarSearchText + " " + searchTerm, false);
         }
     }
 }

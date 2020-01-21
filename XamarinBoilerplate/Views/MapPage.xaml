@@ -52,7 +52,17 @@
                     </collections:ObservableCollection>
                 </common:ActionBar.Menu>
             </common:ActionBar>
-            <maps:Map x:Name="CustomMap" MapType="Street" MyLocationEnabled="False" HasZoomEnabled="True" />
+            <Grid ColumnSpacing="0" RowSpacing="0" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <maps:Map x:Name="CustomMap" MapType="Street" MyLocationEnabled="False" HasZoomEnabled="True" Grid.Row="0" Grid.Column="0" />
+                <SearchBar x:Name="SearchBar" HorizontalOptions="FillAndExpand" VerticalOptions="Start" Placeholder="{utils:Localized SearchLocationBarText}" PlaceholderColor="{DynamicResource Black}" TextColor="{DynamicResource Black}"
+                           Opacity="0.8" SearchCommand="{Binding SearchLocationCommand}" SearchCommandParameter="{Binding Text, Source={x:Reference SearchBar}}" BackgroundColor="{DynamicResource White}" Margin="15,15,15,0" />
+            </Grid>
         </StackLayout>
     </ContentPage.Content>
 </base:BaseContentPage>

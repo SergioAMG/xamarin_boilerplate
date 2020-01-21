@@ -365,4 +365,12 @@
     <value>Video Streaming</value>
     <comment>Usage Video Streaming Text</comment>
   </data>
+  <data name="SearchLocationBarText" xml:space="preserve">
+    <value>Search Location</value>
+    <comment>Search Location Bar Text</comment>
+  </data>
+  <data name="MapSearchBarSearchText" xml:space="preserve">
+    <value>Search for: </value>
+    <comment>Map SearchBar Search Text </comment>
+  </data>
 </root>

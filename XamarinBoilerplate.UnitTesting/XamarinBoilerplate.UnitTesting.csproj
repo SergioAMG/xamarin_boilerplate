@@ -83,6 +83,9 @@
     <Reference Include="Xamarin.Forms.Core.UnitTests, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Xamarin.Forms.Mocks.3.5.0.2\lib\netstandard2.0\Xamarin.Forms.Core.UnitTests.dll</HintPath>
     </Reference>
+    <Reference Include="Xamarin.Forms.GoogleMaps, Version=3.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Xamarin.Forms.GoogleMaps.3.3.0\lib\netstandard2.0\Xamarin.Forms.GoogleMaps.dll</HintPath>
+    </Reference>
     <Reference Include="Xamarin.Forms.Platform, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Xamarin.Forms.4.3.0.947036\lib\netstandard2.0\Xamarin.Forms.Platform.dll</HintPath>
     </Reference>

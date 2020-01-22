@@ -11,13 +11,78 @@
         Title="{utils:Localized DataUsage}"
         HasNavigationBar="False"
         xmlns:common="clr-namespace:XamarinBoilerplate.Views.Common"
-        BackgroundColor="{DynamicResource PageBackgroundColor}">
+        BackgroundColor="{DynamicResource PageBackgroundColor}"
+        xmlns:collections="clr-namespace:System.Collections.ObjectModel;assembly=netstandard"
+        xmlns:effects="clr-namespace:XamarinBoilerplate.Effects"
+        xmlns:controls="clr-namespace:XamarinBoilerplate.Controls">
     <ContentPage.Content>
         <StackLayout Spacing="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Orientation="Vertical">
             <common:ActionBar BackButtonTintColor="{DynamicResource ActionBarIconsColor}" BackgroundColor="{DynamicResource ActionBarBackground}"
                               ShowIcon="False" Title="{utils:Localized DataUsage}" HideBackButton="False" TitleLabelStyle="{DynamicResource ActionBarTextLabelStyle}"
-                              IsMaster="True" CenterBartitle="{Binding IsTitleCentered}" IsModal="False" BackButtonCommand="{Binding OpenDrawerCommand}" />
-            <Label Text="Welcome to DataUsagePage !" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" VerticalTextAlignment="Center" />
+                              IsMaster="True" CenterBartitle="{Binding IsTitleCentered}" IsModal="False" BackButtonCommand="{Binding OpenDrawerCommand}">
+                <common:ActionBar.Menu>
+                    <collections:ObservableCollection x:TypeArguments="ImageButton">
+                        <controls:ExtendedPopupMenuButton Source="baseline_more_vert_black_24" HorizontalOptions="Start"
+                                     effects:TintEffect.TintColor="{DynamicResource ActionBarIconsColor}" Margin="{Binding MarginForOptionsIconOfActionBar}"
+                                     BackgroundColor="Transparent" VerticalOptions="Center" IsXamlPopup="True" IsVisible="{Binding IsAndroidMenuVisible}">
+                            <controls:ExtendedPopupMenuButton.Options>
+                                <collections:ObservableCollection x:TypeArguments="controls:ExtendedLabel">
+                                    <controls:ExtendedLabel Text="{utils:Localized ToolbarItemViewByDay}" TapPressCommand="{Binding CommonToolbarItemTapCommand}" CommandParameter="{utils:Localized ToolbarItemViewByDay}" />
+                                    <controls:ExtendedLabel Text="{utils:Localized ToolbarItemViewByWeek}" TapPressCommand="{Binding CommonToolbarItemTapCommand}" CommandParameter="{utils:Localized ToolbarItemViewByWeek}" />
+                                    <controls:ExtendedLabel Text="{utils:Localized ToolbarItemViewByMonth}" TapPressCommand="{Binding CommonToolbarItemTapCommand}" CommandParameter="{utils:Localized ToolbarItemViewByMonth}" />
+                                    <controls:ExtendedLabel Text="{utils:Localized ToolbarItemViewByYear}" TapPressCommand="{Binding CommonToolbarItemTapCommand}" CommandParameter="{utils:Localized ToolbarItemViewByYear}" />
+                                </collections:ObservableCollection>
+                            </controls:ExtendedPopupMenuButton.Options>
+                        </controls:ExtendedPopupMenuButton>
+                        <ImageButton Source="baseline_more_vert_black_24" HorizontalOptions="Start" 
+                                     Command="{Binding ViewMoreOptionsCommand}"
+                                     Margin="{Binding MarginForOptionsIconOfActionBar}" effects:TintEffect.TintColor="{DynamicResource ActionBarIconsColor}"
+                                     BackgroundColor="Transparent" VerticalOptions="Center" IsVisible="{Binding IsIOSMenuVisible}" />
+                    </collections:ObservableCollection>
+                </common:ActionBar.Menu>
+            </common:ActionBar>
+            <StackLayout Orientation="Vertical" Spacing="0" VerticalOptions="StartAndExpand" Padding="15,0">
+                <StackLayout Orientation="Horizontal" Spacing="13" HorizontalOptions="CenterAndExpand" Margin="0,15,0,0">
+                    <Label WidthRequest="50" Text="0 GB" />
+                    <Label WidthRequest="50" Text="3 GB" />
+                    <Label WidthRequest="50" Text="6 GB" />
+                    <Label WidthRequest="50" Text="9 GB" />
+                    <Label WidthRequest="50" Text="12 GB" />
+                </StackLayout>
+                <ProgressBar x:Name="progressBar" Margin="0,25,0,30" Progress="0" ProgressColor="{DynamicResource Blue}" ScaleY="13" />
+                <ScrollView>
+                    <StackLayout>
+                        <Label Text="{utils:Localized UsageSocialNetworking}" HorizontalOptions="StartAndExpand" />
+                        <Slider HorizontalOptions="FillAndExpand" BackgroundColor="#f7f7f7" VerticalOptions="StartAndExpand" 
+                                MinimumTrackColor="{DynamicResource Blue}" MaximumTrackColor="{DynamicResource ActionBarBackground}"
+                                ThumbColor="LightGray" Margin="0,15,0,0" Minimum="0" Maximum="5" ValueChanged="SliderValueChanged"/>
+                        <Label Text="{utils:Localized UsageInstantMessaging}" HorizontalOptions="StartAndExpand" />
+                        <Slider HorizontalOptions="FillAndExpand" BackgroundColor="#f7f7f7" VerticalOptions="StartAndExpand" 
+                                MinimumTrackColor="{DynamicResource Blue}" MaximumTrackColor="{DynamicResource ActionBarBackground}"
+                                ThumbColor="LightGray" Margin="0,15,0,0" Minimum="0" Maximum="5" ValueChanged="SliderValueChanged" />
+                        <Label Text="{utils:Localized UsageVideoCalls}" HorizontalOptions="StartAndExpand" />
+                        <Slider HorizontalOptions="FillAndExpand" BackgroundColor="#f7f7f7" VerticalOptions="StartAndExpand" 
+                                MinimumTrackColor="{DynamicResource Blue}" MaximumTrackColor="{DynamicResource ActionBarBackground}"
+                                ThumbColor="LightGray" Margin="0,15,0,0" Minimum="0" Maximum="5" ValueChanged="SliderValueChanged" />
+                        <Label Text="{utils:Localized UsageMaps}" HorizontalOptions="StartAndExpand" />
+                        <Slider HorizontalOptions="FillAndExpand" BackgroundColor="#f7f7f7" VerticalOptions="StartAndExpand" 
+                                MinimumTrackColor="{DynamicResource Blue}" MaximumTrackColor="{DynamicResource ActionBarBackground}"
+                                ThumbColor="LightGray" Margin="0,15,0,0" Minimum="0" Maximum="5" ValueChanged="SliderValueChanged" />
+                        <Label Text="{utils:Localized UsageVideoStreaming}" HorizontalOptions="StartAndExpand" />
+                        <Slider HorizontalOptions="FillAndExpand" BackgroundColor="#f7f7f7" VerticalOptions="StartAndExpand" 
+                                MinimumTrackColor="{DynamicResource Blue}" MaximumTrackColor="{DynamicResource ActionBarBackground}"
+                                ThumbColor="LightGray" Margin="0,15,0,0" Minimum="0" Maximum="5" ValueChanged="SliderValueChanged" />
+                        <Label Text="{utils:Localized UsageMusicStreaming}" HorizontalOptions="StartAndExpand" />
+                        <Slider HorizontalOptions="FillAndExpand" BackgroundColor="#f7f7f7" VerticalOptions="StartAndExpand" 
+                                MinimumTrackColor="{DynamicResource Blue}" MaximumTrackColor="{DynamicResource ActionBarBackground}"
+                                ThumbColor="LightGray" Margin="0,15,0,0" Minimum="0" Maximum="5" ValueChanged="SliderValueChanged" />
+                        <Label Text="{utils:Localized UsageEmailWithAttachments}" HorizontalOptions="StartAndExpand" />
+                        <Slider HorizontalOptions="FillAndExpand" BackgroundColor="#f7f7f7" VerticalOptions="StartAndExpand" 
+                                MinimumTrackColor="{DynamicResource Blue}" MaximumTrackColor="{DynamicResource ActionBarBackground}"
+                                ThumbColor="LightGray" Margin="0,15,0,0" Minimum="0" Maximum="5" ValueChanged="SliderValueChanged" />
+                    </StackLayout>
+                </ScrollView>
+            </StackLayout>
         </StackLayout>
     </ContentPage.Content>
 </base:BaseContentPage>

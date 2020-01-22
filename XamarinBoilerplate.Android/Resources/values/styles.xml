@@ -35,6 +35,12 @@
     <item name="android:dropDownHorizontalOffset">-170dp</item>
   </style>
 
+  <style name="CustomPopupMenuStyle" parent="Widget.AppCompat.Light.PopupMenu">
+    <item name="android:popupBackground">@drawable/popupMenuBackground</item>
+    <item name="android:dropDownVerticalOffset">-36dp</item>
+    <item name="android:dropDownHorizontalOffset">-170dp</item>
+  </style>
+
   <style name="ToolbarTheme" parent="@style/ThemeOverlay.AppCompat.ActionBar">
     <!-- ThemeOverlay.AppCompat.Dark.ActionBar -->
     <item name="colorControlNormal">#FFFFFF</item>

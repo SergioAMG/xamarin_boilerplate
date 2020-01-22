@@ -73,6 +73,46 @@ namespace XamarinBoilerplate.ViewModels
             }
         }
 
+        public bool IsAndroid
+        {
+            get
+            {
+                return DeviceManager.Platform == Devices.Android.ToString();
+            }
+        }
+
+        public bool IsIOS
+        {
+            get
+            {
+                return DeviceManager.Platform == Devices.iOS.ToString();
+            }
+        }
+
+        public Thickness MarginForLeftIconOfActionBar
+        {
+            get
+            {
+                return (IsAndroid) ? Constants.MarginForLeftIconOfActionBarAndroid : Constants.MarginForLeftIconOfActionBarIOS;
+            }
+        }
+
+        public Thickness MarginForRightIconOfActionBar
+        {
+            get
+            {
+                return (IsAndroid) ? Constants.MarginForRightIconOfActionBarAndroid : Constants.MarginForRightIconOfActionBarIOS;
+            }
+        }
+
+        public Thickness MarginForOptionsIconOfActionBar
+        {
+            get
+            {
+                return (IsAndroid) ? Constants.MarginForOptionsIconOfActionBarAndroid : Constants.MarginForOptionsIconOfActionBarIOS;
+            }
+        }
+
         public INavigationService NavigationService
         {
             get

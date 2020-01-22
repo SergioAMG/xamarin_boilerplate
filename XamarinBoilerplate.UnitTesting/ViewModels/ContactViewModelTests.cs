@@ -39,33 +39,6 @@ namespace XamarinBoilerplate.UnitTesting.ViewModels
         }
 
         [TestMethod]
-        public void ShouldCreateOptionsMenuCreateToolbarItems()
-        {
-            //arrange
-            viewModel = new ContactViewModel(DataManager);
-
-            //act
-            viewModel.CreateOptionsMenu();
-
-            //assert
-            Assert.IsNotNull(viewModel.Buttons);
-        }
-
-        [TestMethod]
-        public void ShouldCreateOptionsMenuCreateAlsoSubMenu()
-        {
-            //arrange
-            viewModel = new ContactViewModel(DataManager);
-
-            //act
-            viewModel.CreateOptionsMenu();
-
-            //assert
-            Assert.IsTrue(viewModel.HasSubMenu);
-            Assert.IsNotNull(viewModel.SubMenu);
-        }
-
-        [TestMethod]
         public void ShouldInitMethodUpdateSelectedTabIndex()
         {
             //arrange

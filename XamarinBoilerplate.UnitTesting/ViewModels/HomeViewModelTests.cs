@@ -36,33 +36,6 @@ namespace XamarinBoilerplate.UnitTesting.ViewModels
         }
 
         [TestMethod]
-        public void ShouldCreateOptionsMenuCreateToolbarItems()
-        {
-            //arrange
-            viewModel = new HomeViewModel(DataManager);
-
-            //act
-            viewModel.CreateOptionsMenu();
-
-            //assert
-            Assert.IsNotNull(viewModel.Buttons);
-        }
-
-        [TestMethod]
-        public void ShouldCreateOptionsMenuCreateAlsoSubMenu()
-        {
-            //arrange
-            viewModel = new HomeViewModel(DataManager);
-
-            //act
-            viewModel.CreateOptionsMenu();
-
-            //assert
-            Assert.IsTrue(viewModel.HasSubMenu);
-            Assert.IsNotNull(viewModel.SubMenu);
-        }
-
-        [TestMethod]
         public void ShouldOpenDrawerCommandOpenTheDrawerMenu()
         {
             //arrange

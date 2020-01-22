@@ -45,7 +45,15 @@ namespace XamarinBoilerplate.Droid.Renderers
 
         private void ShowPopupMenu(Android.Views.View view)
         {
-            Android.Support.V7.Widget.PopupMenu popupMenu = new Android.Support.V7.Widget.PopupMenu(_context, view, 1, 0, Resource.Style.PopupMenuStyle);
+            Android.Support.V7.Widget.PopupMenu popupMenu;
+            if (_extendedPopupMenuButton.IsXamlPopup)
+            {
+                popupMenu  = new Android.Support.V7.Widget.PopupMenu(_context, view, 1, 0, Resource.Style.CustomPopupMenuStyle);
+            }
+            else
+            {
+                popupMenu = new Android.Support.V7.Widget.PopupMenu(_context, view, 1, 0, Resource.Style.PopupMenuStyle);
+            }
 
             foreach (var item in _extendedPopupMenuButton.Options)
             {

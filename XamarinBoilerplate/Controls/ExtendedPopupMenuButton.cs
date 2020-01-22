@@ -8,6 +8,7 @@ namespace XamarinBoilerplate.Controls
     {
         public static readonly BindableProperty OptionsProperty = BindableProperty.Create(
             nameof(Options), typeof(ObservableCollection<ExtendedLabel>), typeof(ExtendedPopupMenuButton), defaultValue: new ObservableCollection<ExtendedLabel>(), defaultBindingMode: BindingMode.TwoWay);
+        public static readonly BindableProperty XamlPopupProperty = BindableProperty.Create(nameof(IsXamlPopup), typeof(bool), typeof(bool), false, BindingMode.TwoWay);
         public Action CallBackOpenMenu { get; set; }
 
         public ObservableCollection<ExtendedLabel> Options
@@ -19,6 +20,18 @@ namespace XamarinBoilerplate.Controls
             set
             {
                 SetValue(OptionsProperty, value);
+            }
+        }
+
+        public bool IsXamlPopup
+        {
+            get
+            {
+                return (Boolean)GetValue(XamlPopupProperty);
+            }
+            set
+            {
+                SetValue(XamlPopupProperty, value);
             }
         }
 

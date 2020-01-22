@@ -75,7 +75,6 @@ namespace XamarinBoilerplate.ViewModels
         public async Task ExecuteGoToWizzardStep1CommandAsync()
         {
             await NavigationService.CloseDrawer();
-            var selectedTabIndex = NavigationService.GetCurrentSelectedTabIndexOverMasterDetailPageWithTabbedPage();
             await NavigationService.NavigateAsync(nameof(StepOnePage));
         }
 

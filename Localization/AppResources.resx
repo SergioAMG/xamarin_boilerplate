@@ -161,13 +161,13 @@
     <value>http://www.epam.com</value>
     <comment>Epam Web Site URL</comment>
   </data>
-  <data name="FavoritesButtonPressed" xml:space="preserve">
-    <value>The Favorites button was tapped</value>
-    <comment>Button Tapped Alert / Toast</comment>
+  <data name="ToolbarItemFavorites" xml:space="preserve">
+    <value>Favorites</value>
+    <comment>Toolbar Item Favorites Text</comment>
   </data>
-  <data name="HelpButtonPressed" xml:space="preserve">
-    <value>The Help button was tapped</value>
-    <comment>Button Tapped Alert / Toast</comment>
+  <data name="ToolbarItemHelp" xml:space="preserve">
+    <value>Help</value>
+    <comment>Toolbar Item Help Text</comment>
   </data>
   <data name="Home" xml:space="preserve">
     <value>Home</value>
@@ -217,37 +217,53 @@
     <value>Submit</value>
     <comment>Submit Button</comment>
   </data>
-  <data name="SyncButtonPressed" xml:space="preserve">
-    <value>The Sync button was tapped</value>
-    <comment>Button Tapped Alert / Toast</comment>
+  <data name="ToolbarItemSync" xml:space="preserve">
+    <value>Sync</value>
+    <comment>Toolbar Item Sync Text</comment>
+  </data>
+  <data name="ToolbarItemClearPins" xml:space="preserve">
+    <value>Clear Pins</value>
+    <comment>Toolbar Item Clear Pins Text</comment>
   </data>
   <data name="ToolbarItemDecreaseTextSize" xml:space="preserve">
     <value>Decrease text size</value>
-    <comment>Toolbar Item Navigation Text</comment>
+    <comment>Toolbar Item Decrease text size Text</comment>
   </data>
   <data name="ToolbarItemEmailContact" xml:space="preserve">
     <value>Contact by email</value>
-    <comment>Toolbar Item Navigation Text</comment>
+    <comment>Toolbar Item Contact by email Text</comment>
   </data>
   <data name="ToolbarItemIncreaseTextSize" xml:space="preserve">
     <value>Increase text size</value>
-    <comment>Toolbar Item Navigation Text</comment>
+    <comment>Toolbar Item Increase text size Text</comment>
   </data>
   <data name="ToolbarItemOrderByDate" xml:space="preserve">
     <value>Order by date</value>
-    <comment>Toolbar Item Navigation Text</comment>
+    <comment>Toolbar Item Order by date Text</comment>
   </data>
   <data name="ToolbarItemOrderByPopularity" xml:space="preserve">
     <value>Order by popularity</value>
-    <comment>Toolbar Item Navigation Text</comment>
+    <comment>Toolbar Item Order by popularity Text</comment>
   </data>
   <data name="ToolbarItemPhoneContact" xml:space="preserve">
     <value>Contact by phone</value>
-    <comment>Toolbar Item Navigation Text</comment>
+    <comment>Toolbar Item Contact by phone Text</comment>
+  </data>
+  <data name="ToolbarItemResetMap" xml:space="preserve">
+    <value>Reset Map</value>
+    <comment>Toolbat Item Reset Map Text</comment>
+  </data>
+  <data name="ToolbarItemSearchLocation" xml:space="preserve">
+    <value>Search Location</value>
+    <comment>Toolbar Item Search Location Text</comment>
+  </data>
+  <data name="ToolbarItemShowMyLocation" xml:space="preserve">
+    <value>Show My Location</value>
+    <comment>Toolbar Item Show My Location Text</comment>
   </data>
   <data name="ToolbarItemWhatsAppContact" xml:space="preserve">
-    <value>Contact by whats app</value>
-    <comment>Toolbar Item Navigation Text</comment>
+    <value>Contact by Whats app</value>
+    <comment>Toolbar Item Contact by Whats app Text</comment>
   </data>
   <data name="Welcome" xml:space="preserve">
     <value>Welcome</value>
@@ -292,5 +308,69 @@
   <data name="YourPhone" xml:space="preserve">
     <value>Your phone</value>
     <comment>Your Phone Placeholder Text</comment>
+  </data>
+  <data name="ToolbarItemPin" xml:space="preserve">
+    <value>Pin</value>
+    <comment>Toolbar Item Pin Button Text</comment>
+  </data>
+  <data name="Button" xml:space="preserve">
+    <value>Button</value>
+    <comment>Button Text</comment>
+  </data>
+  <data name="Tapped" xml:space="preserve">
+    <value>Tapped</value>
+    <comment>Tapped Text</comment>
+  </data>
+  <data name="ToolbarItemViewByDay" xml:space="preserve">
+    <value>View by Day</value>
+    <comment>Toolbar Item View By Day Text</comment>
+  </data>
+  <data name="ToolbarItemViewByMonth" xml:space="preserve">
+    <value>View by Month</value>
+    <comment>Toolbar Item View By Month Text</comment>
+  </data>
+  <data name="ToolbarItemViewByWeek" xml:space="preserve">
+    <value>View by Week</value>
+    <comment>Toolbar Item View By Week Text</comment>
+  </data>
+  <data name="ToolbarItemViewByYear" xml:space="preserve">
+    <value>View by Year</value>
+    <comment>Toolbar Item View By Year Text</comment>
+  </data>
+  <data name="UsageEmailWithAttachments" xml:space="preserve">
+    <value>Email With Attachments</value>
+    <comment>Usage Email With Attachments Text</comment>
+  </data>
+  <data name="UsageInstantMessaging" xml:space="preserve">
+    <value>Instant Messaging</value>
+    <comment>Usage Instant Messaging Text</comment>
+  </data>
+  <data name="UsageMaps" xml:space="preserve">
+    <value>Maps Usage</value>
+    <comment>Usage Maps Text</comment>
+  </data>
+  <data name="UsageMusicStreaming" xml:space="preserve">
+    <value>Music Streaming</value>
+    <comment>Usage Music Streaming Text</comment>
+  </data>
+  <data name="UsageSocialNetworking" xml:space="preserve">
+    <value>Social Networking</value>
+    <comment>Usage Social Networking Text</comment>
+  </data>
+  <data name="UsageVideoCalls" xml:space="preserve">
+    <value>Video Calls</value>
+    <comment>Usage Video Calls Text</comment>
+  </data>
+  <data name="UsageVideoStreaming" xml:space="preserve">
+    <value>Video Streaming</value>
+    <comment>Usage Video Streaming Text</comment>
+  </data>
+  <data name="SearchLocationBarText" xml:space="preserve">
+    <value>Search Location</value>
+    <comment>Search Location Bar Text</comment>
+  </data>
+  <data name="MapSearchBarSearchText" xml:space="preserve">
+    <value>Search for: </value>
+    <comment>Map SearchBar Search Text </comment>
   </data>
 </root>

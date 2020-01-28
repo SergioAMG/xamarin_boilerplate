@@ -14,7 +14,9 @@
         BackgroundColor="{DynamicResource PageBackgroundColor}"
         xmlns:collections="clr-namespace:System.Collections.ObjectModel;assembly=netstandard"
         xmlns:effects="clr-namespace:XamarinBoilerplate.Effects"
-        xmlns:controls="clr-namespace:XamarinBoilerplate.Controls">
+        xmlns:controls="clr-namespace:XamarinBoilerplate.Controls"
+        EnableHardwareBackButtonOverride="True"
+        HardwareBackButtonCommand="{Binding BackFromDetailsCommand}">
     <ContentPage.Content>
         <StackLayout Spacing="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Orientation="Vertical">
             <common:ActionBar BackButtonTintColor="{DynamicResource ActionBarIconsColor}" BackgroundColor="{DynamicResource ActionBarBackground}"
@@ -60,10 +62,10 @@
                             <Label Text="{utils:Localized EpamWebSite}" HorizontalOptions="Center" HorizontalTextAlignment="Center" FontSize="15" TextColor="{DynamicResource Blue}" />
                         </StackLayout>
                         <StackLayout Spacing="2" HorizontalOptions="FillAndExpand" VerticalOptions="Start" Orientation="Vertical" Padding="0,10,0,0">
-                            <Entry Placeholder="{utils:Localized YourName}" HorizontalOptions="FillAndExpand" />
-                            <Entry Placeholder="{utils:Localized YourPhone}" HorizontalOptions="FillAndExpand" />
-                            <Entry Placeholder="{utils:Localized YourEmail}" HorizontalOptions="FillAndExpand" />
-                            <Editor Placeholder="{utils:Localized YourMessage}" HorizontalOptions="FillAndExpand" AutoSize="TextChanges" WidthRequest="{Binding DetailsViewWidth}" Focused="EditorFocused" Unfocused="EditorUnfocused" />
+                            <Entry Text="{Binding YourName}" Placeholder="{utils:Localized YourName}" HorizontalOptions="FillAndExpand" />
+                            <Entry Text="{Binding YourPhone}" Placeholder="{utils:Localized YourPhone}" HorizontalOptions="FillAndExpand" />
+                            <Entry Text="{Binding YourEmail}" Placeholder="{utils:Localized YourEmail}" HorizontalOptions="FillAndExpand" />
+                            <Editor Text="{Binding YourMessage}" Placeholder="{utils:Localized YourMessage}" HorizontalOptions="FillAndExpand" AutoSize="TextChanges" WidthRequest="{Binding DetailsViewWidth}" Focused="EditorFocused" Unfocused="EditorUnfocused" />
                             <Button Text="{utils:Localized Submit}" BorderWidth="1" IsVisible="{Binding IsLandscapeButtonVisible}" Command="{Binding SendMessageCommand}" />
                         </StackLayout>
                     </StackLayout>

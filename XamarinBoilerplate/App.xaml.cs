@@ -35,7 +35,7 @@ namespace XamarinBoilerplate
             bool isWizzardCompleted = Preferences.Get(Constants.WizzardComplete, false);
             if (isWizzardCompleted)
             {
-                NavigationService.SetRootPage(nameof(DashboardPage), new DashboardViewModel());
+                NavigationService.SetRootPage(nameof(LoginPage), new LoginViewModel());
             }
             else
             {
@@ -55,6 +55,7 @@ namespace XamarinBoilerplate
             NavigationService.Configure(nameof(DataUsagePage), typeof(DataUsagePage));
             NavigationService.Configure(nameof(CustomTabbedPage), typeof(CustomTabbedPage));
             NavigationService.Configure(nameof(ContactPage), typeof(ContactPage));
+            NavigationService.Configure(nameof(LoginPage), typeof(LoginPage));
 
             NavigationService.BindViewModel<StepOneViewModel, StepOnePage>();
             NavigationService.BindViewModel<StepTwoViewModel, StepTwoPage>();
@@ -66,6 +67,7 @@ namespace XamarinBoilerplate
             NavigationService.BindViewModel<DataUsageViewModel, DataUsagePage>();
             NavigationService.BindViewModel<CustomTabbedViewModel, CustomTabbedPage>();
             NavigationService.BindViewModel<ContactViewModel, ContactPage>();
+            NavigationService.BindViewModel<LoginViewModel, LoginPage>();
         }
 
         public void IdentifyDevice()

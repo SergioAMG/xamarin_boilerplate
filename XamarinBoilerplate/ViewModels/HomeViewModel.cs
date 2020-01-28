@@ -129,7 +129,6 @@ namespace XamarinBoilerplate.ViewModels
                 NewsItems.Add(newsViewModel);
             }
 
-            await Task.Delay(3000);
             IsLoading = false;       
         }
 

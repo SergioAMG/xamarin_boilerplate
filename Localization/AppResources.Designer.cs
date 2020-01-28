@@ -61,6 +61,15 @@ namespace Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to All fields are required..
+        /// </summary>
+        public static string AllFieldsRequired {
+            get {
+                return ResourceManager.GetString("AllFieldsRequired", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to App Build Version:.
         /// </summary>
         public static string AppVersion {
@@ -169,11 +178,56 @@ namespace Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Error .
+        /// </summary>
+        public static string Error {
+            get {
+                return ResourceManager.GetString("Error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Touch here to use fingerprint.
+        /// </summary>
+        public static string Fingerprint {
+            get {
+                return ResourceManager.GetString("Fingerprint", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Home.
         /// </summary>
         public static string Home {
             get {
                 return ResourceManager.GetString("Home", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras a cursus lectus. Ut fermentum eget dolor vel lobortis. Sed et semper sem. In hac habitasse platea dictumst. Pellentesque ante erat, cursus id risus at, tincidunt porta..
+        /// </summary>
+        public static string LegalTerms {
+            get {
+                return ResourceManager.GetString("LegalTerms", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Login.
+        /// </summary>
+        public static string Login {
+            get {
+                return ResourceManager.GetString("Login", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Login and Password are Required to Login.
+        /// </summary>
+        public static string LoginError {
+            get {
+                return ResourceManager.GetString("LoginError", resourceCulture);
             }
         }
         
@@ -241,6 +295,15 @@ namespace Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Your message has been sent..
+        /// </summary>
+        public static string MessageSent {
+            get {
+                return ResourceManager.GetString("MessageSent", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Next.
         /// </summary>
         public static string Next {
@@ -255,6 +318,15 @@ namespace Localization {
         public static string NotAvailable {
             get {
                 return ResourceManager.GetString("NotAvailable", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Okay.
+        /// </summary>
+        public static string Okay {
+            get {
+                return ResourceManager.GetString("Okay", resourceCulture);
             }
         }
         
@@ -291,6 +363,15 @@ namespace Localization {
         public static string Submit {
             get {
                 return ResourceManager.GetString("Submit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Success.
+        /// </summary>
+        public static string Success {
+            get {
+                return ResourceManager.GetString("Success", resourceCulture);
             }
         }
         

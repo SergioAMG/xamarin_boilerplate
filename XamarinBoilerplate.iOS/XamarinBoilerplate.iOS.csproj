@@ -334,4 +334,13 @@
   <ItemGroup>
     <BundleResource Include="Resources\baseline_room_black_24%402x.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\baseline_fingerprint_black_48%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\baseline_fingerprint_black_48%401x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\baseline_fingerprint_black_48%402x.png" />
+  </ItemGroup>
 </Project>

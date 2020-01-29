@@ -196,6 +196,33 @@ namespace Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Finger print validation was unsuccessful.
+        /// </summary>
+        public static string FingerprintError {
+            get {
+                return ResourceManager.GetString("FingerprintError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Secure lock screeen hasn&apos;t setup. Go to &apos;Settings-&gt;Security-&gt;Fingerprint&apos; to setup a fingerprint..
+        /// </summary>
+        public static string FingerprintNotAvailable {
+            get {
+                return ResourceManager.GetString("FingerprintNotAvailable", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Place your finger to continue.
+        /// </summary>
+        public static string FingerprintRequest {
+            get {
+                return ResourceManager.GetString("FingerprintRequest", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Home.
         /// </summary>
         public static string Home {

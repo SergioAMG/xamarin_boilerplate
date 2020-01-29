@@ -453,7 +453,11 @@ namespace XamarinBoilerplate.Services
 
         public async Task ClosePopUp()
         {
-            await CurrentNavigationPage.Navigation.PopPopupAsync();
+            var popUpStackCount = Rg.Plugins.Popup.Services.PopupNavigation.Instance.PopupStack.Count;
+            if (popUpStackCount > 0)
+            {
+                await CurrentNavigationPage.Navigation.PopPopupAsync();
+            }
         }
 
         public async Task ShowLoadingIndicator()

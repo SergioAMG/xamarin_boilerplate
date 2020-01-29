@@ -409,4 +409,16 @@
     <value>All fields are required.</value>
     <comment>All Fields Required Text</comment>
   </data>
+  <data name="FingerprintRequest" xml:space="preserve">
+    <value>Place your finger to continue</value>
+    <comment>Fingerprint Request Text</comment>
+  </data>
+  <data name="FingerprintError" xml:space="preserve">
+    <value>Finger print validation was unsuccessful</value>
+    <comment>Fingerprint Error Text</comment>
+  </data>
+  <data name="FingerprintNotAvailable" xml:space="preserve">
+    <value>Secure lock screeen hasn't setup. Go to 'Settings-&gt;Security-&gt;Fingerprint' to setup a fingerprint.</value>
+    <comment>Fingerprint Not AvailableText</comment>
+  </data>
 </root>

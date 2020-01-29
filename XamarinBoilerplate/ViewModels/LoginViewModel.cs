@@ -1,8 +1,8 @@
 ﻿using DataManagers.Interfaces;
+using Plugin.Fingerprint;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
-using XamarinBoilerplate.Interfaces;
 using XamarinBoilerplate.Utils;
 using XamarinBoilerplate.Views;
 
@@ -13,6 +13,7 @@ namespace XamarinBoilerplate.ViewModels
         private string _login;
         private string _password;
         private ICommand _loginCommand;
+        private ICommand _useFingerprintCommand;
 
         public string Login
         {
@@ -46,11 +47,28 @@ namespace XamarinBoilerplate.ViewModels
             }
         }
 
+        public StackOrientation ContainerOrientation
+        {
+            get
+            {
+                return (DeviceManager.IsLandscape) ? StackOrientation.Horizontal : StackOrientation.Vertical;
+            }
+        }
+
         public ICommand LoginCommand
         {
             get
             {
                 return _loginCommand ?? (_loginCommand = new CommandExtended(ExecuteLoginCommandAsync));
+
+            }
+        }
+
+        public ICommand UseFingerprintCommand
+        {
+            get
+            {
+                return _useFingerprintCommand ?? (_useFingerprintCommand = new CommandExtended(ExecuteUseFingerprintCommandAsync));
 
             }
         }
@@ -63,10 +81,46 @@ namespace XamarinBoilerplate.ViewModels
             }
         }
 
+        public void RefreshOrientation()
+        {
+            OnPropertyChanged(nameof(ContainerOrientation));
+        }
+
+        public async Task ExecuteUseFingerprintCommandAsync()
+        {
+            bool allowAlternativeAuthentication = IsIOS;
+            bool isFingerPrintAvailable = await CrossFingerprint.Current.IsAvailableAsync(allowAlternativeAuthentication);
+            if (isFingerPrintAvailable)
+            {
+                var authentication = await CrossFingerprint.Current.AuthenticateAsync(Localization.AppResources.FingerprintRequest);
+                if (authentication.Authenticated)
+                {
+                    await NavigationService.ShowLoadingIndicator();
+                    NavigationService.SetRootPage(nameof(DashboardPage), new DashboardViewModel());
+                }
+                else
+                {
+                    await NavigationService.CurrentPage.DisplayAlert(
+                        Localization.AppResources.Error,
+                        Localization.AppResources.FingerprintError,
+                        Localization.AppResources.Okay);
+
+                }
+            }
+            else
+            {
+                await NavigationService.CurrentPage.DisplayAlert(
+                        Localization.AppResources.Error,
+                        Localization.AppResources.FingerprintNotAvailable,
+                        Localization.AppResources.Okay);
+            }
+        }
+
         public async Task ExecuteLoginCommandAsync()
         {
             if (!string.IsNullOrEmpty(Login) && !string.IsNullOrEmpty(Password))
             {
+                await NavigationService.ShowLoadingIndicator();
                 NavigationService.SetRootPage(nameof(DashboardPage), new DashboardViewModel());
             }
             else

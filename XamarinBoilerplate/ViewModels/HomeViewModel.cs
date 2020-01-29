@@ -113,7 +113,6 @@ namespace XamarinBoilerplate.ViewModels
 
         public async void LoadData()
         {
-            IsLoading = true;
             NewsItems = new ObservableCollection<NewsViewModel>();
             var news = await DataManager.News.GetNews();
 
@@ -128,8 +127,8 @@ namespace XamarinBoilerplate.ViewModels
                 };
                 NewsItems.Add(newsViewModel);
             }
-
-            IsLoading = false;       
+            
+            await NavigationService.HideLoadingIndicator();
         }
 
         public async Task ExecuteOpenDrawerCommandAsync()

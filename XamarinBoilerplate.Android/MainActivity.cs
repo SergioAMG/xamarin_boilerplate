@@ -1,11 +1,11 @@
-﻿using System;
-
-using Android.App;
+﻿using Android.App;
 using Android.Content.PM;
 using Android.Runtime;
 using Android.Views;
-using Android.Widget;
 using Android.OS;
+using Plugin.CurrentActivity;
+using Plugin.Fingerprint;
+using XamarinBoilerplate.Droid.Fragments;
 
 namespace XamarinBoilerplate.Droid
 {
@@ -23,6 +23,9 @@ namespace XamarinBoilerplate.Droid
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
             Xamarin.FormsGoogleMaps.Init(this, savedInstanceState);
+            CrossCurrentActivity.Current.Init(this, savedInstanceState);
+            CrossFingerprint.SetCurrentActivityResolver(() => CrossCurrentActivity.Current.Activity);
+            CrossFingerprint.SetDialogFragmentType<CustomFingerprintDialogFragment>();
 
             Window.SetStatusBarColor(Android.Graphics.Color.White);
             LoadApplication(new App());

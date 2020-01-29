@@ -1,4 +1,6 @@
-﻿using Xamarin.Forms.Xaml;
+﻿using Xamarin.Essentials;
+using Xamarin.Forms.Xaml;
+using XamarinBoilerplate.Utils;
 
 namespace XamarinBoilerplate.Views
 {
@@ -8,6 +10,13 @@ namespace XamarinBoilerplate.Views
         public LoginPage()
         {
             InitializeComponent();
+        }
+
+        protected override void OnSizeAllocated(double width, double height)
+        {
+            base.OnSizeAllocated(width, height);
+            DeviceManager.Orientation = DeviceDisplay.MainDisplayInfo.Orientation.ToString();
+            (BindingContext as ViewModels.LoginViewModel).RefreshOrientation();
         }
     }
 }

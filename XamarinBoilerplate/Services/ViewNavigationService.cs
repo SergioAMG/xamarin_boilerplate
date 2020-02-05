@@ -131,6 +131,28 @@ namespace XamarinBoilerplate.Services
             }
         }
 
+        public MasterDetailPage CurrentMasterDetailPage
+        {
+            get
+            {
+                lock (_sync)
+                {
+                    try
+                    {
+                        if (CurrentNavigationPage?.CurrentPage == null)
+                        {
+                            return null;
+                        }
+                        return (MasterDetailPage)CurrentNavigationPage.CurrentPage;
+                    }
+                    catch (Exception)
+                    {
+                        return null;
+                    }
+                }
+            }
+        }
+
         public async Task GoBackAsync()
         {
             var navigationStack = CurrentNavigationPage.Navigation;

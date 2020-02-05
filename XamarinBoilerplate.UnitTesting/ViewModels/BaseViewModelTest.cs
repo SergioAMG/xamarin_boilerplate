@@ -35,8 +35,14 @@ namespace XamarinBoilerplate.UnitTesting.ViewModels
 
         public IDataService DataManager
         {
-            get { return _dataManager ?? (_dataManager = new MockDataWrapperService()); }
-            set { _dataManager = value; }
+            get 
+            { 
+                return _dataManager ?? (_dataManager = new MockDataWrapperService());
+            }
+            set
+            { 
+                _dataManager = value;
+            }
         }
     }
 }

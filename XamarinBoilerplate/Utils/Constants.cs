@@ -5,6 +5,7 @@ namespace XamarinBoilerplate.Utils
     public static class Constants
     {
         public static readonly string WizzardComplete = "WizzardComplete";
+        public static readonly string LoggedIn = "LoggedIn";
         public static readonly int UIAlertControllerPopupOptionRowHeight = 53;
         public static readonly int UIAlertControllerPopupOptionListItemViewWidth = 15;
         public static readonly double ShortToastDuration = 2.0;

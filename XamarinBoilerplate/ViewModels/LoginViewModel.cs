@@ -2,6 +2,7 @@
 using Plugin.Fingerprint;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using Xamarin.Essentials;
 using Xamarin.Forms;
 using XamarinBoilerplate.Utils;
 using XamarinBoilerplate.Views;
@@ -12,6 +13,7 @@ namespace XamarinBoilerplate.ViewModels
     {
         private string _login;
         private string _password;
+        private bool _isLoggedIn;
         private ICommand _loginCommand;
         private ICommand _useFingerprintCommand;
 
@@ -43,6 +45,22 @@ namespace XamarinBoilerplate.ViewModels
                 {
                     _password = value;
                     OnPropertyChanged(nameof(Password));
+                }
+            }
+        }
+
+        public bool IsLoggedIn
+        {
+            get
+            {
+                return _isLoggedIn;
+            }
+            set
+            {
+                if (_isLoggedIn != value)
+                {
+                    _isLoggedIn = value;
+                    OnPropertyChanged(nameof(IsLoggedIn));
                 }
             }
         }
@@ -120,15 +138,23 @@ namespace XamarinBoilerplate.ViewModels
         {
             if (!string.IsNullOrEmpty(Login) && !string.IsNullOrEmpty(Password))
             {
-                await NavigationService.ShowLoadingIndicator();
+                IsLoggedIn = true;
+                if (!UnitTestingManager.IsRunningFromNUnit)
+                {
+                    await NavigationService.ShowLoadingIndicator();
+                }
                 NavigationService.SetRootPage(nameof(DashboardPage), new DashboardViewModel());
             }
             else
             {
-                await NavigationService.CurrentPage.DisplayAlert(
+                IsLoggedIn = false;
+                if (!UnitTestingManager.IsRunningFromNUnit)
+                {
+                    await NavigationService.CurrentPage.DisplayAlert(
                     Localization.AppResources.Error,
                     Localization.AppResources.LoginError,
                     Localization.AppResources.Okay);
+                }
             }
         }
     }

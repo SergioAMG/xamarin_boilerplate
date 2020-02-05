@@ -111,6 +111,7 @@
     <Compile Include="ViewModels\CustomTabbedViewModelTests.cs" />
     <Compile Include="ViewModels\DataUsageViewModelTests.cs" />
     <Compile Include="ViewModels\HomeViewModelTests.cs" />
+    <Compile Include="ViewModels\LoginViewModelTests.cs" />
     <Compile Include="ViewModels\MapViewModelTests.cs" />
     <Compile Include="ViewModels\MenuViewModelTests.cs" />
     <Compile Include="ViewModels\Wizzard\StepOneViewModelTests.cs" />

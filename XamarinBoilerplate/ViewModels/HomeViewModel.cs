@@ -127,8 +127,10 @@ namespace XamarinBoilerplate.ViewModels
                 };
                 NewsItems.Add(newsViewModel);
             }
-            
-            await NavigationService.HideLoadingIndicator();
+            if (!UnitTestingManager.IsRunningFromNUnit)
+            {
+                await NavigationService.HideLoadingIndicator();
+            }
         }
 
         public async Task ExecuteOpenDrawerCommandAsync()

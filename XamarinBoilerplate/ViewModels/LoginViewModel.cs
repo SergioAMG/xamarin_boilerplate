@@ -99,9 +99,26 @@ namespace XamarinBoilerplate.ViewModels
             }
         }
 
+        public override async void OnAppearing()
+        {
+            base.OnAppearing();
+            bool availabilityResult = await ValidateFingerPrintAvailability();
+            if (availabilityResult)
+            {
+                await ExecuteUseFingerprintCommandAsync();
+            }
+        }
+
         public void RefreshOrientation()
         {
             OnPropertyChanged(nameof(ContainerOrientation));
+        }
+
+        public async Task<bool> ValidateFingerPrintAvailability()
+        {
+            bool allowAlternativeAuthentication = IsIOS;
+            bool isFingerPrintAvailable = await CrossFingerprint.Current.IsAvailableAsync(allowAlternativeAuthentication);
+            return await Task.FromResult<bool>(isFingerPrintAvailable);
         }
 
         public async Task ExecuteUseFingerprintCommandAsync()
@@ -113,16 +130,11 @@ namespace XamarinBoilerplate.ViewModels
                 var authentication = await CrossFingerprint.Current.AuthenticateAsync(Localization.AppResources.FingerprintRequest);
                 if (authentication.Authenticated)
                 {
-                    await NavigationService.ShowLoadingIndicator();
+                    if (!UnitTestingManager.IsRunningFromNUnit)
+                    {
+                        await NavigationService.ShowLoadingIndicator();
+                    }
                     NavigationService.SetRootPage(nameof(DashboardPage), new DashboardViewModel());
-                }
-                else
-                {
-                    await NavigationService.CurrentPage.DisplayAlert(
-                        Localization.AppResources.Error,
-                        Localization.AppResources.FingerprintError,
-                        Localization.AppResources.Okay);
-
                 }
             }
             else

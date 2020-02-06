@@ -3,7 +3,6 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using NUnit.Framework;
 using Xamarin.Forms;
 using XamarinBoilerplate.UnitTesting.Services;
-using XamarinBoilerplate.ViewModels;
 
 namespace XamarinBoilerplate.UnitTesting.ViewModels
 {

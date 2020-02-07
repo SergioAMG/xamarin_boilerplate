@@ -129,6 +129,9 @@
     <PackageReference Include="Autofac">
       <Version>4.9.4</Version>
     </PackageReference>
+    <PackageReference Include="Plugin.Fingerprint">
+      <Version>1.4.9</Version>
+    </PackageReference>
     <PackageReference Include="Rg.Plugins.Popup">
       <Version>1.2.0.223</Version>
     </PackageReference>
@@ -296,9 +299,6 @@
     <BundleResource Include="Resources\baseline_star_border_black_24%403x.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\epam.png" />
-  </ItemGroup>
-  <ItemGroup>
     <BundleResource Include="Resources\sampleSix.png" />
   </ItemGroup>
   <ItemGroup>
@@ -333,5 +333,19 @@
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\baseline_room_black_24%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\baseline_fingerprint_black_48%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\baseline_fingerprint_black_48%401x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\baseline_fingerprint_black_48%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\epam.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </BundleResource>
   </ItemGroup>
 </Project>

@@ -11,6 +11,7 @@ namespace XamarinBoilerplate.Interfaces
     {
         string CurrentPageKey { get; }
         BaseContentPage CurrentPage { get; }
+        MasterDetailPage CurrentMasterDetailPage { get; }
 
         void BindViewModel<TVM, TPage>()
         where TVM : BaseViewModel

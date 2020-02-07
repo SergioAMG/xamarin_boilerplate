@@ -373,4 +373,48 @@
     <value>Search for: </value>
     <comment>Map SearchBar Search Text </comment>
   </data>
+  <data name="Login" xml:space="preserve">
+    <value>Login</value>
+    <comment>Login Text</comment>
+  </data>
+  <data name="LegalTerms" xml:space="preserve">
+    <value>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras a cursus lectus. Ut fermentum eget dolor vel lobortis. Sed et semper sem. In hac habitasse platea dictumst. Pellentesque ante erat, cursus id risus at, tincidunt porta.</value>
+    <comment>Legal Terms Text</comment>
+  </data>
+  <data name="Fingerprint" xml:space="preserve">
+    <value>Touch here to use fingerprint</value>
+    <comment>Fingerprint Text</comment>
+  </data>
+  <data name="LoginError" xml:space="preserve">
+    <value>Login and Password are Required to Login</value>
+    <comment>Login Error Text</comment>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>Error </value>
+    <comment>Error Text</comment>
+  </data>
+  <data name="Okay" xml:space="preserve">
+    <value>Okay</value>
+    <comment>Okay Text</comment>
+  </data>
+  <data name="MessageSent" xml:space="preserve">
+    <value>Your message has been sent.</value>
+    <comment>Message Sent Text</comment>
+  </data>
+  <data name="Success" xml:space="preserve">
+    <value>Success</value>
+    <comment>Success Text</comment>
+  </data>
+  <data name="AllFieldsRequired" xml:space="preserve">
+    <value>All fields are required.</value>
+    <comment>All Fields Required Text</comment>
+  </data>
+  <data name="FingerprintRequest" xml:space="preserve">
+    <value>Place your finger to continue</value>
+    <comment>Fingerprint Request Text</comment>
+  </data>
+  <data name="FingerprintNotAvailable" xml:space="preserve">
+    <value>Secure lock screeen hasn't setup. Go to 'Settings-&gt;Security-&gt;Fingerprint' to setup a fingerprint.</value>
+    <comment>Fingerprint Not AvailableText</comment>
+  </data>
 </root>

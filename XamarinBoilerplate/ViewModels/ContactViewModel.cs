@@ -4,8 +4,6 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Essentials;
 using Xamarin.Forms;
-using XamarinBoilerplate.Controls;
-using XamarinBoilerplate.Effects;
 using XamarinBoilerplate.Enums;
 using XamarinBoilerplate.Interfaces;
 using XamarinBoilerplate.Utils;
@@ -18,6 +16,10 @@ namespace XamarinBoilerplate.ViewModels
         private int _selectedTabIndex;
         private double _detailsViewWidth;
         private bool _isNavBarVisible;
+        private string _yourName;
+        private string _yourPhone;
+        private string _yourEmail;
+        private string _yourMessage;
         private ICommand _viewMoreOptionsCommand;
         private ICommand _backFromDetailsCommand;
         private ICommand _commonToolbarItemTapCommand;
@@ -32,6 +34,70 @@ namespace XamarinBoilerplate.ViewModels
             SetOrientationValues();
             bool isNavBarVisible = true;
             SetNavBarVisibility(isNavBarVisible);
+        }
+
+        public string YourName
+        {
+            get
+            {
+                return _yourName;
+            }
+            set
+            {
+                if (_yourName != value)
+                {
+                    _yourName = value;
+                    OnPropertyChanged(nameof(YourName));
+                }
+            }
+        }
+
+        public string YourPhone
+        {
+            get
+            {
+                return _yourPhone;
+            }
+            set
+            {
+                if (_yourPhone != value)
+                {
+                    _yourPhone = value;
+                    OnPropertyChanged(nameof(YourPhone));
+                }
+            }
+        }
+
+        public string YourEmail
+        {
+            get
+            {
+                return _yourEmail;
+            }
+            set
+            {
+                if (_yourEmail != value)
+                {
+                    _yourEmail = value;
+                    OnPropertyChanged(nameof(YourEmail));
+                }
+            }
+        }
+
+        public string YourMessage
+        {
+            get
+            {
+                return _yourMessage;
+            }
+            set
+            {
+                if (_yourMessage != value)
+                {
+                    _yourMessage = value;
+                    OnPropertyChanged(nameof(YourMessage));
+                }
+            }
         }
 
         public int SelectedTabIndex
@@ -188,7 +254,30 @@ namespace XamarinBoilerplate.ViewModels
 
         private async Task ExecuteSendMessageCommandAsync()
         {
-            DependencyService.Get<IToast>().ShowToastMessage(Localization.AppResources.Button + " " + Localization.AppResources.Submit + " " + Localization.AppResources.Tapped, false);
+            Page currentDetailsPage = NavigationService.GetCurrentDetailsPage();
+
+            if (string.IsNullOrWhiteSpace(YourName) ||
+                string.IsNullOrWhiteSpace(YourPhone) ||
+                string.IsNullOrWhiteSpace(YourEmail) ||
+                string.IsNullOrWhiteSpace(YourMessage))
+            {
+                await currentDetailsPage.DisplayAlert(
+                        Localization.AppResources.Error,
+                        Localization.AppResources.AllFieldsRequired,
+                        Localization.AppResources.Okay);
+            }
+            else
+            {
+                await currentDetailsPage.DisplayAlert(
+                        Localization.AppResources.Success,
+                        Localization.AppResources.MessageSent,
+                        Localization.AppResources.Okay);
+
+                YourName = string.Empty;
+                YourPhone = string.Empty;
+                YourEmail = string.Empty;
+                YourMessage = string.Empty;
+            }
         }
     }
 }

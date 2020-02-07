@@ -3,7 +3,6 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using NUnit.Framework;
 using Xamarin.Forms;
 using XamarinBoilerplate.UnitTesting.Services;
-using XamarinBoilerplate.ViewModels;
 
 namespace XamarinBoilerplate.UnitTesting.ViewModels
 {
@@ -35,8 +34,14 @@ namespace XamarinBoilerplate.UnitTesting.ViewModels
 
         public IDataService DataManager
         {
-            get { return _dataManager ?? (_dataManager = new MockDataWrapperService()); }
-            set { _dataManager = value; }
+            get 
+            { 
+                return _dataManager ?? (_dataManager = new MockDataWrapperService());
+            }
+            set
+            { 
+                _dataManager = value;
+            }
         }
     }
 }

@@ -25,8 +25,13 @@ namespace XamarinBoilerplate.ViewModels
             if (dataManager != null)
             {
                 DataManager = dataManager;
-            }
-            LoadData();
+            };
+        }
+
+        public override async void OnAppearing()
+        {
+            base.OnAppearing();
+            await LoadData();
         }
 
         public bool IsLoading
@@ -111,7 +116,7 @@ namespace XamarinBoilerplate.ViewModels
             }
         }
 
-        public async void LoadData()
+        public async Task LoadData()
         {
             NewsItems = new ObservableCollection<NewsViewModel>();
             var news = await DataManager.News.GetNews();

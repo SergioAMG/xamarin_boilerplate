@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<base:BaseContentPage
+    xmlns:base="clr-namespace:XamarinBoilerplate.Views"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    xmlns:utils="clr-namespace:XamarinBoilerplate.Utils"
+    HasNavigationBar="False"
+    Title="{utils:Localized MenuSamples}"
+    BackgroundColor="{DynamicResource PageBackgroundColor}"
+    xmlns:common="clr-namespace:XamarinBoilerplate.Views.Common"
+    x:Class="XamarinBoilerplate.Views.Samples.SamplesMenuPage"
+    EnableHardwareBackButtonOverride="True"
+    HardwareBackButtonCommand="{Binding BackFromDetailsCommand}">
+    <ContentPage.Content>
+        <StackLayout Spacing="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Orientation="Vertical">
+            <common:ActionBar BackButtonTintColor="{DynamicResource ActionBarIconsColor}" BackgroundColor="{DynamicResource ActionBarBackground}"
+                      ShowIcon="False" Title="{utils:Localized MenuSamples}" HideBackButton="False" TitleLabelStyle="{DynamicResource ActionBarTextLabelStyle}"
+                      IsMaster="False" CenterBartitle="{Binding IsTitleCentered}" IsModal="False" BackButtonCommand="{Binding BackFromDetailsCommand}" />
+            <ListView ItemsSource="{Binding SampleMenu}" HasUnevenRows="False" ItemTapped="ListViewItemTapped" SelectedItem="{Binding SampleMenuItemSelected}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid ColumnSpacing="0" RowSpacing="0">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*" />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="15*" />
+                                    <ColumnDefinition Width="65*" />
+                                    <ColumnDefinition Width="20*" />
+                                </Grid.ColumnDefinitions>
+                                <Image Source="{Binding SampleMenuImage}" HorizontalOptions="Start" VerticalOptions="CenterAndExpand" Margin="18,0,10,0" Grid.Row="0" Grid.Column="0" />
+                                <Label Text="{Binding SampleMenuItem}" VerticalTextAlignment="Center" TextColor="{DynamicResource Black}" HorizontalTextAlignment="Start" HorizontalOptions="Start"
+                                       Grid.Row="0" Grid.Column="1" Margin="8,0,0,0" FontSize="Body" />
+                                <Image Source="baseline_chevron_right_black_24" HorizontalOptions="End" VerticalOptions="CenterAndExpand" Grid.Row="0" Grid.Column="2" Margin="0,0,14,0"/>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</base:BaseContentPage>

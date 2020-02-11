@@ -6,6 +6,7 @@ using Android.OS;
 using Plugin.CurrentActivity;
 using Plugin.Fingerprint;
 using XamarinBoilerplate.Droid.Fragments;
+using Xamarin.Forms;
 
 namespace XamarinBoilerplate.Droid
 {
@@ -18,6 +19,10 @@ namespace XamarinBoilerplate.Droid
             ToolbarResource = Resource.Layout.Toolbar;
 
             base.OnCreate(savedInstanceState);
+
+            //Enables the experimental usage of carousel and indicator views.
+            //Forms.SetFlags("CollectionView_Experimental");
+            Forms.SetFlags("IndicatorView_Experimental");
 
             Rg.Plugins.Popup.Popup.Init(this, savedInstanceState);
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);

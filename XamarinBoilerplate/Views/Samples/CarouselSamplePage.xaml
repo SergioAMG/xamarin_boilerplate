@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<base:BaseContentPage
+        xmlns:base="clr-namespace:XamarinBoilerplate.Views"
+        xmlns="http://xamarin.com/schemas/2014/forms"
+        xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+        xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        x:Class="XamarinBoilerplate.Views.Samples.CarouselSamplePage"
+        Title="{utils:Localized CarouselSamplePageTitle}"
+        HasNavigationBar="False"
+        xmlns:common="clr-namespace:XamarinBoilerplate.Views.Common"
+        xmlns:utils="clr-namespace:XamarinBoilerplate.Utils"
+        xmlns:effects="clr-namespace:XamarinBoilerplate.Effects"
+        BackgroundColor="{DynamicResource PageBackgroundColor}">
+    <ContentPage.Content>
+        <StackLayout Spacing="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Orientation="Vertical">
+            <common:ActionBar BackButtonTintColor="{DynamicResource ActionBarIconsColor}" BackgroundColor="{DynamicResource ActionBarBackground}"
+                      ShowIcon="False" Title="{utils:Localized CarouselSamplePageTitle}" HideBackButton="False" TitleLabelStyle="{DynamicResource ActionBarTextLabelStyle}"
+                      IsMaster="False" CenterBartitle="{Binding IsTitleCentered}" IsModal="False" BackButtonCommand="{Binding BackFromDetailsCommand}" />
+            <CarouselView x:Name="flightsCarousel" ItemsSource="{Binding Flights}" Margin="0,20,0,0">
+                <CarouselView.ItemTemplate> 
+                    <DataTemplate>
+                        <StackLayout Padding="20,0" VerticalOptions="FillAndExpand">
+                            <Frame BackgroundColor="{DynamicResource ActionBarBackground}" CornerRadius="20">
+                                <Grid ColumnSpacing="0" RowSpacing="0">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*" />
+                                        <RowDefinition Height="*" />
+                                        <RowDefinition Height="*" />
+                                        <RowDefinition Height="*" />
+                                        <RowDefinition Height="*" />
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="3.50*"/>
+                                        <ColumnDefinition Width="3.25*"/>
+                                        <ColumnDefinition Width="3.25*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <StackLayout Orientation="Horizontal" Grid.Row="0" Grid.Column="0" Spacing="0">
+                                        <Image Source="baseline_copyright_black_24" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" effects:TintEffect.TintColor="{DynamicResource White}" />
+                                        <Label Text="{Binding Airline}" FontSize="20" TextColor="{DynamicResource White}" VerticalTextAlignment="Center" FontAttributes="Bold" />
+                                    </StackLayout>
+                                    <StackLayout Orientation="Vertical" VerticalOptions="CenterAndExpand" Grid.Row="0" Grid.Column="1">
+                                        <Label Text="{utils:Localized FlightText}" HorizontalTextAlignment="End" TextColor="{DynamicResource White}" />
+                                        <Label Text="{Binding FlightNumber}" HorizontalTextAlignment="End" FontAttributes="Bold" />
+                                    </StackLayout>
+                                    <StackLayout Orientation="Vertical" VerticalOptions="CenterAndExpand" Grid.Row="0" Grid.Column="2">
+                                        <Label Text="{utils:Localized GateText}" HorizontalTextAlignment="End" TextColor="{DynamicResource White}" />
+                                        <Label Text="{Binding GateNumber}" HorizontalTextAlignment="End" FontAttributes="Bold" />
+                                    </StackLayout>
+                                    <StackLayout Orientation="Vertical" VerticalOptions="CenterAndExpand" Grid.Row="1" Grid.Column="0">
+                                        <Label Text="{Binding DepartureAirportFullName}" HorizontalTextAlignment="Start" TextColor="{DynamicResource White}" />
+                                        <Label Text="{Binding DepartureAirport}" HorizontalTextAlignment="Start" FontAttributes="Bold" FontSize="45" />
+                                    </StackLayout>
+                                    <Image Source="baseline_flight_takeoff_black_24" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Grid.Row="1" Grid.Column="1" Margin="0,20,0,0" effects:TintEffect.TintColor="{DynamicResource Black}" />
+                                    <StackLayout Orientation="Vertical" VerticalOptions="CenterAndExpand" Grid.Row="1" Grid.Column="2">
+                                        <Label Text="{Binding ArrivalAirportFullName}" HorizontalTextAlignment="Start" TextColor="{DynamicResource White}" />
+                                        <Label Text="{Binding ArrivalAirport}" HorizontalTextAlignment="Start" FontAttributes="Bold" FontSize="45" />
+                                    </StackLayout>
+                                    <StackLayout Orientation="Vertical" VerticalOptions="CenterAndExpand" Grid.Row="2" Grid.Column="0" IsVisible="{Binding Source={x:Reference flightsCarousel}, Path= BindingContext.ExtraInfoVisible}">
+                                        <Label Text="{utils:Localized FlightText}" HorizontalTextAlignment="Start" TextColor="{DynamicResource White}" />
+                                        <Label Text="{Binding FlightNumber}" HorizontalTextAlignment="Start" FontAttributes="Bold" />
+                                    </StackLayout>
+                                    <StackLayout Orientation="Vertical" VerticalOptions="CenterAndExpand" Grid.Row="2" Grid.Column="1">
+                                        <Label Text="{utils:Localized DateText}" HorizontalTextAlignment="Start" TextColor="{DynamicResource White}" />
+                                        <Label Text="{Binding Date}" HorizontalTextAlignment="Start" FontAttributes="Bold" />
+                                    </StackLayout>
+                                    <StackLayout Orientation="Vertical" VerticalOptions="CenterAndExpand" Grid.Row="2" Grid.Column="2" IsVisible="{Binding Source={x:Reference flightsCarousel}, Path= BindingContext.ExtraInfoVisible}">
+                                        <Label Text="{utils:Localized BoardingTypeText}" HorizontalTextAlignment="Start" TextColor="{DynamicResource White}" />
+                                        <Label Text="{Binding BoardingClass}" HorizontalTextAlignment="Start" FontAttributes="Bold" />
+                                    </StackLayout>
+                                    <StackLayout Orientation="Vertical" VerticalOptions="CenterAndExpand" Grid.Row="3" Grid.Column="0">
+                                        <Label Text="{utils:Localized DataText}" HorizontalTextAlignment="Start" TextColor="{DynamicResource White}" />
+                                        <Label Text="{Binding ExtraData}" HorizontalTextAlignment="Start" FontAttributes="Bold" />
+                                    </StackLayout>
+                                    <StackLayout Orientation="Vertical" VerticalOptions="CenterAndExpand" Grid.Row="3" Grid.Column="1">
+                                        <Label Text="{utils:Localized PassengerText}" HorizontalTextAlignment="Start" TextColor="{DynamicResource White}" />
+                                        <Label Text="{Binding PassengerName}" HorizontalTextAlignment="Start" FontAttributes="Bold" />
+                                    </StackLayout>
+                                    <StackLayout Orientation="Vertical" VerticalOptions="CenterAndExpand" Grid.Row="3" Grid.Column="2">
+                                        <Label Text="{utils:Localized StatusText}" HorizontalTextAlignment="End" TextColor="{DynamicResource White}" />
+                                        <Label Text="{Binding Status}" HorizontalTextAlignment="End" FontAttributes="Bold" />
+                                    </StackLayout>
+                                    <Image Source="qrCode" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Grid.Row="4" Grid.ColumnSpan="3" Grid.Column="0" />
+                                </Grid>
+                            </Frame>
+                        </StackLayout>
+                    </DataTemplate>
+                </CarouselView.ItemTemplate>
+            </CarouselView>
+            <IndicatorView IndicatorColor="{DynamicResource Gray}" SelectedIndicatorColor="{DynamicResource ActionBarBackground}" IndicatorSize="10" HorizontalOptions="Center" IndicatorView.ItemsSourceBy="flightsCarousel" Margin="0,20" />
+        </StackLayout>
+    </ContentPage.Content>
+</base:BaseContentPage>

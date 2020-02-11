@@ -20,6 +20,10 @@ namespace XamarinBoilerplate.iOS
         //
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
+            //Enables the experimental usage of carousel and indicator views.
+            //Forms.SetFlags("CollectionView_Experimental");
+            Forms.SetFlags("IndicatorView_Experimental");
+
             Rg.Plugins.Popup.Popup.Init();
             global::Xamarin.Forms.Forms.Init();
             Xamarin.FormsGoogleMaps.Init("AIzaSyB_Bo_Ysllj_bQ1zE-2mQb_R2NERVPiVtE");

@@ -1,14 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <pages:PopupPage 
-             xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             mc:Ignorable="d"
-             x:Class="XamarinBoilerplate.Views.Popups.LoadingPopup"
-             xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
-             xmlns:animations="clr-namespace:Rg.Plugins.Popup.Animations;assembly=Rg.Plugins.Popup"
-             CloseWhenBackgroundIsClicked="False">
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    xmlns:utils="clr-namespace:XamarinBoilerplate.Utils"
+    x:Class="XamarinBoilerplate.Views.Popups.LoadingPopup"
+    xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+    xmlns:animations="clr-namespace:Rg.Plugins.Popup.Animations;assembly=Rg.Plugins.Popup"
+    CloseWhenBackgroundIsClicked="False">
     <pages:PopupPage.Animation>
         <animations:ScaleAnimation PositionIn="Center" PositionOut="Center" ScaleIn="1.2" ScaleOut="0.8"
                                    DurationIn="50" DurationOut="300" EasingIn="SinOut"
@@ -19,7 +20,7 @@
         <StackLayout VerticalOptions="Center" HorizontalOptions="Center"
                      Orientation="Vertical" Spacing="10" HeightRequest="100" WidthRequest="180" Padding="{Binding PopupTopPadding}">
             <ActivityIndicator IsRunning="True" Color="{DynamicResource ProgressBarColor}" />
-            <Label Text="Cargando Datos ..."  HorizontalOptions="Center" />
+            <Label Text="{utils:Localized LoadingDataText}"  HorizontalOptions="Center" />
         </StackLayout>
     </Frame>
 </pages:PopupPage>

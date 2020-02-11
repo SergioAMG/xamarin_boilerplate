@@ -1,4 +1,5 @@
 ﻿using Xamarin.Forms;
+using XamarinBoilerplate.Views.Samples;
 
 namespace XamarinBoilerplate.Utils
 {
@@ -19,5 +20,6 @@ namespace XamarinBoilerplate.Utils
         public static readonly Thickness MarginForRightIconOfActionBarIOS = new Thickness(0, 0, 32, 0);
         public static readonly Thickness MarginForOptionsIconOfActionBarAndroid = new Thickness(0, 0, 3, 0);
         public static readonly Thickness MarginForOptionsIconOfActionBarIOS = new Thickness(0, 0, 5, 0);
+        public static readonly string CarouselViewMenu = nameof(CarouselSamplePage);
     }
 }

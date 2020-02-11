@@ -5,8 +5,10 @@ using XamarinBoilerplate.Interfaces;
 using XamarinBoilerplate.Services;
 using XamarinBoilerplate.Utils;
 using XamarinBoilerplate.ViewModels;
+using XamarinBoilerplate.ViewModels.Samples;
 using XamarinBoilerplate.ViewModels.Wizzard;
 using XamarinBoilerplate.Views;
+using XamarinBoilerplate.Views.Samples;
 using XamarinBoilerplate.Views.Wizzard;
 
 namespace XamarinBoilerplate
@@ -56,6 +58,8 @@ namespace XamarinBoilerplate
             NavigationService.Configure(nameof(CustomTabbedPage), typeof(CustomTabbedPage));
             NavigationService.Configure(nameof(ContactPage), typeof(ContactPage));
             NavigationService.Configure(nameof(LoginPage), typeof(LoginPage));
+            NavigationService.Configure(nameof(SamplesMenuPage), typeof(SamplesMenuPage));
+            NavigationService.Configure(nameof(CarouselSamplePage), typeof(CarouselSamplePage));
 
             NavigationService.BindViewModel<StepOneViewModel, StepOnePage>();
             NavigationService.BindViewModel<StepTwoViewModel, StepTwoPage>();
@@ -68,6 +72,8 @@ namespace XamarinBoilerplate
             NavigationService.BindViewModel<CustomTabbedViewModel, CustomTabbedPage>();
             NavigationService.BindViewModel<ContactViewModel, ContactPage>();
             NavigationService.BindViewModel<LoginViewModel, LoginPage>();
+            NavigationService.BindViewModel<SamplesMenuViewModel, SamplesMenuPage>();
+            NavigationService.BindViewModel<CarouselSampleViewModel, CarouselSamplePage>();
         }
 
         public void IdentifyDevice()

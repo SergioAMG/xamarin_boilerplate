@@ -6,6 +6,7 @@ using Xamarin.Essentials;
 using Xamarin.Forms;
 using XamarinBoilerplate.Utils;
 using XamarinBoilerplate.Views;
+using XamarinBoilerplate.Views.Samples;
 
 namespace XamarinBoilerplate.ViewModels
 {
@@ -134,7 +135,7 @@ namespace XamarinBoilerplate.ViewModels
                     {
                         await NavigationService.ShowLoadingIndicator();
                     }
-                    NavigationService.SetRootPage(nameof(DashboardPage), new DashboardViewModel());
+                    LoginFlow();
                 }
             }
             else
@@ -155,7 +156,7 @@ namespace XamarinBoilerplate.ViewModels
                 {
                     await NavigationService.ShowLoadingIndicator();
                 }
-                NavigationService.SetRootPage(nameof(DashboardPage), new DashboardViewModel());
+                LoginFlow();
             }
             else
             {
@@ -168,6 +169,11 @@ namespace XamarinBoilerplate.ViewModels
                     Localization.AppResources.Okay);
                 }
             }
+        }
+
+        public void LoginFlow()
+        {
+            NavigationService.SetRootPage(nameof(DashboardPage), new DashboardViewModel());
         }
     }
 }

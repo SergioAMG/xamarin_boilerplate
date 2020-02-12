@@ -19,7 +19,7 @@
            VerticalOptions="Center" BackgroundColor="White">
         <StackLayout VerticalOptions="Center" HorizontalOptions="Center"
                      Orientation="Vertical" Spacing="10" HeightRequest="100" WidthRequest="180" Padding="{Binding PopupTopPadding}">
-            <ActivityIndicator IsRunning="True" Color="{DynamicResource ProgressBarColor}" />
+            <ActivityIndicator IsRunning="True" Color="{DynamicResource ActionBarBackground}" />
             <Label Text="{utils:Localized LoadingDataText}"  HorizontalOptions="Center" />
         </StackLayout>
     </Frame>

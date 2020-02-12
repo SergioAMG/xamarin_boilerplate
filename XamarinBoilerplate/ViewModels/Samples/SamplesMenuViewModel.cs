@@ -2,6 +2,7 @@
 using System.Collections.ObjectModel;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using Xamarin.Forms;
 using XamarinBoilerplate.Utils;
 using XamarinBoilerplate.ViewModels.DataObjects;
 using XamarinBoilerplate.Views;
@@ -70,6 +71,22 @@ namespace XamarinBoilerplate.ViewModels.Samples
                     _selectedTabIndex = value;
                     OnPropertyChanged(nameof(SelectedTabIndex));
                 }
+            }
+        }
+
+        public TextAlignment CustomTextAlignment
+        {
+            get
+            {
+                return (DeviceManager.IsIOS) ? TextAlignment.Center : TextAlignment.Start; 
+            }
+        }
+
+        public LayoutOptions CustomTextLayout
+        {
+            get
+            {
+                return (DeviceManager.IsIOS) ? LayoutOptions.Center : LayoutOptions.Start;
             }
         }
 

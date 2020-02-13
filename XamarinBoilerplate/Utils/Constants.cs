@@ -21,5 +21,8 @@ namespace XamarinBoilerplate.Utils
         public static readonly Thickness MarginForOptionsIconOfActionBarAndroid = new Thickness(0, 0, 3, 0);
         public static readonly Thickness MarginForOptionsIconOfActionBarIOS = new Thickness(0, 0, 5, 0);
         public static readonly string CarouselViewMenu = nameof(CarouselSamplePage);
+        public static readonly string PortraitMode = "Portrait";
+        public static readonly string LandscapeMode = "Landscape";
+
     }
 }

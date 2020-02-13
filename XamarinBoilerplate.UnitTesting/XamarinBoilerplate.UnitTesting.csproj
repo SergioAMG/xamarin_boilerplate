@@ -103,6 +103,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MockData\MockFlights.cs" />
     <Compile Include="MockData\MockNews.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\MockDataWrapperService.cs" />
@@ -114,6 +115,7 @@
     <Compile Include="ViewModels\LoginViewModelTests.cs" />
     <Compile Include="ViewModels\MapViewModelTests.cs" />
     <Compile Include="ViewModels\MenuViewModelTests.cs" />
+    <Compile Include="ViewModels\Samples\CarouselSampleViewModelTests.cs" />
     <Compile Include="ViewModels\Wizzard\StepOneViewModelTests.cs" />
     <Compile Include="ViewModels\Wizzard\StepThreeViewModelTests.cs" />
     <Compile Include="ViewModels\Wizzard\StepTwoViewModelTests.cs" />

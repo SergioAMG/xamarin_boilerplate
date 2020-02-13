@@ -3,9 +3,9 @@ using DataManagers.Interfaces;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace DataManagers.DataObjects
+namespace XamarinBoilerplate.UnitTesting.MockData
 {
-    public class DOFlights : IFlights
+    public class MockFlights : IFlights
     {
         public async Task<List<Flight>> GetFlights()
         {

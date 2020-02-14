@@ -12,14 +12,17 @@
         xmlns:common="clr-namespace:XamarinBoilerplate.Views.Common"
         xmlns:utils="clr-namespace:XamarinBoilerplate.Utils"
         xmlns:effects="clr-namespace:XamarinBoilerplate.Effects"
-        BackgroundColor="{DynamicResource PageBackgroundColor}">
+        BackgroundColor="{DynamicResource PageBackgroundColor}"
+        xmlns:cards="clr-namespace:PanCardView;assembly=PanCardView"
+        xmlns:proc="clr-namespace:PanCardView.Processors;assembly=PanCardView"
+        xmlns:controls="clr-namespace:PanCardView.Controls;assembly=PanCardView">
     <ContentPage.Content>
         <StackLayout Spacing="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Orientation="Vertical">
             <common:ActionBar BackButtonTintColor="{DynamicResource ActionBarIconsColor}" BackgroundColor="{DynamicResource ActionBarBackground}"
                       ShowIcon="False" Title="{utils:Localized CarouselSamplePageTitle}" HideBackButton="False" TitleLabelStyle="{DynamicResource ActionBarTextLabelStyle}"
                       IsMaster="False" CenterBartitle="{Binding IsTitleCentered}" IsModal="False" BackButtonCommand="{Binding BackFromDetailsCommand}" />
-            <CarouselView x:Name="FlightsCarousel" ItemsSource="{Binding Flights}" Margin="0,20,0,0" HorizontalScrollBarVisibility="Never">
-                <CarouselView.ItemTemplate>
+            <cards:CarouselView x:Name="FlightsCarousel" ItemsSource="{Binding Flights}" SelectedIndex="{Binding Position}" Margin="0,20,0,0">
+                <cards:CarouselView.ItemTemplate>
                     <DataTemplate>
                         <StackLayout Padding="20,0" VerticalOptions="Start">
                             <Frame x:Name="MainFrame" BackgroundColor="Orange" CornerRadius="20" VerticalOptions="Start" HorizontalOptions="FillAndExpand">
@@ -41,12 +44,12 @@
                                                WidthRequest="18" HeightRequest="18" Aspect="AspectFit" HorizontalOptions="Start" />
                                         <Label Text="{Binding Airline}" FontSize="18" TextColor="{DynamicResource White}" VerticalTextAlignment="Center" FontAttributes="Bold" HorizontalOptions="Start" />
                                     </StackLayout>
-                                    
+
                                     <StackLayout Grid.Row="0" Grid.Column="1" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Orientation="Vertical">
                                         <Label Text="{utils:Localized FlightText}" HorizontalTextAlignment="End" TextColor="{DynamicResource White}" />
                                         <Label Text="{Binding FlightNumber}" HorizontalTextAlignment="End" FontAttributes="Bold" />
                                     </StackLayout>
-                                    
+
                                     <StackLayout Grid.Row="0" Grid.Column="2" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Orientation="Vertical">
                                         <Label Text="{utils:Localized GateText}" HorizontalTextAlignment="End" TextColor="{DynamicResource White}" />
                                         <Label Text="{Binding GateNumber}" HorizontalTextAlignment="End" FontAttributes="Bold" />
@@ -105,22 +108,12 @@
                             </Frame>
                         </StackLayout>
                     </DataTemplate>
-                </CarouselView.ItemTemplate>
-            </CarouselView>
-            <IndicatorView x:Name="indicatorView" IndicatorView.ItemsSourceBy="FlightsCarousel"
-                   Opacity="0.75"
-                   IndicatorColor="Transparent"
-                   IsVisible="True"
-                   SelectedIndicatorColor="Orange"
-                   IndicatorsShape="Square"
-                   HorizontalOptions="Center" Margin="0,10">
-                <IndicatorView.IndicatorTemplate>
-                    <DataTemplate>
-                        <Image Source="baseline_simple_square_empty_24" WidthRequest="24" HeightRequest="24" 
-                               Aspect="AspectFit" effects:TintEffect.TintColor="{DynamicResource Black}" />
-                    </DataTemplate>
-                </IndicatorView.IndicatorTemplate>
-            </IndicatorView>
+                </cards:CarouselView.ItemTemplate>
+                <controls:IndicatorsControl SelectedIndicatorStyle="{StaticResource ActiveIndicator}" UnselectedIndicatorStyle="{StaticResource InactiveIndicator}" />
+                <!--TODO: Implement Arrows when needeed -->
+                <!--<controls:LeftArrowControl />
+                <controls:RightArrowControl />-->
+            </cards:CarouselView>
         </StackLayout>
     </ContentPage.Content>
 </base:BaseContentPage>

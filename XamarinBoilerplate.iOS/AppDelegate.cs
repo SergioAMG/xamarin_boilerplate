@@ -1,4 +1,5 @@
 ﻿using Foundation;
+using PanCardView.iOS;
 using UIKit;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.iOS;
@@ -21,12 +22,12 @@ namespace XamarinBoilerplate.iOS
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
             //Enables the experimental usage of carousel and indicator views.
-            Forms.SetFlags(new string[] { "CarouselView_Experimental", "IndicatorView_Experimental" });
+            //Forms.SetFlags(new string[] { "CarouselView_Experimental", "IndicatorView_Experimental" });
 
             Rg.Plugins.Popup.Popup.Init();
             global::Xamarin.Forms.Forms.Init();
             Xamarin.FormsGoogleMaps.Init("AIzaSyB_Bo_Ysllj_bQ1zE-2mQb_R2NERVPiVtE");
-
+            CardsViewRenderer.Preserve();
             UINavigationBar.Appearance.TintColor = Color.Black.ToUIColor();
 
             LoadApplication(new App());

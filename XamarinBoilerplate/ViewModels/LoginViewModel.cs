@@ -135,6 +135,7 @@ namespace XamarinBoilerplate.ViewModels
                     {
                         await NavigationService.ShowLoadingIndicator();
                     }
+                    IsLoggedIn = true;
                     LoginFlow();
                 }
             }
@@ -144,6 +145,7 @@ namespace XamarinBoilerplate.ViewModels
                         Localization.AppResources.Error,
                         Localization.AppResources.FingerprintNotAvailable,
                         Localization.AppResources.Okay);
+                IsLoggedIn = false;
             }
         }
 
@@ -173,6 +175,7 @@ namespace XamarinBoilerplate.ViewModels
 
         public void LoginFlow()
         {
+            Preferences.Set(Constants.LoggedIn, IsLoggedIn);
             NavigationService.SetRootPage(nameof(DashboardPage), new DashboardViewModel());
         }
     }

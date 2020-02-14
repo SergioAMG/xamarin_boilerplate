@@ -37,7 +37,15 @@ namespace XamarinBoilerplate
             bool isWizzardCompleted = Preferences.Get(Constants.WizzardComplete, false);
             if (isWizzardCompleted)
             {
-                NavigationService.SetRootPage(nameof(LoginPage), new LoginViewModel());
+                bool isLoggedIn = Preferences.Get(Constants.LoggedIn, false);
+                if (isLoggedIn)
+                {
+                    NavigationService.SetRootPage(nameof(DashboardPage), new DashboardViewModel());
+                }
+                else
+                {
+                    NavigationService.SetRootPage(nameof(LoginPage), new LoginViewModel());
+                }
             }
             else
             {

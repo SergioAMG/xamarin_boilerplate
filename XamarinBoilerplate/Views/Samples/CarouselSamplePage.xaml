@@ -18,11 +18,11 @@
             <common:ActionBar BackButtonTintColor="{DynamicResource ActionBarIconsColor}" BackgroundColor="{DynamicResource ActionBarBackground}"
                       ShowIcon="False" Title="{utils:Localized CarouselSamplePageTitle}" HideBackButton="False" TitleLabelStyle="{DynamicResource ActionBarTextLabelStyle}"
                       IsMaster="False" CenterBartitle="{Binding IsTitleCentered}" IsModal="False" BackButtonCommand="{Binding BackFromDetailsCommand}" />
-            <CarouselView x:Name="FlightsCarousel" ItemsSource="{Binding Flights}" Margin="0,20,0,0" HorizontalScrollBarVisibility="Always">
+            <CarouselView x:Name="FlightsCarousel" ItemsSource="{Binding Flights}" Margin="0,20,0,0" HorizontalScrollBarVisibility="Never">
                 <CarouselView.ItemTemplate>
                     <DataTemplate>
                         <StackLayout Padding="20,0" VerticalOptions="Start">
-                            <Frame BackgroundColor="Orange" CornerRadius="20" VerticalOptions="Start">
+                            <Frame x:Name="MainFrame" BackgroundColor="Orange" CornerRadius="20" VerticalOptions="Start" HorizontalOptions="FillAndExpand">
                                 <Grid ColumnSpacing="0" RowSpacing="0" VerticalOptions="Start" HorizontalOptions="FillAndExpand">
                                     <Grid.RowDefinitions>
                                         <RowDefinition Height="10*" />

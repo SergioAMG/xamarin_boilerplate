@@ -90,6 +90,30 @@ namespace XamarinBoilerplate.ViewModels.Samples
             }
         }
 
+        public GridLength FirstColumnWidth
+        {
+            get
+            {
+                return (DeviceManager.IsLandscape) ? new GridLength(9, GridUnitType.Star) : new GridLength(16, GridUnitType.Star);
+            }
+        }
+
+        public GridLength SecondColumnWidth
+        {
+            get
+            {
+                return (DeviceManager.IsLandscape) ? new GridLength(80, GridUnitType.Star) : new GridLength(70, GridUnitType.Star);
+            }
+        }
+
+        public GridLength ThirdColumnWidth
+        {
+            get
+            {
+                return (DeviceManager.IsLandscape) ? new GridLength(10, GridUnitType.Star) : new GridLength(20, GridUnitType.Star);
+            }
+        }
+        
         public ICommand BackFromDetailsCommand
         {
             get
@@ -118,6 +142,13 @@ namespace XamarinBoilerplate.ViewModels.Samples
         public async Task NavigateToSample(SampleMenuItemViewModel samplePage)
         {
             await NavigationService.NavigateAsync(samplePage.SampleMenuItem, null, true);
+        }
+
+        public void SetOrientationValues()
+        {
+            OnPropertyChanged(nameof(FirstColumnWidth));
+            OnPropertyChanged(nameof(SecondColumnWidth));
+            OnPropertyChanged(nameof(ThirdColumnWidth));
         }
     }
 }

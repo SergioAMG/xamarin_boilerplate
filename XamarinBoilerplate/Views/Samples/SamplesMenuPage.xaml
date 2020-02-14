@@ -28,16 +28,22 @@
                                     <RowDefinition Height="*" />
                                 </Grid.RowDefinitions>
                                 <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="15*" />
-                                    <ColumnDefinition Width="65*" />
-                                    <ColumnDefinition Width="20*" />
+                                    <ColumnDefinition Width="{Binding Source={x:Reference SamplesMenuList}, Path= BindingContext.FirstColumnWidth}" />
+                                    <ColumnDefinition Width="{Binding Source={x:Reference SamplesMenuList}, Path= BindingContext.SecondColumnWidth}" />
+                                    <ColumnDefinition Width="{Binding Source={x:Reference SamplesMenuList}, Path= BindingContext.ThirdColumnWidth}" />
                                 </Grid.ColumnDefinitions>
-                                <Image Source="{Binding SampleMenuImage}" HorizontalOptions="Start" VerticalOptions="CenterAndExpand" Margin="18,0,10,0" Grid.Row="0" Grid.Column="0" />
-                                <Label Text="{Binding SampleMenuItem}" VerticalTextAlignment="Center" TextColor="{DynamicResource Black}" 
-                                       HorizontalTextAlignment="{Binding Source={x:Reference SamplesMenuList}, Path= BindingContext.CustomTextAlignment}"
-                                       HorizontalOptions="{Binding Source={x:Reference SamplesMenuList}, Path= BindingContext.CustomTextLayout}"
-                                       Grid.Row="0" Grid.Column="1" Margin="8,0,0,0" FontSize="Body" />
-                                <Image Source="baseline_chevron_right_black_24" HorizontalOptions="End" VerticalOptions="CenterAndExpand" Grid.Row="0" Grid.Column="2" Margin="0,0,14,0"/>
+                                <StackLayout Grid.Row="0" Grid.Column="0" Spacing="0">
+                                    <Image Source="{Binding SampleMenuImage}" HorizontalOptions="Start" VerticalOptions="CenterAndExpand" Margin="18,0,10,0" />
+                                </StackLayout>
+                                <StackLayout Grid.Row="0" Grid.Column="1" Spacing="0" VerticalOptions="Center">
+                                    <Label Text="{Binding SampleMenuItem}" VerticalTextAlignment="Center" TextColor="{DynamicResource Black}" 
+                                        HorizontalTextAlignment="{Binding Source={x:Reference SamplesMenuList}, Path= BindingContext.CustomTextAlignment}"
+                                        HorizontalOptions="{Binding Source={x:Reference SamplesMenuList}, Path= BindingContext.CustomTextLayout}"
+                                        Margin="8,0,0,0" FontSize="Body" />
+                                </StackLayout>
+                                <StackLayout Grid.Row="0" Grid.Column="2" Spacing="0">
+                                    <Image Source="baseline_chevron_right_black_24" HorizontalOptions="End" VerticalOptions="CenterAndExpand" Margin="0,0,14,0"/>
+                                </StackLayout>
                             </Grid>
                         </ViewCell>
                     </DataTemplate>

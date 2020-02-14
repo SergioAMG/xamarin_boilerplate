@@ -1,4 +1,6 @@
-﻿namespace XamarinBoilerplate.ViewModels.DataObjects
+﻿using Xamarin.Forms;
+
+namespace XamarinBoilerplate.ViewModels.DataObjects
 {
     public class SampleMenuItemViewModel : BaseViewModel
     {

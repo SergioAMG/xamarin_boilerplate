@@ -119,6 +119,7 @@
     <Compile Include="ViewModels\MapViewModelTests.cs" />
     <Compile Include="ViewModels\MenuViewModelTests.cs" />
     <Compile Include="ViewModels\Samples\CarouselSampleViewModelTests.cs" />
+    <Compile Include="ViewModels\Samples\SamplesMenuViewModelTests.cs" />
     <Compile Include="ViewModels\Wizzard\StepOneViewModelTests.cs" />
     <Compile Include="ViewModels\Wizzard\StepThreeViewModelTests.cs" />
     <Compile Include="ViewModels\Wizzard\StepTwoViewModelTests.cs" />

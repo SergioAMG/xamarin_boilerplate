@@ -94,11 +94,12 @@ namespace XamarinBoilerplate.UnitTesting.ViewModels
                 await viewModel.ExecuteLoginCommandAsync();
             }).GetAwaiter().GetResult();
 
-            MasterDetailPage currentMasterDetailPage = viewModel.NavigationService.CurrentMasterDetailPage;
+            var currentMasterDetailPage = viewModel.NavigationService.CurrentMasterDetailPage.Detail;
+            var currentDetailsPage = (NavigationPage)currentMasterDetailPage;
             MasterDetailPage targetPage = new DashboardPage();
 
             //assert
-            Assert.AreEqual(targetPage.GetType(), currentMasterDetailPage.GetType());
+            Assert.AreEqual(currentDetailsPage.CurrentPage.Title, targetPage.Title);
             Assert.IsTrue(viewModel.IsLoggedIn);
         }
 

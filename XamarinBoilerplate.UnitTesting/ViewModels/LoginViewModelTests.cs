@@ -120,7 +120,7 @@ namespace XamarinBoilerplate.UnitTesting.ViewModels
             Page currentPage = viewModel.NavigationService.CurrentPage;
 
             //assert
-            Assert.AreEqual(targetPage.GetType(), currentPage.GetType());
+            Assert.AreEqual(targetPage.Title, currentPage.Title);
             Assert.IsFalse(viewModel.IsLoggedIn);
         }
     }

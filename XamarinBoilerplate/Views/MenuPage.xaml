@@ -9,7 +9,8 @@
         x:Class="XamarinBoilerplate.Views.MenuPage"
         xmlns:utils="clr-namespace:XamarinBoilerplate.Utils"
         HasNavigationBar="False"
-        BackgroundColor="{DynamicResource PageBackgroundColor}">
+        BackgroundColor="{DynamicResource PageBackgroundColor}"
+        Title="{utils:Localized Menu}">
     <ContentPage.Content>
         <StackLayout Orientation="Vertical" Spacing="0" Padding="0,15,0,0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
             <ImageButton Source="baseline_close_black_24" HorizontalOptions="End" Command="{Binding CloseCommand}" BackgroundColor="Transparent" Margin="0,0,15,0" WidthRequest="24" HeightRequest="24" Aspect="AspectFit" />

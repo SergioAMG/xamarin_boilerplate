@@ -72,7 +72,7 @@ namespace XamarinBoilerplate.UnitTesting.ViewModels
             Page targetPage = new ContactPage();
 
             //assert
-            NUnit.Framework.Assert.AreEqual(currentPage.GetType(), targetPage.GetType());
+            NUnit.Framework.Assert.AreEqual(currentPage.Title, targetPage.Title);
         }
 
         [TestMethod]
@@ -91,7 +91,7 @@ namespace XamarinBoilerplate.UnitTesting.ViewModels
             Page targetPage = new StepOnePage();
 
             //assert
-            NUnit.Framework.Assert.AreEqual(currentPage.GetType(), targetPage.GetType());
+            NUnit.Framework.Assert.AreEqual(currentPage.Title, targetPage.Title);
         }
 
         [TestMethod]
@@ -113,7 +113,7 @@ namespace XamarinBoilerplate.UnitTesting.ViewModels
             Page targetPage = new SamplesMenuPage(indexOfDetailsPage);
 
             //assert
-            NUnit.Framework.Assert.AreEqual(currentDetailsPage.GetType(), targetPage.GetType());
+            NUnit.Framework.Assert.AreEqual(currentDetailsPage.Title, targetPage.Title);
         }
 
         [TestMethod]

@@ -10,7 +10,6 @@ namespace XamarinBoilerplate.ViewModels
             {
                 DataManager = dataManager;
             }
-            Title = Localization.AppResources.Home;
         }
     }
 }

@@ -11,7 +11,8 @@
         BackgroundColor="{DynamicResource PageBackgroundColor}"
         xmlns:controls="clr-namespace:XamarinBoilerplate.Controls"
         xmlns:effects="clr-namespace:XamarinBoilerplate.Effects"
-        xmlns:utils="clr-namespace:XamarinBoilerplate.Utils">
+        xmlns:utils="clr-namespace:XamarinBoilerplate.Utils"
+        Title="{utils:Localized WizzardStep1Title}">
     <ContentPage.Content>
         <StackLayout HorizontalOptions="FillAndExpand" Spacing="0">
             <Grid ColumnSpacing="0" RowSpacing="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">

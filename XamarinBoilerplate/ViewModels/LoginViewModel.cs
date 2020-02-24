@@ -175,7 +175,10 @@ namespace XamarinBoilerplate.ViewModels
 
         public void LoginFlow()
         {
-            Preferences.Set(Constants.LoggedIn, IsLoggedIn);
+            if (!UnitTestingManager.IsRunningFromNUnit)
+            {
+                Preferences.Set(Constants.LoggedIn, IsLoggedIn);
+            }
             NavigationService.SetRootPage(nameof(DashboardPage), new DashboardViewModel());
         }
     }

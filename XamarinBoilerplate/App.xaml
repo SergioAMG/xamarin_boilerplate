@@ -43,6 +43,15 @@
                 <Setter Property="BarBackgroundColor" Value="{DynamicResource Blue}" />
                 <Setter Property="BarTextColor" Value="{DynamicResource White}" />
             </Style>
+
+            <Style x:Key="ActiveIndicator" TargetType="Frame">
+                <Setter Property="BackgroundColor" Value="Orange" />
+            </Style>
+            <Style x:Key="InactiveIndicator" TargetType="Frame">
+                <Setter Property="BackgroundColor" Value="Transparent" />
+                <Setter Property="OutlineColor" Value="Orange" />
+            </Style>
+            
         </ResourceDictionary>
     </Application.Resources>
 </Application>

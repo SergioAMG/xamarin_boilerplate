@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using XamarinBoilerplate.Views;
 using Xamarin.Forms;
 using XamarinBoilerplate.Views.Wizzard;
+using XamarinBoilerplate.Views.Samples;
 
 namespace XamarinBoilerplate.UnitTesting.ViewModels
 {
@@ -71,7 +72,7 @@ namespace XamarinBoilerplate.UnitTesting.ViewModels
             Page targetPage = new ContactPage();
 
             //assert
-            NUnit.Framework.Assert.AreEqual(currentPage.GetType(), targetPage.GetType());
+            NUnit.Framework.Assert.AreEqual(currentPage.Title, targetPage.Title);
         }
 
         [TestMethod]
@@ -90,12 +91,11 @@ namespace XamarinBoilerplate.UnitTesting.ViewModels
             Page targetPage = new StepOnePage();
 
             //assert
-            NUnit.Framework.Assert.AreEqual(currentPage.GetType(), targetPage.GetType());
+            NUnit.Framework.Assert.AreEqual(currentPage.Title, targetPage.Title);
         }
 
         [TestMethod]
-        [Ignore]
-        public void ShouldGoToSearchCommandSendUserToSearchPage()
+        public void ShouldGoToSamplesCommandSendUserToSamplesPage()
         {
             //arrange
             viewModel = new MenuViewModel();
@@ -104,10 +104,16 @@ namespace XamarinBoilerplate.UnitTesting.ViewModels
             //act
             Task.Run(async () =>
             {
-                await viewModel.ExecuteGoToSearchCommandAsync();
+                await viewModel.ExecuteGoToSamplesCommandAsync();
             }).GetAwaiter().GetResult();
 
+            Page currentMasterPage = viewModel.NavigationService.CurrentMasterDetailPage;
+            var currentDetailsPage = viewModel.NavigationService.CurrentMasterDetailPage.Detail;
+            int indexOfDetailsPage = 0;
+            Page targetPage = new SamplesMenuPage(indexOfDetailsPage);
+
             //assert
+            NUnit.Framework.Assert.AreEqual(currentDetailsPage.Title, targetPage.Title);
         }
 
         [TestMethod]

@@ -6,6 +6,8 @@ using Android.OS;
 using Plugin.CurrentActivity;
 using Plugin.Fingerprint;
 using XamarinBoilerplate.Droid.Fragments;
+using Xamarin.Forms;
+using PanCardView.Droid;
 
 namespace XamarinBoilerplate.Droid
 {
@@ -19,6 +21,9 @@ namespace XamarinBoilerplate.Droid
 
             base.OnCreate(savedInstanceState);
 
+            //Enables the experimental usage of carousel and indicator views.
+            //Forms.SetFlags(new string[] { "CarouselView_Experimental", "IndicatorView_Experimental" });
+
             Rg.Plugins.Popup.Popup.Init(this, savedInstanceState);
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
@@ -26,6 +31,7 @@ namespace XamarinBoilerplate.Droid
             CrossCurrentActivity.Current.Init(this, savedInstanceState);
             CrossFingerprint.SetCurrentActivityResolver(() => CrossCurrentActivity.Current.Activity);
             CrossFingerprint.SetDialogFragmentType<CustomFingerprintDialogFragment>();
+            CardsViewRenderer.Preserve();
 
             Window.SetStatusBarColor(Android.Graphics.Color.White);
             LoadApplication(new App());

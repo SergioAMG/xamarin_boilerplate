@@ -9,5 +9,10 @@ namespace XamarinBoilerplate.UnitTesting.Services
         {
             get { return new MockNews(); }
         }
+
+        public IFlights Flights
+        {
+            get { return new MockFlights(); }
+        }
     }
 }

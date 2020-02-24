@@ -67,9 +67,10 @@ namespace XamarinBoilerplate.UnitTesting.ViewModels
             {
                 await viewModel.ExecuteBackFromDetailsCommandAsync();
             }).GetAwaiter().GetResult();
-
+            
             //assert
-            var currentPage = viewModel.NavigationService.CurrentPage;
+            int currentTabIndex = viewModel.NavigationService.GetCurrentSelectedTabIndexOverMasterDetailPageWithTabbedPage();
+            Assert.AreEqual(selectedTab, currentTabIndex);
         }
 
         [TestMethod]

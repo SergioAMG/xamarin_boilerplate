@@ -88,6 +88,15 @@ namespace Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to BOARDING TYPE.
+        /// </summary>
+        public static string BoardingTypeText {
+            get {
+                return ResourceManager.GetString("BoardingTypeText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Button.
         /// </summary>
         public static string Button {
@@ -102,6 +111,15 @@ namespace Localization {
         public static string Cancel {
             get {
                 return ResourceManager.GetString("Cancel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Carousel Sample Page.
+        /// </summary>
+        public static string CarouselSamplePageTitle {
+            get {
+                return ResourceManager.GetString("CarouselSamplePageTitle", resourceCulture);
             }
         }
         
@@ -124,11 +142,29 @@ namespace Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to DATA.
+        /// </summary>
+        public static string DataText {
+            get {
+                return ResourceManager.GetString("DataText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Usage.
         /// </summary>
         public static string DataUsage {
             get {
                 return ResourceManager.GetString("DataUsage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to DATE.
+        /// </summary>
+        public static string DateText {
+            get {
+                return ResourceManager.GetString("DateText", resourceCulture);
             }
         }
         
@@ -214,6 +250,24 @@ namespace Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to FLIGHT.
+        /// </summary>
+        public static string FlightText {
+            get {
+                return ResourceManager.GetString("FlightText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to GATE.
+        /// </summary>
+        public static string GateText {
+            get {
+                return ResourceManager.GetString("GateText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Home.
         /// </summary>
         public static string Home {
@@ -228,6 +282,15 @@ namespace Localization {
         public static string LegalTerms {
             get {
                 return ResourceManager.GetString("LegalTerms", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Loading data ....
+        /// </summary>
+        public static string LoadingDataText {
+            get {
+                return ResourceManager.GetString("LoadingDataText", resourceCulture);
             }
         }
         
@@ -304,6 +367,15 @@ namespace Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to View Samples.
+        /// </summary>
+        public static string MenuSamples {
+            get {
+                return ResourceManager.GetString("MenuSamples", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Search.
         /// </summary>
         public static string MenuSearch {
@@ -349,6 +421,15 @@ namespace Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to PASSENGER NAME.
+        /// </summary>
+        public static string PassengerText {
+            get {
+                return ResourceManager.GetString("PassengerText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Read more ....
         /// </summary>
         public static string ReadMore {
@@ -372,6 +453,15 @@ namespace Localization {
         public static string Skip {
             get {
                 return ResourceManager.GetString("Skip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to STATUS.
+        /// </summary>
+        public static string StatusText {
+            get {
+                return ResourceManager.GetString("StatusText", resourceCulture);
             }
         }
         

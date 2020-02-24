@@ -24,6 +24,7 @@ namespace XamarinBoilerplate.iOS.Effects
             }
             catch (Exception ex)
             {
+                // TODO: Implement better error handling for exceptions
                 Console.WriteLine("CANNOT SET PROPERTY ON ATTACHED CONTROL. ERROR: " + ex.Message);
             }
         }
@@ -49,17 +50,18 @@ namespace XamarinBoilerplate.iOS.Effects
             }
             catch (Exception ex)
             {
+                // TODO: Implement better error handling for exceptions
                 Console.WriteLine("CANNOT SET PROPERTY ON ATTACHED CONTROL. ERROR: ", ex.Message);
             }
         }
 
-        private Xamarin.Forms.Color GetTintColor()
+        private Color GetTintColor()
         {
             var tintColor = TintEffect.GetTintColor(Element);
 
-            if (tintColor == Xamarin.Forms.Color.Default)
+            if (tintColor == Color.Default)
             {
-                return (Xamarin.Forms.Color)Xamarin.Forms.Application.Current.Resources["TintColor"];
+                return (Color)Xamarin.Forms.Application.Current.Resources["TintColor"];
             }
             else
             {
@@ -81,7 +83,7 @@ namespace XamarinBoilerplate.iOS.Effects
             else if (Control is UIButton)
             {
                 var control = Control as UIButton;
-                var image = control.ImageView.Image.ImageWithRenderingMode(UIImageRenderingMode.AlwaysTemplate);
+                var image = control.CurrentImage.ImageWithRenderingMode(UIImageRenderingMode.AlwaysTemplate);
                 control.SetImage(image, UIControlState.Normal);
                 control.TintColor = tintColor.ToUIColor();
             }

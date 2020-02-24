@@ -6,6 +6,7 @@ using Xamarin.Essentials;
 using Xamarin.Forms;
 using XamarinBoilerplate.Utils;
 using XamarinBoilerplate.Views;
+using XamarinBoilerplate.Views.Samples;
 
 namespace XamarinBoilerplate.ViewModels
 {
@@ -134,7 +135,8 @@ namespace XamarinBoilerplate.ViewModels
                     {
                         await NavigationService.ShowLoadingIndicator();
                     }
-                    NavigationService.SetRootPage(nameof(DashboardPage), new DashboardViewModel());
+                    IsLoggedIn = true;
+                    LoginFlow();
                 }
             }
             else
@@ -143,6 +145,7 @@ namespace XamarinBoilerplate.ViewModels
                         Localization.AppResources.Error,
                         Localization.AppResources.FingerprintNotAvailable,
                         Localization.AppResources.Okay);
+                IsLoggedIn = false;
             }
         }
 
@@ -155,7 +158,7 @@ namespace XamarinBoilerplate.ViewModels
                 {
                     await NavigationService.ShowLoadingIndicator();
                 }
-                NavigationService.SetRootPage(nameof(DashboardPage), new DashboardViewModel());
+                LoginFlow();
             }
             else
             {
@@ -168,6 +171,15 @@ namespace XamarinBoilerplate.ViewModels
                     Localization.AppResources.Okay);
                 }
             }
+        }
+
+        public void LoginFlow()
+        {
+            if (!UnitTestingManager.IsRunningFromNUnit)
+            {
+                Preferences.Set(Constants.LoggedIn, IsLoggedIn);
+            }
+            NavigationService.SetRootPage(nameof(DashboardPage), new DashboardViewModel());
         }
     }
 }

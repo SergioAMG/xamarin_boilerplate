@@ -11,7 +11,8 @@
         BackgroundColor="{DynamicResource PageBackgroundColor}"
         xmlns:controls="clr-namespace:XamarinBoilerplate.Controls"
         xmlns:effects="clr-namespace:XamarinBoilerplate.Effects"
-        xmlns:utils="clr-namespace:XamarinBoilerplate.Utils">
+        xmlns:utils="clr-namespace:XamarinBoilerplate.Utils"
+        Title="{utils:Localized WizzardStep1Title}">
     <ContentPage.Content>
         <StackLayout HorizontalOptions="FillAndExpand" Spacing="0">
             <Grid ColumnSpacing="0" RowSpacing="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
@@ -42,9 +43,9 @@
                     </Grid.ColumnDefinitions>
                     <controls:ExtendedButton HorizontalTextAlignment="Start" Text="{utils:Localized Back}" TextColor="{DynamicResource Blue}" BackgroundColor="Transparent" BorderColor="Transparent" HorizontalOptions="Start" Grid.Row="0" Grid.Column="0" Command="{Binding BackTutorialCommand}" />
                     <StackLayout Orientation="Horizontal" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Spacing="15" Grid.Row="0" Grid.Column="1">
-                        <ImageButton effects:TintEffect.TintColor="{DynamicResource Blue}" Source="baseline_panorama_fish_eye_black_18" BackgroundColor="Transparent" Command="{Binding BackTutorialCommand}" />
-                        <ImageButton effects:TintEffect.TintColor="{DynamicResource Blue}" Source="baseline_lens_black_18.png" BackgroundColor="Transparent" />
-                        <ImageButton effects:TintEffect.TintColor="{DynamicResource Blue}" Source="baseline_panorama_fish_eye_black_18" BackgroundColor="Transparent" Command="{Binding NextTutorialCommand}" />
+                        <ImageButton WidthRequest="18" HeightRequest="18" Aspect="AspectFit" effects:TintEffect.TintColor="{DynamicResource Blue}" Source="baseline_panorama_fish_eye_black_18" BackgroundColor="Transparent" Command="{Binding BackTutorialCommand}" />
+                        <ImageButton WidthRequest="18" HeightRequest="18" Aspect="AspectFit" effects:TintEffect.TintColor="{DynamicResource Blue}" Source="baseline_lens_black_18" BackgroundColor="Transparent" />
+                        <ImageButton WidthRequest="18" HeightRequest="18" Aspect="AspectFit" effects:TintEffect.TintColor="{DynamicResource Blue}" Source="baseline_panorama_fish_eye_black_18" BackgroundColor="Transparent" Command="{Binding NextTutorialCommand}" />
                     </StackLayout>
                     <controls:ExtendedButton HorizontalTextAlignment="End" Text="{utils:Localized Next}" TextColor="{DynamicResource Blue}" BackgroundColor="Transparent" BorderColor="Transparent" HorizontalOptions="End" Grid.Row="0" Grid.Column="2" Command="{Binding NextTutorialCommand}" />
                 </Grid>

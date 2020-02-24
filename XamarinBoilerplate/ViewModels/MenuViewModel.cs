@@ -1,9 +1,9 @@
 ﻿using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Essentials;
-using Xamarin.Forms;
 using XamarinBoilerplate.Utils;
 using XamarinBoilerplate.Views;
+using XamarinBoilerplate.Views.Samples;
 using XamarinBoilerplate.Views.Wizzard;
 
 namespace XamarinBoilerplate.ViewModels
@@ -13,7 +13,7 @@ namespace XamarinBoilerplate.ViewModels
         public string _appVersion;
         private ICommand _goToContactCommand;
         private ICommand _goToWizzardStep1Command;
-        private ICommand _goToSearchCommand;
+        private ICommand _goToSamplesCommand;
         private ICommand _goToLiveHelpCommand;
         private ICommand _closeCommand;
 
@@ -41,11 +41,11 @@ namespace XamarinBoilerplate.ViewModels
             }
         }
 
-        public ICommand GoToSearchCommand
+        public ICommand GoToSamplesCommand
         {
             get
             {
-                return _goToSearchCommand ?? (_goToSearchCommand = new CommandExtended(ExecuteGoToSearchCommandAsync));
+                return _goToSamplesCommand ?? (_goToSamplesCommand = new CommandExtended(ExecuteGoToSamplesCommandAsync));
             }
         }
 
@@ -78,11 +78,11 @@ namespace XamarinBoilerplate.ViewModels
             await NavigationService.NavigateAsync(nameof(StepOnePage));
         }
 
-        public async Task ExecuteGoToSearchCommandAsync()
+        public async Task ExecuteGoToSamplesCommandAsync()
         {
+            var selectedTabIndex = NavigationService.GetCurrentSelectedTabIndexOverMasterDetailPageWithTabbedPage();
+            NavigationService.NavigateDetails(nameof(SamplesMenuPage), selectedTabIndex);
             await NavigationService.CloseDrawer();
-            // TODO: Add navigation to target page
-            //await NavigationService.NavigateAsync(nameof(SearchPage));
         }
 
         public async Task ExecuteGoToLiveHelpCommandAsync()

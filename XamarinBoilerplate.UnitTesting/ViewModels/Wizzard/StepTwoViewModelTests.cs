@@ -44,7 +44,7 @@ namespace XamarinBoilerplate.UnitTesting.ViewModels.Wizzard
             currentPage = viewModel.NavigationService.CurrentPage;
 
             //assert
-            NUnit.Framework.Assert.AreEqual(currentPage.GetType(), targetPage.GetType());
+            NUnit.Framework.Assert.AreEqual(currentPage.Title, targetPage.Title);
         }
 
         [TestMethod]
@@ -65,7 +65,7 @@ namespace XamarinBoilerplate.UnitTesting.ViewModels.Wizzard
             currentPage = viewModel.NavigationService.CurrentPage;
 
             //assert
-            NUnit.Framework.Assert.AreEqual(currentPage.GetType(), targetPage.GetType());
+            NUnit.Framework.Assert.AreEqual(currentPage.Title, targetPage.Title);
         }
 
         [TestMethod]

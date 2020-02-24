@@ -12,7 +12,7 @@
         BackgroundColor="{DynamicResource PageBackgroundColor}">
     <ContentPage.Content>
         <StackLayout Orientation="Vertical" Spacing="0" Padding="0,15,0,0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
-            <ImageButton Source="baseline_close_black_24" HorizontalOptions="End" Command="{Binding CloseCommand}" BackgroundColor="Transparent" Margin="0,0,15,0" />
+            <ImageButton Source="baseline_close_black_24" HorizontalOptions="End" Command="{Binding CloseCommand}" BackgroundColor="Transparent" Margin="0,0,15,0" WidthRequest="24" HeightRequest="24" Aspect="AspectFit" />
             <Label Text="{utils:Localized Menu}" HorizontalTextAlignment="Start" FontAttributes="Bold" FontSize="Title" Margin="15,15,0,25" TextColor="{DynamicResource Black}" />
             <ScrollView>
                 <Grid Padding="0" RowSpacing="0">
@@ -54,14 +54,14 @@
                         </Image.GestureRecognizers>
                     </Image>
                     <BoxView Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" BackgroundColor="#ECECEC" HeightRequest="1" HorizontalOptions="FillAndExpand" VerticalOptions="Start" />
-                    <Label Grid.Row="5" Grid.Column="0" Margin="35,-9,0,14" Text="{utils:Localized MenuSearch}" TextColor="{DynamicResource Black}" FontAttributes="Bold" FontSize="Body" HorizontalTextAlignment="Start" VerticalTextAlignment="Start">
+                    <Label Grid.Row="5" Grid.Column="0" Margin="35,-9,0,14" Text="{utils:Localized MenuSamples}" TextColor="{DynamicResource Black}" FontAttributes="Bold" FontSize="Body" HorizontalTextAlignment="Start" VerticalTextAlignment="Start">
                         <Label.GestureRecognizers>
-                            <TapGestureRecognizer Command="{Binding GoToSearchCommand}" />
+                            <TapGestureRecognizer Command="{Binding GoToSamplesCommand}" />
                         </Label.GestureRecognizers>
                     </Label>
                     <Image Grid.Row="5" Grid.Column="1" Margin="0,-9,15,14" Source="baseline_chevron_right_black_24" HorizontalOptions="End" VerticalOptions="Start">
                         <Image.GestureRecognizers>
-                            <TapGestureRecognizer Command="{Binding GoToSearchCommand}" />
+                            <TapGestureRecognizer Command="{Binding GoToSamplesCommand}" />
                         </Image.GestureRecognizers>
                     </Image>
                     <BoxView Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="2" BackgroundColor="#ECECEC" HeightRequest="1" HorizontalOptions="FillAndExpand" VerticalOptions="Start" />

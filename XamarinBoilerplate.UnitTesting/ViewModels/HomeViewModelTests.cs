@@ -59,6 +59,10 @@ namespace XamarinBoilerplate.UnitTesting.ViewModels
             viewModel = new HomeViewModel(DataManager);
 
             //act
+            Task.Run(async () =>
+            {
+                await viewModel.LoadData();
+            }).GetAwaiter().GetResult();
 
             //assert
             viewModel.NewsItems.Count.ShouldBeGreaterThan(0);

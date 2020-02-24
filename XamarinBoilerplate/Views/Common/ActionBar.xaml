@@ -34,7 +34,7 @@
                 <ImageButton x:Name="BackButton" Source="baseline_arrow_back_black_24" 
                              Clicked="HandleClicked" HorizontalOptions="Start" 
                              BackgroundColor="Transparent" Margin="15,0,0,0" 
-                             VerticalOptions="Center" />
+                             VerticalOptions="Center" HeightRequest="24" WidthRequest="24" Aspect="AspectFit" />
                 <StackLayout Orientation="Vertical" Spacing="0" 
                              HeightRequest="56" HorizontalOptions="FillAndExpand" 
                              VerticalOptions="FillAndExpand">

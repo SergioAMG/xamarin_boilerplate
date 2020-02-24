@@ -10,6 +10,7 @@ namespace XamarinBoilerplate.Views
         {
             InitializeComponent();
             NavigationPage.SetHasNavigationBar(this, false);
+            Title = Localization.AppResources.Home;
         }
     }
 }

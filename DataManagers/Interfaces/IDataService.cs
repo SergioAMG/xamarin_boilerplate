@@ -3,5 +3,6 @@
     public interface IDataService
     {
         INews News { get; }
+        IFlights Flights { get; }
     }
 }

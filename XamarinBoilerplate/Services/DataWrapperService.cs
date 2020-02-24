@@ -8,5 +8,10 @@ namespace XamarinBoilerplate.Services
         {
             get { return DataManagers.DataManager.Instance.News; }
         }
+
+        public IFlights Flights
+        {
+            get { return DataManagers.DataManager.Instance.Flights; }
+        }
     }
 }

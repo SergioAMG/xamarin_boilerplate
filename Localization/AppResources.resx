@@ -417,4 +417,44 @@
     <value>Secure lock screeen hasn't setup. Go to 'Settings-&gt;Security-&gt;Fingerprint' to setup a fingerprint.</value>
     <comment>Fingerprint Not AvailableText</comment>
   </data>
+  <data name="CarouselSamplePageTitle" xml:space="preserve">
+    <value>Carousel Sample Page</value>
+    <comment>Carousel Sample Page Title Text</comment>
+  </data>
+  <data name="LoadingDataText" xml:space="preserve">
+    <value>Loading data ...</value>
+    <comment>Loading Data Text</comment>
+  </data>
+  <data name="MenuSamples" xml:space="preserve">
+    <value>View Samples</value>
+    <comment>Menu Samples Text</comment>
+  </data>
+  <data name="BoardingTypeText" xml:space="preserve">
+    <value>BOARDING TYPE</value>
+    <comment>Boarding Type Text</comment>
+  </data>
+  <data name="DataText" xml:space="preserve">
+    <value>DATA</value>
+    <comment>Data Text</comment>
+  </data>
+  <data name="DateText" xml:space="preserve">
+    <value>DATE</value>
+    <comment>Date Text</comment>
+  </data>
+  <data name="FlightText" xml:space="preserve">
+    <value>FLIGHT</value>
+    <comment>Fligh Text</comment>
+  </data>
+  <data name="GateText" xml:space="preserve">
+    <value>GATE</value>
+    <comment>Gate Text</comment>
+  </data>
+  <data name="PassengerText" xml:space="preserve">
+    <value>PASSENGER NAME</value>
+    <comment>Passenger Text</comment>
+  </data>
+  <data name="StatusText" xml:space="preserve">
+    <value>STATUS</value>
+    <comment>Status Text</comment>
+  </data>
 </root>

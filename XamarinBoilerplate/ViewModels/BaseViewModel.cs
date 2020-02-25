@@ -113,6 +113,14 @@ namespace XamarinBoilerplate.ViewModels
             }
         }
 
+        public Thickness MarginForSingleIconOfActionBar
+        {
+            get
+            {
+                return (IsAndroid) ? Constants.MarginForSingleIconOfActionBarAndroid : Constants.MarginForSingleIconOfActionBarIOS;
+            }
+        }
+
         public INavigationService NavigationService
         {
             get

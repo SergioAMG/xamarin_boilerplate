@@ -51,7 +51,12 @@
                 <Setter Property="BackgroundColor" Value="Transparent" />
                 <Setter Property="OutlineColor" Value="Orange" />
             </Style>
-            
+
+            <Style x:Key="StandardButton" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="{DynamicResource ActionBarBackground}" />
+                <Setter Property="TextColor" Value="{DynamicResource ActionBarIconsColor}" />
+            </Style>
+
         </ResourceDictionary>
     </Application.Resources>
 </Application>

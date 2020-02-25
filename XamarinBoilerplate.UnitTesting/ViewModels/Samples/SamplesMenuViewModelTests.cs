@@ -7,6 +7,7 @@ using XamarinBoilerplate.Views;
 using XamarinBoilerplate.ViewModels;
 using XamarinBoilerplate.Enums;
 using System.Threading.Tasks;
+using System;
 
 namespace XamarinBoilerplate.UnitTesting.ViewModels.Samples
 {

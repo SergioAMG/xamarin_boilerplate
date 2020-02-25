@@ -54,8 +54,26 @@ namespace XamarinBoilerplate.ViewModels.Wizzard
 
         public async Task ExecuteDoneTutorialCommandAsync()
         {
-            Preferences.Set(Constants.WizzardComplete, true);
-            NavigationService.SetRootPage(nameof(DashboardPage), new DashboardViewModel());
+            bool isLoggedIn;
+
+            if (!UnitTestingManager.IsRunningFromNUnit)
+            {
+                Preferences.Set(Constants.WizzardComplete, true);
+                isLoggedIn = Preferences.Get(Constants.LoggedIn, false);
+                
+                if (isLoggedIn)
+                {
+                    NavigationService.SetRootPage(nameof(DashboardPage), new DashboardViewModel());
+                }
+                else
+                {
+                    NavigationService.SetRootPage(nameof(LoginPage), new LoginViewModel());
+                }
+            }
+            else
+            {
+                NavigationService.SetRootPage(nameof(DashboardPage), new DashboardViewModel());
+            }
         }
 
         public async Task ExecuteStartTutorialCommandAsync()

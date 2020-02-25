@@ -160,6 +160,15 @@ namespace Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Date created.
+        /// </summary>
+        public static string DateCreated {
+            get {
+                return ResourceManager.GetString("DateCreated", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to DATE.
         /// </summary>
         public static string DateText {
@@ -331,6 +340,24 @@ namespace Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Your Search did not return any matches..
+        /// </summary>
+        public static string MapSearchText {
+            get {
+                return ResourceManager.GetString("MapSearchText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Search Locations.
+        /// </summary>
+        public static string MapSearchTitle {
+            get {
+                return ResourceManager.GetString("MapSearchTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Menu.
         /// </summary>
         public static string Menu {
@@ -390,6 +417,15 @@ namespace Localization {
         public static string MessageSent {
             get {
                 return ResourceManager.GetString("MessageSent", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to News.
+        /// </summary>
+        public static string News {
+            get {
+                return ResourceManager.GetString("News", resourceCulture);
             }
         }
         

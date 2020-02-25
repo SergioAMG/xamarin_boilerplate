@@ -6,12 +6,6 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
         x:Class="XamarinBoilerplate.Views.Common.ActionBar">
-    <ContentView.Margin>
-        <OnPlatform x:TypeArguments="Thickness">
-            <On Platform="Android" Value="0,0,0,0" />
-            <On Platform="iOS" Value="0,20,0,0" />
-        </OnPlatform>
-    </ContentView.Margin>
     <ContentView.Content>
         <Grid VerticalOptions="FillAndExpand"  x:Name="GridContainer"
               HorizontalOptions="FillAndExpand" RowSpacing="0" HeightRequest="56">

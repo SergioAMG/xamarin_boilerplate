@@ -1,6 +1,7 @@
 ﻿using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Essentials;
+using Xamarin.Forms;
 using XamarinBoilerplate.Utils;
 using XamarinBoilerplate.Views;
 using XamarinBoilerplate.Views.Samples;
@@ -10,7 +11,6 @@ namespace XamarinBoilerplate.ViewModels
 {
     public class MenuViewModel : BaseViewModel
     {
-        public string _appVersion;
         private ICommand _goToContactCommand;
         private ICommand _goToWizzardStep1Command;
         private ICommand _goToSamplesCommand;
@@ -22,6 +22,14 @@ namespace XamarinBoilerplate.ViewModels
             get
             {
                 return Localization.AppResources.AppVersion + " " + ((!UnitTestingManager.IsRunningFromNUnit) ? VersionTracking.CurrentVersion : Localization.AppResources.NotAvailable);
+            }
+        }
+
+        public Thickness CloseButtonMargin
+        {
+            get
+            {
+                return (DeviceManager.IsAndroid) ? new Thickness(0, 0, 15, 0) : new Thickness(0, 4, 15, 0);
             }
         }
 

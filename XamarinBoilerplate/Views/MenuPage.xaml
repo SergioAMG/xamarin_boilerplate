@@ -13,8 +13,10 @@
         Title="{utils:Localized Menu}">
     <ContentPage.Content>
         <StackLayout Orientation="Vertical" Spacing="0" Padding="0,15,0,0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
-            <ImageButton Source="baseline_close_black_24" HorizontalOptions="End" Command="{Binding CloseCommand}" BackgroundColor="Transparent" Margin="0,0,15,0" WidthRequest="24" HeightRequest="24" Aspect="AspectFit" />
-            <Label Text="{utils:Localized Menu}" HorizontalTextAlignment="Start" FontAttributes="Bold" FontSize="Title" Margin="15,15,0,25" TextColor="{DynamicResource Black}" />
+            <ImageButton Source="baseline_close_black_24" HorizontalOptions="End" Command="{Binding CloseCommand}" BackgroundColor="Transparent"
+                         Margin="{Binding CloseButtonMargin}" WidthRequest="24" HeightRequest="24" Aspect="AspectFit" />
+            <Label Text="{utils:Localized Menu}" HorizontalTextAlignment="Start" FontAttributes="Bold" FontSize="Title" Margin="15,15,0,25"
+                   TextColor="{DynamicResource Black}" />
             <ScrollView>
                 <Grid Padding="0" RowSpacing="0">
                     <Grid.RowDefinitions>

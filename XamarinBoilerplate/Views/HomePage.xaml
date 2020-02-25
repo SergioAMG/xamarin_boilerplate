@@ -14,7 +14,8 @@
         xmlns:collections="clr-namespace:System.Collections.ObjectModel;assembly=netstandard"
         xmlns:effects="clr-namespace:XamarinBoilerplate.Effects"
         xmlns:controls="clr-namespace:XamarinBoilerplate.Controls"
-        BackgroundColor="{DynamicResource PageBackgroundColor}">
+        BackgroundColor="{DynamicResource PageBackgroundColor}"
+        xmlns:fab="clr-namespace:Refractored.FabControl;assembly=Refractored.FabControl">
     <ContentPage.Content>
         <StackLayout Spacing="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Orientation="Vertical">
             <common:ActionBar BackButtonTintColor="{DynamicResource ActionBarIconsColor}" BackgroundColor="{DynamicResource ActionBarBackground}"
@@ -63,7 +64,7 @@
                                         <StackLayout Orientation="Vertical" Spacing="2">
                                             <Label Text="{Binding ItemTitle}" HorizontalTextAlignment="Start" VerticalTextAlignment="Center" FontAttributes="Bold" Margin="0,0,0,5" TextColor="{DynamicResource Black}" />
                                             <Frame HorizontalOptions="FillAndExpand" CornerRadius="15" Padding="0" IsClippedToBounds="True">
-                                                <Image Source="{Binding Image}" HorizontalOptions="FillAndExpand" Aspect="AspectFill" />
+                                                <Image Source="{Binding Image}" HorizontalOptions="FillAndExpand" Aspect="AspectFill" HeightRequest="150" />
                                             </Frame>
                                             <StackLayout Spacing="0" Margin="0,5,0,25">
                                                 <Label LineBreakMode="WordWrap" FontSize="13">
@@ -89,6 +90,15 @@
                     IsRunning="{Binding IsLoading}"
                     IsVisible="{Binding IsLoading}"
                     Color="{DynamicResource Blue}" Scale="{Binding LoadingIndicatorScale}" />
+                <fab:FloatingActionButtonView
+				        ImageName="baseline_search_white_24"
+				        ColorNormal="{DynamicResource ActionBarBackground}"
+				        ColorPressed="{DynamicResource FooterGray}"
+				        ColorRipple="{DynamicResource FooterGray}"
+				        IsVisible="{Binding IsAndroid}"
+				        AbsoluteLayout.LayoutFlags="PositionProportional"
+				        AbsoluteLayout.LayoutBounds="1, 1, AutoSize, AutoSize"
+                        Command="{Binding FloatingButtonCommand}" />
             </AbsoluteLayout>
         </StackLayout>
     </ContentPage.Content>

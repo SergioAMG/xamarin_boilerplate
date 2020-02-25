@@ -457,4 +457,20 @@
     <value>STATUS</value>
     <comment>Status Text</comment>
   </data>
+  <data name="News" xml:space="preserve">
+    <value>News</value>
+    <comment>News Text</comment>
+  </data>
+  <data name="DateCreated" xml:space="preserve">
+    <value>Date created</value>
+    <comment>Date Created Text</comment>
+  </data>
+  <data name="MapSearchText" xml:space="preserve">
+    <value>Your Search did not return any matches.</value>
+    <comment>Map Search Text</comment>
+  </data>
+  <data name="MapSearchTitle" xml:space="preserve">
+    <value>Search Locations</value>
+    <comment>Map Search Title Text</comment>
+  </data>
 </root>

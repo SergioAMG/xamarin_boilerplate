@@ -115,6 +115,21 @@ namespace XamarinBoilerplate.ViewModels
             }
         }
 
+        public Thickness BottomPadding
+        {
+            get
+            {
+                if (DeviceManager.IsTablet)
+                {
+                    return new Thickness(20, 7, 20, 7);
+                }
+                else
+                {
+                    return new Thickness(20);
+                }
+            }
+        }
+
         public ICommand GoToContactCommand
         {
             get

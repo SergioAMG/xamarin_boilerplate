@@ -152,15 +152,22 @@ namespace XamarinBoilerplate.ViewModels
                 {
                     if (DeviceManager.IsLandscape)
                     {
-                        Thickness customMargin;
-                        switch (DeviceManager.GetIPhoneType())
+                        if (DeviceManager.IsIOS)
                         {
-                            case IPhoneType.iPhone4     : customMargin = new Thickness(0, -20, 0, 0); break;
-                            case IPhoneType.iPhoneSE_5  : customMargin = new Thickness(0, -20, 0, 0); break;
-                            case IPhoneType.iPhone8_7_6 : customMargin = new Thickness(0, -20, 0, 0); break;
-                            default                     : customMargin = new Thickness(0, -20, 0, 0); break;
+                            Thickness customMargin;
+                            switch (DeviceManager.GetIPhoneType())
+                            {
+                                case IPhoneType.iPhone4: customMargin = new Thickness(0, -20, 0, 0); break;
+                                case IPhoneType.iPhoneSE_5: customMargin = new Thickness(0, -20, 0, 0); break;
+                                case IPhoneType.iPhone8_7_6: customMargin = new Thickness(0, -20, 0, 0); break;
+                                default: customMargin = new Thickness(0, -20, 0, 0); break;
+                            }
+                            return customMargin;
                         }
-                        return customMargin;
+                        else
+                        {
+                            return new Thickness(0);                          
+                        }
                     }
                     else
                     {

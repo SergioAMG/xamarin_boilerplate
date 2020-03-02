@@ -26,6 +26,7 @@ namespace XamarinBoilerplate.Views.Samples
             base.OnSizeAllocated(width, height);
             DeviceManager.Orientation = DeviceDisplay.MainDisplayInfo.Orientation.ToString();
             (BindingContext as SamplesMenuViewModel).SetOrientationValues();
+            (BindingContext as SamplesMenuViewModel).RefreshMainContainerMargins();
         }
     }
 }

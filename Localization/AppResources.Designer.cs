@@ -475,11 +475,29 @@ namespace Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Search button tapped..
+        /// </summary>
+        public static string SearchButtonTapped {
+            get {
+                return ResourceManager.GetString("SearchButtonTapped", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Search Location.
         /// </summary>
         public static string SearchLocationBarText {
             get {
                 return ResourceManager.GetString("SearchLocationBarText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Search News.
+        /// </summary>
+        public static string SearchNewsText {
+            get {
+                return ResourceManager.GetString("SearchNewsText", resourceCulture);
             }
         }
         

@@ -3,6 +3,7 @@ using System.Windows.Input;
 using Xamarin.Forms;
 using Xamarin.Forms.PlatformConfiguration.iOSSpecific;
 using XamarinBoilerplate.Services;
+using XamarinBoilerplate.Utils;
 using XamarinBoilerplate.ViewModels;
 
 namespace XamarinBoilerplate.Views
@@ -28,7 +29,10 @@ namespace XamarinBoilerplate.Views
                 }
             }
 
-            On<Xamarin.Forms.PlatformConfiguration.iOS>().SetUseSafeArea(true);
+            if (DeviceManager.IsIOSVersionGreaterOrEqualToSupportedIOSVersion())
+            {
+                On<Xamarin.Forms.PlatformConfiguration.iOS>().SetUseSafeArea(true);
+            }
         }
 
         public bool EnableHardwareBackButtonOverride

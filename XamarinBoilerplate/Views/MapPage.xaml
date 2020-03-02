@@ -11,13 +11,13 @@
         Title="{utils:Localized Map}"
         HasNavigationBar="False"
         xmlns:common="clr-namespace:XamarinBoilerplate.Views.Common"
-        BackgroundColor="{DynamicResource PageBackgroundColor}"
+        BackgroundColor="{DynamicResource SafeAreaBackgroundColor}"
         xmlns:maps="clr-namespace:Xamarin.Forms.GoogleMaps;assembly=Xamarin.Forms.GoogleMaps"
         xmlns:collections="clr-namespace:System.Collections.ObjectModel;assembly=netstandard"
         xmlns:effects="clr-namespace:XamarinBoilerplate.Effects"
         xmlns:controls="clr-namespace:XamarinBoilerplate.Controls">
     <ContentPage.Content>
-        <StackLayout Spacing="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Orientation="Vertical">
+        <StackLayout Spacing="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Orientation="Vertical" BackgroundColor="{DynamicResource PageBackgroundColor}" Margin="{Binding GetMainContainerMargin}">
             <common:ActionBar BackButtonTintColor="{DynamicResource ActionBarIconsColor}" BackgroundColor="{DynamicResource ActionBarBackground}"
                               ShowIcon="False" Title="{utils:Localized Map}" HideBackButton="False" TitleLabelStyle="{DynamicResource ActionBarTextLabelStyle}"
                               IsMaster="True" CenterBartitle="{Binding IsTitleCentered}" IsModal="False" BackButtonCommand="{Binding OpenDrawerCommand}">
@@ -27,7 +27,7 @@
                                      Command="{Binding CommonToolbarItemTapCommand}"
                                      CommandParameter="{utils:Localized ToolbarItemPin}"
                                      Margin="{Binding MarginForLeftIconOfActionBar}" effects:TintEffect.TintColor="{DynamicResource ActionBarIconsColor}"
-                                     BackgroundColor="Transparent" VerticalOptions="Center" />
+                                     BackgroundColor="Transparent" VerticalOptions="Center" IsVisible="{Binding IsLeftIconVisible}" />
                         <ImageButton Source="baseline_my_location_black_24" HorizontalOptions="Start" 
                                      Command="{Binding CommonToolbarItemTapCommand}"
                                      CommandParameter="{utils:Localized ToolbarItemShowMyLocation}"

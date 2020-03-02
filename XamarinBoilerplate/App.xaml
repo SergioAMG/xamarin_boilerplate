@@ -7,6 +7,7 @@
              x:Class="XamarinBoilerplate.App">
     <Application.Resources>
         <ResourceDictionary>
+            
             <Color x:Key="White">#FFFFFF</Color>
             <Color x:Key="Black">#000000</Color>
             <Color x:Key="Blue">#007CFF</Color>
@@ -14,6 +15,7 @@
             <Color x:Key="Gray">#737373</Color>
             <Color x:Key="FingerprintGray">#7D7D7D</Color>
             <Color x:Key="PageBackgroundColor">#FFFFFF</Color>
+            <Color x:Key="SafeAreaBackgroundColor">#007CFF</Color>
             <Color x:Key="ActionBarIconsColor">#FFFFFF</Color>
             <Color x:Key="ActionBarBackground">#007CFF</Color>
             <Color x:Key="FooterGray">#F7F7F7</Color>

@@ -24,6 +24,7 @@ namespace XamarinBoilerplate.Views
             base.OnSizeAllocated(width, height);
             DeviceManager.Orientation = DeviceDisplay.MainDisplayInfo.Orientation.ToString();
             (BindingContext as ContactViewModel).SetOrientationValues();
+            (BindingContext as ContactViewModel).RefreshMainContainerMargins();
         }
 
         public void EditorFocused(object sender, Xamarin.Forms.FocusEventArgs e)

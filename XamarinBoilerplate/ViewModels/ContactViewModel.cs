@@ -172,6 +172,33 @@ namespace XamarinBoilerplate.ViewModels
             }
         }
 
+        public Thickness BottomMarginForSubmitButton
+        {
+            get
+            {
+                if (DeviceManager.IsIOSVersionGreaterOrEqualToSupportedIOSVersion())
+                {
+                    Thickness customMargin;
+                    switch (DeviceManager.GetIPhoneType())
+                    {
+                        case IPhoneType.iPhone4                       : customMargin = new Thickness(0, 0, 0, 40); break;
+                        case IPhoneType.iPhoneSE_5                    : customMargin = new Thickness(0, 0, 0, 40); break;
+                        case IPhoneType.iPhone8_7_6                   : customMargin = new Thickness(0, 0, 0, 40); break;
+                        case IPhoneType.iPhone8Plus_7Plus_6SPlus_6Plus: customMargin = new Thickness(0, 0, 0, 40); break;
+                        case IPhoneType.iPhoneX_XS_11Pro              : customMargin = new Thickness(0, 0, 0, 20); break;
+                        case IPhoneType.iPhone11_XR                   : customMargin = new Thickness(0, 0, 0, 20); break;
+                        case IPhoneType.iPhone11ProMax_XSMax          : customMargin = new Thickness(0, 0, 0, 20); break;
+                        default                                       : customMargin = new Thickness(0, 0, 0, 20); break;
+                    }
+                    return customMargin;
+                }
+                else
+                {
+                    return new Thickness(0, 0, 0, 20);
+                }
+            }
+        }
+
         public ICommand ViewMoreOptionsCommand
         {
             get

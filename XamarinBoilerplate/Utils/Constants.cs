@@ -29,5 +29,6 @@ namespace XamarinBoilerplate.Utils
         public static readonly double InitialTitleSizeForNewsItem = 16;
         public static readonly double TextIncreaseFactor = 1.10;
         public static readonly double TextDecreaseFactor = 0.90;
+        public static readonly double SupportedIOSVersion = 11.0;
     }
 }

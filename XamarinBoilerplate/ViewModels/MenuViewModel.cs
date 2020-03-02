@@ -2,6 +2,8 @@
 using System.Windows.Input;
 using Xamarin.Essentials;
 using Xamarin.Forms;
+using XamarinBoilerplate.Enums;
+using XamarinBoilerplate.Interfaces;
 using XamarinBoilerplate.Utils;
 using XamarinBoilerplate.Views;
 using XamarinBoilerplate.Views.Samples;
@@ -29,7 +31,87 @@ namespace XamarinBoilerplate.ViewModels
         {
             get
             {
-                return (DeviceManager.IsAndroid) ? new Thickness(0, 0, 15, 0) : new Thickness(0, 4, 15, 0);
+                if (DeviceManager.IsAndroid)
+                {
+                    return new Thickness(0, 0, 15, 0);
+                }
+                else
+                {
+                    Thickness customMargin;
+                    switch (DeviceManager.GetIPhoneType())
+                    {
+                        case IPhoneType.iPhone4                       : customMargin = new Thickness(0); break;
+                        case IPhoneType.iPhoneSE_5                    : customMargin = new Thickness(0); break;
+                        case IPhoneType.iPhone8_7_6                   : customMargin = new Thickness(0, 1, 15, 0); break;
+                        case IPhoneType.iPhone8Plus_7Plus_6SPlus_6Plus: customMargin = new Thickness(0, 1, 15, 0); break;
+                        case IPhoneType.iPhoneX_XS_11Pro              : customMargin = new Thickness(0, 1, 15, 0); break;
+                        case IPhoneType.iPhone11_XR                   : customMargin = new Thickness(0, 1, 15, 0); break;
+                        case IPhoneType.iPhone11ProMax_XSMax          : customMargin = new Thickness(0, 1, 15, 0); break;
+                        default                                       : customMargin = new Thickness(0, 1, 15, 0); break;
+                    }
+                    return customMargin;
+                }
+            }
+        }
+
+        public Thickness FooterMargin
+        {
+            get
+            {
+                if (DeviceManager.IsIOSVersionGreaterOrEqualToSupportedIOSVersion())
+                {
+                    Thickness customMargin;
+                    switch (DeviceManager.GetIPhoneType())
+                    {
+                        case Enums.IPhoneType.iPhone4                       : customMargin = new Thickness(0); break;
+                        case Enums.IPhoneType.iPhoneSE_5                    : customMargin = new Thickness(0); break;
+                        case Enums.IPhoneType.iPhone8_7_6                   : customMargin = new Thickness(0); break;
+                        case Enums.IPhoneType.iPhone8Plus_7Plus_6SPlus_6Plus: customMargin = new Thickness(0); break;
+                        case Enums.IPhoneType.iPhoneX_XS_11Pro              : customMargin = new Thickness(0, 0, 0, -35); break;
+                        case Enums.IPhoneType.iPhone11_XR                   : customMargin = new Thickness(0, 0, 0, -35); break;
+                        case Enums.IPhoneType.iPhone11ProMax_XSMax          : customMargin = new Thickness(0, 0, 0, -35); break;
+                        default                                             : customMargin = new Thickness(0, 0, 0, -35); break;
+                    }
+                    return customMargin;
+                }
+                else
+                {
+                    return new Thickness(0);
+                }
+            }
+        }
+
+        public Thickness LeftMainMargin
+        {
+            get
+            {
+                if (DeviceManager.IsLandscape)
+                {
+                    if (DeviceManager.IsIOSVersionGreaterOrEqualToSupportedIOSVersion())
+                    {
+                        Thickness customMargin;
+                        switch (DeviceManager.GetIPhoneType())
+                        {
+                            case Enums.IPhoneType.iPhone4                       : customMargin = new Thickness(0); break;
+                            case Enums.IPhoneType.iPhoneSE_5                    : customMargin = new Thickness(0); break;
+                            case Enums.IPhoneType.iPhone8_7_6                   : customMargin = new Thickness(0); break;
+                            case Enums.IPhoneType.iPhone8Plus_7Plus_6SPlus_6Plus: customMargin = new Thickness(0); break;
+                            case Enums.IPhoneType.iPhoneX_XS_11Pro              : customMargin = new Thickness(-45, 0, 0, 0); break;
+                            case Enums.IPhoneType.iPhone11_XR                   : customMargin = new Thickness(-45, 0, 0, 0); break;
+                            case Enums.IPhoneType.iPhone11ProMax_XSMax          : customMargin = new Thickness(-45, 0, 0, 0); break;
+                            default                                             : customMargin = new Thickness(-45, 0, 0, 0); break;
+                        }
+                        return customMargin;
+                    }
+                    else
+                    {
+                        return new Thickness(0);
+                    }
+                }
+                else
+                {
+                    return new Thickness(0);
+                }
             }
         }
 
@@ -103,6 +185,12 @@ namespace XamarinBoilerplate.ViewModels
         public async Task ExecuteCloseCommandAsync()
         {
             await NavigationService.CloseDrawer();
+        }
+
+        public void RefreshMainMargins()
+        {
+            OnPropertyChanged(nameof(LeftMainMargin));
+            OnPropertyChanged(nameof(FooterMargin));
         }
     }
 }

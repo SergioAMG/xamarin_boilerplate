@@ -473,4 +473,12 @@
     <value>Search Locations</value>
     <comment>Map Search Title Text</comment>
   </data>
+  <data name="SearchButtonTapped" xml:space="preserve">
+    <value>Search button tapped.</value>
+    <comment>SeachButtonTapped</comment>
+  </data>
+  <data name="SearchNewsText" xml:space="preserve">
+    <value>Search News</value>
+    <comment>Seach News Text</comment>
+  </data>
 </root>

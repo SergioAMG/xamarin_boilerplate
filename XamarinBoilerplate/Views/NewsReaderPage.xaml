@@ -12,11 +12,11 @@
     xmlns:controls="clr-namespace:XamarinBoilerplate.Controls"
     Title="{utils:Localized News}"
     xmlns:collections="clr-namespace:System.Collections.ObjectModel;assembly=netstandard"
-    BackgroundColor="{DynamicResource PageBackgroundColor}"
+    BackgroundColor="{DynamicResource SafeAreaBackgroundColor}"
     x:Class="XamarinBoilerplate.Views.NewsReaderPage"
     xmlns:common="clr-namespace:XamarinBoilerplate.Views.Common">
     <ContentPage.Content>
-        <StackLayout Spacing="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Orientation="Vertical">
+        <StackLayout Spacing="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Orientation="Vertical" BackgroundColor="{DynamicResource PageBackgroundColor}" Margin="{Binding GetMainContainerMargin}">
             <common:ActionBar BackButtonTintColor="{DynamicResource ActionBarIconsColor}" BackgroundColor="{DynamicResource ActionBarBackground}"
                       ShowIcon="False" Title="{utils:Localized News}" HideBackButton="False" TitleLabelStyle="{DynamicResource ActionBarTextLabelStyle}"
                       IsMaster="False" CenterBartitle="{Binding IsTitleCentered}" IsModal="False">

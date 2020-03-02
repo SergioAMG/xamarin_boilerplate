@@ -121,6 +121,70 @@ namespace XamarinBoilerplate.ViewModels
             }
         }
 
+        public Thickness GetMainContainerMargin
+        {
+            get
+            {
+                if (DeviceManager.IsIOSVersionGreaterOrEqualToSupportedIOSVersion())
+                {
+                    if (DeviceManager.IsLandscape)
+                    {
+                        Thickness customMargin;
+                        switch (DeviceManager.GetIPhoneType())
+                        {
+                            case IPhoneType.iPhone4                       : customMargin = new Thickness(0); break;
+                            case IPhoneType.iPhoneSE_5                    : customMargin = new Thickness(0); break; 
+                            case IPhoneType.iPhone8_7_6                   : customMargin = new Thickness(0); break;
+                            case IPhoneType.iPhone8Plus_7Plus_6SPlus_6Plus: customMargin = new Thickness(0, 0, 0, -35); break;
+                            case IPhoneType.iPhoneX_XS_11Pro              : customMargin = new Thickness(-45, 0, -45, -35); break;
+                            case IPhoneType.iPhone11_XR                   : customMargin = new Thickness(-45, 0, -45, -35); break;
+                            case IPhoneType.iPhone11ProMax_XSMax          : customMargin = new Thickness(-45, 0, -45, -35); break;
+                            default                                       : customMargin = new Thickness(-45, 0, -45, -35); break;
+                        }
+                        return customMargin;
+                    }
+                    else
+                    {
+                        return new Thickness(0, 0, 0, -35);
+                    }
+                }
+                else
+                {
+                    if (DeviceManager.IsLandscape)
+                    {
+                        Thickness customMargin;
+                        switch (DeviceManager.GetIPhoneType())
+                        {
+                            case IPhoneType.iPhone4     : customMargin = new Thickness(0, -20, 0, 0); break;
+                            case IPhoneType.iPhoneSE_5  : customMargin = new Thickness(0, -20, 0, 0); break;
+                            case IPhoneType.iPhone8_7_6 : customMargin = new Thickness(0, -20, 0, 0); break;
+                            default                     : customMargin = new Thickness(0, -20, 0, 0); break;
+                        }
+                        return customMargin;
+                    }
+                    else
+                    {
+                        return new Thickness(0);
+                    }
+                }
+            }
+        }
+
+        public bool IsLeftIconVisible
+        {
+            get
+            {
+                if (DeviceManager.GetIPhoneType() == IPhoneType.iPhone4 || DeviceManager.GetIPhoneType() == IPhoneType.iPhoneSE_5)
+                {
+                    return false;
+                }
+                else
+                {
+                    return true;
+                }
+            }
+        }
+
         public INavigationService NavigationService
         {
             get
@@ -175,6 +239,11 @@ namespace XamarinBoilerplate.ViewModels
 
         public virtual void OnDisappearing()
         {
+        }
+
+        public void RefreshMainContainerMargins()
+        {
+            OnPropertyChanged(nameof(GetMainContainerMargin));
         }
     }
 

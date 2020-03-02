@@ -174,7 +174,8 @@ namespace XamarinBoilerplate.ViewModels
 
         private async Task ExecuteFloatingButtonCommanddAsync()
         {
-            await NavigationService.CurrentMasterDetailPage.DisplayAlert("Search News", "Search has been pressed.", "Accept");
+            await NavigationService.CurrentMasterDetailPage.DisplayAlert(Localization.AppResources.SearchNewsText, 
+                Localization.AppResources.SearchButtonTapped, Localization.AppResources.Okay);
         }
 
         private async void HandleUserSelection(string userSelection)

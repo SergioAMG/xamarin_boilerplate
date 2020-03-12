@@ -19,7 +19,7 @@
     <ContentPage.Content>
         <StackLayout Spacing="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Orientation="Vertical" BackgroundColor="{DynamicResource PageBackgroundColor}" Margin="{Binding GetMainContainerMargin}">
             <common:ActionBar BackButtonTintColor="{DynamicResource ActionBarIconsColor}" BackgroundColor="{DynamicResource ActionBarBackground}"
-                              ShowIcon="False" Title="{utils:Localized Map}" HideBackButton="False" TitleLabelStyle="{DynamicResource ActionBarTextLabelStyle}"
+                              ShowIcon="False" Title="{utils:Localized Map}" HideBackButton="{Binding ShouldBackButtonBeHidden}" TitleLabelStyle="{DynamicResource ActionBarTextLabelStyle}"
                               IsMaster="True" CenterBartitle="{Binding IsTitleCentered}" IsModal="False" BackButtonCommand="{Binding OpenDrawerCommand}">
                 <common:ActionBar.Menu>
                     <collections:ObservableCollection x:TypeArguments="ImageButton">

@@ -179,16 +179,16 @@ namespace XamarinBoilerplate.ViewModels
                 if (DeviceManager.IsIOSVersionGreaterOrEqualToSupportedIOSVersion())
                 {
                     Thickness customMargin;
-                    switch (DeviceManager.GetIPhoneType())
+                    switch (DeviceManager.GetAppleDeviceType())
                     {
-                        case IPhoneType.iPhone4                       : customMargin = new Thickness(0, 0, 0, 40); break;
-                        case IPhoneType.iPhoneSE_5                    : customMargin = new Thickness(0, 0, 0, 40); break;
-                        case IPhoneType.iPhone8_7_6                   : customMargin = new Thickness(0, 0, 0, 40); break;
-                        case IPhoneType.iPhone8Plus_7Plus_6SPlus_6Plus: customMargin = new Thickness(0, 0, 0, 40); break;
-                        case IPhoneType.iPhoneX_XS_11Pro              : customMargin = new Thickness(0, 0, 0, 20); break;
-                        case IPhoneType.iPhone11_XR                   : customMargin = new Thickness(0, 0, 0, 20); break;
-                        case IPhoneType.iPhone11ProMax_XSMax          : customMargin = new Thickness(0, 0, 0, 20); break;
-                        default                                       : customMargin = new Thickness(0, 0, 0, 20); break;
+                        case AppleDeviceType.iPhone4                       : 
+                        case AppleDeviceType.iPhoneSE_5                    : 
+                        case AppleDeviceType.iPhone8_7_6                   : 
+                        case AppleDeviceType.iPhone8Plus_7Plus_6SPlus_6Plus: customMargin = new Thickness(0, 0, 0, 40); break;
+                        case AppleDeviceType.iPhoneX_XS_11Pro              : 
+                        case AppleDeviceType.iPhone11_XR                   : 
+                        case AppleDeviceType.iPhone11ProMax_XSMax          : customMargin = new Thickness(0, 0, 0, 20); break;
+                        default                                            : customMargin = new Thickness(0, 0, 0, 20); break;
                     }
                     return customMargin;
                 }

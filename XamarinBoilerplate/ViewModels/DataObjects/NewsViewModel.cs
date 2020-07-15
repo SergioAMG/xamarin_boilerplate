@@ -1,4 +1,6 @@
-﻿namespace XamarinBoilerplate.ViewModels.DataObjects
+﻿using System;
+
+namespace XamarinBoilerplate.ViewModels.DataObjects
 {
     public class NewsViewModel : BaseViewModel
     {
@@ -6,6 +8,7 @@
         private string _text;
         private string _textClipped;
         private string _image;
+        private DateTime _date;
 
         public string Text
         {
@@ -67,6 +70,22 @@
                 {
                     _image = value;
                     OnPropertyChanged(nameof(Image));
+                }
+            }
+        }
+
+        public DateTime Date
+        {
+            get
+            {
+                return _date;
+            }
+            set
+            {
+                if (_date != value)
+                {
+                    _date = value;
+                    OnPropertyChanged(nameof(Date));
                 }
             }
         }

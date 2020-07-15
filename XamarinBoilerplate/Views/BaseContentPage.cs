@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Windows.Input;
 using Xamarin.Forms;
+using Xamarin.Forms.PlatformConfiguration.iOSSpecific;
 using XamarinBoilerplate.Services;
+using XamarinBoilerplate.Utils;
 using XamarinBoilerplate.ViewModels;
 
 namespace XamarinBoilerplate.Views
@@ -27,14 +29,10 @@ namespace XamarinBoilerplate.Views
                 }
             }
 
-            // TODO: Implement padding on nav bar for IOS X AND IOS 11
-            // var model = Xamarin.Essentials.DeviceInfo.DeviceType;
-            // after 11
-            // var safeInsets = On<Xamarin.Forms.PlatformConfiguration.iOS>().SafeAreaInsets();
-            // safeInsets.Top = 13;
-            // this.Padding = safeInsets;
-            // before 11 
-            // On<Xamarin.Forms.PlatformConfiguration.iOS>().SetUseSafeArea(true);
+            if (DeviceManager.IsIOSVersionGreaterOrEqualToSupportedIOSVersion())
+            {
+                On<Xamarin.Forms.PlatformConfiguration.iOS>().SetUseSafeArea(true);
+            }
         }
 
         public bool EnableHardwareBackButtonOverride

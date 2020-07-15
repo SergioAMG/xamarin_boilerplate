@@ -89,7 +89,10 @@ namespace XamarinBoilerplate.ViewModels
         private async Task ExecuteSearchLocationCommandAsync(object sender)
         {
             string searchTerm = (string)sender;
-            DependencyService.Get<IToast>().ShowToastMessage(Localization.AppResources.MapSearchBarSearchText + " " + searchTerm, false);
+            await NavigationService.GetCurrentDetailsPage().DisplayAlert(
+                    Localization.AppResources.MapSearchTitle,
+                    Localization.AppResources.MapSearchText,
+                    Localization.AppResources.Okay);
         }
     }
 }

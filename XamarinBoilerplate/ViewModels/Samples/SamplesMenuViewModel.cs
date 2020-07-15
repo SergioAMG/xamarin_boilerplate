@@ -1,4 +1,5 @@
 ﻿using DataManagers.Interfaces;
+using System;
 using System.Collections.ObjectModel;
 using System.Threading.Tasks;
 using System.Windows.Input;
@@ -135,8 +136,14 @@ namespace XamarinBoilerplate.ViewModels.Samples
 
         public void GenerateSamplesMenu()
         {
-            SampleMenu = new ObservableCollection<SampleMenuItemViewModel>();
-            SampleMenu.Add(new SampleMenuItemViewModel() { SampleMenuImage = "baseline_view_carousel_black_24", SampleMenuItem = Constants.CarouselViewMenu });
+            SampleMenu = new ObservableCollection<SampleMenuItemViewModel>
+            {
+                new SampleMenuItemViewModel()
+                {
+                    SampleMenuImage = "baseline_view_carousel_black_24",
+                    SampleMenuItem = Constants.CarouselViewMenu
+                }
+            };
         }
 
         public async Task NavigateToSample(SampleMenuItemViewModel samplePage)

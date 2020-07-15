@@ -22,7 +22,8 @@
     <item name="windowActionModeOverlay">true</item>
     <item name="android:datePickerDialogTheme">@style/AppCompatDialogStyle</item>
     <!-- Used for changing the tool icons of status bar into dark mode -->
-    <item name="android:windowLightStatusBar">true</item>
+    <item name="android:windowLightStatusBar">false</item>
+    <item name="android:textAllCaps">false</item>
   </style>
 
   <style name="AppCompatDialogStyle" parent="Theme.AppCompat.Light.Dialog">
@@ -48,4 +49,5 @@
     <item name="android:drawableTint">#FFFFFF</item>
     <!-- Toolbar items color -->
   </style>
+  
 </resources>

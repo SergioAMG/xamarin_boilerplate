@@ -4,6 +4,7 @@ using System.Windows.Input;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using XamarinBoilerplate.Effects;
+using XamarinBoilerplate.Utils;
 
 namespace XamarinBoilerplate.Views.Common
 {
@@ -25,6 +26,7 @@ namespace XamarinBoilerplate.Views.Common
         public ActionBar()
         {
             InitializeComponent();
+            baseContentArea.Padding = ActionBarPadding();
         }
 
         public bool CenterBartitle
@@ -447,6 +449,29 @@ namespace XamarinBoilerplate.Views.Common
             }
 
             await App.NavigationService.GoBackAsync();
+        }
+
+        public Thickness ActionBarPadding()
+        {
+            if (DeviceManager.IsIOS)
+            {
+                double supportedIOSVersion = Constants.SupportedIOSVersion;
+                string[] rawVersionArray = DeviceManager.Version.ToString().Split('.');
+                double currentIOSVersion = double.Parse(rawVersionArray[0] + '.' + rawVersionArray[1]);
+
+                if (currentIOSVersion < supportedIOSVersion)
+                {
+                    return new Thickness(0, 20, 0, 0);
+                }
+                else
+                {
+                    return new Thickness(0, 0, 0, 0);
+                }
+            }
+            else
+            {
+                return new Thickness(0, 0, 0, 0);
+            }
         }
     }
 }

@@ -11,14 +11,14 @@
         xmlns:utils="clr-namespace:XamarinBoilerplate.Utils"
         HasNavigationBar="False"
         Title="{utils:Localized ContactTitle}"
-        BackgroundColor="{DynamicResource PageBackgroundColor}"
+        BackgroundColor="{DynamicResource SafeAreaBackgroundColor}"
         xmlns:collections="clr-namespace:System.Collections.ObjectModel;assembly=netstandard"
         xmlns:effects="clr-namespace:XamarinBoilerplate.Effects"
         xmlns:controls="clr-namespace:XamarinBoilerplate.Controls"
         EnableHardwareBackButtonOverride="True"
         HardwareBackButtonCommand="{Binding BackFromDetailsCommand}">
     <ContentPage.Content>
-        <StackLayout Spacing="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Orientation="Vertical">
+        <StackLayout Spacing="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Orientation="Vertical" BackgroundColor="{DynamicResource PageBackgroundColor}" Margin="{Binding GetMainContainerMargin}">
             <common:ActionBar BackButtonTintColor="{DynamicResource ActionBarIconsColor}" BackgroundColor="{DynamicResource ActionBarBackground}"
                       ShowIcon="False" Title="{utils:Localized ContactTitle}" HideBackButton="False" TitleLabelStyle="{DynamicResource ActionBarTextLabelStyle}"
                       IsMaster="False" CenterBartitle="{Binding IsTitleCentered}" IsModal="False" BackButtonCommand="{Binding BackFromDetailsCommand}" IsVisible="{Binding IsNavBarVisible}">
@@ -50,8 +50,8 @@
             <ScrollView VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
                 <Grid ColumnSpacing="0" RowSpacing="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Padding="20,0">
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="90*" />
-                        <RowDefinition Height="10*" />
+                        <RowDefinition Height="80*" />
+                        <RowDefinition Height="20*" />
                     </Grid.RowDefinitions>
                     <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Grid.Row="0" Grid.Column="0" Spacing="10" Orientation="{Binding MainContainerOrientation}">
                         <StackLayout Spacing="0" HorizontalOptions="FillAndExpand" VerticalOptions="Start" Orientation="Vertical" Padding="0" WidthRequest="{Binding DetailsViewWidth}" >
@@ -61,16 +61,21 @@
                             <Label Text="{utils:Localized EpamAddressLineTwo}" HorizontalOptions="Center" HorizontalTextAlignment="Center" FontSize="15" />
                             <Label Text="{utils:Localized EpamWebSite}" HorizontalOptions="Center" HorizontalTextAlignment="Center" FontSize="15" TextColor="{DynamicResource Blue}" />
                         </StackLayout>
-                        <StackLayout Spacing="2" HorizontalOptions="FillAndExpand" VerticalOptions="Start" Orientation="Vertical" Padding="0,10,0,0">
-                            <Entry Text="{Binding YourName}" Placeholder="{utils:Localized YourName}" HorizontalOptions="FillAndExpand" IsSpellCheckEnabled="True" IsTextPredictionEnabled="False" />
-                            <Entry Text="{Binding YourPhone}" Placeholder="{utils:Localized YourPhone}" HorizontalOptions="FillAndExpand" IsSpellCheckEnabled="False" IsTextPredictionEnabled="False"/>
-                            <Entry Text="{Binding YourEmail}" Placeholder="{utils:Localized YourEmail}" HorizontalOptions="FillAndExpand" IsSpellCheckEnabled="False" IsTextPredictionEnabled="False"/>
-                            <Editor Text="{Binding YourMessage}" Placeholder="{utils:Localized YourMessage}" HorizontalOptions="FillAndExpand" AutoSize="TextChanges" WidthRequest="{Binding DetailsViewWidth}" Focused="EditorFocused" Unfocused="EditorUnfocused" />
-                            <Button Text="{utils:Localized Submit}" BorderWidth="1" IsVisible="{Binding IsLandscapeButtonVisible}" Command="{Binding SendMessageCommand}" />
+                        <StackLayout Spacing="2" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Orientation="Vertical" Padding="0,10,0,0">
+                            <StackLayout VerticalOptions="StartAndExpand">
+                                <Entry Text="{Binding YourName}" Placeholder="{utils:Localized YourName}" HorizontalOptions="FillAndExpand" IsSpellCheckEnabled="True" IsTextPredictionEnabled="False" />
+                                <Entry Text="{Binding YourPhone}" Placeholder="{utils:Localized YourPhone}" HorizontalOptions="FillAndExpand" IsSpellCheckEnabled="False" IsTextPredictionEnabled="False"/>
+                                <Entry Text="{Binding YourEmail}" Placeholder="{utils:Localized YourEmail}" HorizontalOptions="FillAndExpand" IsSpellCheckEnabled="False" IsTextPredictionEnabled="False"/>
+                                <Editor Text="{Binding YourMessage}" Placeholder="{utils:Localized YourMessage}" HorizontalOptions="FillAndExpand" AutoSize="TextChanges" WidthRequest="{Binding DetailsViewWidth}" Focused="EditorFocused" Unfocused="EditorUnfocused" />
+                            </StackLayout>
+                            <StackLayout VerticalOptions="EndAndExpand">
+                                <Button Text="{utils:Localized Submit}" IsVisible="{Binding IsLandscapeButtonVisible}" Command="{Binding SendMessageCommand}"
+                                        VerticalOptions="End" Style="{DynamicResource StandardButton}" />
+                            </StackLayout>
                         </StackLayout>
                     </StackLayout>
-                    <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand" Grid.Row="1" Grid.Column="0" IsVisible="{Binding IsBottomButtonVisible}">
-                        <Button Text="{utils:Localized Submit}" BorderWidth="1" Command="{Binding SendMessageCommand}" />
+                    <StackLayout VerticalOptions="EndAndExpand" HorizontalOptions="FillAndExpand" Grid.Row="1" Grid.Column="0" IsVisible="{Binding IsBottomButtonVisible}" Orientation="Vertical">
+                        <Button Text="{utils:Localized Submit}" Command="{Binding SendMessageCommand}" Style="{DynamicResource StandardButton}" Margin="{Binding BottomMarginForSubmitButton}"/>
                     </StackLayout>
                 </Grid>
             </ScrollView>

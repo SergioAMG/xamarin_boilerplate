@@ -8,6 +8,7 @@ using XamarinBoilerplate.Enums;
 using XamarinBoilerplate.Interfaces;
 using XamarinBoilerplate.Utils;
 using XamarinBoilerplate.ViewModels.DataObjects;
+using XamarinBoilerplate.Views;
 
 namespace XamarinBoilerplate.ViewModels
 {
@@ -17,6 +18,7 @@ namespace XamarinBoilerplate.ViewModels
         private ICommand _openDrawerCommand;
         private ICommand _viewMoreOptionsCommand;
         private ICommand _commonToolbarItemTapCommand;
+        private ICommand _floatingButtonCommand;
         private NewsViewModel _itemSelected;
         private ObservableCollection<NewsViewModel> _newsItems;
 
@@ -70,7 +72,7 @@ namespace XamarinBoilerplate.ViewModels
                 {
                     _itemSelected = value;
                     OnPropertyChanged(nameof(ItemSelected));
-                    DependencyService.Get<IToast>().ShowToastMessage(ItemSelected.ItemTitle, true);
+                    NavigationService.NavigateAsync(nameof(NewsReaderPage), ItemSelected, true);
                 }
             }
         }
@@ -116,6 +118,14 @@ namespace XamarinBoilerplate.ViewModels
             }
         }
 
+        public ICommand FloatingButtonCommand
+        {
+            get
+            {
+                return _floatingButtonCommand ?? (_floatingButtonCommand = new CommandExtended(ExecuteFloatingButtonCommanddAsync));
+            }
+        }
+
         public async Task LoadData()
         {
             NewsItems = new ObservableCollection<NewsViewModel>();
@@ -128,7 +138,8 @@ namespace XamarinBoilerplate.ViewModels
                 {
                     ItemTitle = item.ItemTitle,
                     Image = item.Image,
-                    Text = item.Text
+                    Text = item.Text,
+                    Date = item.Date
                 };
                 NewsItems.Add(newsViewModel);
             }
@@ -159,6 +170,12 @@ namespace XamarinBoilerplate.ViewModels
         {
             string itemTapped = (string)sender;
             DependencyService.Get<IToast>().ShowToastMessage(Localization.AppResources.CommonToolbarItemTapped + " " + itemTapped, false);
+        }
+
+        private async Task ExecuteFloatingButtonCommanddAsync()
+        {
+            await NavigationService.CurrentMasterDetailPage.DisplayAlert(Localization.AppResources.SearchNewsText, 
+                Localization.AppResources.SearchButtonTapped, Localization.AppResources.Okay);
         }
 
         private async void HandleUserSelection(string userSelection)

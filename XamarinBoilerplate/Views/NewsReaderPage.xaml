@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<base:BaseContentPage
+    xmlns:base="clr-namespace:XamarinBoilerplate.Views"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    xmlns:utils="clr-namespace:XamarinBoilerplate.Utils"
+    HasNavigationBar="False"
+    xmlns:effects="clr-namespace:XamarinBoilerplate.Effects"
+    xmlns:controls="clr-namespace:XamarinBoilerplate.Controls"
+    Title="{utils:Localized News}"
+    xmlns:collections="clr-namespace:System.Collections.ObjectModel;assembly=netstandard"
+    BackgroundColor="{DynamicResource SafeAreaBackgroundColor}"
+    x:Class="XamarinBoilerplate.Views.NewsReaderPage"
+    xmlns:common="clr-namespace:XamarinBoilerplate.Views.Common">
+    <ContentPage.Content>
+        <StackLayout Spacing="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Orientation="Vertical" BackgroundColor="{DynamicResource PageBackgroundColor}" Margin="{Binding GetMainContainerMargin}">
+            <common:ActionBar BackButtonTintColor="{DynamicResource ActionBarIconsColor}" BackgroundColor="{DynamicResource ActionBarBackground}"
+                      ShowIcon="False" Title="{utils:Localized News}" HideBackButton="False" TitleLabelStyle="{DynamicResource ActionBarTextLabelStyle}"
+                      IsMaster="False" CenterBartitle="{Binding IsTitleCentered}" IsModal="False">
+                <common:ActionBar.Menu>
+                    <collections:ObservableCollection x:TypeArguments="ImageButton">
+                        <ImageButton Source="baseline_zoom_in_black_24" HorizontalOptions="Start" 
+                                     Command="{Binding IncreaseTextSizeCommand}"
+                                     Margin="{Binding MarginForRightIconOfActionBar}" effects:TintEffect.TintColor="{DynamicResource ActionBarIconsColor}"
+                                     BackgroundColor="Transparent" VerticalOptions="Center" />
+                        <ImageButton Source="baseline_zoom_out_black_24" HorizontalOptions="Start" 
+                                     Command="{Binding DecreaseTextSizeCommand}"
+                                     Margin="{Binding MarginForSingleIconOfActionBar}" effects:TintEffect.TintColor="{DynamicResource ActionBarIconsColor}"
+                                     BackgroundColor="Transparent" VerticalOptions="Center" />
+                    </collections:ObservableCollection>
+                </common:ActionBar.Menu>
+            </common:ActionBar>
+            <ScrollView>
+                <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Spacing="20" Padding="20">
+                    <Image Source="{Binding NewsViewModel.Image}" Aspect="AspectFill" HeightRequest="150" />
+                    <Label Text="{Binding NewsViewModel.ItemTitle}" FontAttributes="Bold" FontSize="{Binding TitleTextSize}" />
+                    <StackLayout Orientation="Horizontal" Margin="0,-20,0,0">
+                        <Label Text="{utils:Localized DateCreated}" FontSize="{Binding TextSize}" />
+                        <Label Text=": " />
+                        <Label Text="{Binding NewsViewModel.Date}" FontSize="{Binding TextSize}" />
+                    </StackLayout>
+                    <controls:ExtendedLabel Text="{Binding NewsViewModel.Text}" JustifyText="True" FontSize="{Binding TextSize}" />
+                </StackLayout>
+            </ScrollView>
+        </StackLayout>
+    </ContentPage.Content>
+</base:BaseContentPage>

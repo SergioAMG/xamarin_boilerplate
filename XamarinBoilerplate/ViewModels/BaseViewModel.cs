@@ -113,6 +113,82 @@ namespace XamarinBoilerplate.ViewModels
             }
         }
 
+        public Thickness MarginForSingleIconOfActionBar
+        {
+            get
+            {
+                return (IsAndroid) ? Constants.MarginForSingleIconOfActionBarAndroid : Constants.MarginForSingleIconOfActionBarIOS;
+            }
+        }
+
+        public Thickness GetMainContainerMargin
+        {
+            get
+            {
+                if (DeviceManager.IsIOSVersionGreaterOrEqualToSupportedIOSVersion())
+                {
+                    if (DeviceManager.IsLandscape)
+                    {
+                        Thickness customMargin;
+                        switch (DeviceManager.GetAppleDeviceType())
+                        {
+                            case AppleDeviceType.iPhone4                                         : 
+                            case AppleDeviceType.iPhoneSE_5                                      : 
+                            case AppleDeviceType.iPhone8_7_6                                     : customMargin = new Thickness(0); break;
+                            case AppleDeviceType.iPhone8Plus_7Plus_6SPlus_6Plus                  : customMargin = new Thickness(0, 0, 0, -35); break;
+                            case AppleDeviceType.iPhoneX_XS_11Pro                                : 
+                            case AppleDeviceType.iPhone11_XR                                     : 
+                            case AppleDeviceType.iPhone11ProMax_XSMax                            : customMargin = new Thickness(-45, 0, -45, -35); break;
+                            case AppleDeviceType.iPad_2_Mini                                     :
+                            case AppleDeviceType.iPad3_4_Air_Mini2_Mini3_Air2_Mini4_Pro_2017_2018:
+                            case AppleDeviceType.iPadProSec10                                    : 
+                            case AppleDeviceType.iPadProSec12                                    : customMargin = new Thickness(0); break;
+                            default                                                              : customMargin = new Thickness(-45, 0, -45, -35); break;
+                        }
+                        return customMargin;
+                    }
+                    else
+                    {
+                        return new Thickness(0, 0, 0, -35);
+                    }
+                }
+                else
+                {
+                    if (DeviceManager.IsLandscape && IsIOS)
+                    {
+                        return (DeviceManager.IsTablet) ? new Thickness(0) : new Thickness(0, -20, 0, 0);
+                    }
+                    else
+                    {
+                        return new Thickness(0);
+                    }
+                }
+            }
+        }
+
+        public bool IsLeftIconVisible
+        {
+            get
+            {
+                if (DeviceManager.GetAppleDeviceType() == AppleDeviceType.iPhone4 || DeviceManager.GetAppleDeviceType() == AppleDeviceType.iPhoneSE_5)
+                {
+                    return (DeviceManager.IsLandscape) ? true : false;
+                }
+                else
+                {
+                    return true;
+                }
+            }
+        }
+
+        public bool ShouldBackButtonBeHidden
+        {
+            get
+            {
+                return (DeviceManager.IsLandscape && DeviceManager.IsTablet) ? true : false;
+            }
+        }
+
         public INavigationService NavigationService
         {
             get
@@ -167,6 +243,13 @@ namespace XamarinBoilerplate.ViewModels
 
         public virtual void OnDisappearing()
         {
+        }
+
+        public void RefreshMainContainerMargins()
+        {
+            OnPropertyChanged(nameof(GetMainContainerMargin));
+            OnPropertyChanged(nameof(IsLeftIconVisible));
+            OnPropertyChanged(nameof(ShouldBackButtonBeHidden));
         }
     }
 

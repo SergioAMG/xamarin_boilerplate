@@ -1,5 +1,4 @@
-﻿using System;
-namespace XamarinBoilerplate.Interfaces
+﻿namespace XamarinBoilerplate.Interfaces
 {
     public interface IToast
     {

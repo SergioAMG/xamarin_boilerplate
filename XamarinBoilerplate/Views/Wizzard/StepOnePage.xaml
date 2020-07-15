@@ -33,7 +33,6 @@
                         <SwipeGestureRecognizer Direction="Left" Command="{Binding NextTutorialCommand}" />
                     </StackLayout.GestureRecognizers>
                 </StackLayout>
-                <!-- TODO: Add support for IOS 13 -->
                 <Grid ColumnSpacing="0" RowSpacing="0" HorizontalOptions="FillAndExpand" VerticalOptions="EndAndExpand" Grid.Row="1" Grid.Column="0" Padding="30,0">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="Auto" />

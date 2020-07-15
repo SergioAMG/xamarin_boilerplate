@@ -12,12 +12,12 @@
         xmlns:common="clr-namespace:XamarinBoilerplate.Views.Common"
         xmlns:utils="clr-namespace:XamarinBoilerplate.Utils"
         xmlns:effects="clr-namespace:XamarinBoilerplate.Effects"
-        BackgroundColor="{DynamicResource PageBackgroundColor}"
+        BackgroundColor="{DynamicResource SafeAreaBackgroundColor}"
         xmlns:cards="clr-namespace:PanCardView;assembly=PanCardView"
         xmlns:proc="clr-namespace:PanCardView.Processors;assembly=PanCardView"
         xmlns:controls="clr-namespace:PanCardView.Controls;assembly=PanCardView">
     <ContentPage.Content>
-        <StackLayout Spacing="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Orientation="Vertical">
+        <StackLayout Spacing="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Orientation="Vertical" BackgroundColor="{DynamicResource PageBackgroundColor}" Margin="{Binding GetMainContainerMargin}">
             <common:ActionBar BackButtonTintColor="{DynamicResource ActionBarIconsColor}" BackgroundColor="{DynamicResource ActionBarBackground}"
                       ShowIcon="False" Title="{utils:Localized CarouselSamplePageTitle}" HideBackButton="False" TitleLabelStyle="{DynamicResource ActionBarTextLabelStyle}"
                       IsMaster="False" CenterBartitle="{Binding IsTitleCentered}" IsModal="False" BackButtonCommand="{Binding BackFromDetailsCommand}" />

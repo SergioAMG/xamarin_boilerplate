@@ -6,7 +6,6 @@ using Xamarin.Essentials;
 using Xamarin.Forms;
 using XamarinBoilerplate.Utils;
 using XamarinBoilerplate.Views;
-using XamarinBoilerplate.Views.Samples;
 
 namespace XamarinBoilerplate.ViewModels
 {

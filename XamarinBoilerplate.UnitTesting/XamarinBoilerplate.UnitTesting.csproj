@@ -70,6 +70,9 @@
     <Reference Include="Plugin.Fingerprint.Abstractions, Version=1.4.9.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Plugin.Fingerprint.1.4.9\lib\net45\Plugin.Fingerprint.Abstractions.dll</HintPath>
     </Reference>
+    <Reference Include="Refractored.FabControl, Version=2.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Refractored.FloatingActionButtonForms.2.1.0\lib\netstandard1.0\Refractored.FabControl.dll</HintPath>
+    </Reference>
     <Reference Include="Shouldly, Version=3.0.2.0, Culture=neutral, PublicKeyToken=6042cbcb05cbc941, processorArchitecture=MSIL">
       <HintPath>..\packages\Shouldly.3.0.2\lib\net451\Shouldly.dll</HintPath>
     </Reference>
@@ -118,6 +121,7 @@
     <Compile Include="ViewModels\LoginViewModelTests.cs" />
     <Compile Include="ViewModels\MapViewModelTests.cs" />
     <Compile Include="ViewModels\MenuViewModelTests.cs" />
+    <Compile Include="ViewModels\NewsReaderViewModelTests.cs" />
     <Compile Include="ViewModels\Samples\CarouselSampleViewModelTests.cs" />
     <Compile Include="ViewModels\Samples\SamplesMenuViewModelTests.cs" />
     <Compile Include="ViewModels\Wizzard\StepOneViewModelTests.cs" />

@@ -9,12 +9,15 @@
         x:Class="XamarinBoilerplate.Views.MenuPage"
         xmlns:utils="clr-namespace:XamarinBoilerplate.Utils"
         HasNavigationBar="False"
-        BackgroundColor="{DynamicResource PageBackgroundColor}"
+        BackgroundColor="{DynamicResource SafeAreaBackgroundColor}"
         Title="{utils:Localized Menu}">
     <ContentPage.Content>
-        <StackLayout Orientation="Vertical" Spacing="0" Padding="0,15,0,0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
-            <ImageButton Source="baseline_close_black_24" HorizontalOptions="End" Command="{Binding CloseCommand}" BackgroundColor="Transparent" Margin="0,0,15,0" WidthRequest="24" HeightRequest="24" Aspect="AspectFit" />
-            <Label Text="{utils:Localized Menu}" HorizontalTextAlignment="Start" FontAttributes="Bold" FontSize="Title" Margin="15,15,0,25" TextColor="{DynamicResource Black}" />
+        <StackLayout Orientation="Vertical" Spacing="0" Padding="0,15,0,0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"
+                     BackgroundColor="{DynamicResource PageBackgroundColor}" Margin="{Binding LeftMainMargin}">
+            <ImageButton Source="baseline_close_black_24" HorizontalOptions="End" Command="{Binding CloseCommand}" BackgroundColor="Transparent"
+                         Margin="{Binding CloseButtonMargin}" WidthRequest="24" HeightRequest="24" Aspect="AspectFit" IsVisible="{Binding IsCloseButtonVisible}" />
+            <Label Text="{utils:Localized Menu}" HorizontalTextAlignment="Start" FontAttributes="Bold" FontSize="Title" Margin="15,15,0,25"
+                   TextColor="{DynamicResource Black}" />
             <ScrollView>
                 <Grid Padding="0" RowSpacing="0">
                     <Grid.RowDefinitions>
@@ -79,18 +82,21 @@
                     <BoxView Grid.Row="8" Grid.Column="0" Grid.ColumnSpan="2" BackgroundColor="#ECECEC" HeightRequest="1" HorizontalOptions="FillAndExpand" VerticalOptions="Start" />
                 </Grid>
             </ScrollView>
-            <StackLayout VerticalOptions="EndAndExpand" HorizontalOptions="FillAndExpand" Orientation="Vertical" Padding="20,15" BackgroundColor="{DynamicResource FooterGray}">
-                <Label Text="{Binding AppVersion}" VerticalTextAlignment="End" />
-                <Label VerticalTextAlignment="End">
+            <StackLayout VerticalOptions="EndAndExpand" HorizontalOptions="FillAndExpand" Orientation="Vertical" Padding="0" Spacing="0"
+                         BackgroundColor="{DynamicResource FooterGray}" Margin="{Binding FooterMargin}" HeightRequest="{Binding BottomPanelHeight}">
+                <StackLayout Orientation="Vertical" HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand" Spacing="{Binding BottomTextSpacing}" Padding="{Binding BottomPadding}">
+                    <Label Text="{Binding AppVersion}" />
+                    <Label VerticalTextAlignment="End">
                     <Label.FormattedText>
                         <FormattedString>
                             <Span Text="&lt;" TextColor="{DynamicResource EPAMBlue}" FontAttributes="Bold" />
                             <Span Text="EPAM" TextColor="{DynamicResource Black}" FontAttributes="Bold" />
                             <Span Text="&gt;" TextColor="{DynamicResource EPAMBlue}" FontAttributes="Bold" />
-                            <Span Text=" Systems Mexico 2020" />
+                            <Span Text=" Systems Mexico" />
                         </FormattedString>
                     </Label.FormattedText>
                 </Label>
+                </StackLayout>
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>

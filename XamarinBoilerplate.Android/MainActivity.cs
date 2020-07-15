@@ -33,7 +33,7 @@ namespace XamarinBoilerplate.Droid
             CrossFingerprint.SetDialogFragmentType<CustomFingerprintDialogFragment>();
             CardsViewRenderer.Preserve();
 
-            Window.SetStatusBarColor(Android.Graphics.Color.White);
+            Window.SetStatusBarColor(Android.Graphics.Color.ParseColor("#007CFF"));
             LoadApplication(new App());
         }
 

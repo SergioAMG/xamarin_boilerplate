@@ -27,7 +27,7 @@
                 <StackLayout Orientation="Vertical" VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand" Padding="25,0" WidthRequest="250">
                     <Entry Text="{Binding Login}" Placeholder="Login" HorizontalOptions="FillAndExpand" />
                     <Entry Text="{Binding Password}" Placeholder="Password" IsPassword="True" HorizontalOptions="FillAndExpand" />
-                    <Button Text="Login" HorizontalOptions="FillAndExpand" BorderWidth="1" Command="{Binding LoginCommand}" Margin="0,10,0,0"/>
+                    <Button Text="{utils:Localized Login}" HorizontalOptions="FillAndExpand" Command="{Binding LoginCommand}" Margin="0,10,0,0" Style="{DynamicResource StandardButton}" />
                 </StackLayout>
             </StackLayout>
             <StackLayout Orientation="Vertical" VerticalOptions="End" Padding="25,0,25,10">

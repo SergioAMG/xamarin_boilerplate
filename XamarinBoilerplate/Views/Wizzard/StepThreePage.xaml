@@ -31,9 +31,9 @@
                     </StackLayout>
                     <StackLayout.GestureRecognizers>
                         <SwipeGestureRecognizer Direction="Right" Command="{Binding BackTutorialCommand}" />
+                        <SwipeGestureRecognizer Direction="Left" Command="{Binding DoneTutorialCommand}" />
                     </StackLayout.GestureRecognizers>
                 </StackLayout>
-                <!-- TODO: Add support for IOS 11 -->
                 <Grid ColumnSpacing="0" RowSpacing="0" HorizontalOptions="FillAndExpand" VerticalOptions="EndAndExpand" Grid.Row="1" Grid.Column="0" Padding="30,0">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="Auto" />

@@ -5,6 +5,7 @@ using Xamarin.Forms;
 using XamarinBoilerplate.Enums;
 using XamarinBoilerplate.Utils;
 using XamarinBoilerplate.ViewModels.Wizzard;
+using XamarinBoilerplate.Views;
 using XamarinBoilerplate.Views.Wizzard;
 
 namespace XamarinBoilerplate.UnitTesting.ViewModels.Wizzard
@@ -73,7 +74,23 @@ namespace XamarinBoilerplate.UnitTesting.ViewModels.Wizzard
         [TestMethod]
         public void ShouldExecuteDoneTutorialCommandCompleteTheTutorial()
         {
-            // TODO: Test ExecuteDoneTutorialCommand
+            //arrange
+            viewModel = new StepThreeViewModel();
+            viewModel.NavigationService.SetRootPage(nameof(StepOnePage), new StepOneViewModel());
+            viewModel.NavigationService.NavigateAsync(nameof(StepTwoPage), null, false);
+            viewModel.NavigationService.NavigateAsync(nameof(StepThreePage), null, false);
+            Page targetPage = new DashboardPage();
+            Page currentPage = viewModel.NavigationService.CurrentPage;
+
+            //act
+            Task.Run(async () =>
+            {
+                await viewModel.ExecuteDoneTutorialCommandAsync();
+            }).GetAwaiter().GetResult();
+            currentPage = viewModel.NavigationService.CurrentMasterDetailPage;
+
+            //assert
+            NUnit.Framework.Assert.AreEqual(currentPage.Title, targetPage.Title);
         }
 
         [TestMethod]

@@ -5,13 +5,14 @@
         xmlns:d="http://xamarin.com/schemas/2014/forms/design"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        x:Class="XamarinBoilerplate.Views.Common.ActionBar">
-    <ContentView.Margin>
+        x:Class="XamarinBoilerplate.Views.Common.ActionBar"
+        x:Name="baseContentArea">
+    <!--<ContentView.Padding>
         <OnPlatform x:TypeArguments="Thickness">
             <On Platform="Android" Value="0,0,0,0" />
             <On Platform="iOS" Value="0,20,0,0" />
         </OnPlatform>
-    </ContentView.Margin>
+    </ContentView.Padding>-->
     <ContentView.Content>
         <Grid VerticalOptions="FillAndExpand"  x:Name="GridContainer"
               HorizontalOptions="FillAndExpand" RowSpacing="0" HeightRequest="56">

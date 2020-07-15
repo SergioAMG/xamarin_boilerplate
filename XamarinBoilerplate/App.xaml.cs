@@ -66,6 +66,7 @@ namespace XamarinBoilerplate
             NavigationService.Configure(nameof(CustomTabbedPage), typeof(CustomTabbedPage));
             NavigationService.Configure(nameof(ContactPage), typeof(ContactPage));
             NavigationService.Configure(nameof(LoginPage), typeof(LoginPage));
+            NavigationService.Configure(nameof(NewsReaderPage), typeof(NewsReaderPage));
             NavigationService.Configure(nameof(SamplesMenuPage), typeof(SamplesMenuPage));
             NavigationService.Configure(nameof(CarouselSamplePage), typeof(CarouselSamplePage));
 
@@ -80,6 +81,7 @@ namespace XamarinBoilerplate
             NavigationService.BindViewModel<CustomTabbedViewModel, CustomTabbedPage>();
             NavigationService.BindViewModel<ContactViewModel, ContactPage>();
             NavigationService.BindViewModel<LoginViewModel, LoginPage>();
+            NavigationService.BindViewModel<NewsReaderViewModel, NewsReaderPage>();
             NavigationService.BindViewModel<SamplesMenuViewModel, SamplesMenuPage>();
             NavigationService.BindViewModel<CarouselSampleViewModel, CarouselSamplePage>();
         }

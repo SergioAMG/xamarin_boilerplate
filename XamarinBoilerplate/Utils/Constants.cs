@@ -20,9 +20,15 @@ namespace XamarinBoilerplate.Utils
         public static readonly Thickness MarginForRightIconOfActionBarIOS = new Thickness(0, 0, 32, 0);
         public static readonly Thickness MarginForOptionsIconOfActionBarAndroid = new Thickness(0, 0, 3, 0);
         public static readonly Thickness MarginForOptionsIconOfActionBarIOS = new Thickness(0, 0, 5, 0);
+        public static readonly Thickness MarginForSingleIconOfActionBarAndroid = new Thickness(0, 0, 8, 0);
+        public static readonly Thickness MarginForSingleIconOfActionBarIOS = new Thickness(0, 0, 10, 0);
         public static readonly string CarouselViewMenu = nameof(CarouselSamplePage);
         public static readonly string PortraitMode = "Portrait";
         public static readonly string LandscapeMode = "Landscape";
-
+        public static readonly double InitialTextSizeForNewsItem = 14;
+        public static readonly double InitialTitleSizeForNewsItem = 16;
+        public static readonly double TextIncreaseFactor = 1.10;
+        public static readonly double TextDecreaseFactor = 0.90;
+        public static readonly double SupportedIOSVersion = 11.0;
     }
 }

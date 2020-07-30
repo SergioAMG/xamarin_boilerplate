@@ -22,56 +22,47 @@
             <RefreshView IsRefreshing="{Binding IsRefreshing}" Command="{Binding OnRefreshCommand}">
                 <CollectionView x:Name="BrandsCollection" ItemsSource="{Binding PopularBrands}" Margin="20,0" ItemsLayout="VerticalList" SelectionMode="Single" SelectedItem="{Binding SelectedBrand}">
                     <CollectionView.ItemTemplate>
-                    <DataTemplate>
-                        <SwipeView>
-                            <SwipeView.RightItems>
-                                <SwipeItems>
-                                    <SwipeItem Text="Favorite"
-                                        IconImageSource="baseline_star_black_24"
-                                        BackgroundColor="Green"
+                        <DataTemplate>
+                            <SwipeView>
+                                <SwipeView.RightItems>
+                                    <SwipeItems>
+                                        <SwipeItem Text="Favorite"
+                                        IconImageSource="baseline_favorite_full_24"
+                                        BackgroundColor="{DynamicResource Blue}"
                                         Command="{Binding Source={x:Reference BrandsCollection}, Path=BindingContext.OnFavoriteCommand}"
                                         CommandParameter="{Binding .}" />
-                                    <SwipeItem Text="Delete"
+                                        <SwipeItem Text="Delete"
                                         IconImageSource="baseline_delete_forever_black_24"
                                         BackgroundColor="Red"
                                         Command="{Binding Source={x:Reference BrandsCollection}, Path=BindingContext.OnDeleteCommand}"
                                         CommandParameter="{Binding .}" />
-                                </SwipeItems>
-                            </SwipeView.RightItems>
-                            <StackLayout Spacing="0" Orientation="Vertical" BackgroundColor="White">
-                                <Grid HeightRequest="60" ColumnSpacing="0" RowSpacing="0" Padding="0,0">
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition Height="*" />
-                                        <RowDefinition Height="*" />
-                                    </Grid.RowDefinitions>
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="{Binding Source={x:Reference BrandsCollection}, Path= BindingContext.FirstColumnWidth}" />
-                                        <ColumnDefinition Width="{Binding Source={x:Reference BrandsCollection}, Path= BindingContext.SecondColumnWidth}" />
-                                        <ColumnDefinition Width="{Binding Source={x:Reference BrandsCollection}, Path= BindingContext.ThirdColumnWidth}" />
-                                    </Grid.ColumnDefinitions>
-                                    <Image Source="{Binding Image}" HorizontalOptions="StartAndExpand" Grid.Row="0" Grid.RowSpan="2" Grid.Column="0" VerticalOptions="Center" WidthRequest="200" Aspect="AspectFill" />
-                                    <Label Text="{Binding ItemTitle}" HorizontalOptions="StartAndExpand" Grid.Row="0" Grid.Column="1" VerticalTextAlignment="Center" TextColor="Black" Margin="15,0" />
-                                    <Label Text="{Binding Text}" HorizontalOptions="StartAndExpand" Grid.Row="1" Grid.Column="1" VerticalTextAlignment="Center" TextColor="Gray" Margin="15,0" />
-                                    <StackLayout Orientation="Horizontal" Spacing="2" Grid.Row="0" Grid.RowSpan="2" Grid.Column="2">
-                                            <Image Source="baseline_star_black_24" HorizontalOptions="EndAndExpand" VerticalOptions="Center">
-                                                <Image.Triggers>
-                                                    <DataTrigger TargetType="Image" Binding="{Binding IsFavorite}" Value="true">
-                                                        <Setter Property="IsVisible" Value="True" />
-                                                    </DataTrigger>
-                                                    <DataTrigger TargetType="Image" Binding="{Binding IsFavorite}" Value="false">
-                                                        <Setter Property="IsVisible" Value="False" />
-                                                    </DataTrigger>
-                                                </Image.Triggers>
-                                            </Image>
-                                            <Image Source="baseline_chevron_right_black_24" HorizontalOptions="EndAndExpand" VerticalOptions="Center" />
-                                    </StackLayout>
+                                    </SwipeItems>
+                                </SwipeView.RightItems>
+                                <StackLayout Spacing="0" Orientation="Vertical" BackgroundColor="White">
+                                    <Grid HeightRequest="60" ColumnSpacing="0" RowSpacing="0" Padding="0,0">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="*" />
+                                            <RowDefinition Height="*" />
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="{Binding Source={x:Reference BrandsCollection}, Path= BindingContext.FirstColumnWidth}" />
+                                            <ColumnDefinition Width="{Binding Source={x:Reference BrandsCollection}, Path= BindingContext.SecondColumnWidth}" />
+                                            <ColumnDefinition Width="{Binding Source={x:Reference BrandsCollection}, Path= BindingContext.ThirdColumnWidth}" />
+                                        </Grid.ColumnDefinitions>
+                                        <Image Source="{Binding Image}" HorizontalOptions="StartAndExpand" Grid.Row="0" Grid.RowSpan="2" Grid.Column="0" VerticalOptions="Center" WidthRequest="200" Aspect="AspectFill" />
+                                        <Label Text="{Binding ItemTitle}" HorizontalOptions="StartAndExpand" Grid.Row="0" Grid.Column="1" VerticalTextAlignment="Center" TextColor="Black" Margin="15,0" />
+                                        <Label Text="{Binding Text}" HorizontalOptions="StartAndExpand" Grid.Row="1" Grid.Column="1" VerticalTextAlignment="Center" TextColor="Gray" Margin="15,0" />
+                                        <StackLayout Orientation="Horizontal" Spacing="2" Grid.Row="0" Grid.RowSpan="2" Grid.Column="2">
+                                            <Image Source="baseline_favorite_black_24" HorizontalOptions="EndAndExpand" VerticalOptions="Center" IsVisible="{Binding IsFavorite}" effects:TintEffect.TintColor="{DynamicResource Blue}" />
+                                            <Image Source="baseline_chevron_right_black_24" HorizontalOptions="EndAndExpand" VerticalOptions="Center" IsVisible="True" />
+                                        </StackLayout>
                                     </Grid>
-                                <BoxView HorizontalOptions="FillAndExpand" VerticalOptions="Start" HeightRequest="1" BackgroundColor="LightGray" />
-                            </StackLayout>
-                        </SwipeView>
-                    </DataTemplate>
-                </CollectionView.ItemTemplate>
-            </CollectionView>
+                                    <BoxView HorizontalOptions="FillAndExpand" VerticalOptions="Start" HeightRequest="1" BackgroundColor="LightGray" />
+                                </StackLayout>
+                            </SwipeView>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
             </RefreshView>
         </StackLayout>
     </ContentPage.Content>

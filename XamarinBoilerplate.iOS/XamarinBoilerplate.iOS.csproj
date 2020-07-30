@@ -427,4 +427,22 @@
   <ItemGroup>
     <BundleResource Include="Resources\baseline_star_black_24%401x.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\baseline_favorite_black_24%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\baseline_favorite_black_24%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\baseline_favorite_black_24%401x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\baseline_favorite_full_24%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\baseline_favorite_full_24%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\baseline_favorite_full_24%401x.png" />
+  </ItemGroup>
 </Project>

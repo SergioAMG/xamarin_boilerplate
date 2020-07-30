@@ -124,6 +124,15 @@ namespace Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Search items ....
+        /// </summary>
+        public static string CollectionViewSampleSearchBarPlaceHolder {
+            get {
+                return ResourceManager.GetString("CollectionViewSampleSearchBarPlaceHolder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Collection View Sample Page.
         /// </summary>
         public static string CollectionViewSampleTitle {
@@ -187,6 +196,15 @@ namespace Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Delete.
+        /// </summary>
+        public static string Delete {
+            get {
+                return ResourceManager.GetString("Delete", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Done.
         /// </summary>
         public static string Done {
@@ -241,6 +259,15 @@ namespace Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Favorite.
+        /// </summary>
+        public static string Favorite {
+            get {
+                return ResourceManager.GetString("Favorite", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Touch here to use fingerprint.
         /// </summary>
         public static string Fingerprint {
@@ -291,6 +318,15 @@ namespace Localization {
         public static string Home {
             get {
                 return ResourceManager.GetString("Home", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Item Selected .
+        /// </summary>
+        public static string ItemSelected {
+            get {
+                return ResourceManager.GetString("ItemSelected", resourceCulture);
             }
         }
         

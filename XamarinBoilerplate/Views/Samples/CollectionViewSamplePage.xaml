@@ -18,7 +18,8 @@
             <common:ActionBar BackButtonTintColor="{DynamicResource ActionBarIconsColor}" BackgroundColor="{DynamicResource ActionBarBackground}"
                       ShowIcon="False" Title="{utils:Localized CollectionViewSampleTitle}" HideBackButton="False" TitleLabelStyle="{DynamicResource ActionBarTextLabelStyle}"
                       IsMaster="False" CenterBartitle="{Binding IsTitleCentered}" IsModal="False" BackButtonCommand="{Binding BackFromDetailsCommand}" />
-            <SearchBar x:Name="searchBar" Placeholder="Search items..." Margin="{Binding SearchMargin}" SearchCommand="{Binding OnPerformSearchCommand}" SearchCommandParameter="{Binding Text, Source={x:Reference searchBar}}" TextChanged="searchBarTextChanged" />
+            <SearchBar x:Name="searchBar" Placeholder="{utils:Localized CollectionViewSampleSearchBarPlaceHolder}" Margin="{Binding SearchMargin}"
+                       SearchCommand="{Binding OnPerformSearchCommand}" SearchCommandParameter="{Binding Text, Source={x:Reference searchBar}}" TextChanged="searchBarTextChanged" />
             <RefreshView IsRefreshing="{Binding IsRefreshing}" Command="{Binding OnRefreshCommand}">
                 <CollectionView x:Name="BrandsCollection" ItemsSource="{Binding PopularBrands}" Margin="20,0" ItemsLayout="VerticalList" SelectionMode="Single" SelectedItem="{Binding SelectedBrand}">
                     <CollectionView.ItemTemplate>
@@ -26,12 +27,12 @@
                             <SwipeView>
                                 <SwipeView.RightItems>
                                     <SwipeItems>
-                                        <SwipeItem Text="Favorite"
+                                        <SwipeItem Text="{utils:Localized Favorite}"
                                         IconImageSource="baseline_favorite_full_24"
                                         BackgroundColor="{DynamicResource Blue}"
                                         Command="{Binding Source={x:Reference BrandsCollection}, Path=BindingContext.OnFavoriteCommand}"
                                         CommandParameter="{Binding .}" />
-                                        <SwipeItem Text="Delete"
+                                        <SwipeItem Text="{utils:Localized Delete}"
                                         IconImageSource="baseline_delete_forever_black_24"
                                         BackgroundColor="Red"
                                         Command="{Binding Source={x:Reference BrandsCollection}, Path=BindingContext.OnDeleteCommand}"

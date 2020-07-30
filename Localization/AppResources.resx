@@ -485,4 +485,20 @@
     <value>Collection View Sample Page</value>
     <comment>Collection View Sample Page Title Text </comment>
   </data>
+  <data name="CollectionViewSampleSearchBarPlaceHolder" xml:space="preserve">
+    <value>Search items ...</value>
+    <comment>Collection View Sample SearchBar PlaceHolder Text</comment>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Delete</value>
+    <comment>Delete Text</comment>
+  </data>
+  <data name="Favorite" xml:space="preserve">
+    <value>Favorite</value>
+    <comment>Favorite Text</comment>
+  </data>
+  <data name="ItemSelected" xml:space="preserve">
+    <value>Item Selected </value>
+    <comment>Item Selected Text</comment>
+  </data>
 </root>

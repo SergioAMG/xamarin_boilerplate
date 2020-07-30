@@ -1,9 +1,7 @@
 ﻿using DataManagers.Interfaces;
 using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
@@ -91,7 +89,7 @@ namespace XamarinBoilerplate.ViewModels.Samples
                 {
                     _selectedBrand = value;
                     OnPropertyChanged(nameof(SelectedBrand));
-                    DependencyService.Get<IToast>().ShowToastMessage("Item Selected: " + SelectedBrand.ItemTitle, false);
+                    DependencyService.Get<IToast>().ShowToastMessage(Localization.AppResources.ItemSelected + ": " + SelectedBrand.ItemTitle, false);
                 }
             }
         }
@@ -183,12 +181,9 @@ namespace XamarinBoilerplate.ViewModels.Samples
 
         public async Task ExecuteOnFavoriteCommandAsync(object sender)
         {
-            Device.BeginInvokeOnMainThread(() => {
-                PopularBrandsViewModel popularBrandsViewModel = (PopularBrandsViewModel)sender;
-                popularBrandsViewModel.IsFavorite = !popularBrandsViewModel.IsFavorite;
-
-                PopularBrandsFromServer[PopularBrandsFromServer.IndexOf(popularBrandsViewModel)].IsFavorite = popularBrandsViewModel.IsFavorite;
-            });
+            PopularBrandsViewModel popularBrandsViewModel = (PopularBrandsViewModel)sender;
+            popularBrandsViewModel.IsFavorite = !popularBrandsViewModel.IsFavorite;
+            PopularBrandsFromServer[PopularBrandsFromServer.IndexOf(popularBrandsViewModel)].IsFavorite = popularBrandsViewModel.IsFavorite;
         }
 
         public async Task ExecuteOnPerformSearchCommandAsync(object sender)

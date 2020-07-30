@@ -124,6 +124,15 @@ namespace Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Collection View Sample Page.
+        /// </summary>
+        public static string CollectionViewSampleTitle {
+            get {
+                return ResourceManager.GetString("CollectionViewSampleTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to The following toolbar item has been tapped.
         /// </summary>
         public static string CommonToolbarItemTapped {

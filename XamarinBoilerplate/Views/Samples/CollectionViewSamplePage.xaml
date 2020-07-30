@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<base:BaseContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Title="{utils:Localized CollectionViewSampleTitle}"
+    HasNavigationBar="False"
+    xmlns:base="clr-namespace:XamarinBoilerplate.Views"
+    xmlns:effects="clr-namespace:XamarinBoilerplate.Effects"
+    xmlns:utils="clr-namespace:XamarinBoilerplate.Utils"
+    xmlns:common="clr-namespace:XamarinBoilerplate.Views.Common"
+    BackgroundColor="{DynamicResource SafeAreaBackgroundColor}"
+    x:Class="XamarinBoilerplate.Views.Samples.CollectionViewSamplePage">
+    <ContentPage.Content>
+        <StackLayout Spacing="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Orientation="Vertical" BackgroundColor="{DynamicResource PageBackgroundColor}" Margin="{Binding GetMainContainerMargin}">
+            <common:ActionBar BackButtonTintColor="{DynamicResource ActionBarIconsColor}" BackgroundColor="{DynamicResource ActionBarBackground}"
+                      ShowIcon="False" Title="{utils:Localized CollectionViewSampleTitle}" HideBackButton="False" TitleLabelStyle="{DynamicResource ActionBarTextLabelStyle}"
+                      IsMaster="False" CenterBartitle="{Binding IsTitleCentered}" IsModal="False" BackButtonCommand="{Binding BackFromDetailsCommand}" />
+            <SearchBar x:Name="searchBar" Placeholder="Search items..." Margin="{Binding SearchMargin}" SearchCommand="{Binding OnPerformSearchCommand}" SearchCommandParameter="{Binding Text, Source={x:Reference searchBar}}" TextChanged="searchBarTextChanged" />
+            <RefreshView IsRefreshing="{Binding IsRefreshing}" Command="{Binding OnRefreshCommand}">
+                <CollectionView x:Name="BrandsCollection" ItemsSource="{Binding PopularBrands}" Margin="20,0" ItemsLayout="VerticalList" SelectionMode="Single" SelectedItem="{Binding SelectedBrand}">
+                    <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <SwipeView>
+                            <SwipeView.RightItems>
+                                <SwipeItems>
+                                    <SwipeItem Text="Favorite"
+                                        IconImageSource="baseline_star_black_24"
+                                        BackgroundColor="Green"
+                                        Command="{Binding Source={x:Reference BrandsCollection}, Path=BindingContext.OnFavoriteCommand}"
+                                        CommandParameter="{Binding .}" />
+                                    <SwipeItem Text="Delete"
+                                        IconImageSource="baseline_delete_forever_black_24"
+                                        BackgroundColor="Red"
+                                        Command="{Binding Source={x:Reference BrandsCollection}, Path=BindingContext.OnDeleteCommand}"
+                                        CommandParameter="{Binding .}" />
+                                </SwipeItems>
+                            </SwipeView.RightItems>
+                            <StackLayout Spacing="0" Orientation="Vertical" BackgroundColor="White">
+                                <Grid HeightRequest="60" ColumnSpacing="0" RowSpacing="0" Padding="0,0">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*" />
+                                        <RowDefinition Height="*" />
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="{Binding Source={x:Reference BrandsCollection}, Path= BindingContext.FirstColumnWidth}" />
+                                        <ColumnDefinition Width="{Binding Source={x:Reference BrandsCollection}, Path= BindingContext.SecondColumnWidth}" />
+                                        <ColumnDefinition Width="{Binding Source={x:Reference BrandsCollection}, Path= BindingContext.ThirdColumnWidth}" />
+                                    </Grid.ColumnDefinitions>
+                                    <Image Source="{Binding Image}" HorizontalOptions="StartAndExpand" Grid.Row="0" Grid.RowSpan="2" Grid.Column="0" VerticalOptions="Center" WidthRequest="200" Aspect="AspectFill" />
+                                    <Label Text="{Binding ItemTitle}" HorizontalOptions="StartAndExpand" Grid.Row="0" Grid.Column="1" VerticalTextAlignment="Center" TextColor="Black" Margin="15,0" />
+                                    <Label Text="{Binding Text}" HorizontalOptions="StartAndExpand" Grid.Row="1" Grid.Column="1" VerticalTextAlignment="Center" TextColor="Gray" Margin="15,0" />
+                                    <StackLayout Orientation="Horizontal" Spacing="2" Grid.Row="0" Grid.RowSpan="2" Grid.Column="2">
+                                            <Image Source="baseline_star_black_24" HorizontalOptions="EndAndExpand" VerticalOptions="Center">
+                                                <Image.Triggers>
+                                                    <DataTrigger TargetType="Image" Binding="{Binding IsFavorite}" Value="true">
+                                                        <Setter Property="IsVisible" Value="True" />
+                                                    </DataTrigger>
+                                                    <DataTrigger TargetType="Image" Binding="{Binding IsFavorite}" Value="false">
+                                                        <Setter Property="IsVisible" Value="False" />
+                                                    </DataTrigger>
+                                                </Image.Triggers>
+                                            </Image>
+                                            <Image Source="baseline_chevron_right_black_24" HorizontalOptions="EndAndExpand" VerticalOptions="Center" />
+                                    </StackLayout>
+                                    </Grid>
+                                <BoxView HorizontalOptions="FillAndExpand" VerticalOptions="Start" HeightRequest="1" BackgroundColor="LightGray" />
+                            </StackLayout>
+                        </SwipeView>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+            </RefreshView>
+        </StackLayout>
+    </ContentPage.Content>
+</base:BaseContentPage>

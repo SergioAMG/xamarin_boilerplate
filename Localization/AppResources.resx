@@ -481,4 +481,8 @@
     <value>Search News</value>
     <comment>Seach News Text</comment>
   </data>
+  <data name="CollectionViewSampleTitle" xml:space="preserve">
+    <value>Collection View Sample Page</value>
+    <comment>Collection View Sample Page Title Text </comment>
+  </data>
 </root>

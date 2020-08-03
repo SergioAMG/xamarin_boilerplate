@@ -14,5 +14,10 @@ namespace XamarinBoilerplate.UnitTesting.Services
         {
             get { return new MockFlights(); }
         }
+
+        public IBrands Brands
+        {
+            get { return new MockBrands(); }
+        }
     }
 }

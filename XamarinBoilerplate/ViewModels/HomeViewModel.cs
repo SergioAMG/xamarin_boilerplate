@@ -128,24 +128,27 @@ namespace XamarinBoilerplate.ViewModels
 
         public async Task LoadData()
         {
-            NewsItems = new ObservableCollection<NewsViewModel>();
-            var news = await DataManager.News.GetNews();
+            if (NewsItems == null)
+            {
+                NewsItems = new ObservableCollection<NewsViewModel>();
+                var news = await DataManager.News.GetNews();
 
-            // Mappings
-            foreach(var item in news)
-            {
-                NewsViewModel newsViewModel = new NewsViewModel()
+                // Mappings
+                foreach (var item in news)
                 {
-                    ItemTitle = item.ItemTitle,
-                    Image = item.Image,
-                    Text = item.Text,
-                    Date = item.Date
-                };
-                NewsItems.Add(newsViewModel);
-            }
-            if (!UnitTestingManager.IsRunningFromNUnit)
-            {
-                await NavigationService.HideLoadingIndicator();
+                    NewsViewModel newsViewModel = new NewsViewModel()
+                    {
+                        ItemTitle = item.ItemTitle,
+                        Image = item.Image,
+                        Text = item.Text,
+                        Date = item.Date
+                    };
+                    NewsItems.Add(newsViewModel);
+                }
+                if (!UnitTestingManager.IsRunningFromNUnit)
+                {
+                    await NavigationService.HideLoadingIndicator();
+                }
             }
         }
 

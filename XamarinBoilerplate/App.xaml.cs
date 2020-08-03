@@ -69,6 +69,7 @@ namespace XamarinBoilerplate
             NavigationService.Configure(nameof(NewsReaderPage), typeof(NewsReaderPage));
             NavigationService.Configure(nameof(SamplesMenuPage), typeof(SamplesMenuPage));
             NavigationService.Configure(nameof(CarouselSamplePage), typeof(CarouselSamplePage));
+            NavigationService.Configure(nameof(CollectionViewSamplePage), typeof(CollectionViewSamplePage));
 
             NavigationService.BindViewModel<StepOneViewModel, StepOnePage>();
             NavigationService.BindViewModel<StepTwoViewModel, StepTwoPage>();
@@ -84,6 +85,7 @@ namespace XamarinBoilerplate
             NavigationService.BindViewModel<NewsReaderViewModel, NewsReaderPage>();
             NavigationService.BindViewModel<SamplesMenuViewModel, SamplesMenuPage>();
             NavigationService.BindViewModel<CarouselSampleViewModel, CarouselSamplePage>();
+            NavigationService.BindViewModel<CollectionViewSampleViewModel, CollectionViewSamplePage>();
         }
 
         public void IdentifyDevice()

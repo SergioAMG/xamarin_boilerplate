@@ -142,6 +142,11 @@ namespace XamarinBoilerplate.ViewModels.Samples
                 {
                     SampleMenuImage = "baseline_view_carousel_black_24",
                     SampleMenuItem = Constants.CarouselViewMenu
+                },
+                new SampleMenuItemViewModel()
+                {
+                    SampleMenuImage = "baseline_view_comfy_black_24.png",
+                    SampleMenuItem = Constants.CollectionViewMenu
                 }
             };
         }

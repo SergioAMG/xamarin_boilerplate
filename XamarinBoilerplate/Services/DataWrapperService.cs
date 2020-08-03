@@ -13,5 +13,10 @@ namespace XamarinBoilerplate.Services
         {
             get { return DataManagers.DataManager.Instance.Flights; }
         }
+
+        public IBrands Brands
+        {
+            get { return DataManagers.DataManager.Instance.Brands; }
+        }
     }
 }

@@ -23,6 +23,7 @@ namespace XamarinBoilerplate.iOS
         {
             //Enables the experimental usage of carousel and indicator views.
             //Forms.SetFlags(new string[] { "CarouselView_Experimental", "IndicatorView_Experimental" });
+            Forms.SetFlags("SwipeView_Experimental");
 
             Rg.Plugins.Popup.Popup.Init();
             global::Xamarin.Forms.Forms.Init();

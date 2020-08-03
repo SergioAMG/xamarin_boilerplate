@@ -50,32 +50,35 @@ namespace XamarinBoilerplate.ViewModels.Samples
 
         public async Task LoadData()
         {
-            Flights = new ObservableCollection<FlightsViewModel>();
-            var flights = await DataManager.Flights.GetFlights();
+            if (Flights == null)
+            {
+                Flights = new ObservableCollection<FlightsViewModel>();
+                var flights = await DataManager.Flights.GetFlights();
 
-            // Mappings
-            foreach (var item in flights)
-            {
-                FlightsViewModel flightsViewModel = new FlightsViewModel()
+                // Mappings
+                foreach (var item in flights)
                 {
-                    Airline = item.Airline,
-                    FlightNumber = item.FlightNumber,
-                    GateNumber = item.GateNumber,
-                    DepartureAirport = item.DepartureAirport,
-                    DepartureAirportFullName = item.DepartureAirportFullName,
-                    ArrivalAirport = item.ArrivalAirport,
-                    ArrivalAirportFullName = item.ArrivalAirportFullName,
-                    Date = item.Date,
-                    BoardingClass = item.BoardingClass,
-                    ExtraData = item.ExtraData,
-                    PassengerName = item.PassengerName,
-                    Status = item.Status
-                };
-                Flights.Add(flightsViewModel);
-            }
-            if (!UnitTestingManager.IsRunningFromNUnit)
-            {
-                await NavigationService.HideLoadingIndicator();
+                    FlightsViewModel flightsViewModel = new FlightsViewModel()
+                    {
+                        Airline = item.Airline,
+                        FlightNumber = item.FlightNumber,
+                        GateNumber = item.GateNumber,
+                        DepartureAirport = item.DepartureAirport,
+                        DepartureAirportFullName = item.DepartureAirportFullName,
+                        ArrivalAirport = item.ArrivalAirport,
+                        ArrivalAirportFullName = item.ArrivalAirportFullName,
+                        Date = item.Date,
+                        BoardingClass = item.BoardingClass,
+                        ExtraData = item.ExtraData,
+                        PassengerName = item.PassengerName,
+                        Status = item.Status
+                    };
+                    Flights.Add(flightsViewModel);
+                }
+                if (!UnitTestingManager.IsRunningFromNUnit)
+                {
+                    await NavigationService.HideLoadingIndicator();
+                }
             }
         }
 

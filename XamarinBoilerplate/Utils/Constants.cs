@@ -23,6 +23,7 @@ namespace XamarinBoilerplate.Utils
         public static readonly Thickness MarginForSingleIconOfActionBarAndroid = new Thickness(0, 0, 8, 0);
         public static readonly Thickness MarginForSingleIconOfActionBarIOS = new Thickness(0, 0, 10, 0);
         public static readonly string CarouselViewMenu = nameof(CarouselSamplePage);
+        public static readonly string CollectionViewMenu = nameof(CollectionViewSamplePage);
         public static readonly string PortraitMode = "Portrait";
         public static readonly string LandscapeMode = "Landscape";
         public static readonly double InitialTextSizeForNewsItem = 14;

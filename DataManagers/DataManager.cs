@@ -6,6 +6,8 @@ namespace DataManagers
     {
         private DONews _doNews;
         private DOFlights _doFlights;
+        private DOBrands _doBrands;
+
         private static DataManager _instance;
 
         public static DataManager Instance
@@ -28,6 +30,11 @@ namespace DataManagers
         public DOFlights Flights
         {
             get { return _doFlights ?? (_doFlights = new DOFlights()); }
+        }
+
+        public DOBrands Brands
+        {
+            get { return _doBrands ?? (_doBrands = new DOBrands()); }
         }
     }
 }

@@ -23,6 +23,7 @@ namespace XamarinBoilerplate.Droid
 
             //Enables the experimental usage of carousel and indicator views.
             //Forms.SetFlags(new string[] { "CarouselView_Experimental", "IndicatorView_Experimental" });
+            Forms.SetFlags("SwipeView_Experimental");
 
             Rg.Plugins.Popup.Popup.Init(this, savedInstanceState);
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);

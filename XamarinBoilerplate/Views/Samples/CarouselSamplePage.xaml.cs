@@ -2,8 +2,6 @@
 using Xamarin.Forms.Xaml;
 using XamarinBoilerplate.Utils;
 using XamarinBoilerplate.ViewModels.Samples;
-using Xamarin.Forms;
-using System.Threading.Tasks;
 
 namespace XamarinBoilerplate.Views.Samples
 {

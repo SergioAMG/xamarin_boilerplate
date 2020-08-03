@@ -4,5 +4,6 @@
     {
         INews News { get; }
         IFlights Flights { get; }
+        IBrands Brands { get; }
     }
 }

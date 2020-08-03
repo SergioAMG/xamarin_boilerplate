@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace XamarinBoilerplate.ViewModels.DataObjects
+﻿namespace XamarinBoilerplate.ViewModels.DataObjects
 {
-    class PopularBrandsViewModel : BaseViewModel
+    public class PopularBrandsViewModel : BaseViewModel
     {
         private string _itemTitle;
         private string _text;

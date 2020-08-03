@@ -93,7 +93,7 @@
       <HintPath>..\packages\Xamarin.Forms.4.7.0.1179\lib\netstandard2.0\Xamarin.Forms.Core.dll</HintPath>
     </Reference>
     <Reference Include="Xamarin.Forms.Core.UnitTests, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Xamarin.Forms.Mocks.3.5.0.2\lib\netstandard2.0\Xamarin.Forms.Core.UnitTests.dll</HintPath>
+      <HintPath>..\packages\Xamarin.Forms.Mocks.4.7.0.1\lib\netstandard2.0\Xamarin.Forms.Core.UnitTests.dll</HintPath>
     </Reference>
     <Reference Include="Xamarin.Forms.GoogleMaps, Version=3.0.1.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Xamarin.Forms.GoogleMaps.3.3.0\lib\netstandard2.0\Xamarin.Forms.GoogleMaps.dll</HintPath>
@@ -105,10 +105,11 @@
       <HintPath>..\packages\Xamarin.Forms.4.7.0.1179\lib\netstandard2.0\Xamarin.Forms.Xaml.dll</HintPath>
     </Reference>
     <Reference Include="Xamarin.Forms.Xaml.UnitTests, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Xamarin.Forms.Mocks.3.5.0.2\lib\netstandard2.0\Xamarin.Forms.Xaml.UnitTests.dll</HintPath>
+      <HintPath>..\packages\Xamarin.Forms.Mocks.4.7.0.1\lib\netstandard2.0\Xamarin.Forms.Xaml.UnitTests.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MockData\MockBrands.cs" />
     <Compile Include="MockData\MockFlights.cs" />
     <Compile Include="MockData\MockNews.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -123,6 +124,7 @@
     <Compile Include="ViewModels\MenuViewModelTests.cs" />
     <Compile Include="ViewModels\NewsReaderViewModelTests.cs" />
     <Compile Include="ViewModels\Samples\CarouselSampleViewModelTests.cs" />
+    <Compile Include="ViewModels\Samples\CollectionViewSampleViewModelTests.cs" />
     <Compile Include="ViewModels\Samples\SamplesMenuViewModelTests.cs" />
     <Compile Include="ViewModels\Wizzard\StepOneViewModelTests.cs" />
     <Compile Include="ViewModels\Wizzard\StepThreeViewModelTests.cs" />

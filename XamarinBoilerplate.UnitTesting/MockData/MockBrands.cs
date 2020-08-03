@@ -3,9 +3,9 @@ using DataManagers.Interfaces;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace DataManagers.DataObjects
+namespace XamarinBoilerplate.UnitTesting.MockData
 {
-    public class DOBrands : IBrands
+    public class MockBrands : IBrands
     {
         public async Task<List<Brand>> GetBrands()
         {
@@ -22,6 +22,7 @@ namespace DataManagers.DataObjects
             ListItems.Add(new Brand { ItemTitle = "Brand 10", Text = "Sample Text Ten", Image = "sampleFour", IsFavorite = false });
             ListItems.Add(new Brand { ItemTitle = "Brand 11", Text = "Sample Text Eleven", Image = "sampleFive", IsFavorite = false });
             ListItems.Add(new Brand { ItemTitle = "Brand 12", Text = "Sample Text Twelve", Image = "sampleSix", IsFavorite = false });
+
             return await Task.FromResult<List<Brand>>(ListItems);
         }
     }

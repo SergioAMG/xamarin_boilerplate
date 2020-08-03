@@ -18,7 +18,7 @@
             <common:ActionBar BackButtonTintColor="{DynamicResource ActionBarIconsColor}" BackgroundColor="{DynamicResource ActionBarBackground}"
                       ShowIcon="False" Title="{utils:Localized CollectionViewSampleTitle}" HideBackButton="False" TitleLabelStyle="{DynamicResource ActionBarTextLabelStyle}"
                       IsMaster="False" CenterBartitle="{Binding IsTitleCentered}" IsModal="False" BackButtonCommand="{Binding BackFromDetailsCommand}" />
-            <SearchBar x:Name="searchBar" Placeholder="{utils:Localized CollectionViewSampleSearchBarPlaceHolder}" Margin="{Binding SearchMargin}"
+            <SearchBar x:Name="searchBar" Placeholder="{utils:Localized CollectionViewSampleSearchBarPlaceHolder}" Margin="{Binding SearchMargin}" Text="{Binding SearchText}"
                        SearchCommand="{Binding OnPerformSearchCommand}" SearchCommandParameter="{Binding Text, Source={x:Reference searchBar}}" TextChanged="searchBarTextChanged" />
             <RefreshView IsRefreshing="{Binding IsRefreshing}" Command="{Binding OnRefreshCommand}">
                 <CollectionView x:Name="BrandsCollection" ItemsSource="{Binding PopularBrands}" Margin="20,0" ItemsLayout="VerticalList" SelectionMode="Single" SelectedItem="{Binding SelectedBrand}">

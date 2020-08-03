@@ -11,9 +11,10 @@ using XamarinBoilerplate.ViewModels.DataObjects;
 
 namespace XamarinBoilerplate.ViewModels.Samples
 {
-    class CollectionViewSampleViewModel : BaseViewModel
+    public class CollectionViewSampleViewModel : BaseViewModel
     {
         private bool _isRefreshing;
+        private string _searchText;
         private ICommand _onRefreshCommand;
         private ICommand _onDeleteCommand;
         private ICommand _onFavoriteCommand;
@@ -77,6 +78,22 @@ namespace XamarinBoilerplate.ViewModels.Samples
             }
         }
 
+        public string SearchText
+        {
+            get
+            {
+                return _searchText;
+            }
+            set
+            {
+                if (_searchText != value)
+                {
+                    _searchText = value;
+                    OnPropertyChanged(nameof(SearchText));
+                }
+            }
+        }
+
         public PopularBrandsViewModel SelectedBrand
         {
             get
@@ -89,7 +106,10 @@ namespace XamarinBoilerplate.ViewModels.Samples
                 {
                     _selectedBrand = value;
                     OnPropertyChanged(nameof(SelectedBrand));
-                    DependencyService.Get<IToast>().ShowToastMessage(Localization.AppResources.ItemSelected + ": " + SelectedBrand.ItemTitle, false);
+                    if (!UnitTestingManager.IsRunningFromNUnit)
+                    {
+                        DependencyService.Get<IToast>().ShowToastMessage(Localization.AppResources.ItemSelected + ": " + SelectedBrand.ItemTitle, false);
+                    }
                 }
             }
         }
@@ -168,6 +188,7 @@ namespace XamarinBoilerplate.ViewModels.Samples
 
         public async Task ExecuteOnRefreshCommandAsync()
         {
+            SearchText = null;
             bool forceReload = true;
             await LoadData(forceReload);
         }

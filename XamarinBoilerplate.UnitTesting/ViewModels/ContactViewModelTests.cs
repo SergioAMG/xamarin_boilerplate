@@ -67,7 +67,7 @@ namespace XamarinBoilerplate.UnitTesting.ViewModels
             {
                 await viewModel.ExecuteBackFromDetailsCommandAsync();
             }).GetAwaiter().GetResult();
-            
+
             //assert
             int currentTabIndex = viewModel.NavigationService.GetCurrentSelectedTabIndexOverMasterDetailPageWithTabbedPage();
             Assert.AreEqual(selectedTab, currentTabIndex);
@@ -210,5 +210,240 @@ namespace XamarinBoilerplate.UnitTesting.ViewModels
             //assert
             viewModel.IsLandscapeButtonVisible.ShouldBeFalse();
         }
+
+        [TestMethod]
+        public void ShouldSetNavBarVisibilityTrueSetsCorrectBarVisibility()
+        {
+            //arrange
+            viewModel = new ContactViewModel(DataManager);
+
+            //act
+            bool visibility = true;
+            viewModel.SetNavBarVisibility(visibility);
+
+            //assert
+            viewModel.IsNavBarVisible.ShouldBeTrue();
+        }
+
+        [TestMethod]
+        public void ShouldSetNavBarVisibilityFalseSetsCorrectBarVisibility()
+        {
+            //arrange
+            viewModel = new ContactViewModel(DataManager);
+
+            //act
+            bool visibility = false;
+            viewModel.SetNavBarVisibility(visibility);
+
+            //assert
+            viewModel.IsNavBarVisible.ShouldBeFalse();
+        }
+
+        #region BottomMarginForSubmitButton Test Cases
+
+        [TestMethod]
+        public void ShouldBottomMarginForSubmitButtonBeCustomWhenInAndroid()
+        {
+            //arrange
+            viewModel = new ContactViewModel();
+
+            //act
+            DeviceManager.Platform = Devices.Android.ToString();
+
+            //assert
+            Assert.AreEqual(new Thickness(0, 0, 0, 20), viewModel.BottomMarginForSubmitButton);
+        }
+
+        [TestMethod]
+        public void ShouldBottomMarginForSubmitButtonBeCustomWhenInLowerVersionsOfIOS()
+        {
+            //arrange
+            viewModel = new ContactViewModel();
+
+            //act
+            DeviceManager.Version = "10.0";
+            DeviceManager.Platform = Devices.iOS.ToString();
+
+            //assert
+            Assert.AreEqual(new Thickness(0, 0, 0, 20), viewModel.BottomMarginForSubmitButton);
+        }
+
+        [TestMethod]
+        public void ShouldBottomMarginForSubmitButtonBeCustomWhenInIOSSupportedVersionAndiPhone4()
+        {
+            //arrange
+            viewModel = new ContactViewModel();
+
+            //act
+            DeviceManager.Version = "13.3";
+            DeviceManager.Platform = Devices.iOS.ToString();
+            App.ScreenHeight = 960;
+            App.ScreenWidth = 640;
+
+            //assert
+            Assert.AreEqual(new Thickness(0, 0, 0, 40), viewModel.BottomMarginForSubmitButton);
+        }
+
+        [TestMethod]
+        public void ShouldBottomMarginForSubmitButtonBeCustomWhenInIOSSupportedVersionAndiPhoneSE_5()
+        {
+            //arrange
+            viewModel = new ContactViewModel();
+
+            //act
+            DeviceManager.Version = "13.3";
+            DeviceManager.Platform = Devices.iOS.ToString();
+            App.ScreenHeight = 1136;
+            App.ScreenWidth = 640;
+
+            //assert
+            Assert.AreEqual(new Thickness(0, 0, 0, 40), viewModel.BottomMarginForSubmitButton);
+        }
+
+        [TestMethod]
+        public void ShouldBottomMarginForSubmitButtonBeCustomWhenInIOSSupportedVersionAndiPhone8_7_6()
+        {
+            //arrange
+            viewModel = new ContactViewModel();
+
+            //act
+            DeviceManager.Version = "13.3";
+            DeviceManager.Platform = Devices.iOS.ToString();
+            App.ScreenHeight = 1334;
+            App.ScreenWidth = 750;
+
+            //assert
+            Assert.AreEqual(new Thickness(0, 0, 0, 40), viewModel.BottomMarginForSubmitButton);
+        }
+
+        [TestMethod]
+        public void ShouldBottomMarginForSubmitButtonBeCustomWhenInIOSSupportedVersionAndiPhone8Plus_7Plus_6SPlus_6Plus()
+        {
+            //arrange
+            viewModel = new ContactViewModel();
+
+            //act
+            DeviceManager.Version = "13.3";
+            DeviceManager.Platform = Devices.iOS.ToString();
+            App.ScreenHeight = 1242;
+            App.ScreenWidth = 2208;
+
+            //assert
+            Assert.AreEqual(new Thickness(0, 0, 0, 40), viewModel.BottomMarginForSubmitButton);
+        }
+
+        [TestMethod]
+        public void ShouldBottomMarginForSubmitButtonBeCustomWhenInIOSSupportedVersionAndiPhoneX_XS_11Pro()
+        {
+            //arrange
+            viewModel = new ContactViewModel();
+
+            //act
+            DeviceManager.Version = "13.3";
+            DeviceManager.Platform = Devices.iOS.ToString();
+            App.ScreenHeight = 1125;
+            App.ScreenWidth = 2436;
+
+            //assert
+            Assert.AreEqual(new Thickness(0, 0, 0, 20), viewModel.BottomMarginForSubmitButton);
+        }
+
+        [TestMethod]
+        public void ShouldBottomMarginForSubmitButtonBeCustomWhenInIOSSupportedVersionAndiPhone11_XR()
+        {
+            //arrange
+            viewModel = new ContactViewModel();
+
+            //act
+            DeviceManager.Version = "13.3";
+            DeviceManager.Platform = Devices.iOS.ToString();
+            App.ScreenHeight = 1792;
+            App.ScreenWidth = 828;
+
+            //assert
+            Assert.AreEqual(new Thickness(0, 0, 0, 20), viewModel.BottomMarginForSubmitButton);
+        }
+
+        [TestMethod]
+        public void ShouldBottomMarginForSubmitButtonBeCustomWhenInIOSSupportedVersionAndiPhone11ProMax_XSMax()
+        {
+            //arrange
+            viewModel = new ContactViewModel();
+
+            //act
+            DeviceManager.Version = "13.3";
+            DeviceManager.Platform = Devices.iOS.ToString();
+            App.ScreenHeight = 2688;
+            App.ScreenWidth = 1242;
+
+            //assert
+            Assert.AreEqual(new Thickness(0, 0, 0, 20), viewModel.BottomMarginForSubmitButton);
+        }
+
+        [TestMethod]
+        public void ShouldBottomMarginForSubmitButtonBePositiveWhenInIOSSupportedVersionAndiPad_2_Mini()
+        {
+            //arrange
+            viewModel = new ContactViewModel();
+
+            //act
+            DeviceManager.Version = "13.3";
+            DeviceManager.Platform = Devices.iOS.ToString();
+            App.ScreenHeight = 1024;
+            App.ScreenWidth = 768;
+
+            //assert
+            Assert.AreEqual(new Thickness(0, 0, 0, 20), viewModel.BottomMarginForSubmitButton);
+        }
+
+        [TestMethod]
+        public void ShouldBottomMarginForSubmitButtonBePositiveWhenInIOSSupportedVersionAndiPad3_4_Air_Mini2_Mini3_Air2_Mini4_Pro_2017_2018()
+        {
+            //arrange
+            viewModel = new ContactViewModel();
+
+            //act
+            DeviceManager.Version = "13.3";
+            DeviceManager.Platform = Devices.iOS.ToString();
+            App.ScreenHeight = 2048;
+            App.ScreenWidth = 1536;
+
+            //assert
+            Assert.AreEqual(new Thickness(0, 0, 0, 20), viewModel.BottomMarginForSubmitButton);
+        }
+
+        [TestMethod]
+        public void ShouldBottomMarginForSubmitButtonBePositiveWhenInIOSSupportedVersionAndiPadProSec10()
+        {
+            //arrange
+            viewModel = new ContactViewModel();
+
+            //act
+            DeviceManager.Version = "13.3";
+            DeviceManager.Platform = Devices.iOS.ToString();
+            App.ScreenHeight = 2224;
+            App.ScreenWidth = 1668;
+
+            //assert
+            Assert.AreEqual(new Thickness(0, 0, 0, 20), viewModel.BottomMarginForSubmitButton);
+        }
+
+        [TestMethod]
+        public void ShouldBottomMarginForSubmitButtonBePositiveWhenInIOSSupportedVersionAndiPadProSec12()
+        {
+            //arrange
+            viewModel = new ContactViewModel();
+
+            //act
+            DeviceManager.Version = "13.3";
+            DeviceManager.Platform = Devices.iOS.ToString();
+            App.ScreenHeight = 2732;
+            App.ScreenWidth = 2048;
+
+            //assert
+            Assert.AreEqual(new Thickness(0, 0, 0, 20), viewModel.BottomMarginForSubmitButton);
+        }
+
+        #endregion
     }
 }

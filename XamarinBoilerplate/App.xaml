@@ -19,7 +19,8 @@
             <Color x:Key="ActionBarIconsColor">#FFFFFF</Color>
             <Color x:Key="ActionBarBackground">#007CFF</Color>
             <Color x:Key="FooterGray">#F7F7F7</Color>
-
+            <Color x:Key="SeparatorGrayColor">#ECECEC</Color>
+            
             <Style x:Key="WizzardStepTitleLabel" TargetType="Label">
                 <Setter Property="FontSize" Value="25" />
                 <Setter Property="TextColor" Value="{DynamicResource Blue}" />

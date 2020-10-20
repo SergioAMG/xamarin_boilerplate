@@ -28,9 +28,6 @@
     <Compile Update="Views\Samples\CarouselSamplePage.xaml.cs">
       <DependentUpon>CarouselSamplePage.xaml</DependentUpon>
     </Compile>
-    <Compile Update="Views\Samples\CollectionViewSamplePage.xaml.cs">
-      <DependentUpon>CollectionViewSamplePage.xaml</DependentUpon>
-    </Compile>
   </ItemGroup>
 
   <ItemGroup>
@@ -38,7 +35,7 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\Samples\CollectionViewSamplePage.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\Samples\SamplesMenuPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>

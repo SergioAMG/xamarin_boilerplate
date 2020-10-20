@@ -1,6 +1,7 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Shouldly;
 using System.Threading.Tasks;
+using XamarinBoilerplate.Enums;
 using XamarinBoilerplate.Utils;
 using XamarinBoilerplate.ViewModels.Samples;
 
@@ -75,6 +76,34 @@ namespace XamarinBoilerplate.UnitTesting.ViewModels.Samples
 
             //assert
             viewModel.Flights.Count.ShouldBeGreaterThan(0);
+        }
+
+        [TestMethod]
+        public void ShouldSetOrientationValuesSetValuesForExtraInfoVisibleWhenPortrait()
+        {
+            //arrange
+            viewModel = new CarouselSampleViewModel(DataManager);
+            
+            //act
+            DeviceManager.Orientation = Devices.Portrait.ToString();
+            viewModel.SetOrientationValues();
+
+            //assert
+            Assert.IsTrue(viewModel.ExtraInfoVisible);
+        }
+
+        [TestMethod]
+        public void ShouldSetOrientationValuesSetValuesForExtraInfoVisibleWhenLandscape()
+        {
+            //arrange
+            viewModel = new CarouselSampleViewModel(DataManager);
+
+            //act
+            DeviceManager.Orientation = Devices.Landscape.ToString();
+            viewModel.SetOrientationValues();
+
+            //assert
+            Assert.IsFalse(viewModel.ExtraInfoVisible);
         }
     }
 }

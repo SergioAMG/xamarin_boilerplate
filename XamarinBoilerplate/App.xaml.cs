@@ -30,6 +30,11 @@ namespace XamarinBoilerplate
                 SetScreenDimentions();
                 LaunchApp();
             }
+            else
+            {
+                bool mockUsingIOS = true;
+                MockIdentifyDevice(mockUsingIOS);
+            }
         }
 
         public void LaunchApp()
@@ -92,10 +97,32 @@ namespace XamarinBoilerplate
         {
             DeviceManager.Platform = DeviceInfo.Platform.ToString();
             DeviceManager.Manufacturer = DeviceInfo.Manufacturer;
-            DeviceManager.Version = DeviceInfo.VersionString;
+            DeviceManager.Version = (DeviceInfo.VersionString == null) ? "0" : DeviceInfo.VersionString;
             DeviceManager.Idiom = DeviceInfo.Idiom.ToString();
             DeviceManager.Device = DeviceInfo.Model;
             DeviceManager.Orientation = DeviceDisplay.MainDisplayInfo.Orientation.ToString();
+        }
+
+        public void MockIdentifyDevice(bool useIOS)
+        {
+            if (useIOS)
+            {
+                DeviceManager.Platform = "iOS";
+                DeviceManager.Manufacturer = "Apple";
+                DeviceManager.Version = "13.3";
+                DeviceManager.Idiom = "Phone";
+                DeviceManager.Device = "x86_64";
+                DeviceManager.Orientation = "Portrait";
+            }
+            else
+            {
+                DeviceManager.Platform = "Android";
+                DeviceManager.Manufacturer = "Google";
+                DeviceManager.Version = "10";
+                DeviceManager.Idiom = "Phone";
+                DeviceManager.Device = "Android SDK built for x86_64";
+                DeviceManager.Orientation = "Portrait";
+            }
         }
 
         public void SetLocalization()

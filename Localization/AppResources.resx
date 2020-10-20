@@ -189,8 +189,8 @@
     <value>Contact</value>
     <comment>Menu Item</comment>
   </data>
-  <data name="MenuHelp" xml:space="preserve">
-    <value>Live Help</value>
+  <data name="MenuLogOut" xml:space="preserve">
+    <value>Logout</value>
     <comment>Menu Item</comment>
   </data>
   <data name="MenuSearch" xml:space="preserve">

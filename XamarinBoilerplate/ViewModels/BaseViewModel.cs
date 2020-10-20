@@ -4,7 +4,6 @@ using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 using System.Windows.Input;
-using Xamarin.Essentials;
 using Xamarin.Forms;
 using XamarinBoilerplate.Enums;
 using XamarinBoilerplate.Interfaces;
@@ -62,7 +61,7 @@ namespace XamarinBoilerplate.ViewModels
         {
             get
             {
-                if (DeviceInfo.Platform.ToString() == Devices.Android.ToString())
+                if (IsAndroid)
                 {
                     return false;
                 }
@@ -170,9 +169,16 @@ namespace XamarinBoilerplate.ViewModels
         {
             get
             {
-                if (DeviceManager.GetAppleDeviceType() == AppleDeviceType.iPhone4 || DeviceManager.GetAppleDeviceType() == AppleDeviceType.iPhoneSE_5)
+                if (IsIOS)
                 {
-                    return (DeviceManager.IsLandscape) ? true : false;
+                    if (DeviceManager.GetAppleDeviceType() == AppleDeviceType.iPhone4 || DeviceManager.GetAppleDeviceType() == AppleDeviceType.iPhoneSE_5)
+                    {
+                        return (DeviceManager.IsLandscape) ? true : false;
+                    }
+                    else
+                    {
+                        return true;
+                    }
                 }
                 else
                 {

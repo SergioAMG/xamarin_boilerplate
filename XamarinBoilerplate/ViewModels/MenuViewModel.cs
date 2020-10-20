@@ -15,7 +15,7 @@ namespace XamarinBoilerplate.ViewModels
         private ICommand _goToContactCommand;
         private ICommand _goToWizzardStep1Command;
         private ICommand _goToSamplesCommand;
-        private ICommand _goToLiveHelpCommand;
+        private ICommand _goToLogoutCommand;
         private ICommand _closeCommand;
 
         public string AppVersion
@@ -31,7 +31,7 @@ namespace XamarinBoilerplate.ViewModels
         {
             get
             {
-                if (DeviceManager.IsAndroid)
+                if (IsAndroid)
                 {
                     return new Thickness(0, 0, 15, 0);
                 }
@@ -126,7 +126,7 @@ namespace XamarinBoilerplate.ViewModels
         {
             get
             {
-                if (DeviceManager.IsAndroid)
+                if (IsAndroid)
                 {
                     if (DeviceManager.IsLandscape)
                     {
@@ -184,7 +184,7 @@ namespace XamarinBoilerplate.ViewModels
         {
             get
             {
-                if (DeviceManager.IsAndroid)
+                if (IsAndroid)
                 {
                     return 0;
                 }
@@ -258,11 +258,11 @@ namespace XamarinBoilerplate.ViewModels
             }
         }
 
-        public ICommand GoToLiveHelpCommand
+        public ICommand GoToLogoutCommand
         {
             get
             {
-                return _goToLiveHelpCommand ?? (_goToLiveHelpCommand = new CommandExtended(ExecuteGoToLiveHelpCommandAsync));
+                return _goToLogoutCommand ?? (_goToLogoutCommand = new CommandExtended(ExecuteGoToLogoutCommandAsync));
             }
         }
 
@@ -294,11 +294,13 @@ namespace XamarinBoilerplate.ViewModels
             await NavigationService.CloseDrawer();
         }
 
-        public async Task ExecuteGoToLiveHelpCommandAsync()
+        public async Task ExecuteGoToLogoutCommandAsync()
         {
-            await NavigationService.CloseDrawer();
-            // TODO: Add navigation to target page
-            //await NavigationService.NavigateAsync(nameof(LiveChatPage));
+            if (!UnitTestingManager.IsRunningFromNUnit)
+            {
+                Preferences.Set(Constants.LoggedIn, false);
+            }
+            NavigationService.SetRootPage(nameof(LoginPage), new LoginViewModel());
         }
 
         public async Task ExecuteCloseCommandAsync()

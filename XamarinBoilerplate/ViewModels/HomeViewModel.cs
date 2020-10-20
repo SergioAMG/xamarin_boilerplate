@@ -2,7 +2,6 @@
 using System.Collections.ObjectModel;
 using System.Threading.Tasks;
 using System.Windows.Input;
-using Xamarin.Essentials;
 using Xamarin.Forms;
 using XamarinBoilerplate.Enums;
 using XamarinBoilerplate.Interfaces;
@@ -56,7 +55,7 @@ namespace XamarinBoilerplate.ViewModels
         {
             get
             {
-                return (DeviceInfo.Platform.ToString() == Devices.Android.ToString()) ? 1.5 : 2.0;
+                return (IsAndroid) ? 1.5 : 2.0;
             }
         }
 

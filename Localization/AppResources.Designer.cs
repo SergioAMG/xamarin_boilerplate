@@ -430,11 +430,11 @@ namespace Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Live Help.
+        ///   Looks up a localized string similar to Logout.
         /// </summary>
-        public static string MenuHelp {
+        public static string MenuLogOut {
             get {
-                return ResourceManager.GetString("MenuHelp", resourceCulture);
+                return ResourceManager.GetString("MenuLogOut", resourceCulture);
             }
         }
         

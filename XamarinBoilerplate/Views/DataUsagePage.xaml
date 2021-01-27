@@ -47,7 +47,7 @@
                     <Label WidthRequest="50" Text="3 GB" />
                     <Label WidthRequest="50" Text="6 GB" />
                     <Label WidthRequest="50" Text="9 GB" />
-                    <Label WidthRequest="50" Text="12 GB" />
+                    <Label WidthRequest="50" Text="+12 GB" />
                 </StackLayout>
                 <ProgressBar x:Name="progressBar" Margin="0,25,0,30" Progress="0" ProgressColor="{DynamicResource Blue}" ScaleY="13" />
                 <ScrollView>

@@ -79,6 +79,42 @@ namespace Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to App Author&apos;s Address Line 1.
+        /// </summary>
+        public static string AuthorsAddress {
+            get {
+                return ResourceManager.GetString("AuthorsAddress", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to App Author&apos;s Address Line 2, Country.
+        /// </summary>
+        public static string AuthorsAddressLineTwo {
+            get {
+                return ResourceManager.GetString("AuthorsAddressLineTwo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to App Author&apos;s Name.
+        /// </summary>
+        public static string AuthorsName {
+            get {
+                return ResourceManager.GetString("AuthorsName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to http://www.xamarin.com.
+        /// </summary>
+        public static string AuthorsWebSite {
+            get {
+                return ResourceManager.GetString("AuthorsWebSite", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Back.
         /// </summary>
         public static string Back {
@@ -210,42 +246,6 @@ namespace Localization {
         public static string Done {
             get {
                 return ResourceManager.GetString("Done", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Av. de las Américas 1254, Country Club.
-        /// </summary>
-        public static string EpamAddress {
-            get {
-                return ResourceManager.GetString("EpamAddress", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to 44610 Guadalajara, Jalisco.
-        /// </summary>
-        public static string EpamAddressLineTwo {
-            get {
-                return ResourceManager.GetString("EpamAddressLineTwo", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Epam Systems Mexico.
-        /// </summary>
-        public static string EpamSystems {
-            get {
-                return ResourceManager.GetString("EpamSystems", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to http://www.epam.com.
-        /// </summary>
-        public static string EpamWebSite {
-            get {
-                return ResourceManager.GetString("EpamWebSite", resourceCulture);
             }
         }
         

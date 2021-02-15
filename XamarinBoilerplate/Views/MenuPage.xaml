@@ -89,10 +89,8 @@
                     <Label VerticalTextAlignment="End">
                     <Label.FormattedText>
                         <FormattedString>
-                            <Span Text="&lt;" TextColor="{DynamicResource EPAMBlue}" FontAttributes="Bold" />
-                            <Span Text="EPAM" TextColor="{DynamicResource Black}" FontAttributes="Bold" />
-                            <Span Text="&gt;" TextColor="{DynamicResource EPAMBlue}" FontAttributes="Bold" />
-                            <Span Text=" Systems Mexico" />
+                            <Span Text="Xamarin -" TextColor="{DynamicResource Black}" FontAttributes="Bold" />
+                                <Span Text=" www.xamarin.com" TextColor="{DynamicResource Blue}" />
                         </FormattedString>
                     </Label.FormattedText>
                 </Label>

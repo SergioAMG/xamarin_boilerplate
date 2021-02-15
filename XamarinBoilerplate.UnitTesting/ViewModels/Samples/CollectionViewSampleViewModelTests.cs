@@ -368,5 +368,75 @@ namespace XamarinBoilerplate.UnitTesting.ViewModels.Samples
             //assert
             Assert.IsFalse(viewModel.IsRefreshing);
         }
+
+        [TestMethod]
+        public void ShouldSetOrientationValuesSetFirstColumnWidthToLowerValueWhenInLandscape()
+        {
+            //arrange
+            viewModel = new CollectionViewSampleViewModel(DataManager);
+
+            //act
+            DeviceManager.Orientation = Devices.Landscape.ToString();
+            viewModel.SetOrientationValues();
+
+            //assert
+            Assert.AreEqual(new GridLength(2.5, GridUnitType.Star), viewModel.FirstColumnWidth);
+        }
+
+        [TestMethod]
+        public void ShouldSetOrientationValuesSetFirstColumnWidthToGreaterValueWhenInPortrait()
+        {
+            //arrange
+            viewModel = new CollectionViewSampleViewModel(DataManager);
+
+            //act
+            DeviceManager.Orientation = Devices.Portrait.ToString();
+            viewModel.SetOrientationValues();
+
+            //assert
+            Assert.AreEqual(new GridLength(3, GridUnitType.Star), viewModel.FirstColumnWidth);
+        }
+
+        [TestMethod]
+        public void ShouldSetOrientationValuesSetSecondColumnWidthToGreaterValueWhenInLandscape()
+        {
+            //arrange
+            viewModel = new CollectionViewSampleViewModel(DataManager);
+
+            //act
+            DeviceManager.Orientation = Devices.Landscape.ToString();
+            viewModel.SetOrientationValues();
+
+            //assert
+            Assert.AreEqual(new GridLength(6, GridUnitType.Star), viewModel.SecondColumnWidth);
+        }
+
+        [TestMethod]
+        public void ShouldSetOrientationValuesSetSecondColumnWidthToLowerValueWhenInPortrait()
+        {
+            //arrange
+            viewModel = new CollectionViewSampleViewModel(DataManager);
+
+            //act
+            DeviceManager.Orientation = Devices.Portrait.ToString();
+            viewModel.SetOrientationValues();
+
+            //assert
+            Assert.AreEqual(new GridLength(5.5, GridUnitType.Star), viewModel.SecondColumnWidth);
+        }
+
+        [TestMethod]
+        public void ShouldSetOrientationValuesSetThirdColumnWidth()
+        {
+            //arrange
+            viewModel = new CollectionViewSampleViewModel(DataManager);
+
+            //act
+            DeviceManager.Orientation = Devices.Landscape.ToString();
+            viewModel.SetOrientationValues();
+
+            //assert
+            Assert.AreEqual(new GridLength(1.5, GridUnitType.Star), viewModel.ThirdColumnWidth);
+        }
     }
 }

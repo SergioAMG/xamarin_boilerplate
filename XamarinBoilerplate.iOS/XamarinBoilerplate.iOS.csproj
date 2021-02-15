@@ -348,11 +348,6 @@
     <BundleResource Include="Resources\baseline_fingerprint_black_48%402x.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\epam.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </BundleResource>
-  </ItemGroup>
-  <ItemGroup>
     <BundleResource Include="Resources\baseline_flight_takeoff_black_24%402x.png" />
   </ItemGroup>
   <ItemGroup>
@@ -444,5 +439,8 @@
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\baseline_favorite_full_24%401x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\xamarin_logo.png" />
   </ItemGroup>
 </Project>

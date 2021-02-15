@@ -123,5 +123,21 @@ namespace XamarinBoilerplate.UnitTesting.ViewModels
             Assert.AreEqual(targetPage.Title, currentPage.Title);
             Assert.IsFalse(viewModel.IsLoggedIn);
         }
+
+        [TestMethod]
+        public void ShouldLoginFlowTakeYouToDashboardPage()
+        {
+            //arrange
+            viewModel = new LoginViewModel(DataManager);
+            viewModel.NavigationService.SetRootPage(nameof(LoginPage), new LoginViewModel());
+            Page targetPage = new DashboardPage();
+
+            //act
+            viewModel.LoginFlow();
+            Page currentPage = viewModel.NavigationService.CurrentMasterDetailPage;
+
+            //assert
+            Assert.AreEqual(targetPage.Title, currentPage.Title);
+        }
     }
 }

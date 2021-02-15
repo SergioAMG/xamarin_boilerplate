@@ -10,23 +10,7 @@ namespace XamarinBoilerplate.Utils
         public static string Idiom { get; set; }
         public static string Device { get; set; }
         public static string Orientation { get; set; }
-
-        public static bool IsAndroid
-        {
-            get
-            {
-                return Platform == Devices.Android.ToString();
-            }
-        }
         
-        public static bool IsIOS
-        {
-            get
-            {
-                return Platform == Devices.iOS.ToString();
-            }
-        }
-
         public static bool IsTablet
         {
             get
@@ -67,13 +51,13 @@ namespace XamarinBoilerplate.Utils
                 case "2688x1242": 
                 case "1242x2688": deviceType = AppleDeviceType.iPhone11ProMax_XSMax; break;
                 case "1024x768" : 
-                case "768x1024" : deviceType = AppleDeviceType.iPad_2_Mini; break;
+                case "768x1024" : deviceType = AppleDeviceType.iPad_2_Mini; break; // NO SIM
                 case "2048x1536": 
-                case "1536x2048": deviceType = AppleDeviceType.iPad3_4_Air_Mini2_Mini3_Air2_Mini4_Pro_2017_2018; break;
+                case "1536x2048": deviceType = AppleDeviceType.iPad3_4_Air_Mini2_Mini3_Air2_Mini4_Pro_2017_2018; break; // SIM IpadPro(9.7) 13.3
                 case "2224x1668": 
-                case "1668x2224": deviceType = AppleDeviceType.iPadProSec10; break;
+                case "1668x2224": deviceType = AppleDeviceType.iPadProSec10; break; // SIM Ipad Pro (10.5) 13.3 
                 case "2732x2048": 
-                case "2048x2732": deviceType = AppleDeviceType.iPadProSec12; break;
+                case "2048x2732": deviceType = AppleDeviceType.iPadProSec12; break; // SIM Ipad Pro (12.9) 13.3
                 default         : deviceType = AppleDeviceType.iPhone11_XR; break;
             };
 
@@ -82,9 +66,13 @@ namespace XamarinBoilerplate.Utils
 
         public static bool IsIOSVersionGreaterOrEqualToSupportedIOSVersion()
         {
-            if (IsIOS)
+            if (Platform == Devices.iOS.ToString())
             {
                 double currentIOSVersion;
+
+                if (Version == null)
+                    Version = "0";
+
                 string[] rawVersionArray = Version.ToString().Split('.');
 
                 if (rawVersionArray.Length > 1)

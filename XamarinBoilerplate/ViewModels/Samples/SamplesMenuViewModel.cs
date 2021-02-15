@@ -79,7 +79,7 @@ namespace XamarinBoilerplate.ViewModels.Samples
         {
             get
             {
-                return (DeviceManager.IsIOS) ? TextAlignment.Center : TextAlignment.Start; 
+                return (IsIOS) ? TextAlignment.Center : TextAlignment.Start; 
             }
         }
 
@@ -87,7 +87,7 @@ namespace XamarinBoilerplate.ViewModels.Samples
         {
             get
             {
-                return (DeviceManager.IsIOS) ? LayoutOptions.Center : LayoutOptions.Start;
+                return (IsIOS) ? LayoutOptions.Center : LayoutOptions.Start;
             }
         }
 

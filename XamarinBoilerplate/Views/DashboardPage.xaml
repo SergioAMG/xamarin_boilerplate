@@ -28,15 +28,15 @@
             <!-- TODO: Use when having Android tabs at top and nav bar is required. -->
             <!-- <NavigationPage.ToolbarItems>
                 <ToolbarItem Icon="baseline_close_black_24" Priority="0" Order="Primary"
-                         Command="{Binding PrintDealerReportsCommand}" />
+                         Command="{Binding CustomCommand}" />
                 <ToolbarItem Icon="baseline_close_black_24" Priority="1" Order="Primary"
-                         Command="{Binding PrintDealerReportsCommand}" />
+                         Command="{Binding CustomCommand}" />
                 <ToolbarItem Text ="XX" Priority="5" Order="Secondary"
-                         Command="{Binding PrintDealerReportsCommand}" />
+                         Command="{Binding CustomCommand}" />
                 <ToolbarItem Text ="xxx" Priority="2" Order="Secondary"
-                         Command="{Binding PrintDealerReportsCommand}" />
+                         Command="{Binding CustomCommand}" />
                 <ToolbarItem Text ="xxx" Priority="3" Order="Secondary"
-                         Command="{Binding PrintDealerReportsCommand}" />
+                         Command="{Binding CustomCommand}" />
             </NavigationPage.ToolbarItems> -->
         </NavigationPage>
     </MasterDetailPage.Detail>

@@ -4,6 +4,7 @@ using System.Windows.Input;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using XamarinBoilerplate.Effects;
+using XamarinBoilerplate.Enums;
 using XamarinBoilerplate.Utils;
 
 namespace XamarinBoilerplate.Views.Common
@@ -453,7 +454,7 @@ namespace XamarinBoilerplate.Views.Common
 
         public Thickness ActionBarPadding()
         {
-            if (DeviceManager.IsIOS)
+            if (DeviceManager.Platform == Devices.iOS.ToString())
             {
                 double supportedIOSVersion = Constants.SupportedIOSVersion;
                 string[] rawVersionArray = DeviceManager.Version.ToString().Split('.');

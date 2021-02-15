@@ -17,7 +17,7 @@
         <StackLayout Spacing="0" HorizontalOptions="CenterAndExpand" VerticalOptions="FillAndExpand" Orientation="Vertical">
             <StackLayout Spacing="0" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Orientation="{Binding ContainerOrientation}">
                 <StackLayout Spacing="0" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Orientation="Vertical" Margin="0,0,0,20">
-                    <Image Source="epam" HorizontalOptions="Center" VerticalOptions="Center" />
+                    <Image Source="xamarin_logo" HorizontalOptions="Center" VerticalOptions="Center" Aspect="AspectFit" WidthRequest="350" Margin="0,0,0,10"/>
                     <Image Source="baseline_fingerprint_black_48" HorizontalOptions="Center" VerticalOptions="Center" effects:TintEffect.TintColor="{DynamicResource FingerprintGray}" />
                     <Label Text="{utils:Localized Fingerprint}" HorizontalOptions="CenterAndExpand" VerticalOptions="Center" VerticalTextAlignment="Center" />
                     <StackLayout.GestureRecognizers>

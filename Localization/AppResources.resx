@@ -145,21 +145,21 @@
     <value>Done</value>
     <comment>Button Text</comment>
   </data>
-  <data name="EpamAddress" xml:space="preserve">
-    <value>Av. de las Américas 1254, Country Club</value>
-    <comment>Epam Address Text</comment>
+  <data name="AuthorsAddress" xml:space="preserve">
+    <value>App Author's Address Line 1</value>
+    <comment>Authors Address Text</comment>
   </data>
-  <data name="EpamAddressLineTwo" xml:space="preserve">
-    <value>44610 Guadalajara, Jalisco</value>
-    <comment>Epam Address Line Two Text</comment>
+  <data name="AuthorsAddressLineTwo" xml:space="preserve">
+    <value>App Author's Address Line 2, Country</value>
+    <comment>Authors Address Line 2 Text</comment>
   </data>
-  <data name="EpamSystems" xml:space="preserve">
-    <value>Epam Systems Mexico</value>
-    <comment>EpamSystems</comment>
+  <data name="AuthorsName" xml:space="preserve">
+    <value>App Author's Name</value>
+    <comment>Authors Name Text</comment>
   </data>
-  <data name="EpamWebSite" xml:space="preserve">
-    <value>http://www.epam.com</value>
-    <comment>Epam Web Site URL</comment>
+  <data name="AuthorsWebSite" xml:space="preserve">
+    <value>http://www.xamarin.com</value>
+    <comment>Authors WebSite Text</comment>
   </data>
   <data name="ToolbarItemFavorites" xml:space="preserve">
     <value>Favorites</value>

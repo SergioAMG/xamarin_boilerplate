@@ -35,7 +35,7 @@ namespace XamarinBoilerplate.Views
             {
                 Icon = BitmapDescriptorFactory.DefaultMarker(Color.Gray),
                 Type = PinType.Place,
-                Label = "Epam Systems Mexico",
+                Label = "Guadalajara, Mexico",
                 Position = new Position(location.Latitude, location.Longitude),
                 ZIndex = 5
             };

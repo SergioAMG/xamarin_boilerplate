@@ -11,7 +11,7 @@
             <Color x:Key="White">#FFFFFF</Color>
             <Color x:Key="Black">#000000</Color>
             <Color x:Key="Blue">#007CFF</Color>
-            <Color x:Key="EPAMBlue">#39C1D7</Color>
+            <Color x:Key="CustomBlueColor">#39C1D7</Color>
             <Color x:Key="Gray">#737373</Color>
             <Color x:Key="FingerprintGray">#7D7D7D</Color>
             <Color x:Key="PageBackgroundColor">#FFFFFF</Color>
@@ -19,7 +19,8 @@
             <Color x:Key="ActionBarIconsColor">#FFFFFF</Color>
             <Color x:Key="ActionBarBackground">#007CFF</Color>
             <Color x:Key="FooterGray">#F7F7F7</Color>
-
+            <Color x:Key="SeparatorGrayColor">#ECECEC</Color>
+            
             <Style x:Key="WizzardStepTitleLabel" TargetType="Label">
                 <Setter Property="FontSize" Value="25" />
                 <Setter Property="TextColor" Value="{DynamicResource Blue}" />

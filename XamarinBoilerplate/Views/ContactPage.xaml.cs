@@ -29,19 +29,21 @@ namespace XamarinBoilerplate.Views
 
         public void EditorFocused(object sender, Xamarin.Forms.FocusEventArgs e)
         {
-            if (DeviceManager.IsLandscape && DeviceManager.IsIOS)
+            ContactViewModel viewModel = (BindingContext as ContactViewModel);
+            if (DeviceManager.IsLandscape && viewModel.IsIOS)
             {
                 bool isNavBarVisible = false;
-                (BindingContext as ContactViewModel).SetNavBarVisibility(isNavBarVisible);
+                viewModel.SetNavBarVisibility(isNavBarVisible);
             }
         }
 
         public void EditorUnfocused(object sender, Xamarin.Forms.FocusEventArgs e)
         {
-            if (DeviceManager.IsLandscape && DeviceManager.IsIOS)
+            ContactViewModel viewModel = (BindingContext as ContactViewModel);
+            if (DeviceManager.IsLandscape && viewModel.IsIOS)
             {
                 bool isNavBarVisible = true;
-                (BindingContext as ContactViewModel).SetNavBarVisibility(isNavBarVisible);
+                viewModel.SetNavBarVisibility(isNavBarVisible);
             }
         }
     }

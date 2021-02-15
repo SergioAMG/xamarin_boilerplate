@@ -7,7 +7,8 @@ using XamarinBoilerplate.Views;
 using XamarinBoilerplate.ViewModels;
 using XamarinBoilerplate.Enums;
 using System.Threading.Tasks;
-using System;
+using XamarinBoilerplate.ViewModels.DataObjects;
+using XamarinBoilerplate.Views.Samples;
 
 namespace XamarinBoilerplate.UnitTesting.ViewModels.Samples
 {
@@ -239,6 +240,130 @@ namespace XamarinBoilerplate.UnitTesting.ViewModels.Samples
             //assert
             int currentTabIndex = viewModel.NavigationService.GetCurrentSelectedTabIndexOverMasterDetailPageWithTabbedPage();
             Assert.AreEqual(targetTabIndex, currentTabIndex);
+        }
+
+        [TestMethod]
+        public void ShouldGenerateSamplesMenuCreateTheSamplesMenu()
+        {
+            //arrange
+            viewModel = new SamplesMenuViewModel(DataManager);
+
+            //act
+
+            //assert
+            viewModel.SampleMenu.Count.ShouldBeGreaterThan(0);
+        }
+
+        [TestMethod]
+        public void ShouldNavigateToSampleTakeYouToGivenPage()
+        {
+            //arrange
+            viewModel = new SamplesMenuViewModel(DataManager);
+            viewModel.NavigationService.SetRootPage(nameof(DashboardPage), new DashboardViewModel());
+            viewModel.NavigationService.NavigateAsync(nameof(SamplesMenuPage), null, false);
+            
+            //given page
+            Page targetPage = new CollectionViewSamplePage();
+            
+            SampleMenuItemViewModel menuItemViewModel = new SampleMenuItemViewModel()
+            {
+                SampleMenuImage = "baseline_view_comfy_black_24.png",
+                SampleMenuItem = Constants.CollectionViewMenu
+            };
+
+            //act
+            Task.Run(async () =>
+            {
+                await viewModel.NavigateToSample(menuItemViewModel);
+            }).GetAwaiter().GetResult();
+            Page currentPage = viewModel.NavigationService.CurrentPage;
+
+            //assert
+            NUnit.Framework.Assert.AreEqual(currentPage.Title, targetPage.Title);
+        }
+
+        [TestMethod]
+        public void ShouldSetOrientationValuesSetFirstColumnWidthToLowerValueWhenInLandscape()
+        {
+            //arrange
+            viewModel = new SamplesMenuViewModel(DataManager);
+
+            //act
+            DeviceManager.Orientation = Devices.Landscape.ToString();
+            viewModel.SetOrientationValues();
+
+            //assert
+            Assert.AreEqual(new GridLength(9, GridUnitType.Star), viewModel.FirstColumnWidth);
+        }
+
+        [TestMethod]
+        public void ShouldSetOrientationValuesSetFirstColumnWidthToGreaterValueWhenInPortrait()
+        {
+            //arrange
+            viewModel = new SamplesMenuViewModel(DataManager);
+
+            //act
+            DeviceManager.Orientation = Devices.Portrait.ToString();
+            viewModel.SetOrientationValues();
+
+            //assert
+            Assert.AreEqual(new GridLength(16, GridUnitType.Star), viewModel.FirstColumnWidth);
+        }
+
+        [TestMethod]
+        public void ShouldSetOrientationValuesSetSecondColumnWidthToGreaterValueWhenInLandscape()
+        {
+            //arrange
+            viewModel = new SamplesMenuViewModel(DataManager);
+
+            //act
+            DeviceManager.Orientation = Devices.Landscape.ToString();
+            viewModel.SetOrientationValues();
+
+            //assert
+            Assert.AreEqual(new GridLength(80, GridUnitType.Star), viewModel.SecondColumnWidth);
+        }
+
+        [TestMethod]
+        public void ShouldSetOrientationValuesSetSecondColumnWidthToLowerValueWhenInPortrait()
+        {
+            //arrange
+            viewModel = new SamplesMenuViewModel(DataManager);
+
+            //act
+            DeviceManager.Orientation = Devices.Portrait.ToString();
+            viewModel.SetOrientationValues();
+
+            //assert
+            Assert.AreEqual(new GridLength(70, GridUnitType.Star), viewModel.SecondColumnWidth);
+        }
+
+        [TestMethod]
+        public void ShouldSetOrientationValuesSetThirdColumnWidthToLowerValueWhenInLandscape()
+        {
+            //arrange
+            viewModel = new SamplesMenuViewModel(DataManager);
+
+            //act
+            DeviceManager.Orientation = Devices.Landscape.ToString();
+            viewModel.SetOrientationValues();
+
+            //assert
+            Assert.AreEqual(new GridLength(10, GridUnitType.Star), viewModel.ThirdColumnWidth);
+        }
+
+        [TestMethod]
+        public void ShouldSetOrientationValuesSetThirdColumnWidthToGreaterValueWhenInPortrait()
+        {
+            //arrange
+            viewModel = new SamplesMenuViewModel(DataManager);
+
+            //act
+            DeviceManager.Orientation = Devices.Portrait.ToString();
+            viewModel.SetOrientationValues();
+
+            //assert
+            Assert.AreEqual(new GridLength(20, GridUnitType.Star), viewModel.ThirdColumnWidth);
         }
     }
 }

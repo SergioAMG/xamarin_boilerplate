@@ -10,7 +10,7 @@ namespace XamarinBoilerplate.ViewModels.Popups
         {
             get
             {
-                return (DeviceInfo.Platform.ToString() == Devices.iOS.ToString()) ?
+                return (IsIOS) ?
                     new Thickness(0, 20, 0, 0) : new Thickness(0, 0, 0, 0);
             }
         }

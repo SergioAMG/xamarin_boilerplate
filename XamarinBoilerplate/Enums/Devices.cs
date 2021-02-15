@@ -5,6 +5,7 @@
         iOS,
         Android,
         Tablet,
+        Phone,
         Landscape,
         Portrait
     }

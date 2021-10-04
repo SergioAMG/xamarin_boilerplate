@@ -1,4 +1,5 @@
 ﻿using DataManagers.DataObjects;
+using SQLite;
 
 namespace DataManagers
 {
@@ -7,20 +8,8 @@ namespace DataManagers
         private DONews _doNews;
         private DOFlights _doFlights;
         private DOBrands _doBrands;
-
         private static DataManager _instance;
-
-        public static DataManager Instance
-        {
-            get
-            {
-                if (_instance == null)
-                {
-                    _instance = new DataManager();
-                }
-                return _instance;
-            }
-        }
+        private SQLiteAsyncConnection _sqlitedatabase;
 
         public DONews News
         {
@@ -35,6 +24,31 @@ namespace DataManagers
         public DOBrands Brands
         {
             get { return _doBrands ?? (_doBrands = new DOBrands()); }
+        }
+
+        public static DataManager Instance
+        {
+            get
+            {
+                if (_instance == null)
+                {
+                    _instance = new DataManager();
+                }
+                return _instance;
+            }
+        }
+
+        public SQLiteAsyncConnection SqliteDatabase
+        {
+            get
+            {
+                return _sqlitedatabase;
+            }
+        }
+
+        public void ConnectToLocalDatabase(string dbPath)
+        {
+            _sqlitedatabase = new SQLiteAsyncConnection(dbPath);
         }
     }
 }

@@ -9,6 +9,21 @@ namespace DataManagers.DataObjects
     public class DONews : INews
     {
         public async Task<List<News>> GetNews()
+        {       
+            List<News> ListItems = new List<News>();
+            var connection = DataManager.Instance.SqliteDatabase;
+            var news = await connection.Table<News>().ToListAsync();
+            
+            foreach (News item in news)
+            {
+                ListItems.Add(item);
+            }
+
+            return await Task.FromResult<List<News>>(ListItems);
+        }
+        
+        /*
+        public async Task<List<News>> GetNews()
         {
             List<News> ListItems = new List<News>();
             ListItems.Add(new News() { ItemTitle = "Lorem ipsum dolor sit amet", Image = "sampleOne", Date = DateTime.Now, Text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque tempus lobortis lacinia. Nunc condimentum nisi convallis, finibus metus non, facilisis leo. Phasellus interdum purus a mauris posuere, eget varius justo lobortis. Phasellus felis felis, finibus eu viverra quis, dignissim in ligula. Ut dapibus ligula a nunc lacinia ullamcorper. Phasellus venenatis sagittis bibendum. Aliquam augue nisl, vulputate non porta nec, efficitur sed diam. In auctor, ipsum eget facilisis malesuada, turpis nisl ultricies nibh, in fermentum quam lectus et nibh. Proin eu ultricies lacus. Mauris vel odio non ex tincidunt tempor nec id risus." });
@@ -20,5 +35,6 @@ namespace DataManagers.DataObjects
             ListItems.Add(new News() { ItemTitle = "Etiam id mattis lorem", Image = "sampleOne", Date = DateTime.Now, Text = "Suspendisse lectus libero, varius quis metus at, pharetra varius leo. Maecenas iaculis urna id lacinia aliquam. Pellentesque et ante malesuada, fringilla ex vel, aliquet orci. In hendrerit efficitur maximus. Phasellus in justo pulvinar, ultricies elit ut, bibendum nisi. Sed tincidunt tincidunt urna, eu tincidunt ex ultrices vel. Suspendisse varius nunc ut ligula vestibulum mattis. Donec scelerisque rhoncus lacus et volutpat. Donec non consectetur risus." });
             return await Task.FromResult<List<News>>(ListItems);
         }
+        */
     }
 }

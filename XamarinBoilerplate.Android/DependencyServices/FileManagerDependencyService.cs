@@ -25,10 +25,7 @@ namespace XamarinBoilerplate.Droid.DependencyServices
 
         public async Task WriteNewFileFromStream(Stream fileStream, string path)
         {
-            // create a write stream
             FileStream writeStream = new FileStream(path, FileMode.OpenOrCreate, FileAccess.Write);
-
-            // write to the stream
             await ReadWriteStream(fileStream, writeStream);
         }
 
@@ -37,12 +34,13 @@ namespace XamarinBoilerplate.Droid.DependencyServices
             int Length = 256;
             Byte[] buffer = new Byte[Length];
             int bytesRead = await readStream.ReadAsync(buffer, 0, Length);
-            // write the required bytes
+
             while (bytesRead > 0)
             {
                 await writeStream.WriteAsync(buffer, 0, bytesRead);
                 bytesRead = await readStream.ReadAsync(buffer, 0, Length);
             }
+
             readStream.Close();
             writeStream.Close();
         }

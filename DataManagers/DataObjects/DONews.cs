@@ -22,7 +22,7 @@ namespace DataManagers.DataObjects
             return await Task.FromResult<List<News>>(ListItems);
         }
         
-        /*
+        /* DEPRECATED MOCK DATA
         public async Task<List<News>> GetNews()
         {
             List<News> ListItems = new List<News>();

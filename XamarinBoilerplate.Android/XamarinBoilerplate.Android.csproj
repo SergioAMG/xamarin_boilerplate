@@ -79,6 +79,9 @@
     <PackageReference Include="Rg.Plugins.Popup">
       <Version>1.2.0.223</Version>
     </PackageReference>
+    <PackageReference Include="sqlite-net-pcl">
+      <Version>1.7.335</Version>
+    </PackageReference>
     <PackageReference Include="Xamarin.Android.Support.Core.Utils">
       <Version>28.0.0.3</Version>
     </PackageReference>
@@ -89,6 +92,7 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DependencyServices\FileManagerDependencyService.cs" />
     <Compile Include="DependencyServices\ToastDependencyService.cs" />
     <Compile Include="Effects\ImageTintEffect.cs" />
     <Compile Include="Effects\NoScrollListViewEffect.cs" />
@@ -103,6 +107,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <AndroidAsset Include="Assets\XamarinBoilerplate.db" />
     <None Include="Resources\AboutResources.txt" />
     <None Include="Assets\AboutAssets.txt" />
     <None Include="Properties\AndroidManifest.xml" />

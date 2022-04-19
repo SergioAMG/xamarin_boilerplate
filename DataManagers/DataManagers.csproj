@@ -84,8 +84,8 @@
     <Compile Include="DataObjects\DOBrands.cs" />
     <Compile Include="DataObjects\DOFlights.cs" />
     <Compile Include="DataObjects\DONews.cs" />
-    <Compile Include="Entities\Brand.cs" />
-    <Compile Include="Entities\Flight.cs" />
+    <Compile Include="Entities\Brands.cs" />
+    <Compile Include="Entities\Flights.cs" />
     <Compile Include="Entities\News.cs" />
     <Compile Include="Interfaces\IBrands.cs" />
     <Compile Include="Interfaces\IDataService.cs" />

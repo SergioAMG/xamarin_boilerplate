@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace DataManagers.Entities
+﻿namespace DataManagers.Entities
 {
-    public class Brand
+    public class Brands
     {
         public string ItemTitle { get; set; }
         public string Text { get; set; }

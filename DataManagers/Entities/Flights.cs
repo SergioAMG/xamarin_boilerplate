@@ -1,6 +1,6 @@
 ﻿namespace DataManagers.Entities
 {
-    public class Flight
+    public class Flights
     {
         public string Airline { get; set; }
         public string FlightNumber { get; set; }

@@ -6,6 +6,6 @@ namespace DataManagers.Interfaces
 {
     public interface IFlights
     {
-        Task<List<Flight>> GetFlights();
+        Task<List<Flights>> GetFlights();
     }
 }

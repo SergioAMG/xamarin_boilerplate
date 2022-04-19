@@ -1,4 +1,8 @@
-﻿using System.Globalization;
+﻿using DataManagers;
+using System;
+using System.Globalization;
+using System.IO;
+using System.Threading.Tasks;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 using XamarinBoilerplate.Interfaces;
@@ -138,9 +142,9 @@ namespace XamarinBoilerplate
             ScreenHeight = DeviceDisplay.MainDisplayInfo.Height;
         }
 
-        protected override void OnStart()
+        protected override async void OnStart()
         {
-            // Handle when your app starts
+            await OpenOrCreateLocalDatabaseAndConnectToIt();            
         }
 
         protected override void OnSleep()
@@ -151,6 +155,50 @@ namespace XamarinBoilerplate
         protected override void OnResume()
         {
             // Handle when your app resumes
+        }
+
+        private async Task OpenOrCreateLocalDatabaseAndConnectToIt()
+        {
+            string folderPath = string.Empty, databaseName = string.Empty, databasePath = string.Empty;
+
+            try
+            {
+                folderPath = DependencyService.Get<IFileManager>().PersonalFolderPath;
+                databaseName = "XamarinBoilerplate.db";
+                databasePath = Path.Combine(folderPath, databaseName);
+            }
+            catch (Exception dbDirectoryEx)
+            {
+                System.Diagnostics.Debug.WriteLine("Database folder Exception. InnerException: " + dbDirectoryEx.InnerException.ToString());
+                System.Diagnostics.Debug.WriteLine("Database folder Exception. StackTrace: " + dbDirectoryEx.InnerException.StackTrace.ToString());
+            }
+
+            if (File.Exists(databasePath))
+            {
+                try
+                {
+                    DataManager.Instance.ConnectToLocalDatabase(databasePath);
+                }
+                catch (Exception dbConnectionEx)
+                {
+                    System.Diagnostics.Debug.WriteLine("Database connection Exception. InnerException: " + dbConnectionEx.InnerException.ToString());
+                    System.Diagnostics.Debug.WriteLine("Database connection Exception. StackTrace: " + dbConnectionEx.InnerException.StackTrace.ToString());
+                }
+            }
+            else
+            {
+                try
+                {
+                    Stream initialDatabaseStream = DependencyService.Get<IFileManager>().GetAssetOrResourceFile(databaseName);
+                    await DependencyService.Get<IFileManager>().WriteNewFileFromStream(initialDatabaseStream, databasePath);
+                    DataManager.Instance.ConnectToLocalDatabase(databasePath);
+                }
+                catch (Exception dbCreationEx)
+                {
+                    System.Diagnostics.Debug.WriteLine("Database creation Exception. InnerException: " + dbCreationEx.InnerException.ToString());
+                    System.Diagnostics.Debug.WriteLine("Database creation Exception. StackTrace: " + dbCreationEx.InnerException.StackTrace.ToString());
+                }
+            }
         }
     }
 }

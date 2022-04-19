@@ -9,6 +9,6 @@ namespace DataManagers.Interfaces
 {
     public interface IBrands
     {
-        Task<List<Brand>> GetBrands();
+        Task<List<Brands>> GetBrands();
     }
 }

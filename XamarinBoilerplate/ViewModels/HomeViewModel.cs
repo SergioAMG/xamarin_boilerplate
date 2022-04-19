@@ -3,7 +3,6 @@ using System.Collections.ObjectModel;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
-using XamarinBoilerplate.Enums;
 using XamarinBoilerplate.Interfaces;
 using XamarinBoilerplate.Utils;
 using XamarinBoilerplate.ViewModels.DataObjects;

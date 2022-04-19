@@ -1,4 +1,5 @@
-﻿using DataManagers.Interfaces;
+﻿using DataManagers;
+using DataManagers.Interfaces;
 
 namespace XamarinBoilerplate.Services
 {
@@ -6,17 +7,17 @@ namespace XamarinBoilerplate.Services
     {
         public INews News
         {
-            get { return DataManagers.DataManager.Instance.News; }
+            get { return DataManager.Instance.News; }
         }
 
         public IFlights Flights
         {
-            get { return DataManagers.DataManager.Instance.Flights; }
+            get { return DataManager.Instance.Flights; }
         }
 
         public IBrands Brands
         {
-            get { return DataManagers.DataManager.Instance.Brands; }
+            get { return DataManager.Instance.Brands; }
         }
     }
 }
